@@ -3,7 +3,7 @@
 
 Basic tests for rendering HTML
 """
-from pyhtml_enhanced import html, head, body
+from pyhtml import html, head, body
 
 
 def test_renders_single_element():

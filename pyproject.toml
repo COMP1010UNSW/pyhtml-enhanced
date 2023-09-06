@@ -5,7 +5,7 @@ description = "A drop-in replacement for PyHTML with better accessibility throug
 authors = ["Miguel Guthridge <miguel.guthridge@unsw.edu.au>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "pyhtml_enhanced"}]
+packages = [{include = "pyhtml"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
