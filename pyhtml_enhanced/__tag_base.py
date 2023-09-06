@@ -1,5 +1,5 @@
 """
-# PyHTML Enhanced / Tag
+# PyHTML Enhanced / Tag Base
 
 Tag base class, including rendering logic
 """
@@ -34,11 +34,11 @@ class Tag:
         """
         return type(self).__name__
 
-    def _should_render_multiline(self) -> bool:
+    def _should_render_inline(self) -> bool:
         """
-        Returns whether a tag should render across multiple lines
+        Returns whether a tag should render in a single line
         """
-        return True
+        return False
 
     def _use_multiline_opening_tag(
         self,
@@ -85,7 +85,7 @@ class Tag:
         line.
         """
         assert not state.inline_rendering
-        if self._should_render_multiline():
+        if self._should_render_inline():
             return util.increase_indent(
                 [
                     self._inline_render(
