@@ -165,7 +165,7 @@ def render_element(
         return increase_indent(str(ele).splitlines(), state.indent)
 
 
-def render_child_elements_inline(
+def render_children_inline(
     children: list[Any],
     state: RenderState,
     cfg: RenderConfig,
@@ -182,7 +182,7 @@ def render_child_elements_inline(
     return sep.join(rendered)
 
 
-def render_child_elements_multi_line(
+def render_children_multiline(
     children: list[Any],
     state: RenderState,
     cfg: RenderConfig,
@@ -191,8 +191,12 @@ def render_child_elements_multi_line(
     Render child elements of tags.
 
     Each element is placed on its own line for readability
+
+    Indentation is automatically increased in this function
     """
+    new_state = state.increase_indent(cfg.indent_size)
+
     rendered = []
     for ele in children:
-        rendered.extend(render_element(ele, state, cfg))
+        rendered.extend(render_element(ele, new_state, cfg))
     return rendered

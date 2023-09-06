@@ -37,6 +37,12 @@ class RenderState:
     ```
     """
 
+    def increase_indent(self, amount: int) -> 'RenderState':
+        """
+        Return a new state with increased indentation
+        """
+        return self.derive(indent=self.indent + amount)
+
     def derive(
         self,
         indent: Optional[int] = None,

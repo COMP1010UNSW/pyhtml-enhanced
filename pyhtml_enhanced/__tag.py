@@ -50,18 +50,6 @@ class Tag:
         """
         return False
 
-    def _inline_render_children(
-        self,
-        state: RenderState,
-        cfg: RenderConfig,
-    ) -> str:
-        """
-        Render children of the tag in an inline style
-        """
-        assert state.inline_rendering
-        # FIXME: This doesn't handle Tag elements
-        return ' '.join(map(str, self.children))
-
     def _inline_render(
         self,
         state: RenderState,
@@ -78,7 +66,7 @@ class Tag:
                 f"<{self._get_tag_name()} "
                 f"{util.render_tag_properties_inline(self.properties)}>"
                 # Children
-                f"{self._inline_render_children(state, cfg)}"
+                f"{util.render_children_inline(self.children, state, cfg)}"
                 # Closing tag
                 f"</{self._get_tag_name()}>"
             )
@@ -98,8 +86,53 @@ class Tag:
         """
         assert not state.inline_rendering
         if self._should_render_multiline():
-            # TODO
-            ...
+            return util.increase_indent(
+                [
+                    self._inline_render(
+                        state.derive(inline_rendering=True),
+                        cfg,
+                    )
+                ],
+                state.indent,
+            )
+
+        output = []
+
+        if self._use_multiline_opening_tag(state, cfg):
+            # <tag_name
+            #   property="value"
+            #   another_prop="another val"
+            # >
+            output += util.increase_indent(
+                [f"<{self._get_tag_name()}"]
+                + util.increase_indent(
+                    util.render_tag_properties_multi_line(self.properties),
+                    cfg.indent_size,
+                )
+                + ['>'],
+                state.indent,
+            )
+        else:
+            # <tag_name property="value">
+            output += [
+                f"<{self._get_tag_name()} "
+                f"{util.render_tag_properties_inline(self.properties)}>"
+            ]
+
+        # Child elements
+        output += util.render_children_multiline(
+            self.children,
+            state,
+            cfg,
+        )
+
+        # Closing tag
+        output += util.increase_indent(
+            [f"</{self._get_tag_name()}>"],
+            state.indent,
+        )
+
+        return output
 
     def render(
         self,
