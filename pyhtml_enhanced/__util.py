@@ -139,7 +139,7 @@ def render_inline_element(
     Render an element inline
     """
     assert state.inline_rendering
-    from .__tag import Tag
+    from .__tag_base import Tag
     if isinstance(ele, Tag):
         return ele._inline_render(state, cfg)
     else:
@@ -156,7 +156,7 @@ def render_element(
     Render an element
     """
     assert not state.inline_rendering
-    from .__tag import Tag
+    from .__tag_base import Tag
     if isinstance(ele, Tag):
         return ele._do_render(state, cfg)
     elif isinstance(ele, str):
