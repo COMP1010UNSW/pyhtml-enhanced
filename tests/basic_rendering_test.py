@@ -9,7 +9,7 @@ from pyhtml import html, head, body
 def test_renders_single_element():
     doc = html()
 
-    assert str(doc) == "<html />"
+    assert str(doc) == "<html/>"
 
 
 def test_renders_elements_with_children():
@@ -18,9 +18,4 @@ def test_renders_elements_with_children():
         body(),
     )
 
-    assert str(doc) == '\n'.join([
-        '<html>',
-        '  <head />',
-        '  <body />',
-        '</html>',
-    ])
+    assert str(doc) == '<html><head/> <body/></html>'

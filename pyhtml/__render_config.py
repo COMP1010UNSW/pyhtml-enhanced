@@ -2,6 +2,8 @@
 # PyHTML Enhanced / Config
 
 Options used to control the library's behaviour
+
+## NOTE: Currently unused, as it just produces inline HTML
 """
 from dataclasses import dataclass
 
