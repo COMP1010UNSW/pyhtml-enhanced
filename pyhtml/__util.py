@@ -52,7 +52,7 @@ def render_tag_properties(properties: dict[str, Any]) -> str:
     ```
     """
     return ' '.join([
-        f"{escape_property(prop)}={escape_string(val)}"
+        f'{escape_property(prop)}="{escape_string(val)}"'
         for prop, val in properties.items()
     ])
 
