@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pyhtml-enhanced"
 version = "0.1.0"
-description = "A library for building HTML documents with a simple and easily learnable syntax"
+description = "A library for building HTML documents with a simple and learnable syntax"
 authors = ["Miguel Guthridge <miguel.guthridge@unsw.edu.au>"]
 license = "MIT"
 readme = "README.md"

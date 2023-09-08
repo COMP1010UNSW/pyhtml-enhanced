@@ -1,7 +1,7 @@
 # PyHTML Enhanced
 
-A library for building HTML documents with a simple and easily learnable
-syntax, inspired by, and similar to
+A library for building HTML documents with a simple and learnable syntax,
+inspired by, and similar to
 [the original PyHTML library](https://github.com/cenkalti/pyhtml), but with
 improved documentation and type safety.
 
