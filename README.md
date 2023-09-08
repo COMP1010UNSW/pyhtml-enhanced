@@ -1,7 +1,7 @@
 # PyHTML Enhanced
 
-A library for building HTML with a simple and easily learnable syntax, inspired
-by, and similar to
+A library for building HTML documents with a simple and easily learnable
+syntax, inspired by, and similar to
 [the original PyHTML library](https://github.com/cenkalti/pyhtml), but with
 improved documentation and type safety.
 
@@ -87,7 +87,7 @@ problem with the following steps:
 
 ### [Cenkalti/PyHTML](https://github.com/cenkalti/pyhtml)
 
-Cenk Alti's work was used as a source of inspiration and reference. Although
+Cenk Altı's work was used as a source of inspiration and reference. Although
 all the code in `pyhtml-enhanced` was written by me, I want to thank them for
 the significant help their hard work provided while creating this project.
 
