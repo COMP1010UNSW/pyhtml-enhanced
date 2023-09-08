@@ -89,6 +89,7 @@ def main(output: TextIO):
     # Also print out things to copy across to various files
     print("# Copy this into pyhtml/__tags/__init__.py")
     print("__all__ = [")
+    print("    # TODO: Modify to contain other named exports as required")
     for tag in tags:
         print(f"    '{tag.name}',")
     print("]")
@@ -105,16 +106,15 @@ def main(output: TextIO):
 
     print("# Copy this into pyhtml/__init__.py")
     print("__all__ = [")
+    print("    # TODO: Modify to contain other named exports as required")
     for tag in tags:
         print(f"    '{tag.name}',")
-    print("    # TODO: Modify to contain other named exports as required")
     print("]")
     print()
     print()
     print("from .__tags import (")
     for tag in tags:
         print(f"    {tag.name},")
-    print("    # TODO: Add other tags as required")
     print(")")
 
 
