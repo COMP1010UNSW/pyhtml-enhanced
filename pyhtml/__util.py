@@ -30,9 +30,9 @@ def escape_string(text: str) -> str:
         '>': '&gt;',
         '"': '&quot;',
         "'": '&#x27;',
-        # Replace newlines with spaces, since they'll be rendered that way by
-        # browsers
-        '\n': ' ',
+        # # Replace newlines with spaces, since they'll be rendered that way by
+        # # browsers
+        # '\n': ' ',
     }
     for k, v in replacements.items():
         text = text.replace(k, v)
@@ -59,7 +59,7 @@ def render_tag_properties(properties: dict[str, Any]) -> str:
     """
     Renders tag properties into a string that can be embedded within a tag.
 
-    All properties are included on the one line.
+    All properties with value `None` are ignored
 
     ## Example usage
 
@@ -71,6 +71,13 @@ def render_tag_properties(properties: dict[str, Any]) -> str:
     'src="https://example.com/test.jpg" alt="A test image"'
     ```
     """
+    # Remove all properties where the value is None
+    properties = {
+        k: v
+        for k, v in properties.items()
+        if v is not None
+    }
+
     return ' '.join([
         f'{escape_property(prop)}="{escape_string(val)}"'
         for prop, val in properties.items()

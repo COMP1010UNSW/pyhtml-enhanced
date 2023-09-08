@@ -3,8 +3,11 @@
 
 Tag base class, including rendering logic
 """
-from typing import Any
+from typing import Any, TypeVar
 from . import __util as util
+
+
+SelfType = TypeVar('SelfType', bound='Tag')
 
 
 class Tag:
@@ -21,7 +24,11 @@ class Tag:
         self.properties = properties
         """Properties of this tag"""
 
-    def __call__(self, *children: Any, **properties: Any) -> 'Tag':
+    def __call__(
+        self: SelfType,
+        *children: Any,
+        **properties: Any,
+    ) -> 'SelfType':
         """
         Create a new tag instance derived from this tag. Its children and
         properties are based on this original tag, but with additional children
@@ -30,7 +37,7 @@ class Tag:
         new_children = self.children + list(children)
         new_properties = self.properties | properties
 
-        return Tag(*new_children, **new_properties)
+        return self.__class__(*new_children, **new_properties)
 
     def _get_tag_name(self) -> str:
         """
@@ -77,6 +84,37 @@ class Tag:
         return self.render()
 
 
+class Comment(Tag):
+    """
+    An HTML comment.
+
+    Renders as:
+
+    ```html
+    <!-- [comment text] -->
+    ```
+
+    Note that this does not render as a `<comment>` tag
+    """
+    def __init__(self, text: str) -> None:
+        self.comment_data = text
+        super().__init__()
+
+    def _get_tag_name(self) -> str:
+        return '!--'
+
+    def _render(self) -> list[str]:
+        """
+        Override of render, to render comments
+        """
+
+        return [
+            '<!--',
+            *util.escape_string(self.comment_data).splitlines(),
+            '-->'
+        ]
+
+
 class SelfClosingTag(Tag):
     """
     Self-closing tags don't contain child elements
@@ -85,6 +123,44 @@ class SelfClosingTag(Tag):
         # Self-closing tags don't allow children
         super().__init__(**properties)
 
-    def __call__(self, **properties: Any) -> Tag:
+    def __call__(self, **properties: Any) -> 'SelfClosingTag':
         # Self-closing tags don't allow children
         return super().__call__(**properties)
+
+
+# FIXME: This is a super repetitive way to add these args
+# see if I can find a better one at some point
+
+class StylableTag(Tag):
+    """
+    Stylable tags suggest kwargs to do with element styling
+    """
+    def __init__(
+        self,
+        *children: Any,
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
+        **properties: Any,
+    ) -> None:
+        properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
+        }
+        super().__init__(*children, **properties)
+
+    def __call__(
+        self,
+        *children: Any,
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
+        **properties: Any,
+    ) -> 'StylableTag':
+        properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
+        }
+        return super().__call__(*children, **properties)
