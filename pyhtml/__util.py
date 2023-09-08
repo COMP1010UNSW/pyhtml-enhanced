@@ -6,6 +6,18 @@ Random helpful functions used elsewhere
 from typing import Any
 
 
+def increase_indent(text: list[str], amount: int) -> list[str]:
+    """
+    Increase the indentation of all lines in a string list
+    """
+    prefix = amount * ' '
+
+    return list(map(
+        lambda line: prefix + line,
+        text
+    ))
+
+
 def escape_string(text: str) -> str:
     """
     Escape a string by replacing unsafe characters with their HTML escape
@@ -18,6 +30,9 @@ def escape_string(text: str) -> str:
         '>': '&gt;',
         '"': '&quot;',
         "'": '&#x27;',
+        # Replace newlines with spaces, since they'll be rendered that way by
+        # browsers
+        '\n': ' ',
     }
     for k, v in replacements.items():
         text = text.replace(k, v)
@@ -30,9 +45,14 @@ def escape_property(property_name: str) -> str:
 
     ## Replacements
 
+    * Leading underscore `_` to '' (empty string), so Python keywords can be
+      used for property names
+
     * `_` (underscore) to `-` (hyphen), so that kwargs can be used effectively
     """
-    return property_name.replace('_', '-')
+    return property_name \
+        .removeprefix('_') \
+        .replace('_', '-')
 
 
 def render_tag_properties(properties: dict[str, Any]) -> str:
@@ -57,19 +77,19 @@ def render_tag_properties(properties: dict[str, Any]) -> str:
     ])
 
 
-def render_inline_element(ele: Any) -> str:
+def render_inline_element(ele: Any) -> list[str]:
     """
     Render an element inline
     """
     from .__tag_base import Tag
     if isinstance(ele, Tag):
-        return ele.render()
+        return ele._render()
     else:
         # Remove newlines from strings when inline rendering
-        return str(ele).replace('\n', ' ')
+        return [escape_string(str(ele))]
 
 
-def render_children(children: list[Any], sep: str = ' ') -> str:
+def render_children(children: list[Any], sep: str = ' ') -> list[str]:
     """
     Render child elements of tags.
 
@@ -77,5 +97,5 @@ def render_children(children: list[Any], sep: str = ' ') -> str:
     """
     rendered = []
     for ele in children:
-        rendered.append(render_inline_element(ele))
-    return sep.join(rendered)
+        rendered.extend(render_inline_element(ele))
+    return increase_indent(rendered, 2)

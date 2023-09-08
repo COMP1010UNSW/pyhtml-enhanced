@@ -18,7 +18,12 @@ def test_renders_elements_with_children():
         body(),
     )
 
-    assert str(doc) == '<html><head/> <body/></html>'
+    assert str(doc) == '\n'.join([
+        '<html>',
+        '  <head/>',
+        '  <body/>',
+        '</html>',
+    ])
 
 
 def test_renders_deeply_nested_children():
@@ -28,7 +33,15 @@ def test_renders_deeply_nested_children():
         ),
     )
 
-    assert str(doc) == '<html><body><p>Hello world</p></body></html>'
+    assert str(doc) == '\n'.join([
+        '<html>',
+        '  <body>',
+        '    <p>',
+        '      Hello world',
+        '    </p>',
+        '  </body>',
+        '</html>',
+    ])
 
 
 def test_renders_properties():
