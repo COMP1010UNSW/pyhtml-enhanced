@@ -5,6 +5,12 @@
 del:
   rename: del_
 
+base:
+  base: SelfClosingTag
+  properties:
+    href: Base URL to use in the document
+    target: Default target to use in the document
+
 link:
   base: SelfClosingTag
   properties:
@@ -13,6 +19,48 @@ link:
 
 title:
   base: SelfClosingTag
+
+a:
+  base: StylableTag
+  properties:
+    href: URL of page to link to
+    target: Use "_blank" to open in a new tab
+
+p:
+  base: StylableTag
+
+br:
+  base: SelfClosingTag
+
+b:
+  base: StylableTag
+
+strong:
+  base: StylableTag
+
+i:
+  base: StylableTag
+
+em:
+  base: StylableTag
+
+h1:
+  base: StylableTag
+
+h2:
+  base: StylableTag
+
+h3:
+  base: StylableTag
+
+h4:
+  base: StylableTag
+
+h5:
+  base: StylableTag
+
+h6:
+  base: StylableTag
 
 img:
   properties:

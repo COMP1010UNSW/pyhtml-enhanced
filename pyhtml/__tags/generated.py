@@ -51,7 +51,7 @@ class html(Tag):
         return super().__call__(*children, **properties)
 
 
-class base(Tag):
+class base(SelfClosingTag):
     """
     Specifies the base URL to use for all relative URLs in a document. There can be only one such element in a document.
 
@@ -59,8 +59,8 @@ class base(Tag):
     """
     def __init__(
         self,
-        *children: Any,
-        
+        href: Any = None,
+        target: Any = None,
         **properties: Any,
     ) -> None:
         """
@@ -69,14 +69,15 @@ class base(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)
         """
         properties |= {
-            
+            'href': href,
+            'target': target,
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
-        
+        href: Any = None,
+        target: Any = None,
         **properties: Any,
     ):
         """
@@ -85,9 +86,10 @@ class base(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)
         """
         properties |= {
-            
+            'href': href,
+            'target': target,
         }
-        return super().__call__(*children, **properties)
+        super().__call__(**properties)
 
 
 class head(Tag):
@@ -519,7 +521,7 @@ class header(Tag):
         return super().__call__(*children, **properties)
 
 
-class h1(Tag):
+class h1(StylableTag):
     """
     Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.
 
@@ -527,8 +529,10 @@ class h1(Tag):
     """
     def __init__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ) -> None:
         """
@@ -537,14 +541,19 @@ class h1(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ):
         """
@@ -553,12 +562,15 @@ class h1(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(**properties)
 
 
-class h2(Tag):
+class h2(StylableTag):
     """
     Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.
 
@@ -566,8 +578,10 @@ class h2(Tag):
     """
     def __init__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ) -> None:
         """
@@ -576,14 +590,19 @@ class h2(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h2)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ):
         """
@@ -592,12 +611,15 @@ class h2(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h2)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(**properties)
 
 
-class h3(Tag):
+class h3(StylableTag):
     """
     Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.
 
@@ -605,8 +627,10 @@ class h3(Tag):
     """
     def __init__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ) -> None:
         """
@@ -615,14 +639,19 @@ class h3(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h3)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ):
         """
@@ -631,12 +660,15 @@ class h3(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h3)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(**properties)
 
 
-class h4(Tag):
+class h4(StylableTag):
     """
     Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.
 
@@ -644,8 +676,10 @@ class h4(Tag):
     """
     def __init__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ) -> None:
         """
@@ -654,14 +688,19 @@ class h4(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h4)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ):
         """
@@ -670,12 +709,15 @@ class h4(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h4)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(**properties)
 
 
-class h5(Tag):
+class h5(StylableTag):
     """
     Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.
 
@@ -683,8 +725,10 @@ class h5(Tag):
     """
     def __init__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ) -> None:
         """
@@ -693,14 +737,19 @@ class h5(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h5)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ):
         """
@@ -709,12 +758,15 @@ class h5(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h5)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(**properties)
 
 
-class h6(Tag):
+class h6(StylableTag):
     """
     Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.
 
@@ -722,8 +774,10 @@ class h6(Tag):
     """
     def __init__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ) -> None:
         """
@@ -732,14 +786,19 @@ class h6(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h6)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ):
         """
@@ -748,9 +807,12 @@ class h6(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h6)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(**properties)
 
 
 class hgroup(Tag):
@@ -1377,7 +1439,7 @@ class ol(Tag):
         return super().__call__(*children, **properties)
 
 
-class p(Tag):
+class p(StylableTag):
     """
     Represents a paragraph. Paragraphs are usually represented in visual media as blocks of text separated from adjacent blocks by blank lines and/or first-line indentation, but HTML paragraphs can be any structural grouping of related content, such as images or form fields.
 
@@ -1385,8 +1447,10 @@ class p(Tag):
     """
     def __init__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ) -> None:
         """
@@ -1395,14 +1459,19 @@ class p(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ):
         """
@@ -1411,9 +1480,12 @@ class p(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(**properties)
 
 
 class pre(Tag):
@@ -1494,7 +1566,7 @@ class ul(Tag):
         return super().__call__(*children, **properties)
 
 
-class a(Tag):
+class a(StylableTag):
     """
     Together with its `href` attribute, creates a hyperlink to web pages, files, email addresses, locations within the current page, or anything else a URL can address.
 
@@ -1502,8 +1574,11 @@ class a(Tag):
     """
     def __init__(
         self,
-        *children: Any,
-        
+        href: Any = None,
+        target: Any = None,
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ) -> None:
         """
@@ -1512,14 +1587,21 @@ class a(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
         """
         properties |= {
-            
+            '_class': _class,
+            'id': id,
+            'style': style,
+            'href': href,
+            'target': target,
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
-        
+        href: Any = None,
+        target: Any = None,
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ):
         """
@@ -1528,9 +1610,13 @@ class a(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
         """
         properties |= {
-            
+            '_class': _class,
+            'id': id,
+            'style': style,
+            'href': href,
+            'target': target,
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(**properties)
 
 
 class abbr(Tag):
@@ -1572,7 +1658,7 @@ class abbr(Tag):
         return super().__call__(*children, **properties)
 
 
-class b(Tag):
+class b(StylableTag):
     """
     Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS {{cssxref("font-weight")}} property. If you wish to indicate an element is of special importance, you should use the strong element.
 
@@ -1580,8 +1666,10 @@ class b(Tag):
     """
     def __init__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ) -> None:
         """
@@ -1590,14 +1678,19 @@ class b(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ):
         """
@@ -1606,9 +1699,12 @@ class b(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(**properties)
 
 
 class bdi(Tag):
@@ -1689,7 +1785,7 @@ class bdo(Tag):
         return super().__call__(*children, **properties)
 
 
-class br(Tag):
+class br(SelfClosingTag):
     """
     Produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.
 
@@ -1697,7 +1793,6 @@ class br(Tag):
     """
     def __init__(
         self,
-        *children: Any,
         
         **properties: Any,
     ) -> None:
@@ -1709,11 +1804,10 @@ class br(Tag):
         properties |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
         
         **properties: Any,
     ):
@@ -1725,7 +1819,7 @@ class br(Tag):
         properties |= {
             
         }
-        return super().__call__(*children, **properties)
+        super().__call__(**properties)
 
 
 class cite(Tag):
@@ -1884,7 +1978,7 @@ class dfn(Tag):
         return super().__call__(*children, **properties)
 
 
-class em(Tag):
+class em(StylableTag):
     """
     Marks text that has stress emphasis. The `<em>` element can be nested, with each nesting level indicating a greater degree of emphasis.
 
@@ -1892,8 +1986,10 @@ class em(Tag):
     """
     def __init__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ) -> None:
         """
@@ -1902,14 +1998,19 @@ class em(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ):
         """
@@ -1918,12 +2019,15 @@ class em(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(**properties)
 
 
-class i(Tag):
+class i(StylableTag):
     """
     Represents a range of text that is set off from the normal text for some reason, such as idiomatic text, technical terms, and taxonomical designations, among others. Historically, these have been presented using italicized type, which is the original source of the `<i>` naming of this element.
 
@@ -1931,8 +2035,10 @@ class i(Tag):
     """
     def __init__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ) -> None:
         """
@@ -1941,14 +2047,19 @@ class i(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ):
         """
@@ -1957,9 +2068,12 @@ class i(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(**properties)
 
 
 class kbd(Tag):
@@ -2352,7 +2466,7 @@ class span(Tag):
         return super().__call__(*children, **properties)
 
 
-class strong(Tag):
+class strong(StylableTag):
     """
     Indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type.
 
@@ -2360,8 +2474,10 @@ class strong(Tag):
     """
     def __init__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ) -> None:
         """
@@ -2370,14 +2486,19 @@ class strong(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ):
         """
@@ -2386,9 +2507,12 @@ class strong(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong)
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(**properties)
 
 
 class sub(Tag):
