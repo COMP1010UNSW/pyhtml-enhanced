@@ -56,3 +56,20 @@ def test_comment_renders():
         'Hello world',
         '-->',
     ])
+
+
+def test_call_adds_props():
+    """Calling a tag adds additional properties"""
+    # Note that order is important - elements added first should appear first
+    assert str(html(foo="bar")(baz="bat")) == '<html foo="bar" baz="bat"/>'
+
+
+def test_call_adds_children():
+    """Calling a tag adds additional children"""
+    # Note that order is important again
+    assert str(html("Hello", "World")) == '\n'.join([
+        '<html>',
+        '  Hello',
+        '  World',
+        '</html>',
+    ])
