@@ -17,9 +17,6 @@ link:
     href: Location of the file being linked to
     rel: Kind of file being loaded (eg stylesheet)
 
-title:
-  base: SelfClosingTag
-
 a:
   base: StylableTag
   properties:
