@@ -6,8 +6,10 @@ class {name}({base}):
     """
     def __init__(
         self,
-        *children: Any,
         {prop_args}
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ) -> None:
         """
@@ -16,14 +18,19 @@ class {name}({base}):
         [View full documentation]({link})
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             {prop_unions}
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
         {prop_args}
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **properties: Any,
     ):
         """
@@ -32,6 +39,9 @@ class {name}({base}):
         [View full documentation]({link})
         """
         properties |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             {prop_unions}
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(**properties)

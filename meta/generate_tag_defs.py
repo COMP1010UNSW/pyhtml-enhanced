@@ -34,28 +34,20 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
     """
     Generate the code for a tag
     """
-    if tag.properties is None:
-        # No properties, just print the basic thing
-        text = get_template_class_no_props()
+    text = get_template_class(tag.base)
 
-        prop_args = "This will never appear in the output"
-        prop_unions = "This won't ever appear in the output either"
+    # Generate property arguments and unions
+    # To get a better idea of these, look inside the template files to see
+    # what would be replaced
+    prop_args_gen = []
+    prop_unions_gen = []
+    for prop in tag.properties:
+        # Yucky hard-coded spaces, I can't be bothered to fix this
+        prop_args_gen.append(f"        {prop.name}: Any = None,")
+        prop_unions_gen.append(f"            '{prop.name}': {prop.name},")
 
-    else:
-        text = get_template_class(tag.base)
-
-        # Generate property arguments and unions
-        # To get a better idea of these, look inside the template files to see
-        # what would be replaced
-        prop_args_gen = []
-        prop_unions_gen = []
-        for prop in tag.properties:
-            # Yucky hard-coded spaces, I can't be bothered to fix this
-            prop_args_gen.append(f"        {prop.name}: Any = None,")
-            prop_unions_gen.append(f"            '{prop.name}': {prop.name},")
-
-        prop_args = '\n'.join(prop_args_gen).strip()
-        prop_unions = '\n'.join(prop_unions_gen).strip()
+    prop_args = '\n'.join(prop_args_gen).strip()
+    prop_unions = '\n'.join(prop_unions_gen).strip()
 
     # Now we just need to replace in all of the templated properties
     text = text\

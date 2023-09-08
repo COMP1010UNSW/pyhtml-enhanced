@@ -96,7 +96,7 @@ class TagInfo:
     Link to full documentation on MDN
     """
 
-    properties: Optional[list[Prop]]
+    properties: list[Prop]
     """
     List of properties and their documentation.
     """
@@ -216,7 +216,7 @@ def load_tag_props_yaml() -> TagsYaml:
 def prop_entries_to_object(
     tags: TagsYaml,
     tag_name: str,
-) -> Optional[list[Prop]]:
+) -> list[Prop]:
     """
     Convert a tags yaml entry into a Prop object for use elsewhere, given its
     name.
@@ -224,12 +224,12 @@ def prop_entries_to_object(
     For items with no entries, give no properties
     """
     if tag_name not in tags:
-        return None
+        return []
 
     tag_data = tags[tag_name]
 
     if 'properties' not in tag_data:
-        return None
+        return []
 
     props = []
     for name, description in tag_data['properties'].items():
