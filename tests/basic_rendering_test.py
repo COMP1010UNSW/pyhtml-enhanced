@@ -3,7 +3,7 @@
 
 Basic tests for rendering HTML
 """
-from pyhtml import html, head, body, p
+from pyhtml import html, head, body, p, Comment
 
 
 def test_renders_single_element():
@@ -48,3 +48,11 @@ def test_renders_properties():
     doc = html(foo="bar")
 
     assert str(doc) == '<html foo="bar"/>'
+
+
+def test_comment_renders():
+    assert str(Comment("Hello world")) == '\n'.join([
+        '<!--',
+        'Hello world',
+        '-->',
+    ])

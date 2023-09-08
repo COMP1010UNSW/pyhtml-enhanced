@@ -4,7 +4,7 @@
 A drop-in replacement for PyHTML with improved editor support and
 documentation.
 """
-from .__tag_base import Tag
+from .__tag_base import Tag, Comment
 
 from .__tags import (
     html,
@@ -125,6 +125,7 @@ from .__tags import (
 
 
 __all__ = [
+    'Comment',
     'Tag',
     'html',
     'base',

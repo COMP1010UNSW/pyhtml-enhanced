@@ -34,4 +34,4 @@ class {name}({base}):
         properties |= {
             {prop_unions}
         }
-        super().__call__(**properties)
+        return super().__call__(**properties)

@@ -91,7 +91,7 @@ class base(SelfClosingTag):
             'href': href,
             'target': target,
         }
-        super().__call__(**properties)
+        return super().__call__(**properties)
 
 
 class head(Tag):
@@ -173,7 +173,7 @@ class link(SelfClosingTag):
             'href': href,
             'rel': rel,
         }
-        super().__call__(**properties)
+        return super().__call__(**properties)
 
 
 class meta(Tag):
@@ -290,7 +290,7 @@ class title(SelfClosingTag):
         properties |= {
             
         }
-        super().__call__(**properties)
+        return super().__call__(**properties)
 
 
 class body(Tag):
@@ -1845,7 +1845,7 @@ class br(SelfClosingTag):
         properties |= {
             
         }
-        super().__call__(**properties)
+        return super().__call__(**properties)
 
 
 class cite(Tag):
