@@ -10,6 +10,8 @@ from .__tags import input_, object_
 
 # Copy this into pyhtml/__init__.py
 __all__ = [
+    'Tag',
+    'Comment',
     'input_',
     'object_',
     'html',
