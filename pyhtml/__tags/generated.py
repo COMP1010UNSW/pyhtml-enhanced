@@ -254,7 +254,7 @@ class style(Tag):
         return super().__call__(*children, **properties)
 
 
-class title(SelfClosingTag):
+class title(Tag):
     """
     Defines the document's title that is shown in a {{glossary("Browser", "browser")}}'s title bar or a page's tab. It only contains text; tags within the element are ignored.
 
@@ -262,7 +262,7 @@ class title(SelfClosingTag):
     """
     def __init__(
         self,
-        
+        *children: Any,
         
         **properties: Any,
     ) -> None:
@@ -274,11 +274,11 @@ class title(SelfClosingTag):
         properties |= {
             
         }
-        super().__init__(**properties)
+        super().__init__(*children, **properties)
 
     def __call__(
         self,
-        
+        *children: Any,
         
         **properties: Any,
     ):
@@ -290,7 +290,7 @@ class title(SelfClosingTag):
         properties |= {
             
         }
-        return super().__call__(**properties)
+        return super().__call__(*children, **properties)
 
 
 class body(Tag):
