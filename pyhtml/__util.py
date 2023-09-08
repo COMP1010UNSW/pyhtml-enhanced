@@ -71,17 +71,22 @@ def render_tag_properties(properties: dict[str, Any]) -> str:
     'src="https://example.com/test.jpg" alt="A test image"'
     ```
     """
-    # Remove all properties where the value is None
-    properties = {
-        k: v
-        for k, v in properties.items()
-        if v is not None
-    }
-
     return ' '.join([
         f'{escape_property(prop)}="{escape_string(val)}"'
         for prop, val in properties.items()
     ])
+
+
+def filter_properties(properties: dict[str, Any]) -> dict[str, Any]:
+    """
+    Filter out properties where the value is `None`, so that they aren't
+    rendered.
+    """
+    return {
+        k: v
+        for k, v in properties.items()
+        if v is not None
+    }
 
 
 def render_inline_element(ele: Any) -> list[str]:

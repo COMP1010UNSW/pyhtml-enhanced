@@ -21,7 +21,7 @@ class Tag:
         self.children = list(children)
         """Children of this tag"""
 
-        self.properties = properties
+        self.properties = util.filter_properties(properties)
         """Properties of this tag"""
 
     def __call__(
