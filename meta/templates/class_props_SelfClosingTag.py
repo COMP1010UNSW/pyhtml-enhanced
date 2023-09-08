@@ -6,6 +6,7 @@ class {name}({base}):
     """
     def __init__(
         self,
+        {kw_only}
         {prop_args}
         **properties: Any,
     ) -> None:
@@ -21,6 +22,7 @@ class {name}({base}):
 
     def __call__(
         self,
+        {kw_only}
         {prop_args}
         **properties: Any,
     ):

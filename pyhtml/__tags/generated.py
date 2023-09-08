@@ -9,7 +9,7 @@ Note that all documentation is licensed as CC-BY-SA-2.5
 
 https://creativecommons.org/licenses/by-sa/2.5/
 """
-
+from typing import Any
 from ..__tag_base import Tag, SelfClosingTag, StylableTag
 
 class html(Tag):
@@ -59,6 +59,7 @@ class base(SelfClosingTag):
     """
     def __init__(
         self,
+        *,
         href: Any = None,
         target: Any = None,
         **properties: Any,
@@ -76,6 +77,7 @@ class base(SelfClosingTag):
 
     def __call__(
         self,
+        *,
         href: Any = None,
         target: Any = None,
         **properties: Any,
@@ -139,6 +141,7 @@ class link(SelfClosingTag):
     """
     def __init__(
         self,
+        *,
         href: Any = None,
         rel: Any = None,
         **properties: Any,
@@ -156,6 +159,7 @@ class link(SelfClosingTag):
 
     def __call__(
         self,
+        *,
         href: Any = None,
         rel: Any = None,
         **properties: Any,
@@ -259,6 +263,7 @@ class title(SelfClosingTag):
     def __init__(
         self,
         
+        
         **properties: Any,
     ) -> None:
         """
@@ -273,6 +278,7 @@ class title(SelfClosingTag):
 
     def __call__(
         self,
+        
         
         **properties: Any,
     ):
@@ -529,6 +535,7 @@ class h1(StylableTag):
     """
     def __init__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -546,10 +553,11 @@ class h1(StylableTag):
             'style': style,
             
         }
-        super().__init__(**properties)
+        super().__init__(*children, **properties)
 
     def __call__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -567,7 +575,7 @@ class h1(StylableTag):
             'style': style,
             
         }
-        return super().__call__(**properties)
+        return super().__call__(*children, **properties)
 
 
 class h2(StylableTag):
@@ -578,6 +586,7 @@ class h2(StylableTag):
     """
     def __init__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -595,10 +604,11 @@ class h2(StylableTag):
             'style': style,
             
         }
-        super().__init__(**properties)
+        super().__init__(*children, **properties)
 
     def __call__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -616,7 +626,7 @@ class h2(StylableTag):
             'style': style,
             
         }
-        return super().__call__(**properties)
+        return super().__call__(*children, **properties)
 
 
 class h3(StylableTag):
@@ -627,6 +637,7 @@ class h3(StylableTag):
     """
     def __init__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -644,10 +655,11 @@ class h3(StylableTag):
             'style': style,
             
         }
-        super().__init__(**properties)
+        super().__init__(*children, **properties)
 
     def __call__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -665,7 +677,7 @@ class h3(StylableTag):
             'style': style,
             
         }
-        return super().__call__(**properties)
+        return super().__call__(*children, **properties)
 
 
 class h4(StylableTag):
@@ -676,6 +688,7 @@ class h4(StylableTag):
     """
     def __init__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -693,10 +706,11 @@ class h4(StylableTag):
             'style': style,
             
         }
-        super().__init__(**properties)
+        super().__init__(*children, **properties)
 
     def __call__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -714,7 +728,7 @@ class h4(StylableTag):
             'style': style,
             
         }
-        return super().__call__(**properties)
+        return super().__call__(*children, **properties)
 
 
 class h5(StylableTag):
@@ -725,6 +739,7 @@ class h5(StylableTag):
     """
     def __init__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -742,10 +757,11 @@ class h5(StylableTag):
             'style': style,
             
         }
-        super().__init__(**properties)
+        super().__init__(*children, **properties)
 
     def __call__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -763,7 +779,7 @@ class h5(StylableTag):
             'style': style,
             
         }
-        return super().__call__(**properties)
+        return super().__call__(*children, **properties)
 
 
 class h6(StylableTag):
@@ -774,6 +790,7 @@ class h6(StylableTag):
     """
     def __init__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -791,10 +808,11 @@ class h6(StylableTag):
             'style': style,
             
         }
-        super().__init__(**properties)
+        super().__init__(*children, **properties)
 
     def __call__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -812,7 +830,7 @@ class h6(StylableTag):
             'style': style,
             
         }
-        return super().__call__(**properties)
+        return super().__call__(*children, **properties)
 
 
 class hgroup(Tag):
@@ -1447,6 +1465,7 @@ class p(StylableTag):
     """
     def __init__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -1464,10 +1483,11 @@ class p(StylableTag):
             'style': style,
             
         }
-        super().__init__(**properties)
+        super().__init__(*children, **properties)
 
     def __call__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -1485,7 +1505,7 @@ class p(StylableTag):
             'style': style,
             
         }
-        return super().__call__(**properties)
+        return super().__call__(*children, **properties)
 
 
 class pre(Tag):
@@ -1574,6 +1594,7 @@ class a(StylableTag):
     """
     def __init__(
         self,
+        *children,
         href: Any = None,
         target: Any = None,
         id: Any = None,
@@ -1593,10 +1614,11 @@ class a(StylableTag):
             'href': href,
             'target': target,
         }
-        super().__init__(**properties)
+        super().__init__(*children, **properties)
 
     def __call__(
         self,
+        *children,
         href: Any = None,
         target: Any = None,
         id: Any = None,
@@ -1616,7 +1638,7 @@ class a(StylableTag):
             'href': href,
             'target': target,
         }
-        return super().__call__(**properties)
+        return super().__call__(*children, **properties)
 
 
 class abbr(Tag):
@@ -1666,6 +1688,7 @@ class b(StylableTag):
     """
     def __init__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -1683,10 +1706,11 @@ class b(StylableTag):
             'style': style,
             
         }
-        super().__init__(**properties)
+        super().__init__(*children, **properties)
 
     def __call__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -1704,7 +1728,7 @@ class b(StylableTag):
             'style': style,
             
         }
-        return super().__call__(**properties)
+        return super().__call__(*children, **properties)
 
 
 class bdi(Tag):
@@ -1794,6 +1818,7 @@ class br(SelfClosingTag):
     def __init__(
         self,
         
+        
         **properties: Any,
     ) -> None:
         """
@@ -1808,6 +1833,7 @@ class br(SelfClosingTag):
 
     def __call__(
         self,
+        
         
         **properties: Any,
     ):
@@ -1986,6 +2012,7 @@ class em(StylableTag):
     """
     def __init__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -2003,10 +2030,11 @@ class em(StylableTag):
             'style': style,
             
         }
-        super().__init__(**properties)
+        super().__init__(*children, **properties)
 
     def __call__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -2024,7 +2052,7 @@ class em(StylableTag):
             'style': style,
             
         }
-        return super().__call__(**properties)
+        return super().__call__(*children, **properties)
 
 
 class i(StylableTag):
@@ -2035,6 +2063,7 @@ class i(StylableTag):
     """
     def __init__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -2052,10 +2081,11 @@ class i(StylableTag):
             'style': style,
             
         }
-        super().__init__(**properties)
+        super().__init__(*children, **properties)
 
     def __call__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -2073,7 +2103,7 @@ class i(StylableTag):
             'style': style,
             
         }
-        return super().__call__(**properties)
+        return super().__call__(*children, **properties)
 
 
 class kbd(Tag):
@@ -2474,6 +2504,7 @@ class strong(StylableTag):
     """
     def __init__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -2491,10 +2522,11 @@ class strong(StylableTag):
             'style': style,
             
         }
-        super().__init__(**properties)
+        super().__init__(*children, **properties)
 
     def __call__(
         self,
+        *children,
         
         id: Any = None,
         _class: Any = None,
@@ -2512,7 +2544,7 @@ class strong(StylableTag):
             'style': style,
             
         }
-        return super().__call__(**properties)
+        return super().__call__(*children, **properties)
 
 
 class sub(Tag):

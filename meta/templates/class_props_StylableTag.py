@@ -6,6 +6,7 @@ class {name}({base}):
     """
     def __init__(
         self,
+        *children,
         {prop_args}
         id: Any = None,
         _class: Any = None,
@@ -23,10 +24,11 @@ class {name}({base}):
             'style': style,
             {prop_unions}
         }
-        super().__init__(**properties)
+        super().__init__(*children, **properties)
 
     def __call__(
         self,
+        *children,
         {prop_args}
         id: Any = None,
         _class: Any = None,
@@ -44,4 +46,4 @@ class {name}({base}):
             'style': style,
             {prop_unions}
         }
-        return super().__call__(**properties)
+        return super().__call__(*children, **properties)

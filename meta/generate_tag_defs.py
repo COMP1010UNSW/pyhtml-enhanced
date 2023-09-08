@@ -49,6 +49,15 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
     prop_args = '\n'.join(prop_args_gen).strip()
     prop_unions = '\n'.join(prop_unions_gen).strip()
 
+    # Determine whether the class should mandate keyword-only args
+    # If there are no named properties, we set it to '' to avoid a syntax error
+    # Otherwise, we add a `*,` to prevent kwargs from being used as positional
+    # args in self-closing tags
+    if len(tag.properties):
+        kw_only = '*,'
+    else:
+        kw_only = ''
+
     # Now we just need to replace in all of the templated properties
     text = text\
         .replace("{name}", tag.name)\
@@ -56,7 +65,8 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
         .replace("{description}", tag.description)\
         .replace("{link}", tag.mdn_link)\
         .replace("{prop_args}", prop_args)\
-        .replace("{prop_unions}", prop_unions)
+        .replace("{prop_unions}", prop_unions)\
+        .replace("{kw_only}", kw_only)
 
     print(text, file=output)
     # And a nice trailing newline to make flake8 happy
@@ -73,7 +83,39 @@ def main(output: TextIO):
         print(f.read(), file=output)
 
     for tag in tags:
+        # Generate the tag
         generate_tag_class(output, tag)
+
+    # Also print out things to copy across to various files
+    print("# Copy this into pyhtml/__tags/__init__.py")
+    print("from .generated import (")
+    for tag in tags:
+        print(f"    {tag.name},")
+    print(")")
+    print()
+    print()
+    print("__all__ = [")
+    for tag in tags:
+        print(f"    '{tag.name}',")
+    print("]")
+
+    print()
+    print("------------------------------------------------")
+    print()
+
+    print("# Copy this into pyhtml/__init__.py")
+    print("__all__ = [")
+    for tag in tags:
+        print(f"    '{tag.name}',")
+    print("    # TODO: Modify to contain other named exports as required")
+    print("]")
+    print()
+    print()
+    print("from .__tags import (")
+    for tag in tags:
+        print(f"    {tag.name},")
+    print("    # TODO: Add other tags as required")
+    print(")")
 
 
 if __name__ == '__main__':

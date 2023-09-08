@@ -11,6 +11,7 @@ from typing import Optional, TypedDict, NotRequired
 from collections.abc import Iterator
 import requests
 import yaml
+import sys
 
 
 TAGS_YAML = "meta/tags.yml"
@@ -154,7 +155,7 @@ def parse_markdown_table(lines: Iterator[str]) -> list[TagMdnInfo]:
             # Element name should be of the format `{{HTMLElement("<name>")}}``
             # Grab the actual name
             if not tag_base.startswith('{{HTMLElement("'):
-                print(f"!!!! SKIPPED {tag_base}")
+                print(f"!!!! SKIPPED {tag_base}", file=sys.stderr)
                 continue
             assert tag_base.endswith('")}}')
             tags.append((tag_name, description))
@@ -182,7 +183,7 @@ def parse_markdown(lines: Iterator[str]) -> list[TagMdnInfo]:
             line = next(lines)
 
             if line == "## Obsolete and deprecated elements":
-                print("Skip obsolete")
+                print("Skip obsolete tags", file=sys.stderr)
                 break
 
             if line.replace(' ', '') == '|Element|Description|':
