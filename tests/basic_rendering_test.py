@@ -3,7 +3,7 @@
 
 Basic tests for rendering HTML
 """
-from pyhtml import html, head, body, p, Comment, del_
+from pyhtml import html, head, title, body, h1, p, Comment, del_, script
 
 
 def test_renders_single_element():
@@ -81,3 +81,36 @@ def test_tags_with_trailing_undercore_render_without():
     rendering to HTML, is this removed?
     """
     assert str(del_()) == "<del/>"
+
+
+def test_larger_page():
+    """Does it render a larger page in a reasonable way?"""
+    my_website = html(
+        head(
+            title("Hello, world!"),
+            script(src="http://example.com/script.js"),
+        ),
+        body(
+            h1("Hello, world!"),
+            p("This is my amazing website rendered with PyHTML Enhanced!"),
+        ),
+    )
+
+    assert str(my_website) == '\n'.join([
+        '<html>',
+        '  <head>',
+        '    <title>',
+        '      Hello, world!',
+        '    </title>',
+        '    <script src="http://example.com/script.js"/>',
+        '  </head>',
+        '  <body>',
+        '    <h1>',
+        '      Hello, world!',
+        '    </h1>',
+        '    <p>',
+        '      This is my amazing website rendered with PyHTML Enhanced!',
+        '    </p>',
+        '  </body>',
+        '</html>',
+    ])
