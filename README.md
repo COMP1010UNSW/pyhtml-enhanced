@@ -5,6 +5,15 @@ by, and similar to
 [the original PyHTML library](https://github.com/cenkalti/pyhtml), but with
 improved documentation and type safety.
 
+## Benefits over PyHTML
+
+* Inline documentation and type safety for all tags. Documentation for tags
+  is pulled from MDN Web Docs.
+
+* A modern and readable codebase.
+
+* No dependencies.
+
 ## Usage
 
 ```py
@@ -50,9 +59,11 @@ This will produce the following HTML code:
 
 There are a couple of things I haven't done yet
 
-- [ ] Make tags by themselves render, so `str(br)` renders to `<br/>`
-- [ ] Add default properties to tags
-- [ ] Make inline documentation include documentation of suggested properties
+* [ ] Make tags by themselves render, so `str(br)` renders to `<br/>`
+* [ ] Add default properties to tags
+* [ ] Make inline documentation include documentation of suggested properties
+* [ ] Update links within documentation to make them point to the right
+      locations.
 
 ## How it works
 
@@ -93,6 +104,6 @@ All code in this project is licensed under the [MIT License](./LICENSE.md).
 
 However, the documentation found in
 [`pyhtml/__tags/generated.py`](./pyhtml/__tags/generated.py) was copied from
-MDN, and is licensed under
+MDN Web Docs, and is licensed under
 [CC-BY-SA-2.5](https://creativecommons.org/licenses/by-sa/2.5/). See
 [LICENSE_DOCS.md](./LICENSE_DOCS.md) for a copy of the license.
