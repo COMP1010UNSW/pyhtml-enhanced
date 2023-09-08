@@ -64,6 +64,7 @@ There are a couple of things I haven't done yet
 * [ ] Make inline documentation include documentation of suggested properties
 * [ ] Update links within documentation to make them point to the right
       locations.
+* [ ] Some tags (eg `<pre>`) currently aren't properly implemented
 
 ## How it works
 
