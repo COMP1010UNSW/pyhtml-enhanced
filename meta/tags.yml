@@ -1,0 +1,7 @@
+%YAML 1.2
+---
+
+img:
+  properties:
+    src: Source of the image
+    alt: Alt text of the image

@@ -118,7 +118,7 @@ class a(StylableTag):
         _class: Any = None,
         style: Any = None,
         **properties: Any,
-    ) -> Tag:
+    ):
         return super().__call__(
             *children,
             href=href,
