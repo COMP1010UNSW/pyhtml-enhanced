@@ -50,14 +50,17 @@ class Tag:
         Renders tag and its children to a list of strings where each string is
         a single line of output
         """
-        if len(self.children):
-            # Tag and properties
-            opening = f"<{self._get_tag_name()}"
-            if len(self.properties):
-                opening += f" {util.render_tag_properties(self.properties)}>"
-            else:
-                opening += ">"
+        # Tag and properties
+        opening = f"<{self._get_tag_name()}"
+        if len(self.properties):
+            opening += f" {util.render_tag_properties(self.properties)}>"
+        else:
+            opening += ">"
 
+        if not len(self.children):
+            opening += f"</{self._get_tag_name()}>"
+            return [opening]
+        else:
             out = [opening]
             # Children
             out.extend(util.render_children(self.children))
@@ -65,14 +68,6 @@ class Tag:
             out.append(f"</{self._get_tag_name()}>")
 
             return out
-
-        elif len(self.properties):
-            return [
-                f"<{self._get_tag_name()} "
-                f"{util.render_tag_properties(self.properties)}/>"
-            ]
-        else:
-            return [f"<{self._get_tag_name()}/>"]
 
     def render(self) -> str:
         """
@@ -130,9 +125,19 @@ class SelfClosingTag(Tag):
         # Self-closing tags don't allow children
         return super().__call__(**properties)
 
+    def _render(self) -> list[str]:
+        """
+        Renders tag and its children to a list of strings where each string is
+        a single line of output
+        """
+        if len(self.properties):
+            return [
+                f"<{self._get_tag_name()} "
+                f"{util.render_tag_properties(self.properties)}/>"
+            ]
+        else:
+            return [f"<{self._get_tag_name()}/>"]
 
-# FIXME: This is a super repetitive way to add these args
-# see if I can find a better one at some point
 
 class StylableTag(Tag):
     """

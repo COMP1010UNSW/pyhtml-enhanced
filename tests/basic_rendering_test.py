@@ -9,7 +9,7 @@ from pyhtml import html, head, title, body, h1, p, Comment, del_, script
 def test_renders_single_element():
     doc = html()
 
-    assert str(doc) == "<html/>"
+    assert str(doc) == "<html></html>"
 
 
 def test_renders_elements_with_children():
@@ -20,8 +20,8 @@ def test_renders_elements_with_children():
 
     assert str(doc) == '\n'.join([
         '<html>',
-        '  <head/>',
-        '  <body/>',
+        '  <head></head>',
+        '  <body></body>',
         '</html>',
     ])
 
@@ -47,7 +47,7 @@ def test_renders_deeply_nested_children():
 def test_renders_properties():
     doc = html(foo="bar")
 
-    assert str(doc) == '<html foo="bar"/>'
+    assert str(doc) == '<html foo="bar"></html>'
 
 
 def test_comment_renders():
@@ -61,7 +61,8 @@ def test_comment_renders():
 def test_call_adds_props():
     """Calling a tag adds additional properties"""
     # Note that order is important - elements added first should appear first
-    assert str(html(foo="bar")(baz="bat")) == '<html foo="bar" baz="bat"/>'
+    assert str(html(foo="bar")(baz="bat")) \
+        == '<html foo="bar" baz="bat"></html>'
 
 
 def test_call_adds_children():
@@ -80,7 +81,7 @@ def test_tags_with_trailing_undercore_render_without():
     Some tags have a trailing underscore to avoid name collisions. When
     rendering to HTML, is this removed?
     """
-    assert str(del_()) == "<del/>"
+    assert str(del_()) == "<del></del>"
 
 
 def test_larger_page():
@@ -102,7 +103,7 @@ def test_larger_page():
         '    <title>',
         '      Hello, world!',
         '    </title>',
-        '    <script src="http://example.com/script.js"/>',
+        '    <script src="http://example.com/script.js"></script>',
         '  </head>',
         '  <body>',
         '    <h1>',

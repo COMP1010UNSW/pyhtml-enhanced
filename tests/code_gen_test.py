@@ -42,7 +42,9 @@ def test_tag_renders(tag: type[Tag]):
     """
     Test that each tag correctly renders
     """
-    assert str(tag()) == f"<{tag()._get_tag_name()}/>"
+    # Since self-closing tags render differently to others, only expect the
+    # opening
+    assert str(tag()).startswith(f"<{tag()._get_tag_name()}")
 
 
 @pytest.mark.parametrize(
@@ -53,4 +55,4 @@ def test_tag_callable(tag: type[Tag]):
     """
     Test that each tag correctly renders after calling itself
     """
-    assert str(tag()()) == f"<{tag()._get_tag_name()}/>"
+    assert str(tag()()).startswith(f"<{tag()._get_tag_name()}")

@@ -38,7 +38,7 @@ def test_escapes_children(string, replacement):
 )
 def test_escapes_property_values(string, replacement):
     assert str(html(value=f"hello{string}world")) \
-        == f'<html value="hello{replacement}world"/>'
+        == f'<html value="hello{replacement}world"></html>'
 
 
 def test_property_names_escapes_dashes():
@@ -46,7 +46,7 @@ def test_property_names_escapes_dashes():
     Since dashes can't be given as kwarg names, we need to use underscores
     instead. Are they replaced correctly
     """
-    assert str(html(my_value="hi")) == '<html my-value="hi"/>'
+    assert str(html(my_value="hi")) == '<html my-value="hi"></html>'
 
 
 @pytest.mark.parametrize(
@@ -59,4 +59,4 @@ def test_property_names_escapes_python_keywords(keyword):
     escaped versions (eg _for => for)
     """
     kwargs = {f"_{keyword}": 'hi'}
-    assert str(html(**kwargs)) == f'<html {keyword}="hi"/>'
+    assert str(html(**kwargs)) == f'<html {keyword}="hi"></html>'
