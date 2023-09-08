@@ -3,6 +3,9 @@
 
 Definitions for tags
 """
+# Re-export renamed versions of tags
+from .renames import input_, object_
+
 # Copy this into pyhtml/__tags/__init__.py
 from .generated import (
     html,
@@ -122,6 +125,8 @@ from .generated import (
 
 
 __all__ = [
+    'input_',
+    'object_',
     'html',
     'base',
     'head',

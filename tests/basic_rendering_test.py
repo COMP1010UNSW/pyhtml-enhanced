@@ -3,7 +3,7 @@
 
 Basic tests for rendering HTML
 """
-from pyhtml import html, head, body, p, Comment
+from pyhtml import html, head, body, p, Comment, del_
 
 
 def test_renders_single_element():
@@ -73,3 +73,11 @@ def test_call_adds_children():
         '  World',
         '</html>',
     ])
+
+
+def test_tags_with_trailing_undercore_render_without():
+    """
+    Some tags have a trailing underscore to avoid name collisions. When
+    rendering to HTML, is this removed?
+    """
+    assert str(del_()) == "<del/>"

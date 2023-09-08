@@ -121,6 +121,8 @@ from .__tags import (
     slot,
     template,
     # TODO: Add other tags as required
+    input_,
+    object_,
 )
 
 
@@ -240,4 +242,6 @@ __all__ = [
     'summary',
     'slot',
     'template',
+    'input_',
+    'object_',
 ]

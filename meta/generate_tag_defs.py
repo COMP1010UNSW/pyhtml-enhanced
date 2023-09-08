@@ -88,16 +88,16 @@ def main(output: TextIO):
 
     # Also print out things to copy across to various files
     print("# Copy this into pyhtml/__tags/__init__.py")
-    print("from .generated import (")
-    for tag in tags:
-        print(f"    {tag.name},")
-    print(")")
-    print()
-    print()
     print("__all__ = [")
     for tag in tags:
         print(f"    '{tag.name}',")
     print("]")
+    print()
+    print()
+    print("from .generated import (")
+    for tag in tags:
+        print(f"    {tag.name},")
+    print(")")
 
     print()
     print("------------------------------------------------")

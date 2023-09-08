@@ -43,7 +43,7 @@ class Tag:
         """
         Returns the name of the tag
         """
-        return type(self).__name__
+        return type(self).__name__.removesuffix('_')
 
     def _render(self) -> list[str]:
         """
