@@ -1,0 +1,827 @@
+# type: ignore
+"""
+# PyHTML Enhanced / Tags / Generated
+
+Tags generated using documentation from MDN. See code in meta/ in the repo.
+
+Note that all documentation is licensed as CC-BY-SA-2.5
+
+https://creativecommons.org/licenses/by-sa/2.5/
+"""
+
+from ..__tag_base import Tag, SelfClosingTag, StylableTag
+
+class html(Tag):
+    """
+    Represents the root (top-level element) of an HTML document, so it is also referred to as the _root element_. All other elements must be descendants of this element.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
+    """
+
+class base(Tag):
+    """
+    Specifies the base URL to use for all relative URLs in a document. There can be only one such element in a document.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+    """
+
+class head(Tag):
+    """
+    Contains machine-readable information (metadata) about the document, like its [title](/en-US/docs/Web/HTML/Element/title), [scripts](/en-US/docs/Web/HTML/Element/script), and [style sheets](/en-US/docs/Web/HTML/Element/style).
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head
+    """
+
+class link(SelfClosingTag):
+    """
+    Specifies relationships between the current document and an external resource. This element is most commonly used to link to CSS but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
+    """
+    def __init__(
+        self,
+        href: Any = None,
+        rel: Any = None,
+        **properties: Any,
+    ) -> None:
+        properties |= {
+            'href': href,
+            'rel': rel,
+        }
+        super().__init__(**properties)
+
+class meta(Tag):
+    """
+    Represents {{Glossary("Metadata","metadata")}} that cannot be represented by other HTML meta-related elements, like {{HTMLElement("base")}}, {{HTMLElement("link")}}, {{HTMLElement("script")}}, {{HTMLElement("style")}} and {{HTMLElement("title")}}.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+    """
+
+class style(Tag):
+    """
+    Contains style information for a document or part of a document. It contains CSS, which is applied to the contents of the document containing this element.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
+    """
+
+class title(SelfClosingTag):
+    """
+    Defines the document's title that is shown in a {{glossary("Browser", "browser")}}'s title bar or a page's tab. It only contains text; tags within the element are ignored.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
+    """
+
+class body(Tag):
+    """
+    represents the content of an HTML document. There can be only one such element in a document.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+    """
+
+class address(Tag):
+    """
+    Indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
+    """
+
+class article(Tag):
+    """
+    Represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include a forum post, a magazine or newspaper article, a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article
+    """
+
+class aside(Tag):
+    """
+    Represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside
+    """
+
+class footer(Tag):
+    """
+    Represents a footer for its nearest ancestor [sectioning content](/en-US/docs/Web/HTML/Content_categories#sectioning_content) or [sectioning root](/en-US/docs/Web/HTML/Element/Heading_Elements) element. A `<footer>` typically contains information about the author of the section, copyright data, or links to related documents.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer
+    """
+
+class header(Tag):
+    """
+    Represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header
+    """
+
+class h1(Tag):
+    """
+    Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1
+    """
+
+class h2(Tag):
+    """
+    Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h2
+    """
+
+class h3(Tag):
+    """
+    Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h3
+    """
+
+class h4(Tag):
+    """
+    Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h4
+    """
+
+class h5(Tag):
+    """
+    Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h5
+    """
+
+class h6(Tag):
+    """
+    Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h6
+    """
+
+class hgroup(Tag):
+    """
+    Represents a heading grouped with any secondary content, such as subheadings, an alternative title, or a tagline.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup
+    """
+
+class main(Tag):
+    """
+    Represents the dominant content of the body of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main
+    """
+
+class nav(Tag):
+    """
+    Represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav
+    """
+
+class section(Tag):
+    """
+    Represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section
+    """
+
+class search(Tag):
+    """
+    Represents a part that contains a set of form controls or other content related to performing a search or filtering operation.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search
+    """
+
+class blockquote(Tag):
+    """
+    Indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation. A URL for the source of the quotation may be given using the `cite` attribute, while a text representation of the source can be given using the {{HTMLElement("cite")}} element.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
+    """
+
+class dd(Tag):
+    """
+    Provides the description, definition, or value for the preceding term ({{HTMLElement("dt")}}) in a description list ({{HTMLElement("dl")}}).
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd
+    """
+
+class div(Tag):
+    """
+    The generic container for flow content. It has no effect on the content or layout until styled in some way using CSS (e.g., styling is directly applied to it, or some kind of layout model like {{glossary("Flexbox", "flexbox")}} is applied to its parent element).
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div
+    """
+
+class dl(Tag):
+    """
+    Represents a description list. The element encloses a list of groups of terms (specified using the {{HTMLElement("dt")}} element) and descriptions (provided by {{HTMLElement("dd")}} elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
+    """
+
+class dt(Tag):
+    """
+    Specifies a term in a description or definition list, and as such must be used inside a {{HTMLElement("dl")}} element. It is usually followed by a {{HTMLElement("dd")}} element; however, multiple `<dt>` elements in a row indicate several terms that are all defined by the immediate next {{HTMLElement("dd")}} element.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt
+    """
+
+class figcaption(Tag):
+    """
+    Represents a caption or legend describing the rest of the contents of its parent {{HTMLElement("figure")}} element.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption
+    """
+
+class figure(Tag):
+    """
+    Represents self-contained content, potentially with an optional caption, which is specified using the {{HTMLElement("figcaption")}} element. The figure, its caption, and its contents are referenced as a single unit.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure
+    """
+
+class hr(Tag):
+    """
+    Represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
+    """
+
+class li(Tag):
+    """
+    Represents an item in a list. It must be contained in a parent element: an ordered list ({{HTMLElement("ol")}}), an unordered list ({{HTMLElement("ul")}}), or a menu ({{HTMLElement("menu")}}). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
+    """
+
+class menu(Tag):
+    """
+    A semantic alternative to {{HTMLElement("ul")}}, but treated by browsers (and exposed through the accessibility tree) as no different than {{HTMLElement("ul")}}. It represents an unordered list of items (which are represented by {{HTMLElement("li")}} elements).
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu
+    """
+
+class ol(Tag):
+    """
+    Represents an ordered list of items — typically rendered as a numbered list.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
+    """
+
+class p(Tag):
+    """
+    Represents a paragraph. Paragraphs are usually represented in visual media as blocks of text separated from adjacent blocks by blank lines and/or first-line indentation, but HTML paragraphs can be any structural grouping of related content, such as images or form fields.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p
+    """
+
+class pre(Tag):
+    """
+    Represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or [monospaced](https://en.wikipedia.org/wiki/Monospaced_font), font. Whitespace inside this element is displayed as written.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
+    """
+
+class ul(Tag):
+    """
+    Represents an unordered list of items, typically rendered as a bulleted list.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
+    """
+
+class a(Tag):
+    """
+    Together with its `href` attribute, creates a hyperlink to web pages, files, email addresses, locations within the current page, or anything else a URL can address.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
+    """
+
+class abbr(Tag):
+    """
+    Represents an abbreviation or acronym.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr
+    """
+
+class b(Tag):
+    """
+    Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS {{cssxref("font-weight")}} property. If you wish to indicate an element is of special importance, you should use the strong element.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b
+    """
+
+class bdi(Tag):
+    """
+    Tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text. It's particularly useful when a website dynamically inserts some text and doesn't know the directionality of the text being inserted.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi
+    """
+
+class bdo(Tag):
+    """
+    Overrides the current directionality of text, so that the text within is rendered in a different direction.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo
+    """
+
+class br(Tag):
+    """
+    Produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br
+    """
+
+class cite(Tag):
+    """
+    Used to mark up the title of a cited creative work. The reference may be in an abbreviated form according to context-appropriate conventions related to citation metadata.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite
+    """
+
+class code(Tag):
+    """
+    Displays its contents styled in a fashion intended to indicate that the text is a short fragment of computer code. By default, the content text is displayed using the user agent's default monospace font.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code
+    """
+
+class data(Tag):
+    """
+    Links a given piece of content with a machine-readable translation. If the content is time- or date-related, the`<time>` element must be used.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data
+    """
+
+class dfn(Tag):
+    """
+    Used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor {{HTMLElement("p")}} element, the {{HTMLElement("dt")}}/{{HTMLElement("dd")}} pairing, or the nearest section ancestor of the `<dfn>` element, is considered to be the definition of the term.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn
+    """
+
+class em(Tag):
+    """
+    Marks text that has stress emphasis. The `<em>` element can be nested, with each nesting level indicating a greater degree of emphasis.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em
+    """
+
+class i(Tag):
+    """
+    Represents a range of text that is set off from the normal text for some reason, such as idiomatic text, technical terms, and taxonomical designations, among others. Historically, these have been presented using italicized type, which is the original source of the `<i>` naming of this element.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i
+    """
+
+class kbd(Tag):
+    """
+    Represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device. By convention, the user agent defaults to rendering the contents of a `<kbd>` element using its default monospace font, although this is not mandated by the HTML standard.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd
+    """
+
+class mark(Tag):
+    """
+    Represents text which is marked or highlighted for reference or notation purposes due to the marked passage's relevance in the enclosing context.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark
+    """
+
+class q(Tag):
+    """
+    Indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the {{HTMLElement("blockquote")}} element.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q
+    """
+
+class rp(Tag):
+    """
+    Used to provide fall-back parentheses for browsers that do not support the display of ruby annotations using the {{HTMLElement("ruby")}} element. One `<rp>` element should enclose each of the opening and closing parentheses that wrap the {{HTMLElement("rt")}} element that contains the annotation's text.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp
+    """
+
+class rt(Tag):
+    """
+    Specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The `<rt>` element must always be contained within a {{HTMLElement("ruby")}} element.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt
+    """
+
+class ruby(Tag):
+    """
+    Represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby
+    """
+
+class s(Tag):
+    """
+    Renders text with a strikethrough, or a line through it. Use the `<s>` element to represent things that are no longer relevant or no longer accurate. However, `<s>` is not appropriate when indicating document edits; for that, use the del and ins elements, as appropriate.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s
+    """
+
+class samp(Tag):
+    """
+    Used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as [Courier](<https://en.wikipedia.org/wiki/Courier_(typeface)>) or Lucida Console).
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp
+    """
+
+class small(Tag):
+    """
+    Represents side-comments and small print, like copyright and legal text, independent of its styled presentation. By default, it renders text within it one font size smaller, such as from `small` to `x-small`.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small
+    """
+
+class span(Tag):
+    """
+    A generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the `class` or `id` attributes), or because they share attribute values, such as `lang`. It should be used only when no other semantic element is appropriate. `<span>` is very much like a div element, but div is a [block-level element](/en-US/docs/Glossary/Block-level_content) whereas a `<span>` is an [inline-level element](/en-US/docs/Glossary/Inline-level_content).
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span
+    """
+
+class strong(Tag):
+    """
+    Indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong
+    """
+
+class sub(Tag):
+    """
+    Specifies inline text which should be displayed as subscript for solely typographical reasons. Subscripts are typically rendered with a lowered baseline using smaller text.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub
+    """
+
+class sup(Tag):
+    """
+    Specifies inline text which is to be displayed as superscript for solely typographical reasons. Superscripts are usually rendered with a raised baseline using smaller text.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup
+    """
+
+class time(Tag):
+    """
+    Represents a specific period in time. It may include the `datetime` attribute to translate dates into machine-readable format, allowing for better search engine results or custom features such as reminders.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
+    """
+
+class u(Tag):
+    """
+    Represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a simple solid underline but may be altered using CSS.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u
+    """
+
+class var(Tag):
+    """
+    Represents the name of a variable in a mathematical expression or a programming context. It's typically presented using an italicized version of the current typeface, although that behavior is browser-dependent.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var
+    """
+
+class wbr(Tag):
+    """
+    Represents a word break opportunity—a position within text where the browser may optionally break a line, though its line-breaking rules would not otherwise create a break at that location.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr
+    """
+
+class area(Tag):
+    """
+    Defines an area inside an image map that has predefined clickable areas. An _image map_ allows geometric areas on an image to be associated with {{Glossary("Hyperlink", "hyperlink")}}.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area
+    """
+
+class audio(Tag):
+    """
+    Used to embed sound content in documents. It may contain one or more audio sources, represented using the `src` attribute or the source element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a {{domxref("MediaStream")}}.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
+    """
+
+class img(Tag):
+    """
+    Embeds an image into the document.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
+    """
+    def __init__(
+        self,
+        *children: Any,
+        src: Any = None,
+        alt: Any = None,
+        **properties: Any,
+    ) -> None:
+        properties |= {
+            'src': src,
+            'alt': alt,
+        }
+        super().__init__(*children, **properties)
+
+class map(Tag):
+    """
+    Used with {{HTMLElement("area")}} elements to define an image map (a clickable link area).
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map
+    """
+
+class track(Tag):
+    """
+    Used as a child of the media elements, audio and video. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in [WebVTT format](/en-US/docs/Web/API/WebVTT_API) (`.vtt` files)—Web Video Text Tracks.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
+    """
+
+class video(Tag):
+    """
+    Embeds a media player which supports video playback into the document. You can also use `<video>` for audio content, but the audio element may provide a more appropriate user experience.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
+    """
+
+class embed(Tag):
+    """
+    Embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed
+    """
+
+class iframe(Tag):
+    """
+    Represents a nested browsing context, embedding another HTML page into the current one.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
+    """
+
+class object(Tag):
+    """
+    Represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object
+    """
+
+class picture(Tag):
+    """
+    Contains zero or more {{HTMLElement("source")}} elements and one {{HTMLElement("img")}} element to offer alternative versions of an image for different display/device scenarios.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
+    """
+
+class portal(Tag):
+    """
+    Enables the embedding of another HTML page into the current one to enable smoother navigation into new pages.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/portal
+    """
+
+class source(Tag):
+    """
+    Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](/en-US/docs/Web/Media/Formats/Image_types) and [media file formats](/en-US/docs/Web/Media/Formats).
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source
+    """
+
+class canvas(Tag):
+    """
+    Container element to use with either the [canvas scripting API](/en-US/docs/Web/API/Canvas_API) or the [WebGL API](/en-US/docs/Web/API/WebGL_API) to draw graphics and animations.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas
+    """
+
+class noscript(Tag):
+    """
+    Defines a section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
+    """
+
+class script(Tag):
+    """
+    Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
+    """
+
+class del(Tag):
+    """
+    Represents a range of text that has been deleted from a document. This can be used when rendering "track changes" or source code diff information, for example. The `<ins>` element can be used for the opposite purpose: to indicate text that has been added to the document.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
+    """
+
+class ins(Tag):
+    """
+    Represents a range of text that has been added to a document. You can use the `<del>` element to similarly represent a range of text that has been deleted from the document.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins
+    """
+
+class caption(Tag):
+    """
+    Specifies the caption (or title) of a table.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption
+    """
+
+class col(Tag):
+    """
+    Defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a {{HTMLElement("colgroup")}} element.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col
+    """
+
+class colgroup(Tag):
+    """
+    Defines a group of columns within a table.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup
+    """
+
+class table(Tag):
+    """
+    Represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
+    """
+
+class tbody(Tag):
+    """
+    Encapsulates a set of table rows ({{HTMLElement("tr")}} elements), indicating that they comprise the body of the table ({{HTMLElement("table")}}).
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody
+    """
+
+class td(Tag):
+    """
+    Defines a cell of a table that contains data. It participates in the _table model_.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td
+    """
+
+class tfoot(Tag):
+    """
+    Defines a set of rows summarizing the columns of the table.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot
+    """
+
+class th(Tag):
+    """
+    Defines a cell as a header of a group of table cells. The exact nature of this group is defined by the `scope` and `headers` attributes.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th
+    """
+
+class thead(Tag):
+    """
+    Defines a set of rows defining the head of the columns of the table.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead
+    """
+
+class tr(Tag):
+    """
+    Defines a row of cells in a table. The row's cells can then be established using a mix of {{HTMLElement("td")}} (data cell) and {{HTMLElement("th")}} (header cell) elements.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr
+    """
+
+class button(Tag):
+    """
+    An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a [form](/en-US/docs/Learn/Forms) or opening a dialog.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
+    """
+
+class datalist(Tag):
+    """
+    Contains a set of {{HTMLElement("option")}} elements that represent the permissible or recommended options available to choose from within other controls.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
+    """
+
+class fieldset(Tag):
+    """
+    Used to group several controls as well as labels ({{HTMLElement("label")}}) within a web form.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
+    """
+
+class form(Tag):
+    """
+    Represents a document section containing interactive controls for submitting information.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
+    """
+
+class input(Tag):
+    """
+    Used to create interactive controls for web-based forms to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent. The `<input>` element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+    """
+
+class label(Tag):
+    """
+    Represents a caption for an item in a user interface.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label
+    """
+
+class legend(Tag):
+    """
+    Represents a caption for the content of its parent {{HTMLElement("fieldset")}}.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend
+    """
+
+class meter(Tag):
+    """
+    Represents either a scalar value within a known range or a fractional value.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter
+    """
+
+class optgroup(Tag):
+    """
+    Creates a grouping of options within a {{HTMLElement("select")}} element.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
+    """
+
+class option(Tag):
+    """
+    Used to define an item contained in a select, an {{HTMLElement("optgroup")}}, or a {{HTMLElement("datalist")}} element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
+    """
+
+class output(Tag):
+    """
+    Container element into which a site or app can inject the results of a calculation or the outcome of a user action.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output
+    """
+
+class progress(Tag):
+    """
+    Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress
+    """
+
+class select(Tag):
+    """
+    Represents a control that provides a menu of options.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
+    """
+
+class textarea(Tag):
+    """
+    Represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example, a comment on a review or feedback form.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
+    """
+
+class details(Tag):
+    """
+    Creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the {{HTMLElement("summary")}} element.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
+    """
+
+class dialog(Tag):
+    """
+    Represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
+    """
+
+class summary(Tag):
+    """
+    Specifies a summary, caption, or legend for a details element's disclosure box. Clicking the `<summary>` element toggles the state of the parent {{HTMLElement("details")}} element open and closed.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
+    """
+
+class slot(Tag):
+    """
+    Part of the [Web Components](/en-US/docs/Web/API/Web_components) technology suite, this element is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot
+    """
+
+class template(Tag):
+    """
+    A mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
+
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
+    """
+

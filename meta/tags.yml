@@ -1,6 +1,15 @@
 %YAML 1.2
 ---
 
+link:
+  base: SelfClosingTag
+  properties:
+    href: Location of the file being linked to
+    rel: Kind of file being loaded (eg stylesheet)
+
+title:
+  base: SelfClosingTag
+
 img:
   properties:
     src: Source of the image

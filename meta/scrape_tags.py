@@ -1,5 +1,5 @@
 """
-# Meta / Tags
+# Meta / Scrape Tags
 
 Using the MDN documentation on HTML elements, generate all HTML element classes
 including their documentation.
@@ -35,15 +35,23 @@ TagMdnInfo = tuple[str, str]
 """Type definition for info grabbed from MDN docs"""
 
 
-class TagsYmlEntry(TypedDict):
+class TagsYmlProps(TypedDict):
     """
-    Type definition for data within tags.yml
+    A tag which has suggested keys
     """
     properties: dict[str, str]
     """Mapping of properties used by the tag (name: description)"""
 
 
-TagsYaml = dict[str, TagsYmlEntry]
+class TagsYmlBased(TypedDict):
+    """
+    A tag which derives from a base tag
+    """
+    base: str
+    """Name of the base class to derive from (eg SelfClosingTag)"""
+
+
+TagsYaml = dict[str, TagsYmlProps | TagsYmlBased]
 """Type alias for type of tags.yml file"""
 
 
@@ -80,12 +88,17 @@ class TagInfo:
     Description of the tag, yoinked from MDN
     """
 
+    base: str
+    """
+    Name of the base class to use for the tag (default "Tag")
+    """
+
     mdn_link: str
     """
     Link to full documentation on MDN
     """
 
-    properties: list[Prop]
+    properties: Optional[list[Prop]]
     """
     List of properties and their documentation.
     """
@@ -202,7 +215,10 @@ def load_tag_props_yaml() -> TagsYaml:
         return yaml.load(f, yaml.Loader)
 
 
-def prop_entries_to_object(tags: TagsYaml, tag_name: str) -> list[Prop]:
+def prop_entries_to_object(
+    tags: TagsYaml,
+    tag_name: str,
+) -> Optional[list[Prop]]:
     """
     Convert a tags yaml entry into a Prop object for use elsewhere, given its
     name.
@@ -210,12 +226,33 @@ def prop_entries_to_object(tags: TagsYaml, tag_name: str) -> list[Prop]:
     For items with no entries, give no properties
     """
     if tag_name not in tags:
-        return []
+        return None
+
+    tag_data = tags[tag_name]
+
+    if 'properties' not in tag_data:
+        return None
 
     props = []
-    for name, description in tags[tag_name]['properties'].items():
+    # Need to type ignore, since Mypy can't figure out the if-else type
+    # narrowing
+    for name, description in tag_data['properties'].items():  # type: ignore
         props.append(Prop(name, description))
     return props
+
+
+def get_tag_base_class(tags: TagsYaml, tag_name: str) -> str:
+    """
+    Return the base class to use for a tag
+    """
+    if tag_name not in tags:
+        return "Tag"
+    if "base" not in tags[tag_name]:
+        return "Tag"
+    else:
+        # Need to type ignore, since Mypy can't figure out the if-else
+        # type narrowing
+        return tags[tag_name]['base']  # type: ignore
 
 
 def make_mdn_link(tag: str) -> str:
@@ -236,6 +273,7 @@ def elements_to_element_structs(
         output.append(TagInfo(
             name,
             description,
+            base=get_tag_base_class(tag_props, name),
             mdn_link=make_mdn_link(name),
             properties=prop_entries_to_object(tag_props, name),
         ))
