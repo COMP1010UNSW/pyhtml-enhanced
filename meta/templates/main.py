@@ -1,4 +1,5 @@
 # type: ignore
+# flake8: noqa
 """
 # PyHTML Enhanced / Tags / Generated
 

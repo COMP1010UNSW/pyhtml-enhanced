@@ -1,6 +1,10 @@
 %YAML 1.2
 ---
 
+# Rename <del> tag as it is a reserved keyword in Python
+del:
+  rename: del_
+
 link:
   base: SelfClosingTag
   properties:

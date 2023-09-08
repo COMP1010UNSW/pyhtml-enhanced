@@ -7,7 +7,7 @@ including their documentation.
 It also embeds suggested kwargs for some elements, using info from tags.yml.
 """
 from dataclasses import dataclass
-from typing import Optional, TypedDict
+from typing import Optional, TypedDict, NotRequired
 from collections.abc import Iterator
 import requests
 import yaml
@@ -35,23 +35,21 @@ TagMdnInfo = tuple[str, str]
 """Type definition for info grabbed from MDN docs"""
 
 
-class TagsYmlProps(TypedDict):
+class TagsYmlItem(TypedDict):
     """
     A tag which has suggested keys
     """
-    properties: dict[str, str]
+    properties: NotRequired[dict[str, str]]
     """Mapping of properties used by the tag (name: description)"""
 
-
-class TagsYmlBased(TypedDict):
-    """
-    A tag which derives from a base tag
-    """
-    base: str
+    base: NotRequired[str]
     """Name of the base class to derive from (eg SelfClosingTag)"""
 
+    rename: NotRequired[str]
+    """Value to rename the class to (to avoid bad keyword usage)"""
 
-TagsYaml = dict[str, TagsYmlProps | TagsYmlBased]
+
+TagsYaml = dict[str, TagsYmlItem]
 """Type alias for type of tags.yml file"""
 
 
@@ -234,11 +232,23 @@ def prop_entries_to_object(
         return None
 
     props = []
-    # Need to type ignore, since Mypy can't figure out the if-else type
-    # narrowing
-    for name, description in tag_data['properties'].items():  # type: ignore
+    for name, description in tag_data['properties'].items():
         props.append(Prop(name, description))
     return props
+
+
+def get_tag_rename(tags: TagsYaml, tag_name: str) -> str:
+    """
+    Return the name that should be used for a tag. Used to rename tags that
+    use reserved Python keywords
+    """
+    if tag_name not in tags:
+        return tag_name
+    tag = tags[tag_name]
+    if "rename" not in tag:
+        return tag_name
+    else:
+        return tag['rename']
 
 
 def get_tag_base_class(tags: TagsYaml, tag_name: str) -> str:
@@ -247,12 +257,11 @@ def get_tag_base_class(tags: TagsYaml, tag_name: str) -> str:
     """
     if tag_name not in tags:
         return "Tag"
-    if "base" not in tags[tag_name]:
+    tag = tags[tag_name]
+    if "base" not in tag:
         return "Tag"
     else:
-        # Need to type ignore, since Mypy can't figure out the if-else
-        # type narrowing
-        return tags[tag_name]['base']  # type: ignore
+        return tag['base']
 
 
 def make_mdn_link(tag: str) -> str:
@@ -271,8 +280,8 @@ def elements_to_element_structs(
 
     for name, description in mdn_data:
         output.append(TagInfo(
-            name,
-            description,
+            name=get_tag_rename(tag_props, name),
+            description=description,
             base=get_tag_base_class(tag_props, name),
             mdn_link=make_mdn_link(name),
             properties=prop_entries_to_object(tag_props, name),

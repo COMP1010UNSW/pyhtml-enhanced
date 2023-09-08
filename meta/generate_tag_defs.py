@@ -67,6 +67,8 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
         .replace("{prop_unions}", prop_unions)
 
     print(text, file=output)
+    # And a nice trailing newline to make flake8 happy
+    print(file=output)
 
 
 def main(output: TextIO):
@@ -75,7 +77,7 @@ def main(output: TextIO):
     """
     tags = generate_tag_data()
 
-    with open(TEMPLATES_FOLDER.joinpath('base.py')) as f:
+    with open(TEMPLATES_FOLDER.joinpath('main.py')) as f:
         print(f.read(), file=output)
 
     for tag in tags:
