@@ -86,6 +86,12 @@ def main(output: TextIO):
         # Generate the tag
         generate_tag_class(output, tag)
 
+    # And now generate an __all__ to make sure they are all exported
+    print("__all__ = [", file=output)
+    for tag in tags:
+        print(f"    '{tag.name}',", file=output)
+    print("]", file=output)
+
     # Also print out things to copy across to various files
     print("# Copy this into pyhtml/__tags/__init__.py")
     print("__all__ = [")
@@ -95,7 +101,8 @@ def main(output: TextIO):
     print("]")
     print()
     print()
-    print("from .generated import (")
+    # Need a type ignore or mypy freaks out
+    print("from .generated import (  # type: ignore")
     for tag in tags:
         print(f"    {tag.name},")
     print(")")

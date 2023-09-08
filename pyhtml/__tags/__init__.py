@@ -126,7 +126,7 @@ __all__ = [
 ]
 
 
-from .generated import (
+from .generated import (  # type: ignore
     html,
     base,
     head,
