@@ -100,6 +100,9 @@ class Comment(Tag):
         self.comment_data = text
         super().__init__()
 
+    def __call__(self):
+        raise TypeError('Comment tags are not callable')
+
     def _get_tag_name(self) -> str:
         return '!--'
 
@@ -123,7 +126,7 @@ class SelfClosingTag(Tag):
         # Self-closing tags don't allow children
         super().__init__(**properties)
 
-    def __call__(self, **properties: Any) -> 'SelfClosingTag':
+    def __call__(self, **properties: Any):
         # Self-closing tags don't allow children
         return super().__call__(**properties)
 
@@ -157,7 +160,7 @@ class StylableTag(Tag):
         _class: Any = None,
         style: Any = None,
         **properties: Any,
-    ) -> 'StylableTag':
+    ):
         properties |= {
             '_class': _class,
             'id': id,

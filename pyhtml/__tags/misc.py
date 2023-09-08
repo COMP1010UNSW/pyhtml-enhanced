@@ -1,9 +1,9 @@
 """
-# PyHTML Enhanced / Tags
+# PyHTML Enhanced / Tags / Misc
 
-Tag definitions
+Miscellaneous tags
 """
-from .__tag_base import Tag, SelfClosingTag
+from ..__tag_base import Tag
 
 
 class html(Tag):
@@ -21,10 +21,4 @@ class head(Tag):
 class body(Tag):
     """
     HTML body, containing the visible contents of the document
-    """
-
-
-class p(Tag):
-    """
-    Paragraph
     """
