@@ -62,7 +62,7 @@ There are a couple of things I haven't done yet
 * [ ] Make tags by themselves render, so `str(br)` renders to `<br/>`
 * [ ] Add default properties to tags
 * [ ] Make inline documentation include documentation of suggested properties
-* [ ] Update links within documentation to make them point to the right
+* [X] Update links within documentation to make them point to the right
       locations.
 * [ ] Some tags (eg `<pre>`) currently aren't properly implemented
 
