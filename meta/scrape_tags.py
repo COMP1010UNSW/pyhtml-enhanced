@@ -32,6 +32,68 @@ By appending an element name, you get the docs for that element
 """
 
 
+MDN_BASE = "https://developer.mozilla.org/en-US/docs/Web/"
+"""
+Base page of MDN
+"""
+
+
+def htmlElementReplace(lookup: str, presentation: Optional[str] = None) -> str:
+    """
+    Replace text in an HTML reference
+    """
+    if presentation is None:
+        presentation = f"`<{lookup.lower()}>`"
+
+    url = f"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/{lookup}"
+
+    return f"[{presentation}]({url})"
+
+
+def glossaryReplace(lookup: str, presentation: Optional[str] = None) -> str:
+    """
+    Replace text in a glossary reference
+    """
+    if presentation is None:
+        presentation = lookup
+
+    url = f"https://developer.mozilla.org/en-US/docs/Glossary/{lookup}"
+
+    return f"[{presentation}]({url})"
+
+
+def cssXrefReplace(lookup: str, presentation: Optional[str] = None) -> str:
+    """
+    Replace text for CSS cross reference lookup
+    """
+    if presentation is None:
+        presentation = lookup
+
+    url = f"https://developer.mozilla.org/en-US/docs/Web/CSS/{lookup}"
+
+    return f"[{presentation}]({url})"
+
+
+def domXrefReplace(lookup: str, presentation: Optional[str] = None) -> str:
+    """
+    Replace text for DOM cross reference lookup
+    """
+    if presentation is None:
+        presentation = lookup
+
+    url = f"https://developer.mozilla.org/en-US/docs/Web/API/{lookup}"
+
+    return f"[{presentation}]({url})"
+
+
+DESCRIPTION_LOOKUPS = {
+    "htmlelement": htmlElementReplace,
+    "glossary":  glossaryReplace,
+    "cssxref": cssXrefReplace,
+    "domxref": domXrefReplace,
+}
+
+
 TagMdnInfo = tuple[str, str]
 """Type definition for info grabbed from MDN docs"""
 
@@ -126,6 +188,56 @@ def handle_header_elements(description) -> list[TagMdnInfo]:
     return tags
 
 
+def format_description(description: str, ele: str) -> str:
+    """
+    Replace parts of the description to fix broken links
+
+    Also includes element name for debugging purposes
+    """
+    # Manual links
+    description = description.replace(
+        "](/en-US/docs/Web",
+        f"]({MDN_BASE}",
+    )
+
+    # Other elements - keep looping until none left
+    while (start := description.find("{{")) != -1:
+        end = description.find("}}", start)
+
+        element_text = description[start+2:end]
+        # In format key("arg1", "arg2")
+
+        key, args = element_text.split("(")
+
+        # Split up args
+        if "," in args:
+            # Two args
+            lookup, presentation = args.split(",")
+            presentation.strip()
+            lookup = lookup.replace('"', "")
+            presentation = presentation.replace('"', "")
+
+        else:
+            # One arg (presentation determined automatically
+            lookup = args.replace('"', "")
+            presentation = None
+
+        # Check for missing keys
+        if key.lower() not in DESCRIPTION_LOOKUPS:
+            print(f"lookup '{key}' not in table", file=sys.stderr)
+            print(f"Element: {ele}", file=sys.stderr)
+            exit(1)
+
+        # Replace elements
+        description = (
+            description[:start]
+            + DESCRIPTION_LOOKUPS[key.lower()](lookup, presentation)
+            + description[end+2:]
+        )
+
+    return description
+
+
 def parse_markdown_table(lines: Iterator[str]) -> list[TagMdnInfo]:
     """
     Parse table from markdown
@@ -141,7 +253,6 @@ def parse_markdown_table(lines: Iterator[str]) -> list[TagMdnInfo]:
             _, tag_base, description, _ = line.split('|')
 
             tag_base = tag_base.strip()
-            description = description.strip()
 
             # Header elements are yucky - we should handle them separately
             if tag_base.startswith("[`<h1>`]"):
@@ -151,6 +262,8 @@ def parse_markdown_table(lines: Iterator[str]) -> list[TagMdnInfo]:
             tag_name = tag_base\
                 .removeprefix('{{HTMLElement("')\
                 .removesuffix('")}}')
+
+            description = format_description(description.strip(), tag_name)
 
             # Element name should be of the format `{{HTMLElement("<name>")}}``
             # Grab the actual name
