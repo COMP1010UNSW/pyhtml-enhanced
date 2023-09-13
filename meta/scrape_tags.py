@@ -196,7 +196,7 @@ def format_description(description: str, ele: str) -> str:
     """
     # Manual links
     description = description.replace(
-        "](/en-US/docs/Web",
+        "](/en-US/docs/Web/",
         f"]({MDN_BASE}",
     )
 
@@ -208,6 +208,7 @@ def format_description(description: str, ele: str) -> str:
         # In format key("arg1", "arg2")
 
         key, args = element_text.split("(")
+        args = args.removesuffix(")")
 
         # Split up args
         if "," in args:

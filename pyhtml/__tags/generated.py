@@ -96,7 +96,7 @@ class base(SelfClosingTag):
 
 class head(Tag):
     """
-    Contains machine-readable information (metadata) about the document, like its [title](https://developer.mozilla.org/en-US/docs/Web//HTML/Element/title), [scripts](https://developer.mozilla.org/en-US/docs/Web//HTML/Element/script), and [style sheets](https://developer.mozilla.org/en-US/docs/Web//HTML/Element/style).
+    Contains machine-readable information (metadata) about the document, like its [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title), [scripts](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), and [style sheets](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style).
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head)
     """
@@ -107,7 +107,7 @@ class head(Tag):
         **properties: Any,
     ) -> None:
         """
-        Contains machine-readable information (metadata) about the document, like its [title](https://developer.mozilla.org/en-US/docs/Web//HTML/Element/title), [scripts](https://developer.mozilla.org/en-US/docs/Web//HTML/Element/script), and [style sheets](https://developer.mozilla.org/en-US/docs/Web//HTML/Element/style).
+        Contains machine-readable information (metadata) about the document, like its [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title), [scripts](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), and [style sheets](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head)
         """
@@ -123,7 +123,7 @@ class head(Tag):
         **properties: Any,
     ):
         """
-        Contains machine-readable information (metadata) about the document, like its [title](https://developer.mozilla.org/en-US/docs/Web//HTML/Element/title), [scripts](https://developer.mozilla.org/en-US/docs/Web//HTML/Element/script), and [style sheets](https://developer.mozilla.org/en-US/docs/Web//HTML/Element/style).
+        Contains machine-readable information (metadata) about the document, like its [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title), [scripts](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), and [style sheets](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head)
         """
@@ -178,7 +178,7 @@ class link(SelfClosingTag):
 
 class meta(Tag):
     """
-    Represents [metadata)](https://developer.mozilla.org/en-US/docs/Glossary/Metadata) that cannot be represented by other HTML meta-related elements, like [`<base)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)), [`<link)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)), [`<script)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)), [`<style)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style)) and [`<title)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title)).
+    Represents [metadata](https://developer.mozilla.org/en-US/docs/Glossary/Metadata) that cannot be represented by other HTML meta-related elements, like [`<base>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base), [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link), [`<script>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), [`<style>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style) and [`<title>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title).
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
     """
@@ -189,7 +189,7 @@ class meta(Tag):
         **properties: Any,
     ) -> None:
         """
-        Represents [metadata)](https://developer.mozilla.org/en-US/docs/Glossary/Metadata) that cannot be represented by other HTML meta-related elements, like [`<base)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)), [`<link)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)), [`<script)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)), [`<style)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style)) and [`<title)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title)).
+        Represents [metadata](https://developer.mozilla.org/en-US/docs/Glossary/Metadata) that cannot be represented by other HTML meta-related elements, like [`<base>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base), [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link), [`<script>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), [`<style>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style) and [`<title>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
         """
@@ -205,7 +205,7 @@ class meta(Tag):
         **properties: Any,
     ):
         """
-        Represents [metadata)](https://developer.mozilla.org/en-US/docs/Glossary/Metadata) that cannot be represented by other HTML meta-related elements, like [`<base)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)), [`<link)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)), [`<script)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)), [`<style)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style)) and [`<title)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title)).
+        Represents [metadata](https://developer.mozilla.org/en-US/docs/Glossary/Metadata) that cannot be represented by other HTML meta-related elements, like [`<base>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base), [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link), [`<script>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), [`<style>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style) and [`<title>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
         """
@@ -256,7 +256,7 @@ class style(Tag):
 
 class title(Tag):
     """
-    Defines the document's title that is shown in a [ browser)](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; tags within the element are ignored.
+    Defines the document's title that is shown in a [ browser](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; tags within the element are ignored.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title)
     """
@@ -267,7 +267,7 @@ class title(Tag):
         **properties: Any,
     ) -> None:
         """
-        Defines the document's title that is shown in a [ browser)](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; tags within the element are ignored.
+        Defines the document's title that is shown in a [ browser](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; tags within the element are ignored.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title)
         """
@@ -283,7 +283,7 @@ class title(Tag):
         **properties: Any,
     ):
         """
-        Defines the document's title that is shown in a [ browser)](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; tags within the element are ignored.
+        Defines the document's title that is shown in a [ browser](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; tags within the element are ignored.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title)
         """
@@ -451,7 +451,7 @@ class aside(Tag):
 
 class footer(Tag):
     """
-    Represents a footer for its nearest ancestor [sectioning content](https://developer.mozilla.org/en-US/docs/Web//HTML/Content_categories#sectioning_content) or [sectioning root](https://developer.mozilla.org/en-US/docs/Web//HTML/Element/Heading_Elements) element. A `<footer>` typically contains information about the author of the section, copyright data, or links to related documents.
+    Represents a footer for its nearest ancestor [sectioning content](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#sectioning_content) or [sectioning root](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) element. A `<footer>` typically contains information about the author of the section, copyright data, or links to related documents.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
     """
@@ -462,7 +462,7 @@ class footer(Tag):
         **properties: Any,
     ) -> None:
         """
-        Represents a footer for its nearest ancestor [sectioning content](https://developer.mozilla.org/en-US/docs/Web//HTML/Content_categories#sectioning_content) or [sectioning root](https://developer.mozilla.org/en-US/docs/Web//HTML/Element/Heading_Elements) element. A `<footer>` typically contains information about the author of the section, copyright data, or links to related documents.
+        Represents a footer for its nearest ancestor [sectioning content](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#sectioning_content) or [sectioning root](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) element. A `<footer>` typically contains information about the author of the section, copyright data, or links to related documents.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
         """
@@ -478,7 +478,7 @@ class footer(Tag):
         **properties: Any,
     ):
         """
-        Represents a footer for its nearest ancestor [sectioning content](https://developer.mozilla.org/en-US/docs/Web//HTML/Content_categories#sectioning_content) or [sectioning root](https://developer.mozilla.org/en-US/docs/Web//HTML/Element/Heading_Elements) element. A `<footer>` typically contains information about the author of the section, copyright data, or links to related documents.
+        Represents a footer for its nearest ancestor [sectioning content](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#sectioning_content) or [sectioning root](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) element. A `<footer>` typically contains information about the author of the section, copyright data, or links to related documents.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
         """
@@ -1030,7 +1030,7 @@ class search(Tag):
 
 class blockquote(Tag):
     """
-    Indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation. A URL for the source of the quotation may be given using the `cite` attribute, while a text representation of the source can be given using the [`<cite)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite)) element.
+    Indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation. A URL for the source of the quotation may be given using the `cite` attribute, while a text representation of the source can be given using the [`<cite>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite) element.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote)
     """
@@ -1041,7 +1041,7 @@ class blockquote(Tag):
         **properties: Any,
     ) -> None:
         """
-        Indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation. A URL for the source of the quotation may be given using the `cite` attribute, while a text representation of the source can be given using the [`<cite)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite)) element.
+        Indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation. A URL for the source of the quotation may be given using the `cite` attribute, while a text representation of the source can be given using the [`<cite>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote)
         """
@@ -1057,7 +1057,7 @@ class blockquote(Tag):
         **properties: Any,
     ):
         """
-        Indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation. A URL for the source of the quotation may be given using the `cite` attribute, while a text representation of the source can be given using the [`<cite)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite)) element.
+        Indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation. A URL for the source of the quotation may be given using the `cite` attribute, while a text representation of the source can be given using the [`<cite>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote)
         """
@@ -1069,7 +1069,7 @@ class blockquote(Tag):
 
 class dd(Tag):
     """
-    Provides the description, definition, or value for the preceding term ([`<dt)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt))) in a description list ([`<dl)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl))).
+    Provides the description, definition, or value for the preceding term ([`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)) in a description list ([`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)).
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)
     """
@@ -1080,7 +1080,7 @@ class dd(Tag):
         **properties: Any,
     ) -> None:
         """
-        Provides the description, definition, or value for the preceding term ([`<dt)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt))) in a description list ([`<dl)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl))).
+        Provides the description, definition, or value for the preceding term ([`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)) in a description list ([`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)
         """
@@ -1096,7 +1096,7 @@ class dd(Tag):
         **properties: Any,
     ):
         """
-        Provides the description, definition, or value for the preceding term ([`<dt)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt))) in a description list ([`<dl)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl))).
+        Provides the description, definition, or value for the preceding term ([`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)) in a description list ([`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)
         """
@@ -1108,7 +1108,7 @@ class dd(Tag):
 
 class div(Tag):
     """
-    The generic container for flow content. It has no effect on the content or layout until styled in some way using CSS (e.g., styling is directly applied to it, or some kind of layout model like [ flexbox)](https://developer.mozilla.org/en-US/docs/Glossary/Flexbox) is applied to its parent element).
+    The generic container for flow content. It has no effect on the content or layout until styled in some way using CSS (e.g., styling is directly applied to it, or some kind of layout model like [ flexbox](https://developer.mozilla.org/en-US/docs/Glossary/Flexbox) is applied to its parent element).
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
     """
@@ -1119,7 +1119,7 @@ class div(Tag):
         **properties: Any,
     ) -> None:
         """
-        The generic container for flow content. It has no effect on the content or layout until styled in some way using CSS (e.g., styling is directly applied to it, or some kind of layout model like [ flexbox)](https://developer.mozilla.org/en-US/docs/Glossary/Flexbox) is applied to its parent element).
+        The generic container for flow content. It has no effect on the content or layout until styled in some way using CSS (e.g., styling is directly applied to it, or some kind of layout model like [ flexbox](https://developer.mozilla.org/en-US/docs/Glossary/Flexbox) is applied to its parent element).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
         """
@@ -1135,7 +1135,7 @@ class div(Tag):
         **properties: Any,
     ):
         """
-        The generic container for flow content. It has no effect on the content or layout until styled in some way using CSS (e.g., styling is directly applied to it, or some kind of layout model like [ flexbox)](https://developer.mozilla.org/en-US/docs/Glossary/Flexbox) is applied to its parent element).
+        The generic container for flow content. It has no effect on the content or layout until styled in some way using CSS (e.g., styling is directly applied to it, or some kind of layout model like [ flexbox](https://developer.mozilla.org/en-US/docs/Glossary/Flexbox) is applied to its parent element).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
         """
@@ -1147,7 +1147,7 @@ class div(Tag):
 
 class dl(Tag):
     """
-    Represents a description list. The element encloses a list of groups of terms (specified using the [`<dt)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)) element) and descriptions (provided by [`<dd)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)) elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
+    Represents a description list. The element encloses a list of groups of terms (specified using the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt) element) and descriptions (provided by [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
     """
@@ -1158,7 +1158,7 @@ class dl(Tag):
         **properties: Any,
     ) -> None:
         """
-        Represents a description list. The element encloses a list of groups of terms (specified using the [`<dt)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)) element) and descriptions (provided by [`<dd)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)) elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
+        Represents a description list. The element encloses a list of groups of terms (specified using the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt) element) and descriptions (provided by [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
         """
@@ -1174,7 +1174,7 @@ class dl(Tag):
         **properties: Any,
     ):
         """
-        Represents a description list. The element encloses a list of groups of terms (specified using the [`<dt)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)) element) and descriptions (provided by [`<dd)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)) elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
+        Represents a description list. The element encloses a list of groups of terms (specified using the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt) element) and descriptions (provided by [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
         """
@@ -1186,7 +1186,7 @@ class dl(Tag):
 
 class dt(Tag):
     """
-    Specifies a term in a description or definition list, and as such must be used inside a [`<dl)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)) element. It is usually followed by a [`<dd)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)) element; however, multiple `<dt>` elements in a row indicate several terms that are all defined by the immediate next [`<dd)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)) element.
+    Specifies a term in a description or definition list, and as such must be used inside a [`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) element. It is usually followed by a [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element; however, multiple `<dt>` elements in a row indicate several terms that are all defined by the immediate next [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)
     """
@@ -1197,7 +1197,7 @@ class dt(Tag):
         **properties: Any,
     ) -> None:
         """
-        Specifies a term in a description or definition list, and as such must be used inside a [`<dl)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)) element. It is usually followed by a [`<dd)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)) element; however, multiple `<dt>` elements in a row indicate several terms that are all defined by the immediate next [`<dd)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)) element.
+        Specifies a term in a description or definition list, and as such must be used inside a [`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) element. It is usually followed by a [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element; however, multiple `<dt>` elements in a row indicate several terms that are all defined by the immediate next [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)
         """
@@ -1213,7 +1213,7 @@ class dt(Tag):
         **properties: Any,
     ):
         """
-        Specifies a term in a description or definition list, and as such must be used inside a [`<dl)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)) element. It is usually followed by a [`<dd)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)) element; however, multiple `<dt>` elements in a row indicate several terms that are all defined by the immediate next [`<dd)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)) element.
+        Specifies a term in a description or definition list, and as such must be used inside a [`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) element. It is usually followed by a [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element; however, multiple `<dt>` elements in a row indicate several terms that are all defined by the immediate next [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)
         """
@@ -1225,7 +1225,7 @@ class dt(Tag):
 
 class figcaption(Tag):
     """
-    Represents a caption or legend describing the rest of the contents of its parent [`<figure)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)) element.
+    Represents a caption or legend describing the rest of the contents of its parent [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure) element.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption)
     """
@@ -1236,7 +1236,7 @@ class figcaption(Tag):
         **properties: Any,
     ) -> None:
         """
-        Represents a caption or legend describing the rest of the contents of its parent [`<figure)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)) element.
+        Represents a caption or legend describing the rest of the contents of its parent [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption)
         """
@@ -1252,7 +1252,7 @@ class figcaption(Tag):
         **properties: Any,
     ):
         """
-        Represents a caption or legend describing the rest of the contents of its parent [`<figure)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)) element.
+        Represents a caption or legend describing the rest of the contents of its parent [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption)
         """
@@ -1264,7 +1264,7 @@ class figcaption(Tag):
 
 class figure(Tag):
     """
-    Represents self-contained content, potentially with an optional caption, which is specified using the [`<figcaption)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption)) element. The figure, its caption, and its contents are referenced as a single unit.
+    Represents self-contained content, potentially with an optional caption, which is specified using the [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element. The figure, its caption, and its contents are referenced as a single unit.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)
     """
@@ -1275,7 +1275,7 @@ class figure(Tag):
         **properties: Any,
     ) -> None:
         """
-        Represents self-contained content, potentially with an optional caption, which is specified using the [`<figcaption)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption)) element. The figure, its caption, and its contents are referenced as a single unit.
+        Represents self-contained content, potentially with an optional caption, which is specified using the [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element. The figure, its caption, and its contents are referenced as a single unit.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)
         """
@@ -1291,7 +1291,7 @@ class figure(Tag):
         **properties: Any,
     ):
         """
-        Represents self-contained content, potentially with an optional caption, which is specified using the [`<figcaption)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption)) element. The figure, its caption, and its contents are referenced as a single unit.
+        Represents self-contained content, potentially with an optional caption, which is specified using the [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element. The figure, its caption, and its contents are referenced as a single unit.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)
         """
@@ -1342,7 +1342,7 @@ class hr(Tag):
 
 class li(Tag):
     """
-    Represents an item in a list. It must be contained in a parent element: an ordered list ([`<ol)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol))), an unordered list ([`<ul)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul))), or a menu ([`<menu)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu))). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
+    Represents an item in a list. It must be contained in a parent element: an ordered list ([`<ol>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)), an unordered list ([`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)), or a menu ([`<menu>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
     """
@@ -1353,7 +1353,7 @@ class li(Tag):
         **properties: Any,
     ) -> None:
         """
-        Represents an item in a list. It must be contained in a parent element: an ordered list ([`<ol)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol))), an unordered list ([`<ul)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul))), or a menu ([`<menu)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu))). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
+        Represents an item in a list. It must be contained in a parent element: an ordered list ([`<ol>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)), an unordered list ([`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)), or a menu ([`<menu>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
         """
@@ -1369,7 +1369,7 @@ class li(Tag):
         **properties: Any,
     ):
         """
-        Represents an item in a list. It must be contained in a parent element: an ordered list ([`<ol)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol))), an unordered list ([`<ul)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul))), or a menu ([`<menu)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu))). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
+        Represents an item in a list. It must be contained in a parent element: an ordered list ([`<ol>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)), an unordered list ([`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)), or a menu ([`<menu>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
         """
@@ -1381,7 +1381,7 @@ class li(Tag):
 
 class menu(Tag):
     """
-    A semantic alternative to [`<ul)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)), but treated by browsers (and exposed through the accessibility tree) as no different than [`<ul)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)). It represents an unordered list of items (which are represented by [`<li)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)) elements).
+    A semantic alternative to [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), but treated by browsers (and exposed through the accessibility tree) as no different than [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul). It represents an unordered list of items (which are represented by [`<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) elements).
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)
     """
@@ -1392,7 +1392,7 @@ class menu(Tag):
         **properties: Any,
     ) -> None:
         """
-        A semantic alternative to [`<ul)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)), but treated by browsers (and exposed through the accessibility tree) as no different than [`<ul)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)). It represents an unordered list of items (which are represented by [`<li)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)) elements).
+        A semantic alternative to [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), but treated by browsers (and exposed through the accessibility tree) as no different than [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul). It represents an unordered list of items (which are represented by [`<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) elements).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)
         """
@@ -1408,7 +1408,7 @@ class menu(Tag):
         **properties: Any,
     ):
         """
-        A semantic alternative to [`<ul)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)), but treated by browsers (and exposed through the accessibility tree) as no different than [`<ul)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)). It represents an unordered list of items (which are represented by [`<li)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)) elements).
+        A semantic alternative to [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), but treated by browsers (and exposed through the accessibility tree) as no different than [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul). It represents an unordered list of items (which are represented by [`<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) elements).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)
         """
@@ -1682,7 +1682,7 @@ class abbr(Tag):
 
 class b(StylableTag):
     """
-    Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight)](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight)) property. If you wish to indicate an element is of special importance, you should use the strong element.
+    Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) property. If you wish to indicate an element is of special importance, you should use the strong element.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b)
     """
@@ -1696,7 +1696,7 @@ class b(StylableTag):
         **properties: Any,
     ) -> None:
         """
-        Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight)](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight)) property. If you wish to indicate an element is of special importance, you should use the strong element.
+        Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) property. If you wish to indicate an element is of special importance, you should use the strong element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b)
         """
@@ -1718,7 +1718,7 @@ class b(StylableTag):
         **properties: Any,
     ):
         """
-        Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight)](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight)) property. If you wish to indicate an element is of special importance, you should use the strong element.
+        Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) property. If you wish to indicate an element is of special importance, you should use the strong element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b)
         """
@@ -1967,7 +1967,7 @@ class data(Tag):
 
 class dfn(Tag):
     """
-    Used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor [`<p)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p)) element, the [`<dt)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt))/[`<dd)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)) pairing, or the nearest section ancestor of the `<dfn>` element, is considered to be the definition of the term.
+    Used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor [`<p>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) element, the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)/[`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) pairing, or the nearest section ancestor of the `<dfn>` element, is considered to be the definition of the term.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn)
     """
@@ -1978,7 +1978,7 @@ class dfn(Tag):
         **properties: Any,
     ) -> None:
         """
-        Used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor [`<p)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p)) element, the [`<dt)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt))/[`<dd)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)) pairing, or the nearest section ancestor of the `<dfn>` element, is considered to be the definition of the term.
+        Used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor [`<p>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) element, the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)/[`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) pairing, or the nearest section ancestor of the `<dfn>` element, is considered to be the definition of the term.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn)
         """
@@ -1994,7 +1994,7 @@ class dfn(Tag):
         **properties: Any,
     ):
         """
-        Used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor [`<p)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p)) element, the [`<dt)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt))/[`<dd)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)) pairing, or the nearest section ancestor of the `<dfn>` element, is considered to be the definition of the term.
+        Used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor [`<p>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) element, the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)/[`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) pairing, or the nearest section ancestor of the `<dfn>` element, is considered to be the definition of the term.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn)
         """
@@ -2186,7 +2186,7 @@ class mark(Tag):
 
 class q(Tag):
     """
-    Indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the [`<blockquote)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote)) element.
+    Indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the [`<blockquote>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote) element.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q)
     """
@@ -2197,7 +2197,7 @@ class q(Tag):
         **properties: Any,
     ) -> None:
         """
-        Indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the [`<blockquote)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote)) element.
+        Indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the [`<blockquote>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q)
         """
@@ -2213,7 +2213,7 @@ class q(Tag):
         **properties: Any,
     ):
         """
-        Indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the [`<blockquote)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote)) element.
+        Indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the [`<blockquote>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q)
         """
@@ -2225,7 +2225,7 @@ class q(Tag):
 
 class rp(Tag):
     """
-    Used to provide fall-back parentheses for browsers that do not support the display of ruby annotations using the [`<ruby)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby)) element. One `<rp>` element should enclose each of the opening and closing parentheses that wrap the [`<rt)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt)) element that contains the annotation's text.
+    Used to provide fall-back parentheses for browsers that do not support the display of ruby annotations using the [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element. One `<rp>` element should enclose each of the opening and closing parentheses that wrap the [`<rt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt) element that contains the annotation's text.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp)
     """
@@ -2236,7 +2236,7 @@ class rp(Tag):
         **properties: Any,
     ) -> None:
         """
-        Used to provide fall-back parentheses for browsers that do not support the display of ruby annotations using the [`<ruby)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby)) element. One `<rp>` element should enclose each of the opening and closing parentheses that wrap the [`<rt)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt)) element that contains the annotation's text.
+        Used to provide fall-back parentheses for browsers that do not support the display of ruby annotations using the [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element. One `<rp>` element should enclose each of the opening and closing parentheses that wrap the [`<rt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt) element that contains the annotation's text.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp)
         """
@@ -2252,7 +2252,7 @@ class rp(Tag):
         **properties: Any,
     ):
         """
-        Used to provide fall-back parentheses for browsers that do not support the display of ruby annotations using the [`<ruby)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby)) element. One `<rp>` element should enclose each of the opening and closing parentheses that wrap the [`<rt)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt)) element that contains the annotation's text.
+        Used to provide fall-back parentheses for browsers that do not support the display of ruby annotations using the [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element. One `<rp>` element should enclose each of the opening and closing parentheses that wrap the [`<rt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt) element that contains the annotation's text.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp)
         """
@@ -2264,7 +2264,7 @@ class rp(Tag):
 
 class rt(Tag):
     """
-    Specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The `<rt>` element must always be contained within a [`<ruby)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby)) element.
+    Specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The `<rt>` element must always be contained within a [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt)
     """
@@ -2275,7 +2275,7 @@ class rt(Tag):
         **properties: Any,
     ) -> None:
         """
-        Specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The `<rt>` element must always be contained within a [`<ruby)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby)) element.
+        Specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The `<rt>` element must always be contained within a [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt)
         """
@@ -2291,7 +2291,7 @@ class rt(Tag):
         **properties: Any,
     ):
         """
-        Specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The `<rt>` element must always be contained within a [`<ruby)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby)) element.
+        Specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The `<rt>` element must always be contained within a [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt)
         """
@@ -2783,7 +2783,7 @@ class wbr(Tag):
 
 class area(Tag):
     """
-    Defines an area inside an image map that has predefined clickable areas. An _image map_ allows geometric areas on an image to be associated with [ hyperlink)](https://developer.mozilla.org/en-US/docs/Glossary/Hyperlink).
+    Defines an area inside an image map that has predefined clickable areas. An _image map_ allows geometric areas on an image to be associated with [ hyperlink](https://developer.mozilla.org/en-US/docs/Glossary/Hyperlink).
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area)
     """
@@ -2794,7 +2794,7 @@ class area(Tag):
         **properties: Any,
     ) -> None:
         """
-        Defines an area inside an image map that has predefined clickable areas. An _image map_ allows geometric areas on an image to be associated with [ hyperlink)](https://developer.mozilla.org/en-US/docs/Glossary/Hyperlink).
+        Defines an area inside an image map that has predefined clickable areas. An _image map_ allows geometric areas on an image to be associated with [ hyperlink](https://developer.mozilla.org/en-US/docs/Glossary/Hyperlink).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area)
         """
@@ -2810,7 +2810,7 @@ class area(Tag):
         **properties: Any,
     ):
         """
-        Defines an area inside an image map that has predefined clickable areas. An _image map_ allows geometric areas on an image to be associated with [ hyperlink)](https://developer.mozilla.org/en-US/docs/Glossary/Hyperlink).
+        Defines an area inside an image map that has predefined clickable areas. An _image map_ allows geometric areas on an image to be associated with [ hyperlink](https://developer.mozilla.org/en-US/docs/Glossary/Hyperlink).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area)
         """
@@ -2822,7 +2822,7 @@ class area(Tag):
 
 class audio(Tag):
     """
-    Used to embed sound content in documents. It may contain one or more audio sources, represented using the `src` attribute or the source element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a [MediaStream)](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream)).
+    Used to embed sound content in documents. It may contain one or more audio sources, represented using the `src` attribute or the source element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a [MediaStream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream).
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
     """
@@ -2833,7 +2833,7 @@ class audio(Tag):
         **properties: Any,
     ) -> None:
         """
-        Used to embed sound content in documents. It may contain one or more audio sources, represented using the `src` attribute or the source element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a [MediaStream)](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream)).
+        Used to embed sound content in documents. It may contain one or more audio sources, represented using the `src` attribute or the source element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a [MediaStream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
         """
@@ -2849,7 +2849,7 @@ class audio(Tag):
         **properties: Any,
     ):
         """
-        Used to embed sound content in documents. It may contain one or more audio sources, represented using the `src` attribute or the source element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a [MediaStream)](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream)).
+        Used to embed sound content in documents. It may contain one or more audio sources, represented using the `src` attribute or the source element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a [MediaStream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
         """
@@ -2904,7 +2904,7 @@ class img(Tag):
 
 class map(Tag):
     """
-    Used with [`<area)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area)) elements to define an image map (a clickable link area).
+    Used with [`<area>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area) elements to define an image map (a clickable link area).
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map)
     """
@@ -2915,7 +2915,7 @@ class map(Tag):
         **properties: Any,
     ) -> None:
         """
-        Used with [`<area)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area)) elements to define an image map (a clickable link area).
+        Used with [`<area>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area) elements to define an image map (a clickable link area).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map)
         """
@@ -2931,7 +2931,7 @@ class map(Tag):
         **properties: Any,
     ):
         """
-        Used with [`<area)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area)) elements to define an image map (a clickable link area).
+        Used with [`<area>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area) elements to define an image map (a clickable link area).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map)
         """
@@ -2943,7 +2943,7 @@ class map(Tag):
 
 class track(Tag):
     """
-    Used as a child of the media elements, audio and video. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in [WebVTT format](https://developer.mozilla.org/en-US/docs/Web//API/WebVTT_API) (`.vtt` files)—Web Video Text Tracks.
+    Used as a child of the media elements, audio and video. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in [WebVTT format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) (`.vtt` files)—Web Video Text Tracks.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track)
     """
@@ -2954,7 +2954,7 @@ class track(Tag):
         **properties: Any,
     ) -> None:
         """
-        Used as a child of the media elements, audio and video. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in [WebVTT format](https://developer.mozilla.org/en-US/docs/Web//API/WebVTT_API) (`.vtt` files)—Web Video Text Tracks.
+        Used as a child of the media elements, audio and video. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in [WebVTT format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) (`.vtt` files)—Web Video Text Tracks.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track)
         """
@@ -2970,7 +2970,7 @@ class track(Tag):
         **properties: Any,
     ):
         """
-        Used as a child of the media elements, audio and video. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in [WebVTT format](https://developer.mozilla.org/en-US/docs/Web//API/WebVTT_API) (`.vtt` files)—Web Video Text Tracks.
+        Used as a child of the media elements, audio and video. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in [WebVTT format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) (`.vtt` files)—Web Video Text Tracks.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track)
         """
@@ -3138,7 +3138,7 @@ class object(Tag):
 
 class picture(Tag):
     """
-    Contains zero or more [`<source)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source)) elements and one [`<img)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)) element to offer alternative versions of an image for different display/device scenarios.
+    Contains zero or more [`<source>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source) elements and one [`<img>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) element to offer alternative versions of an image for different display/device scenarios.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture)
     """
@@ -3149,7 +3149,7 @@ class picture(Tag):
         **properties: Any,
     ) -> None:
         """
-        Contains zero or more [`<source)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source)) elements and one [`<img)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)) element to offer alternative versions of an image for different display/device scenarios.
+        Contains zero or more [`<source>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source) elements and one [`<img>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) element to offer alternative versions of an image for different display/device scenarios.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture)
         """
@@ -3165,7 +3165,7 @@ class picture(Tag):
         **properties: Any,
     ):
         """
-        Contains zero or more [`<source)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source)) elements and one [`<img)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)) element to offer alternative versions of an image for different display/device scenarios.
+        Contains zero or more [`<source>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source) elements and one [`<img>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) element to offer alternative versions of an image for different display/device scenarios.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture)
         """
@@ -3216,7 +3216,7 @@ class portal(Tag):
 
 class source(Tag):
     """
-    Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web//Media/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web//Media/Formats).
+    Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats).
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source)
     """
@@ -3227,7 +3227,7 @@ class source(Tag):
         **properties: Any,
     ) -> None:
         """
-        Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web//Media/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web//Media/Formats).
+        Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source)
         """
@@ -3243,7 +3243,7 @@ class source(Tag):
         **properties: Any,
     ):
         """
-        Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web//Media/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web//Media/Formats).
+        Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source)
         """
@@ -3255,7 +3255,7 @@ class source(Tag):
 
 class canvas(Tag):
     """
-    Container element to use with either the [canvas scripting API](https://developer.mozilla.org/en-US/docs/Web//API/Canvas_API) or the [WebGL API](https://developer.mozilla.org/en-US/docs/Web//API/WebGL_API) to draw graphics and animations.
+    Container element to use with either the [canvas scripting API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) or the [WebGL API](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) to draw graphics and animations.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas)
     """
@@ -3266,7 +3266,7 @@ class canvas(Tag):
         **properties: Any,
     ) -> None:
         """
-        Container element to use with either the [canvas scripting API](https://developer.mozilla.org/en-US/docs/Web//API/Canvas_API) or the [WebGL API](https://developer.mozilla.org/en-US/docs/Web//API/WebGL_API) to draw graphics and animations.
+        Container element to use with either the [canvas scripting API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) or the [WebGL API](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) to draw graphics and animations.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas)
         """
@@ -3282,7 +3282,7 @@ class canvas(Tag):
         **properties: Any,
     ):
         """
-        Container element to use with either the [canvas scripting API](https://developer.mozilla.org/en-US/docs/Web//API/Canvas_API) or the [WebGL API](https://developer.mozilla.org/en-US/docs/Web//API/WebGL_API) to draw graphics and animations.
+        Container element to use with either the [canvas scripting API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) or the [WebGL API](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) to draw graphics and animations.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas)
         """
@@ -3333,7 +3333,7 @@ class noscript(Tag):
 
 class script(Tag):
     """
-    Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web//API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
+    Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
     """
@@ -3344,7 +3344,7 @@ class script(Tag):
         **properties: Any,
     ) -> None:
         """
-        Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web//API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
+        Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
@@ -3360,7 +3360,7 @@ class script(Tag):
         **properties: Any,
     ):
         """
-        Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web//API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
+        Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
@@ -3489,7 +3489,7 @@ class caption(Tag):
 
 class col(Tag):
     """
-    Defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a [`<colgroup)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup)) element.
+    Defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup) element.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col)
     """
@@ -3500,7 +3500,7 @@ class col(Tag):
         **properties: Any,
     ) -> None:
         """
-        Defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a [`<colgroup)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup)) element.
+        Defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col)
         """
@@ -3516,7 +3516,7 @@ class col(Tag):
         **properties: Any,
     ):
         """
-        Defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a [`<colgroup)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup)) element.
+        Defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col)
         """
@@ -3606,7 +3606,7 @@ class table(Tag):
 
 class tbody(Tag):
     """
-    Encapsulates a set of table rows ([`<tr)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr)) elements), indicating that they comprise the body of the table ([`<table)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table))).
+    Encapsulates a set of table rows ([`<tr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr) elements), indicating that they comprise the body of the table ([`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)).
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody)
     """
@@ -3617,7 +3617,7 @@ class tbody(Tag):
         **properties: Any,
     ) -> None:
         """
-        Encapsulates a set of table rows ([`<tr)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr)) elements), indicating that they comprise the body of the table ([`<table)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table))).
+        Encapsulates a set of table rows ([`<tr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr) elements), indicating that they comprise the body of the table ([`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody)
         """
@@ -3633,7 +3633,7 @@ class tbody(Tag):
         **properties: Any,
     ):
         """
-        Encapsulates a set of table rows ([`<tr)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr)) elements), indicating that they comprise the body of the table ([`<table)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table))).
+        Encapsulates a set of table rows ([`<tr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr) elements), indicating that they comprise the body of the table ([`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody)
         """
@@ -3801,7 +3801,7 @@ class thead(Tag):
 
 class tr(Tag):
     """
-    Defines a row of cells in a table. The row's cells can then be established using a mix of [`<td)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td)) (data cell) and [`<th)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th)) (header cell) elements.
+    Defines a row of cells in a table. The row's cells can then be established using a mix of [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) (data cell) and [`<th>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) (header cell) elements.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr)
     """
@@ -3812,7 +3812,7 @@ class tr(Tag):
         **properties: Any,
     ) -> None:
         """
-        Defines a row of cells in a table. The row's cells can then be established using a mix of [`<td)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td)) (data cell) and [`<th)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th)) (header cell) elements.
+        Defines a row of cells in a table. The row's cells can then be established using a mix of [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) (data cell) and [`<th>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) (header cell) elements.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr)
         """
@@ -3828,7 +3828,7 @@ class tr(Tag):
         **properties: Any,
     ):
         """
-        Defines a row of cells in a table. The row's cells can then be established using a mix of [`<td)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td)) (data cell) and [`<th)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th)) (header cell) elements.
+        Defines a row of cells in a table. The row's cells can then be established using a mix of [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) (data cell) and [`<th>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) (header cell) elements.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr)
         """
@@ -3879,7 +3879,7 @@ class button(Tag):
 
 class datalist(Tag):
     """
-    Contains a set of [`<option)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)) elements that represent the permissible or recommended options available to choose from within other controls.
+    Contains a set of [`<option>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) elements that represent the permissible or recommended options available to choose from within other controls.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
     """
@@ -3890,7 +3890,7 @@ class datalist(Tag):
         **properties: Any,
     ) -> None:
         """
-        Contains a set of [`<option)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)) elements that represent the permissible or recommended options available to choose from within other controls.
+        Contains a set of [`<option>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) elements that represent the permissible or recommended options available to choose from within other controls.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
         """
@@ -3906,7 +3906,7 @@ class datalist(Tag):
         **properties: Any,
     ):
         """
-        Contains a set of [`<option)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)) elements that represent the permissible or recommended options available to choose from within other controls.
+        Contains a set of [`<option>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) elements that represent the permissible or recommended options available to choose from within other controls.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
         """
@@ -3918,7 +3918,7 @@ class datalist(Tag):
 
 class fieldset(Tag):
     """
-    Used to group several controls as well as labels ([`<label)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label))) within a web form.
+    Used to group several controls as well as labels ([`<label>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)) within a web form.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)
     """
@@ -3929,7 +3929,7 @@ class fieldset(Tag):
         **properties: Any,
     ) -> None:
         """
-        Used to group several controls as well as labels ([`<label)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label))) within a web form.
+        Used to group several controls as well as labels ([`<label>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)) within a web form.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)
         """
@@ -3945,7 +3945,7 @@ class fieldset(Tag):
         **properties: Any,
     ):
         """
-        Used to group several controls as well as labels ([`<label)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label))) within a web form.
+        Used to group several controls as well as labels ([`<label>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)) within a web form.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)
         """
@@ -4074,7 +4074,7 @@ class label(Tag):
 
 class legend(Tag):
     """
-    Represents a caption for the content of its parent [`<fieldset)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)).
+    Represents a caption for the content of its parent [`<fieldset>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset).
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend)
     """
@@ -4085,7 +4085,7 @@ class legend(Tag):
         **properties: Any,
     ) -> None:
         """
-        Represents a caption for the content of its parent [`<fieldset)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)).
+        Represents a caption for the content of its parent [`<fieldset>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend)
         """
@@ -4101,7 +4101,7 @@ class legend(Tag):
         **properties: Any,
     ):
         """
-        Represents a caption for the content of its parent [`<fieldset)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)).
+        Represents a caption for the content of its parent [`<fieldset>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset).
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend)
         """
@@ -4152,7 +4152,7 @@ class meter(Tag):
 
 class optgroup(Tag):
     """
-    Creates a grouping of options within a [`<select)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)) element.
+    Creates a grouping of options within a [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup)
     """
@@ -4163,7 +4163,7 @@ class optgroup(Tag):
         **properties: Any,
     ) -> None:
         """
-        Creates a grouping of options within a [`<select)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)) element.
+        Creates a grouping of options within a [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup)
         """
@@ -4179,7 +4179,7 @@ class optgroup(Tag):
         **properties: Any,
     ):
         """
-        Creates a grouping of options within a [`<select)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)) element.
+        Creates a grouping of options within a [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup)
         """
@@ -4191,7 +4191,7 @@ class optgroup(Tag):
 
 class option(Tag):
     """
-    Used to define an item contained in a select, an [`<optgroup)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup)), or a [`<datalist)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)) element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document.
+    Used to define an item contained in a select, an [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup), or a [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist) element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)
     """
@@ -4202,7 +4202,7 @@ class option(Tag):
         **properties: Any,
     ) -> None:
         """
-        Used to define an item contained in a select, an [`<optgroup)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup)), or a [`<datalist)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)) element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document.
+        Used to define an item contained in a select, an [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup), or a [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist) element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)
         """
@@ -4218,7 +4218,7 @@ class option(Tag):
         **properties: Any,
     ):
         """
-        Used to define an item contained in a select, an [`<optgroup)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup)), or a [`<datalist)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)) element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document.
+        Used to define an item contained in a select, an [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup), or a [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist) element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)
         """
@@ -4386,7 +4386,7 @@ class textarea(Tag):
 
 class details(Tag):
     """
-    Creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the [`<summary)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)) element.
+    Creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the [`<summary>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary) element.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
     """
@@ -4397,7 +4397,7 @@ class details(Tag):
         **properties: Any,
     ) -> None:
         """
-        Creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the [`<summary)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)) element.
+        Creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the [`<summary>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
         """
@@ -4413,7 +4413,7 @@ class details(Tag):
         **properties: Any,
     ):
         """
-        Creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the [`<summary)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)) element.
+        Creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the [`<summary>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary) element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
         """
@@ -4464,7 +4464,7 @@ class dialog(Tag):
 
 class summary(Tag):
     """
-    Specifies a summary, caption, or legend for a details element's disclosure box. Clicking the `<summary>` element toggles the state of the parent [`<details)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)) element open and closed.
+    Specifies a summary, caption, or legend for a details element's disclosure box. Clicking the `<summary>` element toggles the state of the parent [`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) element open and closed.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)
     """
@@ -4475,7 +4475,7 @@ class summary(Tag):
         **properties: Any,
     ) -> None:
         """
-        Specifies a summary, caption, or legend for a details element's disclosure box. Clicking the `<summary>` element toggles the state of the parent [`<details)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)) element open and closed.
+        Specifies a summary, caption, or legend for a details element's disclosure box. Clicking the `<summary>` element toggles the state of the parent [`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) element open and closed.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)
         """
@@ -4491,7 +4491,7 @@ class summary(Tag):
         **properties: Any,
     ):
         """
-        Specifies a summary, caption, or legend for a details element's disclosure box. Clicking the `<summary>` element toggles the state of the parent [`<details)>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)) element open and closed.
+        Specifies a summary, caption, or legend for a details element's disclosure box. Clicking the `<summary>` element toggles the state of the parent [`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) element open and closed.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)
         """
@@ -4503,7 +4503,7 @@ class summary(Tag):
 
 class slot(Tag):
     """
-    Part of the [Web Components](https://developer.mozilla.org/en-US/docs/Web//API/Web_components) technology suite, this element is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
+    Part of the [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) technology suite, this element is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot)
     """
@@ -4514,7 +4514,7 @@ class slot(Tag):
         **properties: Any,
     ) -> None:
         """
-        Part of the [Web Components](https://developer.mozilla.org/en-US/docs/Web//API/Web_components) technology suite, this element is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
+        Part of the [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) technology suite, this element is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot)
         """
@@ -4530,7 +4530,7 @@ class slot(Tag):
         **properties: Any,
     ):
         """
-        Part of the [Web Components](https://developer.mozilla.org/en-US/docs/Web//API/Web_components) technology suite, this element is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
+        Part of the [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) technology suite, this element is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot)
         """
