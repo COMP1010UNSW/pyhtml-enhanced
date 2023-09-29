@@ -2,6 +2,8 @@ class {name}({base}):
     """
     {description}
 
+    {prop_docs_outer}
+
     [View full documentation]({link})
     """
     def __init__(
@@ -12,6 +14,8 @@ class {name}({base}):
     ) -> None:
         """
         {description}
+
+        {prop_docs_inner}
 
         [View full documentation]({link})
         """
@@ -28,6 +32,8 @@ class {name}({base}):
     ):
         """
         {description}
+
+        {prop_docs_inner}
 
         [View full documentation]({link})
         """

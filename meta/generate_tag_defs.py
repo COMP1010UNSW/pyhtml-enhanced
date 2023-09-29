@@ -7,6 +7,7 @@ from pathlib import Path
 import sys
 from typing import TextIO
 from .scrape_tags import main as generate_tag_data, TagInfo
+from pyhtml.__util import increase_indent
 
 
 TEMPLATES_FOLDER = Path('./meta/templates')
@@ -36,11 +37,12 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
     """
     text = get_template_class(tag.base)
 
-    # Generate property arguments and unions
+    # Generate property arguments, unions and documentation
     # To get a better idea of these, look inside the template files to see
     # what would be replaced
     prop_args_gen = []
     prop_unions_gen = []
+    prop_docs_gen = []
     for prop in tag.properties:
         prop_args_gen.append(
             # Yucky hard-coded spaces, I can't be bothered to fix this
@@ -49,9 +51,12 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
             f"        {prop.name}: Optional[{prop.type}] = {prop.default!r},"
         )
         prop_unions_gen.append(f"            '{prop.name}': {prop.name},")
+        prop_docs_gen.append(f"* {prop.name}: {prop.doc}")
 
     prop_args = '\n'.join(prop_args_gen).strip()
     prop_unions = '\n'.join(prop_unions_gen).strip()
+    prop_docs_outer = '\n'.join(increase_indent(prop_docs_gen, 4)).strip()
+    prop_docs_inner = '\n'.join(increase_indent(prop_docs_gen, 8)).strip()
 
     # Determine whether the class should mandate keyword-only args
     # If there are no named properties, we set it to '' to avoid a syntax error
@@ -70,6 +75,8 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
         .replace("{link}", tag.mdn_link)\
         .replace("{prop_args}", prop_args)\
         .replace("{prop_unions}", prop_unions)\
+        .replace("{prop_docs_outer}", prop_docs_outer)\
+        .replace("{prop_docs_inner}", prop_docs_inner)\
         .replace("{kw_only}", kw_only)
 
     print(text, file=output)

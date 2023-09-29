@@ -16,6 +16,8 @@ class html(Tag):
     """
     Represents the root (top-level element) of an HTML document, so it is also referred to as the _root element_. All other elements must be descendants of this element.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html)
     """
     def __init__(
@@ -26,6 +28,8 @@ class html(Tag):
     ) -> None:
         """
         Represents the root (top-level element) of an HTML document, so it is also referred to as the _root element_. All other elements must be descendants of this element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html)
         """
@@ -43,6 +47,8 @@ class html(Tag):
         """
         Represents the root (top-level element) of an HTML document, so it is also referred to as the _root element_. All other elements must be descendants of this element.
 
+        
+
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html)
         """
         properties |= {
@@ -55,6 +61,9 @@ class base(SelfClosingTag):
     """
     Specifies the base URL to use for all relative URLs in a document. There can be only one such element in a document.
 
+    * href: Base URL to use in the document
+    * target: Default target to use in the document
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)
     """
     def __init__(
@@ -66,6 +75,9 @@ class base(SelfClosingTag):
     ) -> None:
         """
         Specifies the base URL to use for all relative URLs in a document. There can be only one such element in a document.
+
+        * href: Base URL to use in the document
+        * target: Default target to use in the document
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)
         """
@@ -84,6 +96,9 @@ class base(SelfClosingTag):
     ):
         """
         Specifies the base URL to use for all relative URLs in a document. There can be only one such element in a document.
+
+        * href: Base URL to use in the document
+        * target: Default target to use in the document
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)
         """
@@ -98,6 +113,8 @@ class head(Tag):
     """
     Contains machine-readable information (metadata) about the document, like its [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title), [scripts](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), and [style sheets](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style).
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head)
     """
     def __init__(
@@ -108,6 +125,8 @@ class head(Tag):
     ) -> None:
         """
         Contains machine-readable information (metadata) about the document, like its [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title), [scripts](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), and [style sheets](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head)
         """
@@ -125,6 +144,8 @@ class head(Tag):
         """
         Contains machine-readable information (metadata) about the document, like its [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title), [scripts](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), and [style sheets](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style).
 
+        
+
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head)
         """
         properties |= {
@@ -137,6 +158,9 @@ class link(SelfClosingTag):
     """
     Specifies relationships between the current document and an external resource. This element is most commonly used to link to CSS but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.
 
+    * href: Location of the file being linked to
+    * rel: Kind of file being loaded (eg stylesheet)
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)
     """
     def __init__(
@@ -148,6 +172,9 @@ class link(SelfClosingTag):
     ) -> None:
         """
         Specifies relationships between the current document and an external resource. This element is most commonly used to link to CSS but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.
+
+        * href: Location of the file being linked to
+        * rel: Kind of file being loaded (eg stylesheet)
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)
         """
@@ -167,6 +194,9 @@ class link(SelfClosingTag):
         """
         Specifies relationships between the current document and an external resource. This element is most commonly used to link to CSS but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.
 
+        * href: Location of the file being linked to
+        * rel: Kind of file being loaded (eg stylesheet)
+
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)
         """
         properties |= {
@@ -180,6 +210,8 @@ class meta(Tag):
     """
     Represents [metadata](https://developer.mozilla.org/en-US/docs/Glossary/Metadata) that cannot be represented by other HTML meta-related elements, like [`<base>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base), [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link), [`<script>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), [`<style>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style) and [`<title>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title).
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
     """
     def __init__(
@@ -190,6 +222,8 @@ class meta(Tag):
     ) -> None:
         """
         Represents [metadata](https://developer.mozilla.org/en-US/docs/Glossary/Metadata) that cannot be represented by other HTML meta-related elements, like [`<base>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base), [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link), [`<script>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), [`<style>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style) and [`<title>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
         """
@@ -206,6 +240,8 @@ class meta(Tag):
     ):
         """
         Represents [metadata](https://developer.mozilla.org/en-US/docs/Glossary/Metadata) that cannot be represented by other HTML meta-related elements, like [`<base>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base), [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link), [`<script>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), [`<style>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style) and [`<title>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
         """
@@ -219,6 +255,8 @@ class style(Tag):
     """
     Contains style information for a document or part of a document. It contains CSS, which is applied to the contents of the document containing this element.
 
+    * type: Type of style to use
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style)
     """
     def __init__(
@@ -229,6 +267,8 @@ class style(Tag):
     ) -> None:
         """
         Contains style information for a document or part of a document. It contains CSS, which is applied to the contents of the document containing this element.
+
+        * type: Type of style to use
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style)
         """
@@ -245,6 +285,8 @@ class style(Tag):
     ):
         """
         Contains style information for a document or part of a document. It contains CSS, which is applied to the contents of the document containing this element.
+
+        * type: Type of style to use
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style)
         """
@@ -258,6 +300,8 @@ class title(Tag):
     """
     Defines the document's title that is shown in a [ browser](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; tags within the element are ignored.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title)
     """
     def __init__(
@@ -268,6 +312,8 @@ class title(Tag):
     ) -> None:
         """
         Defines the document's title that is shown in a [ browser](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; tags within the element are ignored.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title)
         """
@@ -284,6 +330,8 @@ class title(Tag):
     ):
         """
         Defines the document's title that is shown in a [ browser](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; tags within the element are ignored.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title)
         """
@@ -297,6 +345,8 @@ class body(Tag):
     """
     represents the content of an HTML document. There can be only one such element in a document.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body)
     """
     def __init__(
@@ -307,6 +357,8 @@ class body(Tag):
     ) -> None:
         """
         represents the content of an HTML document. There can be only one such element in a document.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body)
         """
@@ -323,6 +375,8 @@ class body(Tag):
     ):
         """
         represents the content of an HTML document. There can be only one such element in a document.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body)
         """
@@ -336,6 +390,8 @@ class address(Tag):
     """
     Indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address)
     """
     def __init__(
@@ -346,6 +402,8 @@ class address(Tag):
     ) -> None:
         """
         Indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address)
         """
@@ -362,6 +420,8 @@ class address(Tag):
     ):
         """
         Indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address)
         """
@@ -375,6 +435,8 @@ class article(Tag):
     """
     Represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include a forum post, a magazine or newspaper article, a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article)
     """
     def __init__(
@@ -385,6 +447,8 @@ class article(Tag):
     ) -> None:
         """
         Represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include a forum post, a magazine or newspaper article, a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article)
         """
@@ -401,6 +465,8 @@ class article(Tag):
     ):
         """
         Represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include a forum post, a magazine or newspaper article, a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article)
         """
@@ -414,6 +480,8 @@ class aside(Tag):
     """
     Represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside)
     """
     def __init__(
@@ -424,6 +492,8 @@ class aside(Tag):
     ) -> None:
         """
         Represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside)
         """
@@ -440,6 +510,8 @@ class aside(Tag):
     ):
         """
         Represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside)
         """
@@ -453,6 +525,8 @@ class footer(Tag):
     """
     Represents a footer for its nearest ancestor [sectioning content](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#sectioning_content) or [sectioning root](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) element. A `<footer>` typically contains information about the author of the section, copyright data, or links to related documents.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
     """
     def __init__(
@@ -463,6 +537,8 @@ class footer(Tag):
     ) -> None:
         """
         Represents a footer for its nearest ancestor [sectioning content](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#sectioning_content) or [sectioning root](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) element. A `<footer>` typically contains information about the author of the section, copyright data, or links to related documents.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
         """
@@ -479,6 +555,8 @@ class footer(Tag):
     ):
         """
         Represents a footer for its nearest ancestor [sectioning content](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#sectioning_content) or [sectioning root](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) element. A `<footer>` typically contains information about the author of the section, copyright data, or links to related documents.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
         """
@@ -492,6 +570,8 @@ class header(Tag):
     """
     Represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header)
     """
     def __init__(
@@ -502,6 +582,8 @@ class header(Tag):
     ) -> None:
         """
         Represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header)
         """
@@ -519,6 +601,8 @@ class header(Tag):
         """
         Represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.
 
+        
+
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header)
         """
         properties |= {
@@ -530,6 +614,8 @@ class header(Tag):
 class h1(StylableTag):
     """
      Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
+
+    
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1)
     """
@@ -544,6 +630,8 @@ class h1(StylableTag):
     ) -> None:
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1)
         """
@@ -566,6 +654,8 @@ class h1(StylableTag):
     ):
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1)
         """
@@ -582,6 +672,8 @@ class h2(StylableTag):
     """
      Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h2)
     """
     def __init__(
@@ -595,6 +687,8 @@ class h2(StylableTag):
     ) -> None:
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h2)
         """
@@ -617,6 +711,8 @@ class h2(StylableTag):
     ):
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h2)
         """
@@ -633,6 +729,8 @@ class h3(StylableTag):
     """
      Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h3)
     """
     def __init__(
@@ -646,6 +744,8 @@ class h3(StylableTag):
     ) -> None:
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h3)
         """
@@ -668,6 +768,8 @@ class h3(StylableTag):
     ):
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h3)
         """
@@ -684,6 +786,8 @@ class h4(StylableTag):
     """
      Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h4)
     """
     def __init__(
@@ -697,6 +801,8 @@ class h4(StylableTag):
     ) -> None:
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h4)
         """
@@ -719,6 +825,8 @@ class h4(StylableTag):
     ):
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h4)
         """
@@ -735,6 +843,8 @@ class h5(StylableTag):
     """
      Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h5)
     """
     def __init__(
@@ -748,6 +858,8 @@ class h5(StylableTag):
     ) -> None:
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h5)
         """
@@ -770,6 +882,8 @@ class h5(StylableTag):
     ):
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h5)
         """
@@ -786,6 +900,8 @@ class h6(StylableTag):
     """
      Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h6)
     """
     def __init__(
@@ -799,6 +915,8 @@ class h6(StylableTag):
     ) -> None:
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h6)
         """
@@ -821,6 +939,8 @@ class h6(StylableTag):
     ):
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h6)
         """
@@ -837,6 +957,8 @@ class hgroup(Tag):
     """
     Represents a heading grouped with any secondary content, such as subheadings, an alternative title, or a tagline.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup)
     """
     def __init__(
@@ -847,6 +969,8 @@ class hgroup(Tag):
     ) -> None:
         """
         Represents a heading grouped with any secondary content, such as subheadings, an alternative title, or a tagline.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup)
         """
@@ -863,6 +987,8 @@ class hgroup(Tag):
     ):
         """
         Represents a heading grouped with any secondary content, such as subheadings, an alternative title, or a tagline.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup)
         """
@@ -876,6 +1002,8 @@ class main(Tag):
     """
     Represents the dominant content of the body of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main)
     """
     def __init__(
@@ -886,6 +1014,8 @@ class main(Tag):
     ) -> None:
         """
         Represents the dominant content of the body of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main)
         """
@@ -902,6 +1032,8 @@ class main(Tag):
     ):
         """
         Represents the dominant content of the body of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main)
         """
@@ -915,6 +1047,8 @@ class nav(Tag):
     """
     Represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav)
     """
     def __init__(
@@ -925,6 +1059,8 @@ class nav(Tag):
     ) -> None:
         """
         Represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav)
         """
@@ -941,6 +1077,8 @@ class nav(Tag):
     ):
         """
         Represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav)
         """
@@ -954,6 +1092,8 @@ class section(Tag):
     """
     Represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section)
     """
     def __init__(
@@ -964,6 +1104,8 @@ class section(Tag):
     ) -> None:
         """
         Represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section)
         """
@@ -980,6 +1122,8 @@ class section(Tag):
     ):
         """
         Represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section)
         """
@@ -993,6 +1137,8 @@ class search(Tag):
     """
     Represents a part that contains a set of form controls or other content related to performing a search or filtering operation.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search)
     """
     def __init__(
@@ -1003,6 +1149,8 @@ class search(Tag):
     ) -> None:
         """
         Represents a part that contains a set of form controls or other content related to performing a search or filtering operation.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search)
         """
@@ -1019,6 +1167,8 @@ class search(Tag):
     ):
         """
         Represents a part that contains a set of form controls or other content related to performing a search or filtering operation.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search)
         """
@@ -1032,6 +1182,8 @@ class blockquote(Tag):
     """
     Indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation. A URL for the source of the quotation may be given using the `cite` attribute, while a text representation of the source can be given using the [`<cite>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite) element.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote)
     """
     def __init__(
@@ -1042,6 +1194,8 @@ class blockquote(Tag):
     ) -> None:
         """
         Indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation. A URL for the source of the quotation may be given using the `cite` attribute, while a text representation of the source can be given using the [`<cite>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote)
         """
@@ -1058,6 +1212,8 @@ class blockquote(Tag):
     ):
         """
         Indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation. A URL for the source of the quotation may be given using the `cite` attribute, while a text representation of the source can be given using the [`<cite>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote)
         """
@@ -1071,6 +1227,8 @@ class dd(Tag):
     """
     Provides the description, definition, or value for the preceding term ([`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)) in a description list ([`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)).
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)
     """
     def __init__(
@@ -1081,6 +1239,8 @@ class dd(Tag):
     ) -> None:
         """
         Provides the description, definition, or value for the preceding term ([`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)) in a description list ([`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)
         """
@@ -1097,6 +1257,8 @@ class dd(Tag):
     ):
         """
         Provides the description, definition, or value for the preceding term ([`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)) in a description list ([`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)
         """
@@ -1110,6 +1272,8 @@ class div(Tag):
     """
     The generic container for flow content. It has no effect on the content or layout until styled in some way using CSS (e.g., styling is directly applied to it, or some kind of layout model like [ flexbox](https://developer.mozilla.org/en-US/docs/Glossary/Flexbox) is applied to its parent element).
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
     """
     def __init__(
@@ -1120,6 +1284,8 @@ class div(Tag):
     ) -> None:
         """
         The generic container for flow content. It has no effect on the content or layout until styled in some way using CSS (e.g., styling is directly applied to it, or some kind of layout model like [ flexbox](https://developer.mozilla.org/en-US/docs/Glossary/Flexbox) is applied to its parent element).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
         """
@@ -1136,6 +1302,8 @@ class div(Tag):
     ):
         """
         The generic container for flow content. It has no effect on the content or layout until styled in some way using CSS (e.g., styling is directly applied to it, or some kind of layout model like [ flexbox](https://developer.mozilla.org/en-US/docs/Glossary/Flexbox) is applied to its parent element).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
         """
@@ -1149,6 +1317,8 @@ class dl(Tag):
     """
     Represents a description list. The element encloses a list of groups of terms (specified using the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt) element) and descriptions (provided by [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
     """
     def __init__(
@@ -1159,6 +1329,8 @@ class dl(Tag):
     ) -> None:
         """
         Represents a description list. The element encloses a list of groups of terms (specified using the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt) element) and descriptions (provided by [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
         """
@@ -1175,6 +1347,8 @@ class dl(Tag):
     ):
         """
         Represents a description list. The element encloses a list of groups of terms (specified using the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt) element) and descriptions (provided by [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
         """
@@ -1188,6 +1362,8 @@ class dt(Tag):
     """
     Specifies a term in a description or definition list, and as such must be used inside a [`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) element. It is usually followed by a [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element; however, multiple `<dt>` elements in a row indicate several terms that are all defined by the immediate next [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)
     """
     def __init__(
@@ -1198,6 +1374,8 @@ class dt(Tag):
     ) -> None:
         """
         Specifies a term in a description or definition list, and as such must be used inside a [`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) element. It is usually followed by a [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element; however, multiple `<dt>` elements in a row indicate several terms that are all defined by the immediate next [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)
         """
@@ -1214,6 +1392,8 @@ class dt(Tag):
     ):
         """
         Specifies a term in a description or definition list, and as such must be used inside a [`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) element. It is usually followed by a [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element; however, multiple `<dt>` elements in a row indicate several terms that are all defined by the immediate next [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)
         """
@@ -1227,6 +1407,8 @@ class figcaption(Tag):
     """
     Represents a caption or legend describing the rest of the contents of its parent [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure) element.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption)
     """
     def __init__(
@@ -1237,6 +1419,8 @@ class figcaption(Tag):
     ) -> None:
         """
         Represents a caption or legend describing the rest of the contents of its parent [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption)
         """
@@ -1253,6 +1437,8 @@ class figcaption(Tag):
     ):
         """
         Represents a caption or legend describing the rest of the contents of its parent [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption)
         """
@@ -1266,6 +1452,8 @@ class figure(Tag):
     """
     Represents self-contained content, potentially with an optional caption, which is specified using the [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element. The figure, its caption, and its contents are referenced as a single unit.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)
     """
     def __init__(
@@ -1276,6 +1464,8 @@ class figure(Tag):
     ) -> None:
         """
         Represents self-contained content, potentially with an optional caption, which is specified using the [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element. The figure, its caption, and its contents are referenced as a single unit.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)
         """
@@ -1292,6 +1482,8 @@ class figure(Tag):
     ):
         """
         Represents self-contained content, potentially with an optional caption, which is specified using the [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element. The figure, its caption, and its contents are referenced as a single unit.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)
         """
@@ -1305,6 +1497,8 @@ class hr(Tag):
     """
     Represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr)
     """
     def __init__(
@@ -1315,6 +1509,8 @@ class hr(Tag):
     ) -> None:
         """
         Represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr)
         """
@@ -1331,6 +1527,8 @@ class hr(Tag):
     ):
         """
         Represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr)
         """
@@ -1344,6 +1542,8 @@ class li(Tag):
     """
     Represents an item in a list. It must be contained in a parent element: an ordered list ([`<ol>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)), an unordered list ([`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)), or a menu ([`<menu>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
     """
     def __init__(
@@ -1354,6 +1554,8 @@ class li(Tag):
     ) -> None:
         """
         Represents an item in a list. It must be contained in a parent element: an ordered list ([`<ol>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)), an unordered list ([`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)), or a menu ([`<menu>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
         """
@@ -1370,6 +1572,8 @@ class li(Tag):
     ):
         """
         Represents an item in a list. It must be contained in a parent element: an ordered list ([`<ol>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)), an unordered list ([`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)), or a menu ([`<menu>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
         """
@@ -1383,6 +1587,8 @@ class menu(Tag):
     """
     A semantic alternative to [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), but treated by browsers (and exposed through the accessibility tree) as no different than [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul). It represents an unordered list of items (which are represented by [`<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) elements).
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)
     """
     def __init__(
@@ -1393,6 +1599,8 @@ class menu(Tag):
     ) -> None:
         """
         A semantic alternative to [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), but treated by browsers (and exposed through the accessibility tree) as no different than [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul). It represents an unordered list of items (which are represented by [`<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) elements).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)
         """
@@ -1409,6 +1617,8 @@ class menu(Tag):
     ):
         """
         A semantic alternative to [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), but treated by browsers (and exposed through the accessibility tree) as no different than [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul). It represents an unordered list of items (which are represented by [`<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) elements).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)
         """
@@ -1422,6 +1632,8 @@ class ol(Tag):
     """
     Represents an ordered list of items — typically rendered as a numbered list.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)
     """
     def __init__(
@@ -1432,6 +1644,8 @@ class ol(Tag):
     ) -> None:
         """
         Represents an ordered list of items — typically rendered as a numbered list.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)
         """
@@ -1449,6 +1663,8 @@ class ol(Tag):
         """
         Represents an ordered list of items — typically rendered as a numbered list.
 
+        
+
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)
         """
         properties |= {
@@ -1460,6 +1676,8 @@ class ol(Tag):
 class p(StylableTag):
     """
     Represents a paragraph. Paragraphs are usually represented in visual media as blocks of text separated from adjacent blocks by blank lines and/or first-line indentation, but HTML paragraphs can be any structural grouping of related content, such as images or form fields.
+
+    
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p)
     """
@@ -1474,6 +1692,8 @@ class p(StylableTag):
     ) -> None:
         """
         Represents a paragraph. Paragraphs are usually represented in visual media as blocks of text separated from adjacent blocks by blank lines and/or first-line indentation, but HTML paragraphs can be any structural grouping of related content, such as images or form fields.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p)
         """
@@ -1496,6 +1716,8 @@ class p(StylableTag):
     ):
         """
         Represents a paragraph. Paragraphs are usually represented in visual media as blocks of text separated from adjacent blocks by blank lines and/or first-line indentation, but HTML paragraphs can be any structural grouping of related content, such as images or form fields.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p)
         """
@@ -1512,6 +1734,8 @@ class pre(Tag):
     """
     Represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or [monospaced](https://en.wikipedia.org/wiki/Monospaced_font), font. Whitespace inside this element is displayed as written.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre)
     """
     def __init__(
@@ -1522,6 +1746,8 @@ class pre(Tag):
     ) -> None:
         """
         Represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or [monospaced](https://en.wikipedia.org/wiki/Monospaced_font), font. Whitespace inside this element is displayed as written.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre)
         """
@@ -1538,6 +1764,8 @@ class pre(Tag):
     ):
         """
         Represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or [monospaced](https://en.wikipedia.org/wiki/Monospaced_font), font. Whitespace inside this element is displayed as written.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre)
         """
@@ -1551,6 +1779,8 @@ class ul(Tag):
     """
     Represents an unordered list of items, typically rendered as a bulleted list.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)
     """
     def __init__(
@@ -1561,6 +1791,8 @@ class ul(Tag):
     ) -> None:
         """
         Represents an unordered list of items, typically rendered as a bulleted list.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)
         """
@@ -1578,6 +1810,8 @@ class ul(Tag):
         """
         Represents an unordered list of items, typically rendered as a bulleted list.
 
+        
+
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)
         """
         properties |= {
@@ -1589,6 +1823,9 @@ class ul(Tag):
 class a(StylableTag):
     """
     Together with its `href` attribute, creates a hyperlink to web pages, files, email addresses, locations within the current page, or anything else a URL can address.
+
+    * href: URL of page to link to
+    * target: Use "_blank" to open in a new tab
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
     """
@@ -1604,6 +1841,9 @@ class a(StylableTag):
     ) -> None:
         """
         Together with its `href` attribute, creates a hyperlink to web pages, files, email addresses, locations within the current page, or anything else a URL can address.
+
+        * href: URL of page to link to
+        * target: Use "_blank" to open in a new tab
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
         """
@@ -1628,6 +1868,9 @@ class a(StylableTag):
     ):
         """
         Together with its `href` attribute, creates a hyperlink to web pages, files, email addresses, locations within the current page, or anything else a URL can address.
+
+        * href: URL of page to link to
+        * target: Use "_blank" to open in a new tab
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
         """
@@ -1645,6 +1888,8 @@ class abbr(Tag):
     """
     Represents an abbreviation or acronym.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr)
     """
     def __init__(
@@ -1655,6 +1900,8 @@ class abbr(Tag):
     ) -> None:
         """
         Represents an abbreviation or acronym.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr)
         """
@@ -1672,6 +1919,8 @@ class abbr(Tag):
         """
         Represents an abbreviation or acronym.
 
+        
+
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr)
         """
         properties |= {
@@ -1683,6 +1932,8 @@ class abbr(Tag):
 class b(StylableTag):
     """
     Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) property. If you wish to indicate an element is of special importance, you should use the strong element.
+
+    
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b)
     """
@@ -1697,6 +1948,8 @@ class b(StylableTag):
     ) -> None:
         """
         Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) property. If you wish to indicate an element is of special importance, you should use the strong element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b)
         """
@@ -1719,6 +1972,8 @@ class b(StylableTag):
     ):
         """
         Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) property. If you wish to indicate an element is of special importance, you should use the strong element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b)
         """
@@ -1735,6 +1990,8 @@ class bdi(Tag):
     """
     Tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text. It's particularly useful when a website dynamically inserts some text and doesn't know the directionality of the text being inserted.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi)
     """
     def __init__(
@@ -1745,6 +2002,8 @@ class bdi(Tag):
     ) -> None:
         """
         Tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text. It's particularly useful when a website dynamically inserts some text and doesn't know the directionality of the text being inserted.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi)
         """
@@ -1761,6 +2020,8 @@ class bdi(Tag):
     ):
         """
         Tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text. It's particularly useful when a website dynamically inserts some text and doesn't know the directionality of the text being inserted.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi)
         """
@@ -1774,6 +2035,8 @@ class bdo(Tag):
     """
     Overrides the current directionality of text, so that the text within is rendered in a different direction.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo)
     """
     def __init__(
@@ -1784,6 +2047,8 @@ class bdo(Tag):
     ) -> None:
         """
         Overrides the current directionality of text, so that the text within is rendered in a different direction.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo)
         """
@@ -1801,6 +2066,8 @@ class bdo(Tag):
         """
         Overrides the current directionality of text, so that the text within is rendered in a different direction.
 
+        
+
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo)
         """
         properties |= {
@@ -1813,6 +2080,8 @@ class br(SelfClosingTag):
     """
     Produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br)
     """
     def __init__(
@@ -1823,6 +2092,8 @@ class br(SelfClosingTag):
     ) -> None:
         """
         Produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br)
         """
@@ -1840,6 +2111,8 @@ class br(SelfClosingTag):
         """
         Produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.
 
+        
+
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br)
         """
         properties |= {
@@ -1852,6 +2125,8 @@ class cite(Tag):
     """
     Used to mark up the title of a cited creative work. The reference may be in an abbreviated form according to context-appropriate conventions related to citation metadata.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite)
     """
     def __init__(
@@ -1862,6 +2137,8 @@ class cite(Tag):
     ) -> None:
         """
         Used to mark up the title of a cited creative work. The reference may be in an abbreviated form according to context-appropriate conventions related to citation metadata.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite)
         """
@@ -1878,6 +2155,8 @@ class cite(Tag):
     ):
         """
         Used to mark up the title of a cited creative work. The reference may be in an abbreviated form according to context-appropriate conventions related to citation metadata.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite)
         """
@@ -1891,6 +2170,8 @@ class code(Tag):
     """
     Displays its contents styled in a fashion intended to indicate that the text is a short fragment of computer code. By default, the content text is displayed using the user agent's default monospace font.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code)
     """
     def __init__(
@@ -1901,6 +2182,8 @@ class code(Tag):
     ) -> None:
         """
         Displays its contents styled in a fashion intended to indicate that the text is a short fragment of computer code. By default, the content text is displayed using the user agent's default monospace font.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code)
         """
@@ -1917,6 +2200,8 @@ class code(Tag):
     ):
         """
         Displays its contents styled in a fashion intended to indicate that the text is a short fragment of computer code. By default, the content text is displayed using the user agent's default monospace font.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code)
         """
@@ -1930,6 +2215,8 @@ class data(Tag):
     """
     Links a given piece of content with a machine-readable translation. If the content is time- or date-related, the`<time>` element must be used.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data)
     """
     def __init__(
@@ -1940,6 +2227,8 @@ class data(Tag):
     ) -> None:
         """
         Links a given piece of content with a machine-readable translation. If the content is time- or date-related, the`<time>` element must be used.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data)
         """
@@ -1956,6 +2245,8 @@ class data(Tag):
     ):
         """
         Links a given piece of content with a machine-readable translation. If the content is time- or date-related, the`<time>` element must be used.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data)
         """
@@ -1969,6 +2260,8 @@ class dfn(Tag):
     """
     Used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor [`<p>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) element, the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)/[`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) pairing, or the nearest section ancestor of the `<dfn>` element, is considered to be the definition of the term.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn)
     """
     def __init__(
@@ -1979,6 +2272,8 @@ class dfn(Tag):
     ) -> None:
         """
         Used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor [`<p>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) element, the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)/[`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) pairing, or the nearest section ancestor of the `<dfn>` element, is considered to be the definition of the term.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn)
         """
@@ -1996,6 +2291,8 @@ class dfn(Tag):
         """
         Used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor [`<p>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) element, the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)/[`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) pairing, or the nearest section ancestor of the `<dfn>` element, is considered to be the definition of the term.
 
+        
+
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn)
         """
         properties |= {
@@ -2007,6 +2304,8 @@ class dfn(Tag):
 class em(StylableTag):
     """
     Marks text that has stress emphasis. The `<em>` element can be nested, with each nesting level indicating a greater degree of emphasis.
+
+    
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em)
     """
@@ -2021,6 +2320,8 @@ class em(StylableTag):
     ) -> None:
         """
         Marks text that has stress emphasis. The `<em>` element can be nested, with each nesting level indicating a greater degree of emphasis.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em)
         """
@@ -2043,6 +2344,8 @@ class em(StylableTag):
     ):
         """
         Marks text that has stress emphasis. The `<em>` element can be nested, with each nesting level indicating a greater degree of emphasis.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em)
         """
@@ -2059,6 +2362,8 @@ class i(StylableTag):
     """
     Represents a range of text that is set off from the normal text for some reason, such as idiomatic text, technical terms, and taxonomical designations, among others. Historically, these have been presented using italicized type, which is the original source of the `<i>` naming of this element.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i)
     """
     def __init__(
@@ -2072,6 +2377,8 @@ class i(StylableTag):
     ) -> None:
         """
         Represents a range of text that is set off from the normal text for some reason, such as idiomatic text, technical terms, and taxonomical designations, among others. Historically, these have been presented using italicized type, which is the original source of the `<i>` naming of this element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i)
         """
@@ -2094,6 +2401,8 @@ class i(StylableTag):
     ):
         """
         Represents a range of text that is set off from the normal text for some reason, such as idiomatic text, technical terms, and taxonomical designations, among others. Historically, these have been presented using italicized type, which is the original source of the `<i>` naming of this element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i)
         """
@@ -2110,6 +2419,8 @@ class kbd(Tag):
     """
     Represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device. By convention, the user agent defaults to rendering the contents of a `<kbd>` element using its default monospace font, although this is not mandated by the HTML standard.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd)
     """
     def __init__(
@@ -2120,6 +2431,8 @@ class kbd(Tag):
     ) -> None:
         """
         Represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device. By convention, the user agent defaults to rendering the contents of a `<kbd>` element using its default monospace font, although this is not mandated by the HTML standard.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd)
         """
@@ -2136,6 +2449,8 @@ class kbd(Tag):
     ):
         """
         Represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device. By convention, the user agent defaults to rendering the contents of a `<kbd>` element using its default monospace font, although this is not mandated by the HTML standard.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd)
         """
@@ -2149,6 +2464,8 @@ class mark(Tag):
     """
     Represents text which is marked or highlighted for reference or notation purposes due to the marked passage's relevance in the enclosing context.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark)
     """
     def __init__(
@@ -2159,6 +2476,8 @@ class mark(Tag):
     ) -> None:
         """
         Represents text which is marked or highlighted for reference or notation purposes due to the marked passage's relevance in the enclosing context.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark)
         """
@@ -2175,6 +2494,8 @@ class mark(Tag):
     ):
         """
         Represents text which is marked or highlighted for reference or notation purposes due to the marked passage's relevance in the enclosing context.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark)
         """
@@ -2188,6 +2509,8 @@ class q(Tag):
     """
     Indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the [`<blockquote>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote) element.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q)
     """
     def __init__(
@@ -2198,6 +2521,8 @@ class q(Tag):
     ) -> None:
         """
         Indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the [`<blockquote>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q)
         """
@@ -2214,6 +2539,8 @@ class q(Tag):
     ):
         """
         Indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the [`<blockquote>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q)
         """
@@ -2227,6 +2554,8 @@ class rp(Tag):
     """
     Used to provide fall-back parentheses for browsers that do not support the display of ruby annotations using the [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element. One `<rp>` element should enclose each of the opening and closing parentheses that wrap the [`<rt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt) element that contains the annotation's text.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp)
     """
     def __init__(
@@ -2237,6 +2566,8 @@ class rp(Tag):
     ) -> None:
         """
         Used to provide fall-back parentheses for browsers that do not support the display of ruby annotations using the [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element. One `<rp>` element should enclose each of the opening and closing parentheses that wrap the [`<rt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt) element that contains the annotation's text.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp)
         """
@@ -2253,6 +2584,8 @@ class rp(Tag):
     ):
         """
         Used to provide fall-back parentheses for browsers that do not support the display of ruby annotations using the [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element. One `<rp>` element should enclose each of the opening and closing parentheses that wrap the [`<rt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt) element that contains the annotation's text.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp)
         """
@@ -2266,6 +2599,8 @@ class rt(Tag):
     """
     Specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The `<rt>` element must always be contained within a [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt)
     """
     def __init__(
@@ -2276,6 +2611,8 @@ class rt(Tag):
     ) -> None:
         """
         Specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The `<rt>` element must always be contained within a [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt)
         """
@@ -2292,6 +2629,8 @@ class rt(Tag):
     ):
         """
         Specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The `<rt>` element must always be contained within a [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt)
         """
@@ -2305,6 +2644,8 @@ class ruby(Tag):
     """
     Represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby)
     """
     def __init__(
@@ -2315,6 +2656,8 @@ class ruby(Tag):
     ) -> None:
         """
         Represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby)
         """
@@ -2331,6 +2674,8 @@ class ruby(Tag):
     ):
         """
         Represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby)
         """
@@ -2344,6 +2689,8 @@ class s(Tag):
     """
     Renders text with a strikethrough, or a line through it. Use the `<s>` element to represent things that are no longer relevant or no longer accurate. However, `<s>` is not appropriate when indicating document edits; for that, use the del and ins elements, as appropriate.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s)
     """
     def __init__(
@@ -2354,6 +2701,8 @@ class s(Tag):
     ) -> None:
         """
         Renders text with a strikethrough, or a line through it. Use the `<s>` element to represent things that are no longer relevant or no longer accurate. However, `<s>` is not appropriate when indicating document edits; for that, use the del and ins elements, as appropriate.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s)
         """
@@ -2370,6 +2719,8 @@ class s(Tag):
     ):
         """
         Renders text with a strikethrough, or a line through it. Use the `<s>` element to represent things that are no longer relevant or no longer accurate. However, `<s>` is not appropriate when indicating document edits; for that, use the del and ins elements, as appropriate.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s)
         """
@@ -2383,6 +2734,8 @@ class samp(Tag):
     """
     Used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as [Courier](<https://en.wikipedia.org/wiki/Courier_(typeface)>) or Lucida Console).
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp)
     """
     def __init__(
@@ -2393,6 +2746,8 @@ class samp(Tag):
     ) -> None:
         """
         Used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as [Courier](<https://en.wikipedia.org/wiki/Courier_(typeface)>) or Lucida Console).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp)
         """
@@ -2409,6 +2764,8 @@ class samp(Tag):
     ):
         """
         Used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as [Courier](<https://en.wikipedia.org/wiki/Courier_(typeface)>) or Lucida Console).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp)
         """
@@ -2422,6 +2779,8 @@ class small(Tag):
     """
     Represents side-comments and small print, like copyright and legal text, independent of its styled presentation. By default, it renders text within it one font size smaller, such as from `small` to `x-small`.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small)
     """
     def __init__(
@@ -2432,6 +2791,8 @@ class small(Tag):
     ) -> None:
         """
         Represents side-comments and small print, like copyright and legal text, independent of its styled presentation. By default, it renders text within it one font size smaller, such as from `small` to `x-small`.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small)
         """
@@ -2448,6 +2809,8 @@ class small(Tag):
     ):
         """
         Represents side-comments and small print, like copyright and legal text, independent of its styled presentation. By default, it renders text within it one font size smaller, such as from `small` to `x-small`.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small)
         """
@@ -2461,6 +2824,8 @@ class span(Tag):
     """
     A generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the `class` or `id` attributes), or because they share attribute values, such as `lang`. It should be used only when no other semantic element is appropriate. `<span>` is very much like a div element, but div is a [block-level element](/en-US/docs/Glossary/Block-level_content) whereas a `<span>` is an [inline-level element](/en-US/docs/Glossary/Inline-level_content).
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span)
     """
     def __init__(
@@ -2471,6 +2836,8 @@ class span(Tag):
     ) -> None:
         """
         A generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the `class` or `id` attributes), or because they share attribute values, such as `lang`. It should be used only when no other semantic element is appropriate. `<span>` is very much like a div element, but div is a [block-level element](/en-US/docs/Glossary/Block-level_content) whereas a `<span>` is an [inline-level element](/en-US/docs/Glossary/Inline-level_content).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span)
         """
@@ -2488,6 +2855,8 @@ class span(Tag):
         """
         A generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the `class` or `id` attributes), or because they share attribute values, such as `lang`. It should be used only when no other semantic element is appropriate. `<span>` is very much like a div element, but div is a [block-level element](/en-US/docs/Glossary/Block-level_content) whereas a `<span>` is an [inline-level element](/en-US/docs/Glossary/Inline-level_content).
 
+        
+
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span)
         """
         properties |= {
@@ -2499,6 +2868,8 @@ class span(Tag):
 class strong(StylableTag):
     """
     Indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type.
+
+    
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong)
     """
@@ -2513,6 +2884,8 @@ class strong(StylableTag):
     ) -> None:
         """
         Indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong)
         """
@@ -2535,6 +2908,8 @@ class strong(StylableTag):
     ):
         """
         Indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong)
         """
@@ -2551,6 +2926,8 @@ class sub(Tag):
     """
     Specifies inline text which should be displayed as subscript for solely typographical reasons. Subscripts are typically rendered with a lowered baseline using smaller text.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub)
     """
     def __init__(
@@ -2561,6 +2938,8 @@ class sub(Tag):
     ) -> None:
         """
         Specifies inline text which should be displayed as subscript for solely typographical reasons. Subscripts are typically rendered with a lowered baseline using smaller text.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub)
         """
@@ -2577,6 +2956,8 @@ class sub(Tag):
     ):
         """
         Specifies inline text which should be displayed as subscript for solely typographical reasons. Subscripts are typically rendered with a lowered baseline using smaller text.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub)
         """
@@ -2590,6 +2971,8 @@ class sup(Tag):
     """
     Specifies inline text which is to be displayed as superscript for solely typographical reasons. Superscripts are usually rendered with a raised baseline using smaller text.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup)
     """
     def __init__(
@@ -2600,6 +2983,8 @@ class sup(Tag):
     ) -> None:
         """
         Specifies inline text which is to be displayed as superscript for solely typographical reasons. Superscripts are usually rendered with a raised baseline using smaller text.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup)
         """
@@ -2616,6 +3001,8 @@ class sup(Tag):
     ):
         """
         Specifies inline text which is to be displayed as superscript for solely typographical reasons. Superscripts are usually rendered with a raised baseline using smaller text.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup)
         """
@@ -2629,6 +3016,8 @@ class time(Tag):
     """
     Represents a specific period in time. It may include the `datetime` attribute to translate dates into machine-readable format, allowing for better search engine results or custom features such as reminders.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)
     """
     def __init__(
@@ -2639,6 +3028,8 @@ class time(Tag):
     ) -> None:
         """
         Represents a specific period in time. It may include the `datetime` attribute to translate dates into machine-readable format, allowing for better search engine results or custom features such as reminders.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)
         """
@@ -2655,6 +3046,8 @@ class time(Tag):
     ):
         """
         Represents a specific period in time. It may include the `datetime` attribute to translate dates into machine-readable format, allowing for better search engine results or custom features such as reminders.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)
         """
@@ -2668,6 +3061,8 @@ class u(Tag):
     """
     Represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a simple solid underline but may be altered using CSS.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u)
     """
     def __init__(
@@ -2678,6 +3073,8 @@ class u(Tag):
     ) -> None:
         """
         Represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a simple solid underline but may be altered using CSS.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u)
         """
@@ -2694,6 +3091,8 @@ class u(Tag):
     ):
         """
         Represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a simple solid underline but may be altered using CSS.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u)
         """
@@ -2707,6 +3106,8 @@ class var(Tag):
     """
     Represents the name of a variable in a mathematical expression or a programming context. It's typically presented using an italicized version of the current typeface, although that behavior is browser-dependent.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var)
     """
     def __init__(
@@ -2717,6 +3118,8 @@ class var(Tag):
     ) -> None:
         """
         Represents the name of a variable in a mathematical expression or a programming context. It's typically presented using an italicized version of the current typeface, although that behavior is browser-dependent.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var)
         """
@@ -2733,6 +3136,8 @@ class var(Tag):
     ):
         """
         Represents the name of a variable in a mathematical expression or a programming context. It's typically presented using an italicized version of the current typeface, although that behavior is browser-dependent.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var)
         """
@@ -2746,6 +3151,8 @@ class wbr(Tag):
     """
     Represents a word break opportunity—a position within text where the browser may optionally break a line, though its line-breaking rules would not otherwise create a break at that location.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr)
     """
     def __init__(
@@ -2756,6 +3163,8 @@ class wbr(Tag):
     ) -> None:
         """
         Represents a word break opportunity—a position within text where the browser may optionally break a line, though its line-breaking rules would not otherwise create a break at that location.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr)
         """
@@ -2772,6 +3181,8 @@ class wbr(Tag):
     ):
         """
         Represents a word break opportunity—a position within text where the browser may optionally break a line, though its line-breaking rules would not otherwise create a break at that location.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr)
         """
@@ -2785,6 +3196,8 @@ class area(Tag):
     """
     Defines an area inside an image map that has predefined clickable areas. An _image map_ allows geometric areas on an image to be associated with [ hyperlink](https://developer.mozilla.org/en-US/docs/Glossary/Hyperlink).
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area)
     """
     def __init__(
@@ -2795,6 +3208,8 @@ class area(Tag):
     ) -> None:
         """
         Defines an area inside an image map that has predefined clickable areas. An _image map_ allows geometric areas on an image to be associated with [ hyperlink](https://developer.mozilla.org/en-US/docs/Glossary/Hyperlink).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area)
         """
@@ -2811,6 +3226,8 @@ class area(Tag):
     ):
         """
         Defines an area inside an image map that has predefined clickable areas. An _image map_ allows geometric areas on an image to be associated with [ hyperlink](https://developer.mozilla.org/en-US/docs/Glossary/Hyperlink).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area)
         """
@@ -2824,6 +3241,8 @@ class audio(Tag):
     """
     Used to embed sound content in documents. It may contain one or more audio sources, represented using the `src` attribute or the source element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a [MediaStream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream).
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
     """
     def __init__(
@@ -2834,6 +3253,8 @@ class audio(Tag):
     ) -> None:
         """
         Used to embed sound content in documents. It may contain one or more audio sources, represented using the `src` attribute or the source element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a [MediaStream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
         """
@@ -2851,6 +3272,8 @@ class audio(Tag):
         """
         Used to embed sound content in documents. It may contain one or more audio sources, represented using the `src` attribute or the source element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a [MediaStream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream).
 
+        
+
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
         """
         properties |= {
@@ -2863,6 +3286,9 @@ class img(Tag):
     """
     Embeds an image into the document.
 
+    * src: Source of the image
+    * alt: Alt text of the image
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
     """
     def __init__(
@@ -2874,6 +3300,9 @@ class img(Tag):
     ) -> None:
         """
         Embeds an image into the document.
+
+        * src: Source of the image
+        * alt: Alt text of the image
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
         """
@@ -2892,6 +3321,9 @@ class img(Tag):
     ):
         """
         Embeds an image into the document.
+
+        * src: Source of the image
+        * alt: Alt text of the image
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
         """
@@ -2906,6 +3338,8 @@ class map(Tag):
     """
     Used with [`<area>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area) elements to define an image map (a clickable link area).
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map)
     """
     def __init__(
@@ -2916,6 +3350,8 @@ class map(Tag):
     ) -> None:
         """
         Used with [`<area>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area) elements to define an image map (a clickable link area).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map)
         """
@@ -2932,6 +3368,8 @@ class map(Tag):
     ):
         """
         Used with [`<area>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area) elements to define an image map (a clickable link area).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map)
         """
@@ -2945,6 +3383,8 @@ class track(Tag):
     """
     Used as a child of the media elements, audio and video. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in [WebVTT format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) (`.vtt` files)—Web Video Text Tracks.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track)
     """
     def __init__(
@@ -2955,6 +3395,8 @@ class track(Tag):
     ) -> None:
         """
         Used as a child of the media elements, audio and video. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in [WebVTT format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) (`.vtt` files)—Web Video Text Tracks.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track)
         """
@@ -2971,6 +3413,8 @@ class track(Tag):
     ):
         """
         Used as a child of the media elements, audio and video. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in [WebVTT format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) (`.vtt` files)—Web Video Text Tracks.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track)
         """
@@ -2984,6 +3428,8 @@ class video(Tag):
     """
     Embeds a media player which supports video playback into the document. You can also use `<video>` for audio content, but the audio element may provide a more appropriate user experience.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video)
     """
     def __init__(
@@ -2994,6 +3440,8 @@ class video(Tag):
     ) -> None:
         """
         Embeds a media player which supports video playback into the document. You can also use `<video>` for audio content, but the audio element may provide a more appropriate user experience.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video)
         """
@@ -3010,6 +3458,8 @@ class video(Tag):
     ):
         """
         Embeds a media player which supports video playback into the document. You can also use `<video>` for audio content, but the audio element may provide a more appropriate user experience.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video)
         """
@@ -3023,6 +3473,8 @@ class embed(Tag):
     """
     Embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed)
     """
     def __init__(
@@ -3033,6 +3485,8 @@ class embed(Tag):
     ) -> None:
         """
         Embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed)
         """
@@ -3049,6 +3503,8 @@ class embed(Tag):
     ):
         """
         Embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed)
         """
@@ -3062,6 +3518,8 @@ class iframe(Tag):
     """
     Represents a nested browsing context, embedding another HTML page into the current one.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
     """
     def __init__(
@@ -3072,6 +3530,8 @@ class iframe(Tag):
     ) -> None:
         """
         Represents a nested browsing context, embedding another HTML page into the current one.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
         """
@@ -3088,6 +3548,8 @@ class iframe(Tag):
     ):
         """
         Represents a nested browsing context, embedding another HTML page into the current one.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
         """
@@ -3101,6 +3563,8 @@ class object(Tag):
     """
     Represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object)
     """
     def __init__(
@@ -3111,6 +3575,8 @@ class object(Tag):
     ) -> None:
         """
         Represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object)
         """
@@ -3127,6 +3593,8 @@ class object(Tag):
     ):
         """
         Represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object)
         """
@@ -3140,6 +3608,8 @@ class picture(Tag):
     """
     Contains zero or more [`<source>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source) elements and one [`<img>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) element to offer alternative versions of an image for different display/device scenarios.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture)
     """
     def __init__(
@@ -3150,6 +3620,8 @@ class picture(Tag):
     ) -> None:
         """
         Contains zero or more [`<source>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source) elements and one [`<img>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) element to offer alternative versions of an image for different display/device scenarios.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture)
         """
@@ -3166,6 +3638,8 @@ class picture(Tag):
     ):
         """
         Contains zero or more [`<source>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source) elements and one [`<img>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) element to offer alternative versions of an image for different display/device scenarios.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture)
         """
@@ -3179,6 +3653,8 @@ class portal(Tag):
     """
     Enables the embedding of another HTML page into the current one to enable smoother navigation into new pages.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/portal)
     """
     def __init__(
@@ -3189,6 +3665,8 @@ class portal(Tag):
     ) -> None:
         """
         Enables the embedding of another HTML page into the current one to enable smoother navigation into new pages.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/portal)
         """
@@ -3205,6 +3683,8 @@ class portal(Tag):
     ):
         """
         Enables the embedding of another HTML page into the current one to enable smoother navigation into new pages.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/portal)
         """
@@ -3218,6 +3698,8 @@ class source(Tag):
     """
     Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats).
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source)
     """
     def __init__(
@@ -3228,6 +3710,8 @@ class source(Tag):
     ) -> None:
         """
         Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source)
         """
@@ -3244,6 +3728,8 @@ class source(Tag):
     ):
         """
         Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source)
         """
@@ -3257,6 +3743,8 @@ class canvas(Tag):
     """
     Container element to use with either the [canvas scripting API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) or the [WebGL API](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) to draw graphics and animations.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas)
     """
     def __init__(
@@ -3267,6 +3755,8 @@ class canvas(Tag):
     ) -> None:
         """
         Container element to use with either the [canvas scripting API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) or the [WebGL API](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) to draw graphics and animations.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas)
         """
@@ -3283,6 +3773,8 @@ class canvas(Tag):
     ):
         """
         Container element to use with either the [canvas scripting API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) or the [WebGL API](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) to draw graphics and animations.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas)
         """
@@ -3296,6 +3788,8 @@ class noscript(Tag):
     """
     Defines a section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript)
     """
     def __init__(
@@ -3306,6 +3800,8 @@ class noscript(Tag):
     ) -> None:
         """
         Defines a section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript)
         """
@@ -3322,6 +3818,8 @@ class noscript(Tag):
     ):
         """
         Defines a section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript)
         """
@@ -3335,6 +3833,8 @@ class script(Tag):
     """
     Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
 
+    * type: Type of script to use
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
     """
     def __init__(
@@ -3345,6 +3845,8 @@ class script(Tag):
     ) -> None:
         """
         Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
+
+        * type: Type of script to use
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
@@ -3361,6 +3863,8 @@ class script(Tag):
     ):
         """
         Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
+
+        * type: Type of script to use
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
@@ -3374,6 +3878,8 @@ class del_(Tag):
     """
     Represents a range of text that has been deleted from a document. This can be used when rendering "track changes" or source code diff information, for example. The `<ins>` element can be used for the opposite purpose: to indicate text that has been added to the document.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del)
     """
     def __init__(
@@ -3384,6 +3890,8 @@ class del_(Tag):
     ) -> None:
         """
         Represents a range of text that has been deleted from a document. This can be used when rendering "track changes" or source code diff information, for example. The `<ins>` element can be used for the opposite purpose: to indicate text that has been added to the document.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del)
         """
@@ -3400,6 +3908,8 @@ class del_(Tag):
     ):
         """
         Represents a range of text that has been deleted from a document. This can be used when rendering "track changes" or source code diff information, for example. The `<ins>` element can be used for the opposite purpose: to indicate text that has been added to the document.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del)
         """
@@ -3413,6 +3923,8 @@ class ins(Tag):
     """
     Represents a range of text that has been added to a document. You can use the `<del>` element to similarly represent a range of text that has been deleted from the document.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins)
     """
     def __init__(
@@ -3423,6 +3935,8 @@ class ins(Tag):
     ) -> None:
         """
         Represents a range of text that has been added to a document. You can use the `<del>` element to similarly represent a range of text that has been deleted from the document.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins)
         """
@@ -3439,6 +3953,8 @@ class ins(Tag):
     ):
         """
         Represents a range of text that has been added to a document. You can use the `<del>` element to similarly represent a range of text that has been deleted from the document.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins)
         """
@@ -3452,6 +3968,8 @@ class caption(Tag):
     """
     Specifies the caption (or title) of a table.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption)
     """
     def __init__(
@@ -3462,6 +3980,8 @@ class caption(Tag):
     ) -> None:
         """
         Specifies the caption (or title) of a table.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption)
         """
@@ -3478,6 +3998,8 @@ class caption(Tag):
     ):
         """
         Specifies the caption (or title) of a table.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption)
         """
@@ -3491,6 +4013,8 @@ class col(Tag):
     """
     Defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup) element.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col)
     """
     def __init__(
@@ -3501,6 +4025,8 @@ class col(Tag):
     ) -> None:
         """
         Defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col)
         """
@@ -3517,6 +4043,8 @@ class col(Tag):
     ):
         """
         Defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col)
         """
@@ -3530,6 +4058,8 @@ class colgroup(Tag):
     """
     Defines a group of columns within a table.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup)
     """
     def __init__(
@@ -3540,6 +4070,8 @@ class colgroup(Tag):
     ) -> None:
         """
         Defines a group of columns within a table.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup)
         """
@@ -3556,6 +4088,8 @@ class colgroup(Tag):
     ):
         """
         Defines a group of columns within a table.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup)
         """
@@ -3569,6 +4103,8 @@ class table(Tag):
     """
     Represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)
     """
     def __init__(
@@ -3579,6 +4115,8 @@ class table(Tag):
     ) -> None:
         """
         Represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)
         """
@@ -3595,6 +4133,8 @@ class table(Tag):
     ):
         """
         Represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)
         """
@@ -3608,6 +4148,8 @@ class tbody(Tag):
     """
     Encapsulates a set of table rows ([`<tr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr) elements), indicating that they comprise the body of the table ([`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)).
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody)
     """
     def __init__(
@@ -3618,6 +4160,8 @@ class tbody(Tag):
     ) -> None:
         """
         Encapsulates a set of table rows ([`<tr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr) elements), indicating that they comprise the body of the table ([`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody)
         """
@@ -3634,6 +4178,8 @@ class tbody(Tag):
     ):
         """
         Encapsulates a set of table rows ([`<tr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr) elements), indicating that they comprise the body of the table ([`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody)
         """
@@ -3647,6 +4193,8 @@ class td(Tag):
     """
     Defines a cell of a table that contains data. It participates in the _table model_.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td)
     """
     def __init__(
@@ -3657,6 +4205,8 @@ class td(Tag):
     ) -> None:
         """
         Defines a cell of a table that contains data. It participates in the _table model_.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td)
         """
@@ -3673,6 +4223,8 @@ class td(Tag):
     ):
         """
         Defines a cell of a table that contains data. It participates in the _table model_.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td)
         """
@@ -3686,6 +4238,8 @@ class tfoot(Tag):
     """
     Defines a set of rows summarizing the columns of the table.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot)
     """
     def __init__(
@@ -3696,6 +4250,8 @@ class tfoot(Tag):
     ) -> None:
         """
         Defines a set of rows summarizing the columns of the table.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot)
         """
@@ -3712,6 +4268,8 @@ class tfoot(Tag):
     ):
         """
         Defines a set of rows summarizing the columns of the table.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot)
         """
@@ -3725,6 +4283,8 @@ class th(Tag):
     """
     Defines a cell as a header of a group of table cells. The exact nature of this group is defined by the `scope` and `headers` attributes.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th)
     """
     def __init__(
@@ -3735,6 +4295,8 @@ class th(Tag):
     ) -> None:
         """
         Defines a cell as a header of a group of table cells. The exact nature of this group is defined by the `scope` and `headers` attributes.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th)
         """
@@ -3751,6 +4313,8 @@ class th(Tag):
     ):
         """
         Defines a cell as a header of a group of table cells. The exact nature of this group is defined by the `scope` and `headers` attributes.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th)
         """
@@ -3764,6 +4328,8 @@ class thead(Tag):
     """
     Defines a set of rows defining the head of the columns of the table.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead)
     """
     def __init__(
@@ -3774,6 +4340,8 @@ class thead(Tag):
     ) -> None:
         """
         Defines a set of rows defining the head of the columns of the table.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead)
         """
@@ -3790,6 +4358,8 @@ class thead(Tag):
     ):
         """
         Defines a set of rows defining the head of the columns of the table.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead)
         """
@@ -3803,6 +4373,8 @@ class tr(Tag):
     """
     Defines a row of cells in a table. The row's cells can then be established using a mix of [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) (data cell) and [`<th>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) (header cell) elements.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr)
     """
     def __init__(
@@ -3813,6 +4385,8 @@ class tr(Tag):
     ) -> None:
         """
         Defines a row of cells in a table. The row's cells can then be established using a mix of [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) (data cell) and [`<th>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) (header cell) elements.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr)
         """
@@ -3829,6 +4403,8 @@ class tr(Tag):
     ):
         """
         Defines a row of cells in a table. The row's cells can then be established using a mix of [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) (data cell) and [`<th>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) (header cell) elements.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr)
         """
@@ -3842,6 +4418,8 @@ class button(Tag):
     """
     An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a [form](/en-US/docs/Learn/Forms) or opening a dialog.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
     """
     def __init__(
@@ -3852,6 +4430,8 @@ class button(Tag):
     ) -> None:
         """
         An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a [form](/en-US/docs/Learn/Forms) or opening a dialog.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
         """
@@ -3868,6 +4448,8 @@ class button(Tag):
     ):
         """
         An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a [form](/en-US/docs/Learn/Forms) or opening a dialog.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
         """
@@ -3881,6 +4463,8 @@ class datalist(Tag):
     """
     Contains a set of [`<option>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) elements that represent the permissible or recommended options available to choose from within other controls.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
     """
     def __init__(
@@ -3891,6 +4475,8 @@ class datalist(Tag):
     ) -> None:
         """
         Contains a set of [`<option>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) elements that represent the permissible or recommended options available to choose from within other controls.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
         """
@@ -3907,6 +4493,8 @@ class datalist(Tag):
     ):
         """
         Contains a set of [`<option>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) elements that represent the permissible or recommended options available to choose from within other controls.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
         """
@@ -3920,6 +4508,8 @@ class fieldset(Tag):
     """
     Used to group several controls as well as labels ([`<label>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)) within a web form.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)
     """
     def __init__(
@@ -3930,6 +4520,8 @@ class fieldset(Tag):
     ) -> None:
         """
         Used to group several controls as well as labels ([`<label>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)) within a web form.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)
         """
@@ -3946,6 +4538,8 @@ class fieldset(Tag):
     ):
         """
         Used to group several controls as well as labels ([`<label>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)) within a web form.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)
         """
@@ -3959,6 +4553,8 @@ class form(Tag):
     """
     Represents a document section containing interactive controls for submitting information.
 
+    * method: HTTP request method to use
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
     """
     def __init__(
@@ -3969,6 +4565,8 @@ class form(Tag):
     ) -> None:
         """
         Represents a document section containing interactive controls for submitting information.
+
+        * method: HTTP request method to use
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
         """
@@ -3986,6 +4584,8 @@ class form(Tag):
         """
         Represents a document section containing interactive controls for submitting information.
 
+        * method: HTTP request method to use
+
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
         """
         properties |= {
@@ -3997,6 +4597,12 @@ class form(Tag):
 class input(SelfClosingTag):
     """
     Used to create interactive controls for web-based forms to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent. The `<input>` element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
+
+    * type: Kind of input control to use (checkbox, radio, date, password, text, etc)
+    * name: Name of the field. Submitted with the form as part of a name/value pair
+    * value: Initial value of the control
+    * readonly: Include if field is read-only
+    * required: Include if field is required
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
     """
@@ -4012,6 +4618,12 @@ class input(SelfClosingTag):
     ) -> None:
         """
         Used to create interactive controls for web-based forms to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent. The `<input>` element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
+
+        * type: Kind of input control to use (checkbox, radio, date, password, text, etc)
+        * name: Name of the field. Submitted with the form as part of a name/value pair
+        * value: Initial value of the control
+        * readonly: Include if field is read-only
+        * required: Include if field is required
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
         """
@@ -4036,6 +4648,12 @@ class input(SelfClosingTag):
     ):
         """
         Used to create interactive controls for web-based forms to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent. The `<input>` element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
+
+        * type: Kind of input control to use (checkbox, radio, date, password, text, etc)
+        * name: Name of the field. Submitted with the form as part of a name/value pair
+        * value: Initial value of the control
+        * readonly: Include if field is read-only
+        * required: Include if field is required
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
         """
@@ -4053,6 +4671,8 @@ class label(Tag):
     """
     Represents a caption for an item in a user interface.
 
+    * for_: ID of input field to associate this label with
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
     """
     def __init__(
@@ -4063,6 +4683,8 @@ class label(Tag):
     ) -> None:
         """
         Represents a caption for an item in a user interface.
+
+        * for_: ID of input field to associate this label with
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
         """
@@ -4079,6 +4701,8 @@ class label(Tag):
     ):
         """
         Represents a caption for an item in a user interface.
+
+        * for_: ID of input field to associate this label with
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
         """
@@ -4092,6 +4716,8 @@ class legend(Tag):
     """
     Represents a caption for the content of its parent [`<fieldset>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset).
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend)
     """
     def __init__(
@@ -4102,6 +4728,8 @@ class legend(Tag):
     ) -> None:
         """
         Represents a caption for the content of its parent [`<fieldset>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend)
         """
@@ -4118,6 +4746,8 @@ class legend(Tag):
     ):
         """
         Represents a caption for the content of its parent [`<fieldset>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset).
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend)
         """
@@ -4131,6 +4761,8 @@ class meter(Tag):
     """
     Represents either a scalar value within a known range or a fractional value.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter)
     """
     def __init__(
@@ -4141,6 +4773,8 @@ class meter(Tag):
     ) -> None:
         """
         Represents either a scalar value within a known range or a fractional value.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter)
         """
@@ -4157,6 +4791,8 @@ class meter(Tag):
     ):
         """
         Represents either a scalar value within a known range or a fractional value.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter)
         """
@@ -4170,6 +4806,8 @@ class optgroup(Tag):
     """
     Creates a grouping of options within a [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup)
     """
     def __init__(
@@ -4180,6 +4818,8 @@ class optgroup(Tag):
     ) -> None:
         """
         Creates a grouping of options within a [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup)
         """
@@ -4196,6 +4836,8 @@ class optgroup(Tag):
     ):
         """
         Creates a grouping of options within a [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup)
         """
@@ -4209,6 +4851,8 @@ class option(Tag):
     """
     Used to define an item contained in a select, an [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup), or a [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist) element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)
     """
     def __init__(
@@ -4219,6 +4863,8 @@ class option(Tag):
     ) -> None:
         """
         Used to define an item contained in a select, an [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup), or a [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist) element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)
         """
@@ -4235,6 +4881,8 @@ class option(Tag):
     ):
         """
         Used to define an item contained in a select, an [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup), or a [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist) element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)
         """
@@ -4248,6 +4896,8 @@ class output(Tag):
     """
     Container element into which a site or app can inject the results of a calculation or the outcome of a user action.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output)
     """
     def __init__(
@@ -4258,6 +4908,8 @@ class output(Tag):
     ) -> None:
         """
         Container element into which a site or app can inject the results of a calculation or the outcome of a user action.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output)
         """
@@ -4274,6 +4926,8 @@ class output(Tag):
     ):
         """
         Container element into which a site or app can inject the results of a calculation or the outcome of a user action.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output)
         """
@@ -4287,6 +4941,8 @@ class progress(Tag):
     """
     Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress)
     """
     def __init__(
@@ -4297,6 +4953,8 @@ class progress(Tag):
     ) -> None:
         """
         Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress)
         """
@@ -4313,6 +4971,8 @@ class progress(Tag):
     ):
         """
         Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress)
         """
@@ -4326,6 +4986,8 @@ class select(Tag):
     """
     Represents a control that provides a menu of options.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
     """
     def __init__(
@@ -4336,6 +4998,8 @@ class select(Tag):
     ) -> None:
         """
         Represents a control that provides a menu of options.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
         """
@@ -4352,6 +5016,8 @@ class select(Tag):
     ):
         """
         Represents a control that provides a menu of options.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
         """
@@ -4365,6 +5031,8 @@ class textarea(Tag):
     """
     Represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example, a comment on a review or feedback form.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
     """
     def __init__(
@@ -4375,6 +5043,8 @@ class textarea(Tag):
     ) -> None:
         """
         Represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example, a comment on a review or feedback form.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
         """
@@ -4391,6 +5061,8 @@ class textarea(Tag):
     ):
         """
         Represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example, a comment on a review or feedback form.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
         """
@@ -4404,6 +5076,8 @@ class details(Tag):
     """
     Creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the [`<summary>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary) element.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
     """
     def __init__(
@@ -4414,6 +5088,8 @@ class details(Tag):
     ) -> None:
         """
         Creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the [`<summary>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
         """
@@ -4430,6 +5106,8 @@ class details(Tag):
     ):
         """
         Creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the [`<summary>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary) element.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
         """
@@ -4443,6 +5121,8 @@ class dialog(Tag):
     """
     Represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
     """
     def __init__(
@@ -4453,6 +5133,8 @@ class dialog(Tag):
     ) -> None:
         """
         Represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
         """
@@ -4469,6 +5151,8 @@ class dialog(Tag):
     ):
         """
         Represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
         """
@@ -4482,6 +5166,8 @@ class summary(Tag):
     """
     Specifies a summary, caption, or legend for a details element's disclosure box. Clicking the `<summary>` element toggles the state of the parent [`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) element open and closed.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)
     """
     def __init__(
@@ -4492,6 +5178,8 @@ class summary(Tag):
     ) -> None:
         """
         Specifies a summary, caption, or legend for a details element's disclosure box. Clicking the `<summary>` element toggles the state of the parent [`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) element open and closed.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)
         """
@@ -4508,6 +5196,8 @@ class summary(Tag):
     ):
         """
         Specifies a summary, caption, or legend for a details element's disclosure box. Clicking the `<summary>` element toggles the state of the parent [`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) element open and closed.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)
         """
@@ -4521,6 +5211,8 @@ class slot(Tag):
     """
     Part of the [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) technology suite, this element is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot)
     """
     def __init__(
@@ -4531,6 +5223,8 @@ class slot(Tag):
     ) -> None:
         """
         Part of the [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) technology suite, this element is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot)
         """
@@ -4548,6 +5242,8 @@ class slot(Tag):
         """
         Part of the [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) technology suite, this element is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
 
+        
+
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot)
         """
         properties |= {
@@ -4560,6 +5256,8 @@ class template(Tag):
     """
     A mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
 
+    
+
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
     """
     def __init__(
@@ -4570,6 +5268,8 @@ class template(Tag):
     ) -> None:
         """
         A mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
         """
@@ -4586,6 +5286,8 @@ class template(Tag):
     ):
         """
         A mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
+
+        
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
         """
