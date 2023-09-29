@@ -53,7 +53,7 @@ def test_renders_properties():
 def test_comment_renders():
     assert str(Comment("Hello world")) == '\n'.join([
         '<!--',
-        'Hello world',
+        '  Hello world',
         '-->',
     ])
 
@@ -115,3 +115,10 @@ def test_larger_page():
         '  </body>',
         '</html>',
     ])
+
+
+def test_format_through_repr():
+    """Is HTML rendered through repr?"""
+    doc = html()
+
+    assert repr(doc) == "<html></html>"

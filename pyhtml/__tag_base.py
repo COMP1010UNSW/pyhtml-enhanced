@@ -111,7 +111,11 @@ class Comment(Tag):
 
         return [
             '<!--',
-            *util.escape_string(self.comment_data).splitlines(),
+            *util.increase_indent(
+                util.escape_string(self.comment_data).splitlines(),
+                # FIXME: Yucky magic number
+                2,
+            ),
             '-->'
         ]
 
