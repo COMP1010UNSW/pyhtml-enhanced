@@ -18,7 +18,7 @@ class Tag:
         """
         Create a new tag instance
         """
-        self.children = list(children)
+        self.children = util.flatten_list(list(children))
         """Children of this tag"""
 
         self.properties = util.filter_properties(properties)
@@ -34,7 +34,7 @@ class Tag:
         properties are based on this original tag, but with additional children
         appended and additional properties unioned.
         """
-        new_children = self.children + list(children)
+        new_children = self.children + util.flatten_list(list(children))
         new_properties = self.properties | properties
 
         return self.__class__(*new_children, **new_properties)

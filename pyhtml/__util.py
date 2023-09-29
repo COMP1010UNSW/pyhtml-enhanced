@@ -3,7 +3,10 @@
 
 Random helpful functions used elsewhere
 """
-from typing import Any
+from typing import Any, TypeVar
+
+
+T = TypeVar('T')
 
 
 def increase_indent(text: list[str], amount: int) -> list[str]:
@@ -111,3 +114,18 @@ def render_children(children: list[Any], sep: str = ' ') -> list[str]:
     for ele in children:
         rendered.extend(render_inline_element(ele))
     return increase_indent(rendered, 2)
+
+
+def flatten_list(the_list: list[T | list[T]]) -> list[T]:
+    """
+    Flatten a list by taking any list elements and inserting their items
+    individually. Note that other iterables (such as str and tuple) are not
+    flattened.
+    """
+    result: list[T] = []
+    for item in the_list:
+        if isinstance(item, list):
+            result.extend(item)
+        else:
+            result.append(item)
+    return result

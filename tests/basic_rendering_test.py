@@ -122,3 +122,22 @@ def test_format_through_repr():
     doc = html()
 
     assert repr(doc) == "<html></html>"
+
+
+def test_flatten_element_lists():
+    """
+    If a list of elements is given as a child element, each element should be
+    considered as a child.
+    """
+    doc = html([p("Hello"), p("world")])
+
+    assert repr(doc) == "\n".join([
+        "<html>",
+        "  <p>",
+        "    Hello",
+        "  </p>",
+        "  <p>",
+        "    world",
+        "  </p>",
+        "</html>",
+    ])
