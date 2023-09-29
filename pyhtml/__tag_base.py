@@ -107,7 +107,9 @@ class Comment(Tag):
         raise TypeError('Comment tags are not callable')
 
     def _get_tag_name(self) -> str:
-        return '!--'
+        # Ignore coverage since this is only implemented to satisfy inheritance
+        # and is never used since we override _render
+        return '!--'  # pragma: no cover
 
     def _render(self) -> list[str]:
         """

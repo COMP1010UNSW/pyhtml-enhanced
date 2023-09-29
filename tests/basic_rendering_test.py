@@ -3,6 +3,7 @@
 
 Basic tests for rendering HTML
 """
+import pytest
 from pyhtml import (
     html,
     head,
@@ -68,6 +69,12 @@ def test_comment_renders():
         '  Hello world',
         '-->',
     ])
+
+
+def test_comments_not_callable():
+    """Comments cannot be called"""
+    with pytest.raises(TypeError):
+        Comment("Hello world")()
 
 
 def test_call_adds_props():
