@@ -5,7 +5,7 @@ inspired by, and similar to
 [the original PyHTML library](https://github.com/cenkalti/pyhtml), but with
 improved documentation and type safety.
 
-## Benefits over PyHTML
+## Features
 
 * Inline documentation and type safety for all tags. Documentation for tags
   is pulled from MDN Web Docs.
@@ -13,6 +13,8 @@ improved documentation and type safety.
 * A modern and readable codebase.
 
 * No dependencies.
+
+* 100% test coverage
 
 ## Usage
 
