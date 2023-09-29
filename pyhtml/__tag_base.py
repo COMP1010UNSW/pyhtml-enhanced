@@ -78,6 +78,9 @@ class Tag:
     def __str__(self) -> str:
         return self.render()
 
+    def __repr__(self) -> str:
+        return self.render()
+
 
 class Comment(Tag):
     """
