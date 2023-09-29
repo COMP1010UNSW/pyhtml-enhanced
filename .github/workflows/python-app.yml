@@ -26,9 +26,19 @@ jobs:
     - name: Test with pytest
       run: |
         poetry run coverage run -m pytest
-    - name: Generate code coverage report
+    - name: Print coverage output
       run: |
         poetry run coverage report
+    - name: Generate code coverage report
+      if: ${{ github.event_name == 'pull_request' }}
+      run: |
+        poetry run coverage xml
+    - name: Create code coverage comment
+      if: ${{ github.event_name == 'pull_request' }}
+      uses: orgoro/coverage@v3
+      with:
+          coverageFile: coverage.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   Flake8:
     runs-on: ubuntu-latest
