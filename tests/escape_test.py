@@ -36,12 +36,12 @@ def test_escapes_children(string, replacement):
     ('string', 'replacement'),
     replacements
 )
-def test_escapes_property_values(string, replacement):
+def test_escapes_attribute_values(string, replacement):
     assert str(html(value=f"hello{string}world")) \
         == f'<html value="hello{replacement}world"></html>'
 
 
-def test_property_names_escapes_dashes():
+def test_attribute_names_escapes_dashes():
     """
     Since dashes can't be given as kwarg names, we need to use underscores
     instead. Are they replaced correctly
@@ -53,7 +53,7 @@ def test_property_names_escapes_dashes():
     'keyword',
     keyword.kwlist,
 )
-def test_property_names_escapes_python_keywords_prefix(keyword):
+def test_attribute_names_escapes_python_keywords_prefix(keyword):
     """
     Since Python keywords cannot be given as kwarg names, we need to use
     escaped versions (eg _for => for)
@@ -66,7 +66,7 @@ def test_property_names_escapes_python_keywords_prefix(keyword):
     'keyword',
     keyword.kwlist,
 )
-def test_property_names_escapes_python_keywords_suffix(keyword):
+def test_attribute_names_escapes_python_keywords_suffix(keyword):
     """
     Since Python keywords cannot be given as kwarg names, we need to use
     escaped versions (eg for_ => for)

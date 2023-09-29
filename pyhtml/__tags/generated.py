@@ -24,7 +24,7 @@ class html(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents the root (top-level element) of an HTML document, so it is also referred to as the _root element_. All other elements must be descendants of this element.
@@ -33,16 +33,16 @@ class html(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents the root (top-level element) of an HTML document, so it is also referred to as the _root element_. All other elements must be descendants of this element.
@@ -51,10 +51,10 @@ class html(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class base(SelfClosingTag):
@@ -71,7 +71,7 @@ class base(SelfClosingTag):
         *,
         href: Optional[Any] = None,
         target: Optional[Any] = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Specifies the base URL to use for all relative URLs in a document. There can be only one such element in a document.
@@ -81,18 +81,18 @@ class base(SelfClosingTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)
         """
-        properties |= {
+        attributes |= {
             'href': href,
             'target': target,
         }
-        super().__init__(**properties)
+        super().__init__(**attributes)
 
     def __call__(
         self,
         *,
         href: Optional[Any] = None,
         target: Optional[Any] = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Specifies the base URL to use for all relative URLs in a document. There can be only one such element in a document.
@@ -102,11 +102,11 @@ class base(SelfClosingTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)
         """
-        properties |= {
+        attributes |= {
             'href': href,
             'target': target,
         }
-        return super().__call__(**properties)
+        return super().__call__(**attributes)
 
 
 class head(Tag):
@@ -121,7 +121,7 @@ class head(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Contains machine-readable information (metadata) about the document, like its [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title), [scripts](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), and [style sheets](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style).
@@ -130,16 +130,16 @@ class head(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Contains machine-readable information (metadata) about the document, like its [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title), [scripts](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), and [style sheets](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style).
@@ -148,10 +148,10 @@ class head(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class link(SelfClosingTag):
@@ -168,7 +168,7 @@ class link(SelfClosingTag):
         *,
         href: Optional[Any] = None,
         rel: Optional[Any] = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Specifies relationships between the current document and an external resource. This element is most commonly used to link to CSS but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.
@@ -178,18 +178,18 @@ class link(SelfClosingTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)
         """
-        properties |= {
+        attributes |= {
             'href': href,
             'rel': rel,
         }
-        super().__init__(**properties)
+        super().__init__(**attributes)
 
     def __call__(
         self,
         *,
         href: Optional[Any] = None,
         rel: Optional[Any] = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Specifies relationships between the current document and an external resource. This element is most commonly used to link to CSS but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.
@@ -199,11 +199,11 @@ class link(SelfClosingTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)
         """
-        properties |= {
+        attributes |= {
             'href': href,
             'rel': rel,
         }
-        return super().__call__(**properties)
+        return super().__call__(**attributes)
 
 
 class meta(Tag):
@@ -218,7 +218,7 @@ class meta(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents [metadata](https://developer.mozilla.org/en-US/docs/Glossary/Metadata) that cannot be represented by other HTML meta-related elements, like [`<base>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base), [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link), [`<script>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), [`<style>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style) and [`<title>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title).
@@ -227,16 +227,16 @@ class meta(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents [metadata](https://developer.mozilla.org/en-US/docs/Glossary/Metadata) that cannot be represented by other HTML meta-related elements, like [`<base>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base), [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link), [`<script>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script), [`<style>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style) and [`<title>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title).
@@ -245,10 +245,10 @@ class meta(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class style(Tag):
@@ -263,7 +263,7 @@ class style(Tag):
         self,
         *children: Any,
         type: Optional[Any] = 'text/css',
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Contains style information for a document or part of a document. It contains CSS, which is applied to the contents of the document containing this element.
@@ -272,16 +272,16 @@ class style(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style)
         """
-        properties |= {
+        attributes |= {
             'type': type,
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         type: Optional[Any] = 'text/css',
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Contains style information for a document or part of a document. It contains CSS, which is applied to the contents of the document containing this element.
@@ -290,10 +290,10 @@ class style(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style)
         """
-        properties |= {
+        attributes |= {
             'type': type,
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class title(Tag):
@@ -308,7 +308,7 @@ class title(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Defines the document's title that is shown in a [ browser](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; tags within the element are ignored.
@@ -317,16 +317,16 @@ class title(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Defines the document's title that is shown in a [ browser](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; tags within the element are ignored.
@@ -335,10 +335,10 @@ class title(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class body(Tag):
@@ -353,7 +353,7 @@ class body(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         represents the content of an HTML document. There can be only one such element in a document.
@@ -362,16 +362,16 @@ class body(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         represents the content of an HTML document. There can be only one such element in a document.
@@ -380,10 +380,10 @@ class body(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class address(Tag):
@@ -398,7 +398,7 @@ class address(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
@@ -407,16 +407,16 @@ class address(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
@@ -425,10 +425,10 @@ class address(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class article(Tag):
@@ -443,7 +443,7 @@ class article(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include a forum post, a magazine or newspaper article, a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
@@ -452,16 +452,16 @@ class article(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include a forum post, a magazine or newspaper article, a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
@@ -470,10 +470,10 @@ class article(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class aside(Tag):
@@ -488,7 +488,7 @@ class aside(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes.
@@ -497,16 +497,16 @@ class aside(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes.
@@ -515,10 +515,10 @@ class aside(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class footer(Tag):
@@ -533,7 +533,7 @@ class footer(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a footer for its nearest ancestor [sectioning content](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#sectioning_content) or [sectioning root](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) element. A `<footer>` typically contains information about the author of the section, copyright data, or links to related documents.
@@ -542,16 +542,16 @@ class footer(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a footer for its nearest ancestor [sectioning content](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#sectioning_content) or [sectioning root](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) element. A `<footer>` typically contains information about the author of the section, copyright data, or links to related documents.
@@ -560,10 +560,10 @@ class footer(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class header(Tag):
@@ -578,7 +578,7 @@ class header(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.
@@ -587,16 +587,16 @@ class header(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.
@@ -605,10 +605,10 @@ class header(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class h1(StylableTag):
@@ -626,7 +626,7 @@ class h1(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
@@ -635,13 +635,13 @@ class h1(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
@@ -650,7 +650,7 @@ class h1(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
@@ -659,13 +659,13 @@ class h1(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class h2(StylableTag):
@@ -683,7 +683,7 @@ class h2(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
@@ -692,13 +692,13 @@ class h2(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h2)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
@@ -707,7 +707,7 @@ class h2(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
@@ -716,13 +716,13 @@ class h2(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h2)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class h3(StylableTag):
@@ -740,7 +740,7 @@ class h3(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
@@ -749,13 +749,13 @@ class h3(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h3)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
@@ -764,7 +764,7 @@ class h3(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
@@ -773,13 +773,13 @@ class h3(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h3)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class h4(StylableTag):
@@ -797,7 +797,7 @@ class h4(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
@@ -806,13 +806,13 @@ class h4(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h4)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
@@ -821,7 +821,7 @@ class h4(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
@@ -830,13 +830,13 @@ class h4(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h4)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class h5(StylableTag):
@@ -854,7 +854,7 @@ class h5(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
@@ -863,13 +863,13 @@ class h5(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h5)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
@@ -878,7 +878,7 @@ class h5(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
@@ -887,13 +887,13 @@ class h5(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h5)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class h6(StylableTag):
@@ -911,7 +911,7 @@ class h6(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
@@ -920,13 +920,13 @@ class h6(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h6)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
@@ -935,7 +935,7 @@ class h6(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
          Represent six levels of section headings. `<h1>` is the highest section level and `<h6>` is the lowest.                                                                                                                                                                                                                                                                       
@@ -944,13 +944,13 @@ class h6(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h6)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class hgroup(Tag):
@@ -965,7 +965,7 @@ class hgroup(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a heading grouped with any secondary content, such as subheadings, an alternative title, or a tagline.
@@ -974,16 +974,16 @@ class hgroup(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a heading grouped with any secondary content, such as subheadings, an alternative title, or a tagline.
@@ -992,10 +992,10 @@ class hgroup(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class main(Tag):
@@ -1010,7 +1010,7 @@ class main(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents the dominant content of the body of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.
@@ -1019,16 +1019,16 @@ class main(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents the dominant content of the body of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.
@@ -1037,10 +1037,10 @@ class main(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class nav(Tag):
@@ -1055,7 +1055,7 @@ class nav(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes.
@@ -1064,16 +1064,16 @@ class nav(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes.
@@ -1082,10 +1082,10 @@ class nav(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class section(Tag):
@@ -1100,7 +1100,7 @@ class section(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions.
@@ -1109,16 +1109,16 @@ class section(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions.
@@ -1127,10 +1127,10 @@ class section(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class search(Tag):
@@ -1145,7 +1145,7 @@ class search(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a part that contains a set of form controls or other content related to performing a search or filtering operation.
@@ -1154,16 +1154,16 @@ class search(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a part that contains a set of form controls or other content related to performing a search or filtering operation.
@@ -1172,10 +1172,10 @@ class search(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class blockquote(Tag):
@@ -1190,7 +1190,7 @@ class blockquote(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation. A URL for the source of the quotation may be given using the `cite` attribute, while a text representation of the source can be given using the [`<cite>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite) element.
@@ -1199,16 +1199,16 @@ class blockquote(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation. A URL for the source of the quotation may be given using the `cite` attribute, while a text representation of the source can be given using the [`<cite>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite) element.
@@ -1217,10 +1217,10 @@ class blockquote(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class dd(Tag):
@@ -1235,7 +1235,7 @@ class dd(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Provides the description, definition, or value for the preceding term ([`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)) in a description list ([`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)).
@@ -1244,16 +1244,16 @@ class dd(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Provides the description, definition, or value for the preceding term ([`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)) in a description list ([`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)).
@@ -1262,10 +1262,10 @@ class dd(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class div(Tag):
@@ -1280,7 +1280,7 @@ class div(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         The generic container for flow content. It has no effect on the content or layout until styled in some way using CSS (e.g., styling is directly applied to it, or some kind of layout model like [ flexbox](https://developer.mozilla.org/en-US/docs/Glossary/Flexbox) is applied to its parent element).
@@ -1289,16 +1289,16 @@ class div(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         The generic container for flow content. It has no effect on the content or layout until styled in some way using CSS (e.g., styling is directly applied to it, or some kind of layout model like [ flexbox](https://developer.mozilla.org/en-US/docs/Glossary/Flexbox) is applied to its parent element).
@@ -1307,10 +1307,10 @@ class div(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class dl(Tag):
@@ -1325,7 +1325,7 @@ class dl(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a description list. The element encloses a list of groups of terms (specified using the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt) element) and descriptions (provided by [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
@@ -1334,16 +1334,16 @@ class dl(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a description list. The element encloses a list of groups of terms (specified using the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt) element) and descriptions (provided by [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
@@ -1352,10 +1352,10 @@ class dl(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class dt(Tag):
@@ -1370,7 +1370,7 @@ class dt(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Specifies a term in a description or definition list, and as such must be used inside a [`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) element. It is usually followed by a [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element; however, multiple `<dt>` elements in a row indicate several terms that are all defined by the immediate next [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element.
@@ -1379,16 +1379,16 @@ class dt(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Specifies a term in a description or definition list, and as such must be used inside a [`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) element. It is usually followed by a [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element; however, multiple `<dt>` elements in a row indicate several terms that are all defined by the immediate next [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element.
@@ -1397,10 +1397,10 @@ class dt(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class figcaption(Tag):
@@ -1415,7 +1415,7 @@ class figcaption(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a caption or legend describing the rest of the contents of its parent [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure) element.
@@ -1424,16 +1424,16 @@ class figcaption(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a caption or legend describing the rest of the contents of its parent [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure) element.
@@ -1442,10 +1442,10 @@ class figcaption(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class figure(Tag):
@@ -1460,7 +1460,7 @@ class figure(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents self-contained content, potentially with an optional caption, which is specified using the [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element. The figure, its caption, and its contents are referenced as a single unit.
@@ -1469,16 +1469,16 @@ class figure(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents self-contained content, potentially with an optional caption, which is specified using the [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element. The figure, its caption, and its contents are referenced as a single unit.
@@ -1487,10 +1487,10 @@ class figure(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class hr(Tag):
@@ -1505,7 +1505,7 @@ class hr(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.
@@ -1514,16 +1514,16 @@ class hr(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.
@@ -1532,10 +1532,10 @@ class hr(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class li(Tag):
@@ -1550,7 +1550,7 @@ class li(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents an item in a list. It must be contained in a parent element: an ordered list ([`<ol>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)), an unordered list ([`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)), or a menu ([`<menu>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
@@ -1559,16 +1559,16 @@ class li(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents an item in a list. It must be contained in a parent element: an ordered list ([`<ol>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)), an unordered list ([`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)), or a menu ([`<menu>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
@@ -1577,10 +1577,10 @@ class li(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class menu(Tag):
@@ -1595,7 +1595,7 @@ class menu(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         A semantic alternative to [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), but treated by browsers (and exposed through the accessibility tree) as no different than [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul). It represents an unordered list of items (which are represented by [`<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) elements).
@@ -1604,16 +1604,16 @@ class menu(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         A semantic alternative to [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), but treated by browsers (and exposed through the accessibility tree) as no different than [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul). It represents an unordered list of items (which are represented by [`<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) elements).
@@ -1622,10 +1622,10 @@ class menu(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class ol(Tag):
@@ -1640,7 +1640,7 @@ class ol(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents an ordered list of items — typically rendered as a numbered list.
@@ -1649,16 +1649,16 @@ class ol(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents an ordered list of items — typically rendered as a numbered list.
@@ -1667,10 +1667,10 @@ class ol(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class p(StylableTag):
@@ -1688,7 +1688,7 @@ class p(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a paragraph. Paragraphs are usually represented in visual media as blocks of text separated from adjacent blocks by blank lines and/or first-line indentation, but HTML paragraphs can be any structural grouping of related content, such as images or form fields.
@@ -1697,13 +1697,13 @@ class p(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
@@ -1712,7 +1712,7 @@ class p(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a paragraph. Paragraphs are usually represented in visual media as blocks of text separated from adjacent blocks by blank lines and/or first-line indentation, but HTML paragraphs can be any structural grouping of related content, such as images or form fields.
@@ -1721,13 +1721,13 @@ class p(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class pre(Tag):
@@ -1742,7 +1742,7 @@ class pre(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or [monospaced](https://en.wikipedia.org/wiki/Monospaced_font), font. Whitespace inside this element is displayed as written.
@@ -1751,16 +1751,16 @@ class pre(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or [monospaced](https://en.wikipedia.org/wiki/Monospaced_font), font. Whitespace inside this element is displayed as written.
@@ -1769,10 +1769,10 @@ class pre(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class ul(Tag):
@@ -1787,7 +1787,7 @@ class ul(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents an unordered list of items, typically rendered as a bulleted list.
@@ -1796,16 +1796,16 @@ class ul(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents an unordered list of items, typically rendered as a bulleted list.
@@ -1814,10 +1814,10 @@ class ul(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class a(StylableTag):
@@ -1837,7 +1837,7 @@ class a(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Together with its `href` attribute, creates a hyperlink to web pages, files, email addresses, locations within the current page, or anything else a URL can address.
@@ -1847,14 +1847,14 @@ class a(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             'href': href,
             'target': target,
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
@@ -1864,7 +1864,7 @@ class a(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Together with its `href` attribute, creates a hyperlink to web pages, files, email addresses, locations within the current page, or anything else a URL can address.
@@ -1874,14 +1874,14 @@ class a(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             'href': href,
             'target': target,
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class abbr(Tag):
@@ -1896,7 +1896,7 @@ class abbr(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents an abbreviation or acronym.
@@ -1905,16 +1905,16 @@ class abbr(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents an abbreviation or acronym.
@@ -1923,10 +1923,10 @@ class abbr(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class b(StylableTag):
@@ -1944,7 +1944,7 @@ class b(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) property. If you wish to indicate an element is of special importance, you should use the strong element.
@@ -1953,13 +1953,13 @@ class b(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
@@ -1968,7 +1968,7 @@ class b(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) property. If you wish to indicate an element is of special importance, you should use the strong element.
@@ -1977,13 +1977,13 @@ class b(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class bdi(Tag):
@@ -1998,7 +1998,7 @@ class bdi(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text. It's particularly useful when a website dynamically inserts some text and doesn't know the directionality of the text being inserted.
@@ -2007,16 +2007,16 @@ class bdi(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text. It's particularly useful when a website dynamically inserts some text and doesn't know the directionality of the text being inserted.
@@ -2025,10 +2025,10 @@ class bdi(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class bdo(Tag):
@@ -2043,7 +2043,7 @@ class bdo(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Overrides the current directionality of text, so that the text within is rendered in a different direction.
@@ -2052,16 +2052,16 @@ class bdo(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Overrides the current directionality of text, so that the text within is rendered in a different direction.
@@ -2070,10 +2070,10 @@ class bdo(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class br(SelfClosingTag):
@@ -2088,7 +2088,7 @@ class br(SelfClosingTag):
         self,
         
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.
@@ -2097,16 +2097,16 @@ class br(SelfClosingTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(**properties)
+        super().__init__(**attributes)
 
     def __call__(
         self,
         
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.
@@ -2115,10 +2115,10 @@ class br(SelfClosingTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(**properties)
+        return super().__call__(**attributes)
 
 
 class cite(Tag):
@@ -2133,7 +2133,7 @@ class cite(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Used to mark up the title of a cited creative work. The reference may be in an abbreviated form according to context-appropriate conventions related to citation metadata.
@@ -2142,16 +2142,16 @@ class cite(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Used to mark up the title of a cited creative work. The reference may be in an abbreviated form according to context-appropriate conventions related to citation metadata.
@@ -2160,10 +2160,10 @@ class cite(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class code(Tag):
@@ -2178,7 +2178,7 @@ class code(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Displays its contents styled in a fashion intended to indicate that the text is a short fragment of computer code. By default, the content text is displayed using the user agent's default monospace font.
@@ -2187,16 +2187,16 @@ class code(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Displays its contents styled in a fashion intended to indicate that the text is a short fragment of computer code. By default, the content text is displayed using the user agent's default monospace font.
@@ -2205,10 +2205,10 @@ class code(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class data(Tag):
@@ -2223,7 +2223,7 @@ class data(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Links a given piece of content with a machine-readable translation. If the content is time- or date-related, the`<time>` element must be used.
@@ -2232,16 +2232,16 @@ class data(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Links a given piece of content with a machine-readable translation. If the content is time- or date-related, the`<time>` element must be used.
@@ -2250,10 +2250,10 @@ class data(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class dfn(Tag):
@@ -2268,7 +2268,7 @@ class dfn(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor [`<p>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) element, the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)/[`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) pairing, or the nearest section ancestor of the `<dfn>` element, is considered to be the definition of the term.
@@ -2277,16 +2277,16 @@ class dfn(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor [`<p>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) element, the [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)/[`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) pairing, or the nearest section ancestor of the `<dfn>` element, is considered to be the definition of the term.
@@ -2295,10 +2295,10 @@ class dfn(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class em(StylableTag):
@@ -2316,7 +2316,7 @@ class em(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Marks text that has stress emphasis. The `<em>` element can be nested, with each nesting level indicating a greater degree of emphasis.
@@ -2325,13 +2325,13 @@ class em(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
@@ -2340,7 +2340,7 @@ class em(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Marks text that has stress emphasis. The `<em>` element can be nested, with each nesting level indicating a greater degree of emphasis.
@@ -2349,13 +2349,13 @@ class em(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class i(StylableTag):
@@ -2373,7 +2373,7 @@ class i(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a range of text that is set off from the normal text for some reason, such as idiomatic text, technical terms, and taxonomical designations, among others. Historically, these have been presented using italicized type, which is the original source of the `<i>` naming of this element.
@@ -2382,13 +2382,13 @@ class i(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
@@ -2397,7 +2397,7 @@ class i(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a range of text that is set off from the normal text for some reason, such as idiomatic text, technical terms, and taxonomical designations, among others. Historically, these have been presented using italicized type, which is the original source of the `<i>` naming of this element.
@@ -2406,13 +2406,13 @@ class i(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class kbd(Tag):
@@ -2427,7 +2427,7 @@ class kbd(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device. By convention, the user agent defaults to rendering the contents of a `<kbd>` element using its default monospace font, although this is not mandated by the HTML standard.
@@ -2436,16 +2436,16 @@ class kbd(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device. By convention, the user agent defaults to rendering the contents of a `<kbd>` element using its default monospace font, although this is not mandated by the HTML standard.
@@ -2454,10 +2454,10 @@ class kbd(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class mark(Tag):
@@ -2472,7 +2472,7 @@ class mark(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents text which is marked or highlighted for reference or notation purposes due to the marked passage's relevance in the enclosing context.
@@ -2481,16 +2481,16 @@ class mark(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents text which is marked or highlighted for reference or notation purposes due to the marked passage's relevance in the enclosing context.
@@ -2499,10 +2499,10 @@ class mark(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class q(Tag):
@@ -2517,7 +2517,7 @@ class q(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the [`<blockquote>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote) element.
@@ -2526,16 +2526,16 @@ class q(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the [`<blockquote>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote) element.
@@ -2544,10 +2544,10 @@ class q(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class rp(Tag):
@@ -2562,7 +2562,7 @@ class rp(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Used to provide fall-back parentheses for browsers that do not support the display of ruby annotations using the [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element. One `<rp>` element should enclose each of the opening and closing parentheses that wrap the [`<rt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt) element that contains the annotation's text.
@@ -2571,16 +2571,16 @@ class rp(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Used to provide fall-back parentheses for browsers that do not support the display of ruby annotations using the [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element. One `<rp>` element should enclose each of the opening and closing parentheses that wrap the [`<rt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt) element that contains the annotation's text.
@@ -2589,10 +2589,10 @@ class rp(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class rt(Tag):
@@ -2607,7 +2607,7 @@ class rt(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The `<rt>` element must always be contained within a [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element.
@@ -2616,16 +2616,16 @@ class rt(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The `<rt>` element must always be contained within a [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element.
@@ -2634,10 +2634,10 @@ class rt(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class ruby(Tag):
@@ -2652,7 +2652,7 @@ class ruby(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
@@ -2661,16 +2661,16 @@ class ruby(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
@@ -2679,10 +2679,10 @@ class ruby(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class s(Tag):
@@ -2697,7 +2697,7 @@ class s(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Renders text with a strikethrough, or a line through it. Use the `<s>` element to represent things that are no longer relevant or no longer accurate. However, `<s>` is not appropriate when indicating document edits; for that, use the del and ins elements, as appropriate.
@@ -2706,16 +2706,16 @@ class s(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Renders text with a strikethrough, or a line through it. Use the `<s>` element to represent things that are no longer relevant or no longer accurate. However, `<s>` is not appropriate when indicating document edits; for that, use the del and ins elements, as appropriate.
@@ -2724,10 +2724,10 @@ class s(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class samp(Tag):
@@ -2742,7 +2742,7 @@ class samp(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as [Courier](<https://en.wikipedia.org/wiki/Courier_(typeface)>) or Lucida Console).
@@ -2751,16 +2751,16 @@ class samp(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as [Courier](<https://en.wikipedia.org/wiki/Courier_(typeface)>) or Lucida Console).
@@ -2769,10 +2769,10 @@ class samp(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class small(Tag):
@@ -2787,7 +2787,7 @@ class small(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents side-comments and small print, like copyright and legal text, independent of its styled presentation. By default, it renders text within it one font size smaller, such as from `small` to `x-small`.
@@ -2796,16 +2796,16 @@ class small(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents side-comments and small print, like copyright and legal text, independent of its styled presentation. By default, it renders text within it one font size smaller, such as from `small` to `x-small`.
@@ -2814,10 +2814,10 @@ class small(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class span(Tag):
@@ -2832,7 +2832,7 @@ class span(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         A generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the `class` or `id` attributes), or because they share attribute values, such as `lang`. It should be used only when no other semantic element is appropriate. `<span>` is very much like a div element, but div is a [block-level element](/en-US/docs/Glossary/Block-level_content) whereas a `<span>` is an [inline-level element](/en-US/docs/Glossary/Inline-level_content).
@@ -2841,16 +2841,16 @@ class span(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         A generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the `class` or `id` attributes), or because they share attribute values, such as `lang`. It should be used only when no other semantic element is appropriate. `<span>` is very much like a div element, but div is a [block-level element](/en-US/docs/Glossary/Block-level_content) whereas a `<span>` is an [inline-level element](/en-US/docs/Glossary/Inline-level_content).
@@ -2859,10 +2859,10 @@ class span(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class strong(StylableTag):
@@ -2880,7 +2880,7 @@ class strong(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type.
@@ -2889,13 +2889,13 @@ class strong(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
@@ -2904,7 +2904,7 @@ class strong(StylableTag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type.
@@ -2913,13 +2913,13 @@ class strong(StylableTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong)
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class sub(Tag):
@@ -2934,7 +2934,7 @@ class sub(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Specifies inline text which should be displayed as subscript for solely typographical reasons. Subscripts are typically rendered with a lowered baseline using smaller text.
@@ -2943,16 +2943,16 @@ class sub(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Specifies inline text which should be displayed as subscript for solely typographical reasons. Subscripts are typically rendered with a lowered baseline using smaller text.
@@ -2961,10 +2961,10 @@ class sub(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class sup(Tag):
@@ -2979,7 +2979,7 @@ class sup(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Specifies inline text which is to be displayed as superscript for solely typographical reasons. Superscripts are usually rendered with a raised baseline using smaller text.
@@ -2988,16 +2988,16 @@ class sup(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Specifies inline text which is to be displayed as superscript for solely typographical reasons. Superscripts are usually rendered with a raised baseline using smaller text.
@@ -3006,10 +3006,10 @@ class sup(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class time(Tag):
@@ -3024,7 +3024,7 @@ class time(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a specific period in time. It may include the `datetime` attribute to translate dates into machine-readable format, allowing for better search engine results or custom features such as reminders.
@@ -3033,16 +3033,16 @@ class time(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a specific period in time. It may include the `datetime` attribute to translate dates into machine-readable format, allowing for better search engine results or custom features such as reminders.
@@ -3051,10 +3051,10 @@ class time(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class u(Tag):
@@ -3069,7 +3069,7 @@ class u(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a simple solid underline but may be altered using CSS.
@@ -3078,16 +3078,16 @@ class u(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a simple solid underline but may be altered using CSS.
@@ -3096,10 +3096,10 @@ class u(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class var(Tag):
@@ -3114,7 +3114,7 @@ class var(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents the name of a variable in a mathematical expression or a programming context. It's typically presented using an italicized version of the current typeface, although that behavior is browser-dependent.
@@ -3123,16 +3123,16 @@ class var(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents the name of a variable in a mathematical expression or a programming context. It's typically presented using an italicized version of the current typeface, although that behavior is browser-dependent.
@@ -3141,10 +3141,10 @@ class var(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class wbr(Tag):
@@ -3159,7 +3159,7 @@ class wbr(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a word break opportunity—a position within text where the browser may optionally break a line, though its line-breaking rules would not otherwise create a break at that location.
@@ -3168,16 +3168,16 @@ class wbr(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a word break opportunity—a position within text where the browser may optionally break a line, though its line-breaking rules would not otherwise create a break at that location.
@@ -3186,10 +3186,10 @@ class wbr(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class area(Tag):
@@ -3204,7 +3204,7 @@ class area(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Defines an area inside an image map that has predefined clickable areas. An _image map_ allows geometric areas on an image to be associated with [ hyperlink](https://developer.mozilla.org/en-US/docs/Glossary/Hyperlink).
@@ -3213,16 +3213,16 @@ class area(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Defines an area inside an image map that has predefined clickable areas. An _image map_ allows geometric areas on an image to be associated with [ hyperlink](https://developer.mozilla.org/en-US/docs/Glossary/Hyperlink).
@@ -3231,10 +3231,10 @@ class area(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class audio(Tag):
@@ -3249,7 +3249,7 @@ class audio(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Used to embed sound content in documents. It may contain one or more audio sources, represented using the `src` attribute or the source element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a [MediaStream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream).
@@ -3258,16 +3258,16 @@ class audio(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Used to embed sound content in documents. It may contain one or more audio sources, represented using the `src` attribute or the source element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a [MediaStream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream).
@@ -3276,10 +3276,10 @@ class audio(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class img(Tag):
@@ -3296,7 +3296,7 @@ class img(Tag):
         *children: Any,
         src: Optional[Any] = None,
         alt: Optional[Any] = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Embeds an image into the document.
@@ -3306,18 +3306,18 @@ class img(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
         """
-        properties |= {
+        attributes |= {
             'src': src,
             'alt': alt,
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         src: Optional[Any] = None,
         alt: Optional[Any] = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Embeds an image into the document.
@@ -3327,11 +3327,11 @@ class img(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
         """
-        properties |= {
+        attributes |= {
             'src': src,
             'alt': alt,
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class map(Tag):
@@ -3346,7 +3346,7 @@ class map(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Used with [`<area>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area) elements to define an image map (a clickable link area).
@@ -3355,16 +3355,16 @@ class map(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Used with [`<area>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area) elements to define an image map (a clickable link area).
@@ -3373,10 +3373,10 @@ class map(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class track(Tag):
@@ -3391,7 +3391,7 @@ class track(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Used as a child of the media elements, audio and video. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in [WebVTT format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) (`.vtt` files)—Web Video Text Tracks.
@@ -3400,16 +3400,16 @@ class track(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Used as a child of the media elements, audio and video. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in [WebVTT format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) (`.vtt` files)—Web Video Text Tracks.
@@ -3418,10 +3418,10 @@ class track(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class video(Tag):
@@ -3436,7 +3436,7 @@ class video(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Embeds a media player which supports video playback into the document. You can also use `<video>` for audio content, but the audio element may provide a more appropriate user experience.
@@ -3445,16 +3445,16 @@ class video(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Embeds a media player which supports video playback into the document. You can also use `<video>` for audio content, but the audio element may provide a more appropriate user experience.
@@ -3463,10 +3463,10 @@ class video(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class embed(Tag):
@@ -3481,7 +3481,7 @@ class embed(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
@@ -3490,16 +3490,16 @@ class embed(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
@@ -3508,10 +3508,10 @@ class embed(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class iframe(Tag):
@@ -3526,7 +3526,7 @@ class iframe(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a nested browsing context, embedding another HTML page into the current one.
@@ -3535,16 +3535,16 @@ class iframe(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a nested browsing context, embedding another HTML page into the current one.
@@ -3553,10 +3553,10 @@ class iframe(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class object(Tag):
@@ -3571,7 +3571,7 @@ class object(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.
@@ -3580,16 +3580,16 @@ class object(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.
@@ -3598,10 +3598,10 @@ class object(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class picture(Tag):
@@ -3616,7 +3616,7 @@ class picture(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Contains zero or more [`<source>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source) elements and one [`<img>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) element to offer alternative versions of an image for different display/device scenarios.
@@ -3625,16 +3625,16 @@ class picture(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Contains zero or more [`<source>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source) elements and one [`<img>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) element to offer alternative versions of an image for different display/device scenarios.
@@ -3643,10 +3643,10 @@ class picture(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class portal(Tag):
@@ -3661,7 +3661,7 @@ class portal(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Enables the embedding of another HTML page into the current one to enable smoother navigation into new pages.
@@ -3670,16 +3670,16 @@ class portal(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/portal)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Enables the embedding of another HTML page into the current one to enable smoother navigation into new pages.
@@ -3688,10 +3688,10 @@ class portal(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/portal)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class source(Tag):
@@ -3706,7 +3706,7 @@ class source(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats).
@@ -3715,16 +3715,16 @@ class source(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats).
@@ -3733,10 +3733,10 @@ class source(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class canvas(Tag):
@@ -3751,7 +3751,7 @@ class canvas(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Container element to use with either the [canvas scripting API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) or the [WebGL API](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) to draw graphics and animations.
@@ -3760,16 +3760,16 @@ class canvas(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Container element to use with either the [canvas scripting API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) or the [WebGL API](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) to draw graphics and animations.
@@ -3778,10 +3778,10 @@ class canvas(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class noscript(Tag):
@@ -3796,7 +3796,7 @@ class noscript(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Defines a section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser.
@@ -3805,16 +3805,16 @@ class noscript(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Defines a section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser.
@@ -3823,10 +3823,10 @@ class noscript(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class script(Tag):
@@ -3841,7 +3841,7 @@ class script(Tag):
         self,
         *children: Any,
         type: Optional[Any] = 'text/javascript',
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
@@ -3850,16 +3850,16 @@ class script(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
-        properties |= {
+        attributes |= {
             'type': type,
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         type: Optional[Any] = 'text/javascript',
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
@@ -3868,10 +3868,10 @@ class script(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
-        properties |= {
+        attributes |= {
             'type': type,
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class del_(Tag):
@@ -3886,7 +3886,7 @@ class del_(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a range of text that has been deleted from a document. This can be used when rendering "track changes" or source code diff information, for example. The `<ins>` element can be used for the opposite purpose: to indicate text that has been added to the document.
@@ -3895,16 +3895,16 @@ class del_(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a range of text that has been deleted from a document. This can be used when rendering "track changes" or source code diff information, for example. The `<ins>` element can be used for the opposite purpose: to indicate text that has been added to the document.
@@ -3913,10 +3913,10 @@ class del_(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class ins(Tag):
@@ -3931,7 +3931,7 @@ class ins(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a range of text that has been added to a document. You can use the `<del>` element to similarly represent a range of text that has been deleted from the document.
@@ -3940,16 +3940,16 @@ class ins(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a range of text that has been added to a document. You can use the `<del>` element to similarly represent a range of text that has been deleted from the document.
@@ -3958,10 +3958,10 @@ class ins(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class caption(Tag):
@@ -3976,7 +3976,7 @@ class caption(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Specifies the caption (or title) of a table.
@@ -3985,16 +3985,16 @@ class caption(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Specifies the caption (or title) of a table.
@@ -4003,10 +4003,10 @@ class caption(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class col(Tag):
@@ -4021,7 +4021,7 @@ class col(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup) element.
@@ -4030,16 +4030,16 @@ class col(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup) element.
@@ -4048,10 +4048,10 @@ class col(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class colgroup(Tag):
@@ -4066,7 +4066,7 @@ class colgroup(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Defines a group of columns within a table.
@@ -4075,16 +4075,16 @@ class colgroup(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Defines a group of columns within a table.
@@ -4093,10 +4093,10 @@ class colgroup(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class table(Tag):
@@ -4111,7 +4111,7 @@ class table(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.
@@ -4120,16 +4120,16 @@ class table(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.
@@ -4138,10 +4138,10 @@ class table(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class tbody(Tag):
@@ -4156,7 +4156,7 @@ class tbody(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Encapsulates a set of table rows ([`<tr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr) elements), indicating that they comprise the body of the table ([`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)).
@@ -4165,16 +4165,16 @@ class tbody(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Encapsulates a set of table rows ([`<tr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr) elements), indicating that they comprise the body of the table ([`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)).
@@ -4183,10 +4183,10 @@ class tbody(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class td(Tag):
@@ -4201,7 +4201,7 @@ class td(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Defines a cell of a table that contains data. It participates in the _table model_.
@@ -4210,16 +4210,16 @@ class td(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Defines a cell of a table that contains data. It participates in the _table model_.
@@ -4228,10 +4228,10 @@ class td(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class tfoot(Tag):
@@ -4246,7 +4246,7 @@ class tfoot(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Defines a set of rows summarizing the columns of the table.
@@ -4255,16 +4255,16 @@ class tfoot(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Defines a set of rows summarizing the columns of the table.
@@ -4273,10 +4273,10 @@ class tfoot(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class th(Tag):
@@ -4291,7 +4291,7 @@ class th(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Defines a cell as a header of a group of table cells. The exact nature of this group is defined by the `scope` and `headers` attributes.
@@ -4300,16 +4300,16 @@ class th(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Defines a cell as a header of a group of table cells. The exact nature of this group is defined by the `scope` and `headers` attributes.
@@ -4318,10 +4318,10 @@ class th(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class thead(Tag):
@@ -4336,7 +4336,7 @@ class thead(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Defines a set of rows defining the head of the columns of the table.
@@ -4345,16 +4345,16 @@ class thead(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Defines a set of rows defining the head of the columns of the table.
@@ -4363,10 +4363,10 @@ class thead(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class tr(Tag):
@@ -4381,7 +4381,7 @@ class tr(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Defines a row of cells in a table. The row's cells can then be established using a mix of [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) (data cell) and [`<th>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) (header cell) elements.
@@ -4390,16 +4390,16 @@ class tr(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Defines a row of cells in a table. The row's cells can then be established using a mix of [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) (data cell) and [`<th>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) (header cell) elements.
@@ -4408,10 +4408,10 @@ class tr(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class button(Tag):
@@ -4426,7 +4426,7 @@ class button(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a [form](/en-US/docs/Learn/Forms) or opening a dialog.
@@ -4435,16 +4435,16 @@ class button(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a [form](/en-US/docs/Learn/Forms) or opening a dialog.
@@ -4453,10 +4453,10 @@ class button(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class datalist(Tag):
@@ -4471,7 +4471,7 @@ class datalist(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Contains a set of [`<option>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) elements that represent the permissible or recommended options available to choose from within other controls.
@@ -4480,16 +4480,16 @@ class datalist(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Contains a set of [`<option>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) elements that represent the permissible or recommended options available to choose from within other controls.
@@ -4498,10 +4498,10 @@ class datalist(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class fieldset(Tag):
@@ -4516,7 +4516,7 @@ class fieldset(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Used to group several controls as well as labels ([`<label>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)) within a web form.
@@ -4525,16 +4525,16 @@ class fieldset(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Used to group several controls as well as labels ([`<label>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)) within a web form.
@@ -4543,10 +4543,10 @@ class fieldset(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class form(Tag):
@@ -4561,7 +4561,7 @@ class form(Tag):
         self,
         *children: Any,
         method: Optional[Any] = 'POST',
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a document section containing interactive controls for submitting information.
@@ -4570,16 +4570,16 @@ class form(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
         """
-        properties |= {
+        attributes |= {
             'method': method,
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         method: Optional[Any] = 'POST',
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a document section containing interactive controls for submitting information.
@@ -4588,10 +4588,10 @@ class form(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
         """
-        properties |= {
+        attributes |= {
             'method': method,
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class input(SelfClosingTag):
@@ -4614,7 +4614,7 @@ class input(SelfClosingTag):
         value: Optional[Any] = None,
         readonly: Optional[bool] = False,
         required: Optional[bool] = False,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Used to create interactive controls for web-based forms to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent. The `<input>` element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
@@ -4627,14 +4627,14 @@ class input(SelfClosingTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
         """
-        properties |= {
+        attributes |= {
             'type': type,
             'name': name,
             'value': value,
             'readonly': readonly,
             'required': required,
         }
-        super().__init__(**properties)
+        super().__init__(**attributes)
 
     def __call__(
         self,
@@ -4644,7 +4644,7 @@ class input(SelfClosingTag):
         value: Optional[Any] = None,
         readonly: Optional[bool] = False,
         required: Optional[bool] = False,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Used to create interactive controls for web-based forms to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent. The `<input>` element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
@@ -4657,14 +4657,14 @@ class input(SelfClosingTag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
         """
-        properties |= {
+        attributes |= {
             'type': type,
             'name': name,
             'value': value,
             'readonly': readonly,
             'required': required,
         }
-        return super().__call__(**properties)
+        return super().__call__(**attributes)
 
 
 class label(Tag):
@@ -4679,7 +4679,7 @@ class label(Tag):
         self,
         *children: Any,
         for_: Optional[Any] = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a caption for an item in a user interface.
@@ -4688,16 +4688,16 @@ class label(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
         """
-        properties |= {
+        attributes |= {
             'for_': for_,
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         for_: Optional[Any] = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a caption for an item in a user interface.
@@ -4706,10 +4706,10 @@ class label(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
         """
-        properties |= {
+        attributes |= {
             'for_': for_,
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class legend(Tag):
@@ -4724,7 +4724,7 @@ class legend(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a caption for the content of its parent [`<fieldset>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset).
@@ -4733,16 +4733,16 @@ class legend(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a caption for the content of its parent [`<fieldset>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset).
@@ -4751,10 +4751,10 @@ class legend(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class meter(Tag):
@@ -4769,7 +4769,7 @@ class meter(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents either a scalar value within a known range or a fractional value.
@@ -4778,16 +4778,16 @@ class meter(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents either a scalar value within a known range or a fractional value.
@@ -4796,10 +4796,10 @@ class meter(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class optgroup(Tag):
@@ -4814,7 +4814,7 @@ class optgroup(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Creates a grouping of options within a [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element.
@@ -4823,16 +4823,16 @@ class optgroup(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Creates a grouping of options within a [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element.
@@ -4841,10 +4841,10 @@ class optgroup(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class option(Tag):
@@ -4859,7 +4859,7 @@ class option(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Used to define an item contained in a select, an [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup), or a [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist) element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document.
@@ -4868,16 +4868,16 @@ class option(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Used to define an item contained in a select, an [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup), or a [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist) element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document.
@@ -4886,10 +4886,10 @@ class option(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class output(Tag):
@@ -4904,7 +4904,7 @@ class output(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Container element into which a site or app can inject the results of a calculation or the outcome of a user action.
@@ -4913,16 +4913,16 @@ class output(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Container element into which a site or app can inject the results of a calculation or the outcome of a user action.
@@ -4931,10 +4931,10 @@ class output(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class progress(Tag):
@@ -4949,7 +4949,7 @@ class progress(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
@@ -4958,16 +4958,16 @@ class progress(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
@@ -4976,10 +4976,10 @@ class progress(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class select(Tag):
@@ -4994,7 +4994,7 @@ class select(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a control that provides a menu of options.
@@ -5003,16 +5003,16 @@ class select(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a control that provides a menu of options.
@@ -5021,10 +5021,10 @@ class select(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class textarea(Tag):
@@ -5039,7 +5039,7 @@ class textarea(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example, a comment on a review or feedback form.
@@ -5048,16 +5048,16 @@ class textarea(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example, a comment on a review or feedback form.
@@ -5066,10 +5066,10 @@ class textarea(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class details(Tag):
@@ -5084,7 +5084,7 @@ class details(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the [`<summary>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary) element.
@@ -5093,16 +5093,16 @@ class details(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the [`<summary>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary) element.
@@ -5111,10 +5111,10 @@ class details(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class dialog(Tag):
@@ -5129,7 +5129,7 @@ class dialog(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.
@@ -5138,16 +5138,16 @@ class dialog(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.
@@ -5156,10 +5156,10 @@ class dialog(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class summary(Tag):
@@ -5174,7 +5174,7 @@ class summary(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Specifies a summary, caption, or legend for a details element's disclosure box. Clicking the `<summary>` element toggles the state of the parent [`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) element open and closed.
@@ -5183,16 +5183,16 @@ class summary(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Specifies a summary, caption, or legend for a details element's disclosure box. Clicking the `<summary>` element toggles the state of the parent [`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) element open and closed.
@@ -5201,10 +5201,10 @@ class summary(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class slot(Tag):
@@ -5219,7 +5219,7 @@ class slot(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         Part of the [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) technology suite, this element is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
@@ -5228,16 +5228,16 @@ class slot(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         Part of the [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) technology suite, this element is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
@@ -5246,10 +5246,10 @@ class slot(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 class template(Tag):
@@ -5264,7 +5264,7 @@ class template(Tag):
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         A mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
@@ -5273,16 +5273,16 @@ class template(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
         """
-        properties |= {
+        attributes |= {
             
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children: Any,
         
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         A mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
@@ -5291,10 +5291,10 @@ class template(Tag):
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
         """
-        properties |= {
+        attributes |= {
             
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
 
 
 __all__ = [

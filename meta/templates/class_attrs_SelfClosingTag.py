@@ -2,42 +2,42 @@ class {name}({base}):
     """
     {description}
 
-    {prop_docs_outer}
+    {attr_docs_outer}
 
     [View full documentation]({link})
     """
     def __init__(
         self,
         {kw_only}
-        {prop_args}
-        **properties: Any,
+        {attr_args}
+        **attributes: Any,
     ) -> None:
         """
         {description}
 
-        {prop_docs_inner}
+        {attr_docs_inner}
 
         [View full documentation]({link})
         """
-        properties |= {
-            {prop_unions}
+        attributes |= {
+            {attr_unions}
         }
-        super().__init__(**properties)
+        super().__init__(**attributes)
 
     def __call__(
         self,
         {kw_only}
-        {prop_args}
-        **properties: Any,
+        {attr_args}
+        **attributes: Any,
     ):
         """
         {description}
 
-        {prop_docs_inner}
+        {attr_docs_inner}
 
         [View full documentation]({link})
         """
-        properties |= {
-            {prop_unions}
+        attributes |= {
+            {attr_unions}
         }
-        return super().__call__(**properties)
+        return super().__call__(**attributes)

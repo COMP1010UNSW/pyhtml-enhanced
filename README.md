@@ -76,8 +76,9 @@ instantiated element.
 ```
 
 Calling an instance of a `Tag` will return a new tag containing all elements of
-the original tag combined with the new properties, but will not modify the
-original instance, as I found the old behaviour confusing and bug-prone.
+the original tag combined with the new attributes and children, but will not
+modify the original instance, as I found the old behaviour confusing and
+bug-prone.
 
 ```py
 >>> para = p("Base paragraph")
@@ -93,11 +94,11 @@ original instance, as I found the old behaviour confusing and bug-prone.
 </p>
 ```
 
-## TODOs
+## Known issues
 
-There are a couple of things I haven't done yet
+There are a couple of things I haven't gotten round to sorting out yet
 
-* [ ] Add default properties to more tags
+* [ ] Add default attributes to more tags
 * [ ] Some tags (eg `<pre>`, `<script>`) currently aren't properly implemented
       and escape their contents.
 
@@ -114,7 +115,7 @@ problem with the following steps:
    garbage data and obsolete tags.
 
 3. Use data from a YAML configuration file ([`meta/tags.yml`](meta/tags.yml))
-   to gather information on suggested properties and base classes to use for
+   to gather information on suggested attributes and base classes to use for
    each tag.
 
 4. Generate Python code to represent all of these tags, including their

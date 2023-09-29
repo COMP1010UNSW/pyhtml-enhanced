@@ -42,33 +42,33 @@ def escape_string(text: str) -> str:
     return text
 
 
-def escape_property(property_name: str) -> str:
+def escape_attribute(attr_name: str) -> str:
     """
-    Escape a tag property name.
+    Escape a tag attribute name.
 
     ## Replacements
 
     * Prefix and suffix underscores `_` to '' (empty string), so Python
-      keywords can be used for property names
+      keywords can be used for attribute names
 
     * `_` (underscore) to `-` (hyphen), so that kwargs can be used effectively
     """
-    return property_name \
+    return attr_name \
         .removeprefix('_') \
         .removesuffix('_') \
         .replace('_', '-')
 
 
-def render_tag_properties(properties: dict[str, Any]) -> str:
+def render_tag_attributes(attributes: dict[str, Any]) -> str:
     """
-    Renders tag properties into a string that can be embedded within a tag.
+    Renders tag attributes into a string that can be embedded within a tag.
 
-    All properties with value `None` are ignored
+    All attributes with value `None` are ignored
 
     ## Example usage
 
     ```py
-    >>> render_tag_properties_inline({
+    >>> render_tag_attributes_inline({
     ...     src="https://example.com/test.jpg",
     ...     alt="A test image",
     ... })
@@ -76,21 +76,21 @@ def render_tag_properties(properties: dict[str, Any]) -> str:
     ```
     """
     return ' '.join([
-        f'{escape_property(prop)}="{escape_string(str(val))}"'
+        f'{escape_attribute(attr)}="{escape_string(str(val))}"'
         if val is not True
-        else escape_property(prop)
-        for prop, val in properties.items()
+        else escape_attribute(attr)
+        for attr, val in attributes.items()
     ])
 
 
-def filter_properties(properties: dict[str, Any]) -> dict[str, Any]:
+def filter_attributes(attributes: dict[str, Any]) -> dict[str, Any]:
     """
-    Filter out properties where the value is `None`, so that they aren't
+    Filter out attributes where the value is `None`, so that they aren't
     rendered.
     """
     return {
         k: v
-        for k, v in properties.items()
+        for k, v in attributes.items()
         if v is not None and v is not False
     }
 

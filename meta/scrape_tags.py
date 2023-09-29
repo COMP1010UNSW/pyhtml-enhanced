@@ -98,30 +98,30 @@ TagMdnInfo = tuple[str, str]
 """Type definition for info grabbed from MDN docs"""
 
 
-class PropYmlItem(TypedDict):
+class AttrYmlItem(TypedDict):
     """
-    Properties of a tag, defined in tags.yml
+    Attributes of a tag, defined in tags.yml
     """
 
     doc: str
-    """Documentation for the property"""
+    """Documentation for the attribute"""
 
     default: NotRequired[str]
     """
-    Default value of the property - this is passed to eval to convert to Python
-    code.
+    Default value of the attribute - this is passed to eval to convert to
+    Python code.
     """
 
     type: NotRequired[str]
-    """Python type to accept for the property"""
+    """Python type to accept for the attribute"""
 
 
 class TagsYmlItem(TypedDict):
     """
     A tag which has suggested keys
     """
-    properties: NotRequired[dict[str, str | PropYmlItem]]
-    """Mapping of properties used by the tag (name: description)"""
+    attributes: NotRequired[dict[str, str | AttrYmlItem]]
+    """Mapping of attributes used by the tag (name: description)"""
 
     base: NotRequired[str]
     """Name of the base class to derive from (eg SelfClosingTag)"""
@@ -135,29 +135,29 @@ TagsYaml = dict[str, TagsYmlItem]
 
 
 @dataclass
-class Prop:
+class Attr:
     """
-    Information about a property
+    Information about a attribute
     """
 
     name: str
     """
-    Name of the property
+    Name of the attribute
     """
 
     doc: Optional[str]
     """
-    Documentation of the property if applicable
+    Documentation of the attribute if applicable
     """
 
     type: str
     """
-    Type to accept for the property
+    Type to accept for the attribute
     """
 
     default: Optional[Any]
     """
-    Default value for the property
+    Default value for the attribute
     """
 
 
@@ -187,9 +187,9 @@ class TagInfo:
     Link to full documentation on MDN
     """
 
-    properties: list[Prop]
+    attributes: list[Attr]
     """
-    List of properties and their documentation.
+    List of attributes and their documentation.
     """
 
 
@@ -348,7 +348,7 @@ def scrape_html_elements() -> list[TagMdnInfo]:
     return parsed
 
 
-def load_tag_props_yaml() -> TagsYaml:
+def load_tag_attrs_yaml() -> TagsYaml:
     """
     Load tags configuration
     """
@@ -356,26 +356,26 @@ def load_tag_props_yaml() -> TagsYaml:
         return yaml.load(f, yaml.Loader)
 
 
-def prop_entries_to_object(
+def attr_entries_to_object(
     tags: TagsYaml,
     tag_name: str,
-) -> list[Prop]:
+) -> list[Attr]:
     """
-    Convert a tags yaml entry into a Prop object for use elsewhere, given its
+    Convert a tags yaml entry into a Attr object for use elsewhere, given its
     name.
 
-    For items with no entries, give no properties
+    For items with no entries, give no attributes
     """
     if tag_name not in tags:
         return []
 
     tag_data = tags[tag_name]
 
-    if 'properties' not in tag_data:
+    if 'attributes' not in tag_data:
         return []
 
-    props = []
-    for name, value in tag_data['properties'].items():
+    attrs = []
+    for name, value in tag_data['attributes'].items():
         if isinstance(value, str):
             doc: Optional[str] = value
             default: Optional[str] = None
@@ -389,8 +389,8 @@ def prop_entries_to_object(
             else:
                 default = None
             type = value.get("type", "Any")
-        props.append(Prop(name, doc, type, default))
-    return props
+        attrs.append(Attr(name, doc, type, default))
+    return attrs
 
 
 def get_tag_rename(tags: TagsYaml, tag_name: str) -> str:
@@ -427,7 +427,7 @@ def make_mdn_link(tag: str) -> str:
 
 def elements_to_element_structs(
     mdn_data: list[TagMdnInfo],
-    tag_props: TagsYaml,
+    tag_attrs: TagsYaml,
 ) -> list[TagInfo]:
     """
     Combine all MDN tag info with our own info (where applicable)
@@ -436,11 +436,11 @@ def elements_to_element_structs(
 
     for name, description in mdn_data:
         output.append(TagInfo(
-            name=get_tag_rename(tag_props, name),
+            name=get_tag_rename(tag_attrs, name),
             description=description,
-            base=get_tag_base_class(tag_props, name),
+            base=get_tag_base_class(tag_attrs, name),
             mdn_link=make_mdn_link(name),
-            properties=prop_entries_to_object(tag_props, name),
+            attributes=attr_entries_to_object(tag_attrs, name),
         ))
 
     return output
@@ -451,9 +451,9 @@ def main():
     Main logic of the scraper
     """
     mdn_elements = scrape_html_elements()
-    tag_props = load_tag_props_yaml()
+    tag_attrs = load_tag_attrs_yaml()
 
-    return elements_to_element_structs(mdn_elements, tag_props)
+    return elements_to_element_structs(mdn_elements, tag_attrs)
 
 
 def print_elements(parsed: list[TagInfo]):
@@ -466,7 +466,7 @@ def print_elements(parsed: list[TagInfo]):
         print(ele.description)
         print(ele.mdn_link)
         print()
-        print(ele.properties)
+        print(ele.attributes)
         print()
         print('------------------')
         print()

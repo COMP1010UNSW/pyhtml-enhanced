@@ -57,7 +57,7 @@ def test_renders_deeply_nested_children():
     ])
 
 
-def test_renders_properties():
+def test_renders_attributes():
     doc = html(foo="bar")
 
     assert str(doc) == '<html foo="bar"></html>'
@@ -77,8 +77,8 @@ def test_comments_not_callable():
         Comment("Hello world")()
 
 
-def test_call_adds_props():
-    """Calling a tag adds additional properties"""
+def test_call_adds_attrs():
+    """Calling a tag adds additional attributes"""
     # Note that order is important - elements added first should appear first
     assert str(html(foo="bar")(baz="bat")) \
         == '<html foo="bar" baz="bat"></html>'
@@ -176,17 +176,17 @@ def test_classes_can_render():
     ])
 
 
-def test_boolean_tag_properties_true():
+def test_boolean_tag_attributes_true():
     """
-    Do boolean properties of tags render correctly
+    Do boolean attributes of tags render correctly
     """
     assert str(input(readonly=True)) == "<input readonly/>"
 
 
-def test_boolean_tag_properties_false():
+def test_boolean_tag_attributes_false():
     """
-    Do boolean properties of tags render correctly
+    Do boolean attributes of tags render correctly
 
-    Properties with value `False` are skipped
+    Attributes with value `False` are skipped
     """
     assert str(input(readonly=False)) == "<input/>"

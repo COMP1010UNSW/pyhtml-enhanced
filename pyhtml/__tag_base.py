@@ -14,30 +14,30 @@ class Tag:
     """
     Base tag class
     """
-    def __init__(self, *children: Any, **properties: Any) -> None:
+    def __init__(self, *children: Any, **attributes: Any) -> None:
         """
         Create a new tag instance
         """
         self.children = util.flatten_list(list(children))
         """Children of this tag"""
 
-        self.properties = util.filter_properties(properties)
-        """Properties of this tag"""
+        self.attributes = util.filter_attributes(attributes)
+        """Attributes of this tag"""
 
     def __call__(
         self: SelfType,
         *children: Any,
-        **properties: Any,
+        **attributes: Any,
     ) -> 'SelfType':
         """
         Create a new tag instance derived from this tag. Its children and
-        properties are based on this original tag, but with additional children
-        appended and additional properties unioned.
+        attributes are based on this original tag, but with additional children
+        appended and additional attributes unioned.
         """
         new_children = self.children + util.flatten_list(list(children))
-        new_properties = self.properties | properties
+        new_attributes = self.attributes | attributes
 
-        return self.__class__(*new_children, **new_properties)
+        return self.__class__(*new_children, **new_attributes)
 
     def _get_tag_name(self) -> str:
         """
@@ -50,10 +50,10 @@ class Tag:
         Renders tag and its children to a list of strings where each string is
         a single line of output
         """
-        # Tag and properties
+        # Tag and attributes
         opening = f"<{self._get_tag_name()}"
-        if len(self.properties):
-            opening += f" {util.render_tag_properties(self.properties)}>"
+        if len(self.attributes):
+            opening += f" {util.render_tag_attributes(self.attributes)}>"
         else:
             opening += ">"
 
@@ -131,23 +131,23 @@ class SelfClosingTag(Tag):
     """
     Self-closing tags don't contain child elements
     """
-    def __init__(self, **properties: Any) -> None:
+    def __init__(self, **attributes: Any) -> None:
         # Self-closing tags don't allow children
-        super().__init__(**properties)
+        super().__init__(**attributes)
 
-    def __call__(self, **properties: Any):
+    def __call__(self, **attributes: Any):
         # Self-closing tags don't allow children
-        return super().__call__(**properties)
+        return super().__call__(**attributes)
 
     def _render(self) -> list[str]:
         """
         Renders tag and its children to a list of strings where each string is
         a single line of output
         """
-        if len(self.properties):
+        if len(self.attributes):
             return [
                 f"<{self._get_tag_name()} "
-                f"{util.render_tag_properties(self.properties)}/>"
+                f"{util.render_tag_attributes(self.attributes)}/>"
             ]
         else:
             return [f"<{self._get_tag_name()}/>"]
@@ -163,14 +163,14 @@ class StylableTag(Tag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
@@ -178,11 +178,11 @@ class StylableTag(Tag):
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ):
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)

@@ -13,16 +13,9 @@ from pyhtml.__util import increase_indent
 TEMPLATES_FOLDER = Path('./meta/templates')
 
 
-def get_template_class_no_props():
-    """
-    Returns the template for when there are no properties
-    """
-    return open(TEMPLATES_FOLDER.joinpath('class_no_props.py')).read()
-
-
 def get_template_class(name: str):
     try:
-        return open(TEMPLATES_FOLDER.joinpath(f"class_props_{name}.py")).read()
+        return open(TEMPLATES_FOLDER.joinpath(f"class_attrs_{name}.py")).read()
     except FileNotFoundError:
         print(
             f"Failed to find template file using base class {name}!",
@@ -37,46 +30,46 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
     """
     text = get_template_class(tag.base)
 
-    # Generate property arguments, unions and documentation
+    # Generate attribute arguments, unions and documentation
     # To get a better idea of these, look inside the template files to see
     # what would be replaced
-    prop_args_gen = []
-    prop_unions_gen = []
-    prop_docs_gen = []
-    for prop in tag.properties:
-        prop_args_gen.append(
+    attr_args_gen = []
+    attr_unions_gen = []
+    attr_docs_gen = []
+    for attr in tag.attributes:
+        attr_args_gen.append(
             # Yucky hard-coded spaces, I can't be bothered to fix this
             # Also making everything optional for the sake of users always
-            # being able to remove a property
-            f"        {prop.name}: Optional[{prop.type}] = {prop.default!r},"
+            # being able to remove an attribute
+            f"        {attr.name}: Optional[{attr.type}] = {attr.default!r},"
         )
-        prop_unions_gen.append(f"            '{prop.name}': {prop.name},")
-        prop_docs_gen.append(f"* {prop.name}: {prop.doc}")
+        attr_unions_gen.append(f"            '{attr.name}': {attr.name},")
+        attr_docs_gen.append(f"* {attr.name}: {attr.doc}")
 
-    prop_args = '\n'.join(prop_args_gen).strip()
-    prop_unions = '\n'.join(prop_unions_gen).strip()
-    prop_docs_outer = '\n'.join(increase_indent(prop_docs_gen, 4)).strip()
-    prop_docs_inner = '\n'.join(increase_indent(prop_docs_gen, 8)).strip()
+    attr_args = '\n'.join(attr_args_gen).strip()
+    attr_unions = '\n'.join(attr_unions_gen).strip()
+    attr_docs_outer = '\n'.join(increase_indent(attr_docs_gen, 4)).strip()
+    attr_docs_inner = '\n'.join(increase_indent(attr_docs_gen, 8)).strip()
 
     # Determine whether the class should mandate keyword-only args
-    # If there are no named properties, we set it to '' to avoid a syntax error
+    # If there are no named attributes, we set it to '' to avoid a syntax error
     # Otherwise, we add a `*,` to prevent kwargs from being used as positional
     # args in self-closing tags
-    if len(tag.properties):
+    if len(tag.attributes):
         kw_only = '*,'
     else:
         kw_only = ''
 
-    # Now we just need to replace in all of the templated properties
+    # Now we just need to replace in all of the templated attributes
     text = text\
         .replace("{name}", tag.name)\
         .replace("{base}", tag.base)\
         .replace("{description}", tag.description)\
         .replace("{link}", tag.mdn_link)\
-        .replace("{prop_args}", prop_args)\
-        .replace("{prop_unions}", prop_unions)\
-        .replace("{prop_docs_outer}", prop_docs_outer)\
-        .replace("{prop_docs_inner}", prop_docs_inner)\
+        .replace("{attr_args}", attr_args)\
+        .replace("{attr_unions}", attr_unions)\
+        .replace("{attr_docs_outer}", attr_docs_outer)\
+        .replace("{attr_docs_inner}", attr_docs_inner)\
         .replace("{kw_only}", kw_only)
 
     print(text, file=output)

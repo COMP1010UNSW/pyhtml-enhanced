@@ -2,54 +2,54 @@ class {name}({base}):
     """
     {description}
 
-    {prop_docs_outer}
+    {attr_docs_outer}
 
     [View full documentation]({link})
     """
     def __init__(
         self,
         *children,
-        {prop_args}
+        {attr_args}
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ) -> None:
         """
         {description}
 
-        {prop_docs_inner}
+        {attr_docs_inner}
 
         [View full documentation]({link})
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
-            {prop_unions}
+            {attr_unions}
         }
-        super().__init__(*children, **properties)
+        super().__init__(*children, **attributes)
 
     def __call__(
         self,
         *children,
-        {prop_args}
+        {attr_args}
         id: Any = None,
         _class: Any = None,
         style: Any = None,
-        **properties: Any,
+        **attributes: Any,
     ):
         """
         {description}
 
-        {prop_docs_inner}
+        {attr_docs_inner}
 
         [View full documentation]({link})
         """
-        properties |= {
+        attributes |= {
             '_class': _class,
             'id': id,
             'style': style,
-            {prop_unions}
+            {attr_unions}
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(*children, **attributes)
