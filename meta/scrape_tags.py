@@ -98,11 +98,23 @@ TagMdnInfo = tuple[str, str]
 """Type definition for info grabbed from MDN docs"""
 
 
+class PropYmlItem(TypedDict):
+    """
+    Properties of a tag, defined in tags.yml
+    """
+
+    doc: str
+    """Documentation for the property"""
+
+    default: NotRequired[str]
+    """Default value of the property"""
+
+
 class TagsYmlItem(TypedDict):
     """
     A tag which has suggested keys
     """
-    properties: NotRequired[dict[str, str]]
+    properties: NotRequired[dict[str, str | PropYmlItem]]
     """Mapping of properties used by the tag (name: description)"""
 
     base: NotRequired[str]
@@ -127,9 +139,14 @@ class Prop:
     Name of the property
     """
 
-    description: Optional[str]
+    doc: Optional[str]
     """
-    Description of the property if applicable
+    Documentation of the property if applicable
+    """
+
+    default: Optional[str]
+    """
+    Default value for the property
     """
 
 
@@ -347,8 +364,14 @@ def prop_entries_to_object(
         return []
 
     props = []
-    for name, description in tag_data['properties'].items():
-        props.append(Prop(name, description))
+    for name, value in tag_data['properties'].items():
+        if isinstance(value, str):
+            doc: Optional[str] = value
+            default: Optional[str] = None
+        else:
+            doc = value.get("doc")
+            default = value.get("default")
+        props.append(Prop(name, doc, default))
     return props
 
 

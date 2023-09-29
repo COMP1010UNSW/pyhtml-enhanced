@@ -23,6 +23,12 @@ a:
     href: URL of page to link to
     target: Use "_blank" to open in a new tab
 
+script:
+  properties:
+    type:
+      doc: Type of script to use
+      default: text/javascript
+
 p:
   base: StylableTag
 

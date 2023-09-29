@@ -103,7 +103,8 @@ def test_larger_page():
         '    <title>',
         '      Hello, world!',
         '    </title>',
-        '    <script src="http://example.com/script.js"></script>',
+        '    <script src="http://example.com/script.js" '
+        'type="text/javascript"></script>',
         '  </head>',
         '  <body>',
         '    <h1>',

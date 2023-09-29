@@ -3340,7 +3340,7 @@ class script(Tag):
     def __init__(
         self,
         *children: Any,
-        
+        type: Any = 'text/javascript',
         **properties: Any,
     ) -> None:
         """
@@ -3349,14 +3349,14 @@ class script(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
         properties |= {
-            
+            'type': type,
         }
         super().__init__(*children, **properties)
 
     def __call__(
         self,
         *children: Any,
-        
+        type: Any = 'text/javascript',
         **properties: Any,
     ):
         """
@@ -3365,7 +3365,7 @@ class script(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
         properties |= {
-            
+            'type': type,
         }
         return super().__call__(*children, **properties)
 
