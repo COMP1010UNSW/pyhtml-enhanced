@@ -48,13 +48,14 @@ def escape_property(property_name: str) -> str:
 
     ## Replacements
 
-    * Leading underscore `_` to '' (empty string), so Python keywords can be
-      used for property names
+    * Prefix and suffix underscores `_` to '' (empty string), so Python
+      keywords can be used for property names
 
     * `_` (underscore) to `-` (hyphen), so that kwargs can be used effectively
     """
     return property_name \
         .removeprefix('_') \
+        .removesuffix('_') \
         .replace('_', '-')
 
 

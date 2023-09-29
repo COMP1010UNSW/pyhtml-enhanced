@@ -53,10 +53,23 @@ def test_property_names_escapes_dashes():
     'keyword',
     keyword.kwlist,
 )
-def test_property_names_escapes_python_keywords(keyword):
+def test_property_names_escapes_python_keywords_prefix(keyword):
     """
     Since Python keywords cannot be given as kwarg names, we need to use
     escaped versions (eg _for => for)
     """
     kwargs = {f"_{keyword}": 'hi'}
+    assert str(html(**kwargs)) == f'<html {keyword}="hi"></html>'
+
+
+@pytest.mark.parametrize(
+    'keyword',
+    keyword.kwlist,
+)
+def test_property_names_escapes_python_keywords_suffix(keyword):
+    """
+    Since Python keywords cannot be given as kwarg names, we need to use
+    escaped versions (eg for_ => for)
+    """
+    kwargs = {f"{keyword}_": 'hi'}
     assert str(html(**kwargs)) == f'<html {keyword}="hi"></html>'
