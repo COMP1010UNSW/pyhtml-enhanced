@@ -3,7 +3,7 @@
 
 Basic tests for rendering HTML
 """
-from pyhtml import html, head, title, body, h1, p, Comment, del_, script
+from pyhtml import html, head, title, body, h1, p, Comment, del_, script, br
 
 
 def test_renders_single_element():
@@ -131,7 +131,7 @@ def test_flatten_element_lists():
     """
     doc = html([p("Hello"), p("world")])
 
-    assert repr(doc) == "\n".join([
+    assert str(doc) == "\n".join([
         "<html>",
         "  <p>",
         "    Hello",
@@ -139,5 +139,18 @@ def test_flatten_element_lists():
         "  <p>",
         "    world",
         "  </p>",
+        "</html>",
+    ])
+
+
+def test_classes_can_render():
+    """
+    Can a class by itself be rendered individually?
+    """
+    doc = html(br)
+
+    assert str(doc) == "\n".join([
+        "<html>",
+        "  <br/>",
         "</html>",
     ])

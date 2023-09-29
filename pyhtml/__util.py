@@ -129,3 +129,16 @@ def flatten_list(the_list: list[T | list[T]]) -> list[T]:
         else:
             result.append(item)
     return result
+
+
+def instantiate_tag_types(elements: list[Any]) -> list[Any]:
+    """
+    Map a list so that any element e for which issubclass(e, Tag) returns True
+    is instantiated
+    """
+    # Can't wait for lazy imports
+    from .__tag_base import Tag
+    return list(map(
+        lambda e: e() if isinstance(e, type) and issubclass(e, Tag) else e,
+        elements,
+    ))

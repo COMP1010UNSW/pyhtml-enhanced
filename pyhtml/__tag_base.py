@@ -63,7 +63,12 @@ class Tag:
         else:
             out = [opening]
             # Children
-            out.extend(util.render_children(self.children))
+            out.extend(
+                util.render_children(
+                    # Instantiate types as empty tags
+                    util.instantiate_tag_types(self.children)
+                )
+            )
             # Closing tag
             out.append(f"</{self._get_tag_name()}>")
 

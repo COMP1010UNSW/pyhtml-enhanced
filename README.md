@@ -55,15 +55,30 @@ This will produce the following HTML code:
 </html>
 ```
 
+## Differences to PyHTML
+
+There are some minor usage differences compared to the original PyHTML library.
+
+Uninstantiated classes are only rendered if they are given as the child of an
+instantiated element.
+
+```py
+>>> br
+<class 'pyhtml.__tags.generated.br'>
+>>> html(body(br))
+<html>
+  <body>
+    <br>
+  </body>
+</html>
+```
+
 ## TODOs
 
 There are a couple of things I haven't done yet
 
-* [ ] Make tags by themselves render, so `str(br)` renders to `<br/>`
 * [ ] Add default properties to tags
 * [ ] Make inline documentation include documentation of suggested properties
-* [X] Update links within documentation to make them point to the right
-      locations.
 * [ ] Some tags (eg `<pre>`) currently aren't properly implemented
 
 ## How it works
