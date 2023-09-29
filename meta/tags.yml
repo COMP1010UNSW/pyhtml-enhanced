@@ -29,6 +29,18 @@ script:
       doc: Type of script to use
       default: text/javascript
 
+style:
+  properties:
+    type:
+      doc: Type of style to use
+      default: text/css
+
+form:
+  properties:
+    method:
+      doc: HTTP request method to use
+      default: POST
+
 p:
   base: StylableTag
 

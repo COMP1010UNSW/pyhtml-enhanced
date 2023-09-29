@@ -224,7 +224,7 @@ class style(Tag):
     def __init__(
         self,
         *children: Any,
-        
+        type: Any = 'text/css',
         **properties: Any,
     ) -> None:
         """
@@ -233,14 +233,14 @@ class style(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style)
         """
         properties |= {
-            
+            'type': type,
         }
         super().__init__(*children, **properties)
 
     def __call__(
         self,
         *children: Any,
-        
+        type: Any = 'text/css',
         **properties: Any,
     ):
         """
@@ -249,7 +249,7 @@ class style(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style)
         """
         properties |= {
-            
+            'type': type,
         }
         return super().__call__(*children, **properties)
 
@@ -3964,7 +3964,7 @@ class form(Tag):
     def __init__(
         self,
         *children: Any,
-        
+        method: Any = 'POST',
         **properties: Any,
     ) -> None:
         """
@@ -3973,14 +3973,14 @@ class form(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
         """
         properties |= {
-            
+            'method': method,
         }
         super().__init__(*children, **properties)
 
     def __call__(
         self,
         *children: Any,
-        
+        method: Any = 'POST',
         **properties: Any,
     ):
         """
@@ -3989,7 +3989,7 @@ class form(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
         """
         properties |= {
-            
+            'method': method,
         }
         return super().__call__(*children, **properties)
 
