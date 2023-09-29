@@ -3,7 +3,19 @@
 
 Basic tests for rendering HTML
 """
-from pyhtml import html, head, title, body, h1, p, Comment, del_, script, br
+from pyhtml import (
+    html,
+    head,
+    title,
+    body,
+    h1,
+    p,
+    Comment,
+    del_,
+    script,
+    br,
+    input,
+)
 
 
 def test_renders_single_element():
@@ -155,3 +167,19 @@ def test_classes_can_render():
         "  <br/>",
         "</html>",
     ])
+
+
+def test_boolean_tag_properties_true():
+    """
+    Do boolean properties of tags render correctly
+    """
+    assert str(input(readonly=True)) == "<input readonly/>"
+
+
+def test_boolean_tag_properties_false():
+    """
+    Do boolean properties of tags render correctly
+
+    Properties with value `False` are skipped
+    """
+    assert str(input(readonly=False)) == "<input/>"

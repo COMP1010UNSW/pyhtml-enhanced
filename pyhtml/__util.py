@@ -76,7 +76,9 @@ def render_tag_properties(properties: dict[str, Any]) -> str:
     ```
     """
     return ' '.join([
-        f'{escape_property(prop)}="{escape_string(val)}"'
+        f'{escape_property(prop)}="{escape_string(str(val))}"'
+        if val is not True
+        else escape_property(prop)
         for prop, val in properties.items()
     ])
 
@@ -89,7 +91,7 @@ def filter_properties(properties: dict[str, Any]) -> dict[str, Any]:
     return {
         k: v
         for k, v in properties.items()
-        if v is not None
+        if v is not None and v is not False
     }
 
 
