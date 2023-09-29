@@ -73,6 +73,24 @@ instantiated element.
 </html>
 ```
 
+Calling an instance of a `Tag` will return a new tag containing all elements of
+the original tag combined with the new properties, but will not modify the
+original instance, as I found the old behaviour confusing and bug-prone.
+
+```py
+>>> para = p("Base paragraph")
+>>> para2 = para("Extra text")
+>>> para2
+<p>
+  Base paragraph
+  Extra text
+</p>
+>>> para
+<p>
+  Base paragraph
+</p>
+```
+
 ## TODOs
 
 There are a couple of things I haven't done yet
