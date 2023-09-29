@@ -39,10 +39,10 @@ This will produce the following HTML code:
 ```html
 <html>
   <head>
-    <script src="http://example.com/script.js"></script>
     <title>
       Hello, world!
     </title>
+    <script src="http://example.com/script.js" type="text/javascript"></script>
   </head>
   <body>
     <h1>
@@ -77,9 +77,9 @@ instantiated element.
 
 There are a couple of things I haven't done yet
 
-* [ ] Add default properties to tags
-* [ ] Make inline documentation include documentation of suggested properties
-* [ ] Some tags (eg `<pre>`) currently aren't properly implemented
+* [ ] Add default properties to more tags
+* [ ] Some tags (eg `<pre>`, `<script>`) currently aren't properly implemented
+      and escape their contents.
 
 ## How it works
 
@@ -97,7 +97,8 @@ problem with the following steps:
    to gather information on suggested properties and base classes to use for
    each tag.
 
-4. Generate Python code to represent all of these tags.
+4. Generate Python code to represent all of these tags, including their
+   documentation.
 
 ## Credits
 
