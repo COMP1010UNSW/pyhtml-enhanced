@@ -7,7 +7,7 @@ including their documentation.
 It also embeds suggested kwargs for some elements, using info from tags.yml.
 """
 from dataclasses import dataclass
-from typing import Optional, TypedDict, NotRequired
+from typing import Optional, TypedDict, NotRequired, Any
 from collections.abc import Iterator
 import requests
 import yaml
@@ -107,7 +107,13 @@ class PropYmlItem(TypedDict):
     """Documentation for the property"""
 
     default: NotRequired[str]
-    """Default value of the property"""
+    """
+    Default value of the property - this is passed to eval to convert to Python
+    code.
+    """
+
+    type: NotRequired[str]
+    """Python type to accept for the property"""
 
 
 class TagsYmlItem(TypedDict):
@@ -144,7 +150,12 @@ class Prop:
     Documentation of the property if applicable
     """
 
-    default: Optional[str]
+    type: str
+    """
+    Type to accept for the property
+    """
+
+    default: Optional[Any]
     """
     Default value for the property
     """
@@ -368,10 +379,17 @@ def prop_entries_to_object(
         if isinstance(value, str):
             doc: Optional[str] = value
             default: Optional[str] = None
+            type = "Any"
         else:
             doc = value.get("doc")
-            default = value.get("default")
-        props.append(Prop(name, doc, default))
+            if "default" in value:
+                # NOTE: This is safe, as it is only ever run at compile time
+                # This code is not distributed to users' systems
+                default = eval(value["default"])
+            else:
+                default = None
+            type = value.get("type", "Any")
+        props.append(Prop(name, doc, type, default))
     return props
 
 

@@ -60,8 +60,8 @@ class base(SelfClosingTag):
     def __init__(
         self,
         *,
-        href: Any = None,
-        target: Any = None,
+        href: Optional[Any] = None,
+        target: Optional[Any] = None,
         **properties: Any,
     ) -> None:
         """
@@ -78,8 +78,8 @@ class base(SelfClosingTag):
     def __call__(
         self,
         *,
-        href: Any = None,
-        target: Any = None,
+        href: Optional[Any] = None,
+        target: Optional[Any] = None,
         **properties: Any,
     ):
         """
@@ -142,8 +142,8 @@ class link(SelfClosingTag):
     def __init__(
         self,
         *,
-        href: Any = None,
-        rel: Any = None,
+        href: Optional[Any] = None,
+        rel: Optional[Any] = None,
         **properties: Any,
     ) -> None:
         """
@@ -160,8 +160,8 @@ class link(SelfClosingTag):
     def __call__(
         self,
         *,
-        href: Any = None,
-        rel: Any = None,
+        href: Optional[Any] = None,
+        rel: Optional[Any] = None,
         **properties: Any,
     ):
         """
@@ -224,7 +224,7 @@ class style(Tag):
     def __init__(
         self,
         *children: Any,
-        type: Any = 'text/css',
+        type: Optional[Any] = 'text/css',
         **properties: Any,
     ) -> None:
         """
@@ -240,7 +240,7 @@ class style(Tag):
     def __call__(
         self,
         *children: Any,
-        type: Any = 'text/css',
+        type: Optional[Any] = 'text/css',
         **properties: Any,
     ):
         """
@@ -1595,8 +1595,8 @@ class a(StylableTag):
     def __init__(
         self,
         *children,
-        href: Any = None,
-        target: Any = None,
+        href: Optional[Any] = None,
+        target: Optional[Any] = None,
         id: Any = None,
         _class: Any = None,
         style: Any = None,
@@ -1619,8 +1619,8 @@ class a(StylableTag):
     def __call__(
         self,
         *children,
-        href: Any = None,
-        target: Any = None,
+        href: Optional[Any] = None,
+        target: Optional[Any] = None,
         id: Any = None,
         _class: Any = None,
         style: Any = None,
@@ -2868,8 +2868,8 @@ class img(Tag):
     def __init__(
         self,
         *children: Any,
-        src: Any = None,
-        alt: Any = None,
+        src: Optional[Any] = None,
+        alt: Optional[Any] = None,
         **properties: Any,
     ) -> None:
         """
@@ -2886,8 +2886,8 @@ class img(Tag):
     def __call__(
         self,
         *children: Any,
-        src: Any = None,
-        alt: Any = None,
+        src: Optional[Any] = None,
+        alt: Optional[Any] = None,
         **properties: Any,
     ):
         """
@@ -3340,7 +3340,7 @@ class script(Tag):
     def __init__(
         self,
         *children: Any,
-        type: Any = 'text/javascript',
+        type: Optional[Any] = 'text/javascript',
         **properties: Any,
     ) -> None:
         """
@@ -3356,7 +3356,7 @@ class script(Tag):
     def __call__(
         self,
         *children: Any,
-        type: Any = 'text/javascript',
+        type: Optional[Any] = 'text/javascript',
         **properties: Any,
     ):
         """
@@ -3964,7 +3964,7 @@ class form(Tag):
     def __init__(
         self,
         *children: Any,
-        method: Any = 'POST',
+        method: Optional[Any] = 'POST',
         **properties: Any,
     ) -> None:
         """
@@ -3980,7 +3980,7 @@ class form(Tag):
     def __call__(
         self,
         *children: Any,
-        method: Any = 'POST',
+        method: Optional[Any] = 'POST',
         **properties: Any,
     ):
         """
@@ -3994,7 +3994,7 @@ class form(Tag):
         return super().__call__(*children, **properties)
 
 
-class input(Tag):
+class input(SelfClosingTag):
     """
     Used to create interactive controls for web-based forms to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent. The `<input>` element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
 
@@ -4002,8 +4002,12 @@ class input(Tag):
     """
     def __init__(
         self,
-        *children: Any,
-        
+        *,
+        type: Optional[Any] = None,
+        name: Optional[Any] = None,
+        value: Optional[Any] = None,
+        readonly: Optional[bool] = False,
+        required: Optional[bool] = False,
         **properties: Any,
     ) -> None:
         """
@@ -4012,14 +4016,22 @@ class input(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
         """
         properties |= {
-            
+            'type': type,
+            'name': name,
+            'value': value,
+            'readonly': readonly,
+            'required': required,
         }
-        super().__init__(*children, **properties)
+        super().__init__(**properties)
 
     def __call__(
         self,
-        *children: Any,
-        
+        *,
+        type: Optional[Any] = None,
+        name: Optional[Any] = None,
+        value: Optional[Any] = None,
+        readonly: Optional[bool] = False,
+        required: Optional[bool] = False,
         **properties: Any,
     ):
         """
@@ -4028,9 +4040,13 @@ class input(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
         """
         properties |= {
-            
+            'type': type,
+            'name': name,
+            'value': value,
+            'readonly': readonly,
+            'required': required,
         }
-        return super().__call__(*children, **properties)
+        return super().__call__(**properties)
 
 
 class label(Tag):
@@ -4042,7 +4058,7 @@ class label(Tag):
     def __init__(
         self,
         *children: Any,
-        
+        for_: Optional[Any] = None,
         **properties: Any,
     ) -> None:
         """
@@ -4051,14 +4067,14 @@ class label(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
         """
         properties |= {
-            
+            'for_': for_,
         }
         super().__init__(*children, **properties)
 
     def __call__(
         self,
         *children: Any,
-        
+        for_: Optional[Any] = None,
         **properties: Any,
     ):
         """
@@ -4067,7 +4083,7 @@ class label(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
         """
         properties |= {
-            
+            'for_': for_,
         }
         return super().__call__(*children, **properties)
 

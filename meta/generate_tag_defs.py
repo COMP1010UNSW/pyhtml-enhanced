@@ -42,8 +42,12 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
     prop_args_gen = []
     prop_unions_gen = []
     for prop in tag.properties:
-        # Yucky hard-coded spaces, I can't be bothered to fix this
-        prop_args_gen.append(f"        {prop.name}: Any = {prop.default!r},")
+        prop_args_gen.append(
+            # Yucky hard-coded spaces, I can't be bothered to fix this
+            # Also making everything optional for the sake of users always
+            # being able to remove a property
+            f"        {prop.name}: Optional[{prop.type}] = {prop.default!r},"
+        )
         prop_unions_gen.append(f"            '{prop.name}': {prop.name},")
 
     prop_args = '\n'.join(prop_args_gen).strip()
