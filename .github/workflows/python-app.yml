@@ -3,7 +3,21 @@
 
 name: Test and Lint
 
-on: [push]
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+# Yoinked from https://github.com/MTES-MCT/apilos/pull/854/files
+# Explicitely set permissions to allow Dependabot workflow runs to write in the PR
+# for coverage's reporting.
+# By default, these are read-only when the actions are ran by Dependabot
+# https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#changing-github_token-permissions
+permissions:
+  pull-requests: write
 
 jobs:
   Pytest:
@@ -17,7 +31,7 @@ jobs:
       with:
         python-version: 3.11
     - uses: Gr1N/setup-poetry@v8
-    - uses: actions/cache@v2
+    - uses: actions/cache@v3
       with:
         path: ~/.cache/pypoetry/virtualenvs
         key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
@@ -26,9 +40,19 @@ jobs:
     - name: Test with pytest
       run: |
         poetry run coverage run -m pytest
-    - name: Generate code coverage report
+    - name: Print coverage output
       run: |
         poetry run coverage report
+    - name: Generate code coverage report
+      if: ${{ github.event_name == 'pull_request' }}
+      run: |
+        poetry run coverage xml
+    - name: Create code coverage comment
+      if: ${{ github.event_name == 'pull_request' }}
+      uses: orgoro/coverage@v3
+      with:
+          coverageFile: coverage.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   Flake8:
     runs-on: ubuntu-latest
@@ -41,7 +65,7 @@ jobs:
       with:
         python-version: 3.11
     - uses: Gr1N/setup-poetry@v8
-    - uses: actions/cache@v2
+    - uses: actions/cache@v3
       with:
         path: ~/.cache/pypoetry/virtualenvs
         key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
@@ -62,7 +86,7 @@ jobs:
       with:
         python-version: 3.11
     - uses: Gr1N/setup-poetry@v8
-    - uses: actions/cache@v2
+    - uses: actions/cache@v3
       with:
         path: ~/.cache/pypoetry/virtualenvs
         key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
