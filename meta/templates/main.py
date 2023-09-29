@@ -9,5 +9,5 @@ Note that all documentation is licensed as CC-BY-SA-2.5
 
 https://creativecommons.org/licenses/by-sa/2.5/
 """
-from typing import Any
+from typing import Any, Optional
 from ..__tag_base import Tag, SelfClosingTag, StylableTag
