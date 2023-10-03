@@ -64,8 +64,8 @@ class base(SelfClosingTag):
     """
     Specifies the base URL to use for all relative URLs in a document. There can be only one such element in a document.
 
-    * href: Base URL to use in the document
-    * target: Default target to use in the document
+    * `href`: Base URL to use in the document
+    * `target`: Default target to use in the document
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)
     """
@@ -79,8 +79,8 @@ class base(SelfClosingTag):
         """
         Specifies the base URL to use for all relative URLs in a document. There can be only one such element in a document.
 
-        * href: Base URL to use in the document
-        * target: Default target to use in the document
+        * `href`: Base URL to use in the document
+        * `target`: Default target to use in the document
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)
         """
@@ -100,8 +100,8 @@ class base(SelfClosingTag):
         """
         Specifies the base URL to use for all relative URLs in a document. There can be only one such element in a document.
 
-        * href: Base URL to use in the document
-        * target: Default target to use in the document
+        * `href`: Base URL to use in the document
+        * `target`: Default target to use in the document
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)
         """
@@ -167,8 +167,8 @@ class link(SelfClosingTag):
     """
     Specifies relationships between the current document and an external resource. This element is most commonly used to link to CSS but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.
 
-    * href: Location of the file being linked to
-    * rel: Kind of file being loaded (eg stylesheet)
+    * `href`: Location of the file being linked to
+    * `rel`: Kind of file being loaded (eg stylesheet)
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)
     """
@@ -182,8 +182,8 @@ class link(SelfClosingTag):
         """
         Specifies relationships between the current document and an external resource. This element is most commonly used to link to CSS but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.
 
-        * href: Location of the file being linked to
-        * rel: Kind of file being loaded (eg stylesheet)
+        * `href`: Location of the file being linked to
+        * `rel`: Kind of file being loaded (eg stylesheet)
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)
         """
@@ -203,8 +203,8 @@ class link(SelfClosingTag):
         """
         Specifies relationships between the current document and an external resource. This element is most commonly used to link to CSS but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.
 
-        * href: Location of the file being linked to
-        * rel: Kind of file being loaded (eg stylesheet)
+        * `href`: Location of the file being linked to
+        * `rel`: Kind of file being loaded (eg stylesheet)
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)
         """
@@ -270,7 +270,7 @@ class style(Tag):
     """
     Contains style information for a document or part of a document. It contains CSS, which is applied to the contents of the document containing this element.
 
-    * type: Type of style to use (defaults to text/css)
+    * `type`: Type of style to use (defaults to `'text/css'`)
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style)
     """
@@ -283,7 +283,7 @@ class style(Tag):
         """
         Contains style information for a document or part of a document. It contains CSS, which is applied to the contents of the document containing this element.
 
-        * type: Type of style to use (defaults to text/css)
+        * `type`: Type of style to use (defaults to `'text/css'`)
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style)
         """
@@ -301,7 +301,7 @@ class style(Tag):
         """
         Contains style information for a document or part of a document. It contains CSS, which is applied to the contents of the document containing this element.
 
-        * type: Type of style to use (defaults to text/css)
+        * `type`: Type of style to use (defaults to `'text/css'`)
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style)
         """
@@ -1938,8 +1938,8 @@ class a(StylableTag):
     """
     Together with its `href` attribute, creates a hyperlink to web pages, files, email addresses, locations within the current page, or anything else a URL can address.
 
-    * href: URL of page to link to
-    * target: Use "_blank" to open in a new tab
+    * `href`: URL of page to link to
+    * `target`: Use "_blank" to open in a new tab
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
     """
@@ -1956,8 +1956,8 @@ class a(StylableTag):
         """
         Together with its `href` attribute, creates a hyperlink to web pages, files, email addresses, locations within the current page, or anything else a URL can address.
 
-        * href: URL of page to link to
-        * target: Use "_blank" to open in a new tab
+        * `href`: URL of page to link to
+        * `target`: Use "_blank" to open in a new tab
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
         """
@@ -1983,8 +1983,8 @@ class a(StylableTag):
         """
         Together with its `href` attribute, creates a hyperlink to web pages, files, email addresses, locations within the current page, or anything else a URL can address.
 
-        * href: URL of page to link to
-        * target: Use "_blank" to open in a new tab
+        * `href`: URL of page to link to
+        * `target`: Use "_blank" to open in a new tab
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
         """
@@ -3493,8 +3493,8 @@ class img(Tag):
     """
     Embeds an image into the document.
 
-    * src: Source of the image
-    * alt: Alt text of the image
+    * `src`: Source of the image
+    * `alt`: Alt text of the image
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
     """
@@ -3508,8 +3508,8 @@ class img(Tag):
         """
         Embeds an image into the document.
 
-        * src: Source of the image
-        * alt: Alt text of the image
+        * `src`: Source of the image
+        * `alt`: Alt text of the image
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
         """
@@ -3529,8 +3529,8 @@ class img(Tag):
         """
         Embeds an image into the document.
 
-        * src: Source of the image
-        * alt: Alt text of the image
+        * `src`: Source of the image
+        * `alt`: Alt text of the image
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
         """
@@ -4076,7 +4076,7 @@ class script(Tag):
     """
     Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
 
-    * type: Type of script to use (defaults to text/javascript)
+    * `type`: Type of script to use (defaults to `'text/javascript'`)
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
     """
@@ -4089,7 +4089,7 @@ class script(Tag):
         """
         Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
 
-        * type: Type of script to use (defaults to text/javascript)
+        * `type`: Type of script to use (defaults to `'text/javascript'`)
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
@@ -4107,7 +4107,7 @@ class script(Tag):
         """
         Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
 
-        * type: Type of script to use (defaults to text/javascript)
+        * `type`: Type of script to use (defaults to `'text/javascript'`)
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
@@ -4844,7 +4844,7 @@ class form(Tag):
     """
     Represents a document section containing interactive controls for submitting information.
 
-    * method: HTTP request method to use (defaults to POST)
+    * `method`: HTTP request method to use (defaults to `'POST'`)
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
     """
@@ -4857,7 +4857,7 @@ class form(Tag):
         """
         Represents a document section containing interactive controls for submitting information.
 
-        * method: HTTP request method to use (defaults to POST)
+        * `method`: HTTP request method to use (defaults to `'POST'`)
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
         """
@@ -4875,7 +4875,7 @@ class form(Tag):
         """
         Represents a document section containing interactive controls for submitting information.
 
-        * method: HTTP request method to use (defaults to POST)
+        * `method`: HTTP request method to use (defaults to `'POST'`)
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
         """
@@ -4892,11 +4892,11 @@ class input(SelfClosingTag):
     """
     Used to create interactive controls for web-based forms to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent. The `<input>` element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
 
-    * type: Kind of input control to use (checkbox, radio, date, password, text, etc)
-    * name: Name of the field. Submitted with the form as part of a name/value pair
-    * value: Initial value of the control
-    * readonly: Include if field is read-only (defaults to False)
-    * required: Include if field is required (defaults to False)
+    * `type`: Kind of input control to use (checkbox, radio, date, password, text, etc)
+    * `name`: Name of the field. Submitted with the form as part of a name/value pair
+    * `value`: Initial value of the control
+    * `readonly`: Include if field is read-only (defaults to `False`)
+    * `required`: Include if field is required (defaults to `False`)
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
     """
@@ -4913,11 +4913,11 @@ class input(SelfClosingTag):
         """
         Used to create interactive controls for web-based forms to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent. The `<input>` element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
 
-        * type: Kind of input control to use (checkbox, radio, date, password, text, etc)
-        * name: Name of the field. Submitted with the form as part of a name/value pair
-        * value: Initial value of the control
-        * readonly: Include if field is read-only (defaults to False)
-        * required: Include if field is required (defaults to False)
+        * `type`: Kind of input control to use (checkbox, radio, date, password, text, etc)
+        * `name`: Name of the field. Submitted with the form as part of a name/value pair
+        * `value`: Initial value of the control
+        * `readonly`: Include if field is read-only (defaults to `False`)
+        * `required`: Include if field is required (defaults to `False`)
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
         """
@@ -4943,11 +4943,11 @@ class input(SelfClosingTag):
         """
         Used to create interactive controls for web-based forms to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent. The `<input>` element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
 
-        * type: Kind of input control to use (checkbox, radio, date, password, text, etc)
-        * name: Name of the field. Submitted with the form as part of a name/value pair
-        * value: Initial value of the control
-        * readonly: Include if field is read-only (defaults to False)
-        * required: Include if field is required (defaults to False)
+        * `type`: Kind of input control to use (checkbox, radio, date, password, text, etc)
+        * `name`: Name of the field. Submitted with the form as part of a name/value pair
+        * `value`: Initial value of the control
+        * `readonly`: Include if field is read-only (defaults to `False`)
+        * `required`: Include if field is required (defaults to `False`)
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
         """
@@ -4968,7 +4968,7 @@ class label(Tag):
     """
     Represents a caption for an item in a user interface.
 
-    * for_: ID of input field to associate this label with
+    * `for_`: ID of input field to associate this label with
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
     """
@@ -4981,7 +4981,7 @@ class label(Tag):
         """
         Represents a caption for an item in a user interface.
 
-        * for_: ID of input field to associate this label with
+        * `for_`: ID of input field to associate this label with
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
         """
@@ -4999,7 +4999,7 @@ class label(Tag):
         """
         Represents a caption for an item in a user interface.
 
-        * for_: ID of input field to associate this label with
+        * `for_`: ID of input field to associate this label with
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
         """

@@ -53,9 +53,10 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
         # Also mention default value if applicable
         if attr.default is not None:
             attr_docs_gen.append(
-                f"* {attr.name}: {attr.doc} (defaults to {attr.default})")
+                f"* `{attr.name}`: {attr.doc} (defaults to `{attr.default!r}`)"
+            )
         else:
-            attr_docs_gen.append(f"* {attr.name}: {attr.doc}")
+            attr_docs_gen.append(f"* `{attr.name}`: {attr.doc}")
 
     attr_args = '\n'.join(attr_args_gen).strip()
     attr_unions = '\n'.join(attr_unions_gen).strip()
