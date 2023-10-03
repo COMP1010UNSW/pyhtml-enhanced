@@ -158,10 +158,14 @@ class SelfClosingTag(Tag):
         Renders tag and its children to a list of strings where each string is
         a single line of output
         """
-        if len(self.attributes):
+        attributes = util.filter_attributes(util.dict_union(
+            self._get_default_attributes(),
+            self.attributes,
+        ))
+        if len(attributes):
             return [
                 f"<{self._get_tag_name()} "
-                f"{util.render_tag_attributes(self.attributes)}/>"
+                f"{util.render_tag_attributes(attributes)}/>"
             ]
         else:
             return [f"<{self._get_tag_name()}/>"]
