@@ -41,3 +41,6 @@ class {name}({base}):
             {attr_unions}
         }
         return super().__call__(**attributes)
+
+    def _get_default_attributes(self) -> dict[str, Any]:
+        return {default_attrs}

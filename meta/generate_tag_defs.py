@@ -30,6 +30,12 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
     """
     text = get_template_class(tag.base)
 
+    # Generate default attributes dictionary
+    default_attrs = repr({
+        attr.name: attr.default
+        for attr in tag.attributes
+    })
+
     # Generate attribute arguments, unions and documentation
     # To get a better idea of these, look inside the template files to see
     # what would be replaced
@@ -41,10 +47,15 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
             # Yucky hard-coded spaces, I can't be bothered to fix this
             # Also making everything optional for the sake of users always
             # being able to remove an attribute
-            f"        {attr.name}: Optional[{attr.type}] = {attr.default!r},"
+            f"        {attr.name}: Optional[{attr.type}] = None,"
         )
         attr_unions_gen.append(f"            '{attr.name}': {attr.name},")
-        attr_docs_gen.append(f"* {attr.name}: {attr.doc}")
+        # Also mention default value if applicable
+        if attr.default is not None:
+            attr_docs_gen.append(
+                f"* {attr.name}: {attr.doc} (defaults to {attr.default})")
+        else:
+            attr_docs_gen.append(f"* {attr.name}: {attr.doc}")
 
     attr_args = '\n'.join(attr_args_gen).strip()
     attr_unions = '\n'.join(attr_unions_gen).strip()
@@ -70,7 +81,8 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
         .replace("{attr_unions}", attr_unions)\
         .replace("{attr_docs_outer}", attr_docs_outer)\
         .replace("{attr_docs_inner}", attr_docs_inner)\
-        .replace("{kw_only}", kw_only)
+        .replace("{kw_only}", kw_only)\
+        .replace("{default_attrs}", default_attrs)
 
     print(text, file=output)
     # And a nice trailing newline to make flake8 happy

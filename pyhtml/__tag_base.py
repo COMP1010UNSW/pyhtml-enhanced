@@ -45,15 +45,29 @@ class Tag:
         """
         return type(self).__name__.removesuffix('_')
 
+    def _get_default_attributes(self) -> dict[str, Any]:
+        """
+        Returns the default attributes for the tag
+
+        This is overridden by child classes to return a dictionary of default
+        attributes that are applied to the class.
+        """
+        return {}
+
     def _render(self) -> list[str]:
         """
         Renders tag and its children to a list of strings where each string is
         a single line of output
         """
+        attributes = util.filter_attributes(util.dict_union(
+            self._get_default_attributes(),
+            self.attributes,
+        ))
+
         # Tag and attributes
         opening = f"<{self._get_tag_name()}"
-        if len(self.attributes):
-            opening += f" {util.render_tag_attributes(self.attributes)}>"
+        if len(attributes):
+            opening += f" {util.render_tag_attributes(attributes)}>"
         else:
             opening += ">"
 

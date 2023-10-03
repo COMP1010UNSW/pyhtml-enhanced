@@ -53,3 +53,6 @@ class {name}({base}):
             {attr_unions}
         }
         return super().__call__(*children, **attributes)
+
+    def _get_default_attributes(self) -> dict[str, Any]:
+        return {default_attrs}

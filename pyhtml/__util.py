@@ -149,14 +149,14 @@ def instantiate_tag_types(elements: list[Any]) -> list[Any]:
     ))
 
 
-def dict_union(dict_a: dict[K, V], dict_b: dict[K, V]) -> dict[K, V]:
+def dict_union(base: dict[K, V], additions: dict[K, V]) -> dict[K, V]:
     """
     Smart union of a dictionary - if a value in `dict_b` is `None` and the
-    value in `dict_a` exists, the value isn't replaced
+    value in `dict_a` exists, the value is replaced
     """
-    result = dict_a.copy()
-    for k, v in dict_b.items():
-        if k in result and result[k] is not None:
+    result = base.copy()
+    for k, v in additions.items():
+        if k in base and v is None:
             pass
         else:
             result[k] = v
