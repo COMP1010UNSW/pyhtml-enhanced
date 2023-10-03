@@ -116,6 +116,17 @@ def test_call_adds_mixed_attrs_children_link():
     ])
 
 
+def test_call_adds_mixed_attrs_children_script():
+    """Calling a tag adds more properties, using a script tag"""
+    assert str(
+        script(type="blah/blah")("// Some JS")
+    ) == "\n".join([
+        '<script type="blah/blah">',
+        '  // Some JS',
+        '</script>',
+    ])
+
+
 def test_tags_with_trailing_undercore_render_without():
     """
     Some tags have a trailing underscore to avoid name collisions. When
