@@ -87,10 +87,19 @@ def test_call_adds_attrs():
 def test_call_adds_children():
     """Calling a tag adds additional children"""
     # Note that order is important again
-    assert str(html("Hello", "World")) == '\n'.join([
+    assert str(html("Hello")("World")) == '\n'.join([
         '<html>',
         '  Hello',
         '  World',
+        '</html>',
+    ])
+
+
+def test_call_adds_mixed_attrs_children():
+    """Calling a tag adds more properties"""
+    assert str(html(foo="bar")("Hello")) == "\n".join([
+        '<html foo="bar">',
+        '  Hello',
         '</html>',
     ])
 
