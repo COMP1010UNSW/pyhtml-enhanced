@@ -16,6 +16,7 @@ from pyhtml import (
     script,
     br,
     input,
+    a,
 )
 
 
@@ -101,6 +102,17 @@ def test_call_adds_mixed_attrs_children():
         '<html foo="bar">',
         '  Hello',
         '</html>',
+    ])
+
+
+def test_call_adds_mixed_attrs_children_link():
+    """Calling a tag adds more properties, using an anchor tag"""
+    assert str(
+        a(href="https://www.youtube.com/watch?v=dQw4w9WgXcQ")("Click me")
+    ) == "\n".join([
+        '<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">',
+        '  Click me',
+        '</a>',
     ])
 
 

@@ -7,6 +7,8 @@ from typing import Any, TypeVar
 
 
 T = TypeVar('T')
+K = TypeVar('K')
+V = TypeVar('V')
 
 
 def increase_indent(text: list[str], amount: int) -> list[str]:
@@ -145,3 +147,18 @@ def instantiate_tag_types(elements: list[Any]) -> list[Any]:
         lambda e: e() if isinstance(e, type) and issubclass(e, Tag) else e,
         elements,
     ))
+
+
+def dict_union(dict_a: dict[K, V], dict_b: dict[K, V]) -> dict[K, V]:
+    """
+    Smart union of a dictionary - if a value in `dict_b` is `None` and the
+    value in `dict_a` exists, the value isn't replaced
+    """
+    result = dict_a.copy()
+    for k, v in dict_b.items():
+        if k in result and result[k] is not None:
+            pass
+        else:
+            result[k] = v
+
+    return result

@@ -35,7 +35,7 @@ class Tag:
         appended and additional attributes unioned.
         """
         new_children = self.children + util.flatten_list(list(children))
-        new_attributes = self.attributes | attributes
+        new_attributes = util.dict_union(self.attributes, attributes)
 
         return self.__class__(*new_children, **new_attributes)
 
