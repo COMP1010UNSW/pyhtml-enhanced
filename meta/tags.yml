@@ -15,7 +15,7 @@ link:
   base: SelfClosingTag
   attributes:
     href: Location of the file being linked to
-    rel: Kind of file being loaded (eg stylesheet)
+    rel: Kind of file being loaded (eg `"stylesheet"`)
 
 a:
   base: StylableTag
@@ -38,8 +38,9 @@ style:
 form:
   attributes:
     method:
-      doc: HTTP request method to use
+      doc: The HTTP request method to use when submitting this form. In almost all cases, you'll want this to be POST.
       default: "'POST'"
+    action: The URL to request to when submitting this form. By default, requests will be sent to the same URL as the current page.
 
 input:
   base: SelfClosingTag
@@ -47,6 +48,7 @@ input:
     type: Kind of input control to use (checkbox, radio, date, password, text, etc)
     name: Name of the field. Submitted with the form as part of a name/value pair
     value: Initial value of the control
+    placeholder: Placeholder text to use for text inputs. If the field is empty, the placeholder is shown.
     readonly:
       doc: Include if field is read-only
       type: bool
@@ -55,6 +57,30 @@ input:
       doc: Include if field is required
       type: bool
       default: "False"
+    formmethod: The HTTP request method to use on click if this input is a submit button. Generally, it is preferred to set the `method` attribute on the `<form>` element instead of this.
+    formaction: The URL to request to on click if this input is a submit button. Generally, it is preferred to set the `action` attribute on the `<form>` element instead of this.
+
+button:
+  base: StylableTag
+  attributes:
+    formmethod: The HTTP request method to use on click. Generally, it is preferred to set the `method` attribute on the `<form>` element instead of this.
+    formaction: The URL to request to on click. Generally, it is preferred to set the `action` attribute on the `<form>` element instead of this.
+
+table:
+  base: StylableTag
+
+th:
+  base: StylableTag
+  attributes:
+    scope: 'The area of the table that this heading applies to. Allowed values: `"col"`, `"row"`, `"colgroup"`, `"rowgroup"`'
+    colspan: The number of columns in the table that this heading spans.
+    rowspan: The number of rows in the table that this heading spans.
+
+td:
+  base: StylableTag
+  attributes:
+    colspan: The number of columns in the table that this cell spans.
+    rowspan: The number of rows in the table that this cell spans.
 
 label:
   attributes:

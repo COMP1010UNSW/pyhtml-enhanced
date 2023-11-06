@@ -168,7 +168,7 @@ class link(SelfClosingTag):
     Specifies relationships between the current document and an external resource. This element is most commonly used to link to CSS but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.
 
     * `href`: Location of the file being linked to
-    * `rel`: Kind of file being loaded (eg stylesheet)
+    * `rel`: Kind of file being loaded (eg `"stylesheet"`)
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)
     """
@@ -183,7 +183,7 @@ class link(SelfClosingTag):
         Specifies relationships between the current document and an external resource. This element is most commonly used to link to CSS but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.
 
         * `href`: Location of the file being linked to
-        * `rel`: Kind of file being loaded (eg stylesheet)
+        * `rel`: Kind of file being loaded (eg `"stylesheet"`)
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)
         """
@@ -204,7 +204,7 @@ class link(SelfClosingTag):
         Specifies relationships between the current document and an external resource. This element is most commonly used to link to CSS but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.
 
         * `href`: Location of the file being linked to
-        * `rel`: Kind of file being loaded (eg stylesheet)
+        * `rel`: Kind of file being loaded (eg `"stylesheet"`)
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)
         """
@@ -4360,7 +4360,7 @@ class colgroup(Tag):
         return {}
 
 
-class table(Tag):
+class table(StylableTag):
     """
     Represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.
 
@@ -4370,8 +4370,11 @@ class table(Tag):
     """
     def __init__(
         self,
-        *children: Any,
+        *children,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **attributes: Any,
     ) -> None:
         """
@@ -4382,14 +4385,20 @@ class table(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)
         """
         attributes |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
         super().__init__(*children, **attributes)
 
     def __call__(
         self,
-        *children: Any,
+        *children,
         
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **attributes: Any,
     ):
         """
@@ -4400,6 +4409,9 @@ class table(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)
         """
         attributes |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
         return super().__call__(*children, **attributes)
@@ -4456,52 +4468,71 @@ class tbody(Tag):
         return {}
 
 
-class td(Tag):
+class td(StylableTag):
     """
     Defines a cell of a table that contains data. It participates in the _table model_.
 
-    
+    * `colspan`: The number of columns in the table that this cell spans.
+    * `rowspan`: The number of rows in the table that this cell spans.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td)
     """
     def __init__(
         self,
-        *children: Any,
-        
+        *children,
+        colspan: Optional[Any] = None,
+        rowspan: Optional[Any] = None,
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **attributes: Any,
     ) -> None:
         """
         Defines a cell of a table that contains data. It participates in the _table model_.
 
-        
+        * `colspan`: The number of columns in the table that this cell spans.
+        * `rowspan`: The number of rows in the table that this cell spans.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td)
         """
         attributes |= {
-            
+            '_class': _class,
+            'id': id,
+            'style': style,
+            'colspan': colspan,
+            'rowspan': rowspan,
         }
         super().__init__(*children, **attributes)
 
     def __call__(
         self,
-        *children: Any,
-        
+        *children,
+        colspan: Optional[Any] = None,
+        rowspan: Optional[Any] = None,
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **attributes: Any,
     ):
         """
         Defines a cell of a table that contains data. It participates in the _table model_.
 
-        
+        * `colspan`: The number of columns in the table that this cell spans.
+        * `rowspan`: The number of rows in the table that this cell spans.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td)
         """
         attributes |= {
-            
+            '_class': _class,
+            'id': id,
+            'style': style,
+            'colspan': colspan,
+            'rowspan': rowspan,
         }
         return super().__call__(*children, **attributes)
 
     def _get_default_attributes(self) -> dict[str, Any]:
-        return {}
+        return {'colspan': None, 'rowspan': None}
 
 
 class tfoot(Tag):
@@ -4552,52 +4583,78 @@ class tfoot(Tag):
         return {}
 
 
-class th(Tag):
+class th(StylableTag):
     """
     Defines a cell as a header of a group of table cells. The exact nature of this group is defined by the `scope` and `headers` attributes.
 
-    
+    * `scope`: The area of the table that this heading applies to. Allowed values: `"col"`, `"row"`, `"colgroup"`, `"rowgroup"`
+    * `colspan`: The number of columns in the table that this heading spans.
+    * `rowspan`: The number of rows in the table that this heading spans.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th)
     """
     def __init__(
         self,
-        *children: Any,
-        
+        *children,
+        scope: Optional[Any] = None,
+        colspan: Optional[Any] = None,
+        rowspan: Optional[Any] = None,
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **attributes: Any,
     ) -> None:
         """
         Defines a cell as a header of a group of table cells. The exact nature of this group is defined by the `scope` and `headers` attributes.
 
-        
+        * `scope`: The area of the table that this heading applies to. Allowed values: `"col"`, `"row"`, `"colgroup"`, `"rowgroup"`
+        * `colspan`: The number of columns in the table that this heading spans.
+        * `rowspan`: The number of rows in the table that this heading spans.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th)
         """
         attributes |= {
-            
+            '_class': _class,
+            'id': id,
+            'style': style,
+            'scope': scope,
+            'colspan': colspan,
+            'rowspan': rowspan,
         }
         super().__init__(*children, **attributes)
 
     def __call__(
         self,
-        *children: Any,
-        
+        *children,
+        scope: Optional[Any] = None,
+        colspan: Optional[Any] = None,
+        rowspan: Optional[Any] = None,
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **attributes: Any,
     ):
         """
         Defines a cell as a header of a group of table cells. The exact nature of this group is defined by the `scope` and `headers` attributes.
 
-        
+        * `scope`: The area of the table that this heading applies to. Allowed values: `"col"`, `"row"`, `"colgroup"`, `"rowgroup"`
+        * `colspan`: The number of columns in the table that this heading spans.
+        * `rowspan`: The number of rows in the table that this heading spans.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th)
         """
         attributes |= {
-            
+            '_class': _class,
+            'id': id,
+            'style': style,
+            'scope': scope,
+            'colspan': colspan,
+            'rowspan': rowspan,
         }
         return super().__call__(*children, **attributes)
 
     def _get_default_attributes(self) -> dict[str, Any]:
-        return {}
+        return {'scope': None, 'colspan': None, 'rowspan': None}
 
 
 class thead(Tag):
@@ -4696,52 +4753,71 @@ class tr(Tag):
         return {}
 
 
-class button(Tag):
+class button(StylableTag):
     """
     An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a [form](/en-US/docs/Learn/Forms) or opening a dialog.
 
-    
+    * `formmethod`: The HTTP request method to use on click. Generally, it is preferred to set the `method` attribute on the `<form>` element instead of this.
+    * `formaction`: The URL to request to on click. Generally, it is preferred to set the `action` attribute on the `<form>` element instead of this.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
     """
     def __init__(
         self,
-        *children: Any,
-        
+        *children,
+        formmethod: Optional[Any] = None,
+        formaction: Optional[Any] = None,
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **attributes: Any,
     ) -> None:
         """
         An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a [form](/en-US/docs/Learn/Forms) or opening a dialog.
 
-        
+        * `formmethod`: The HTTP request method to use on click. Generally, it is preferred to set the `method` attribute on the `<form>` element instead of this.
+        * `formaction`: The URL to request to on click. Generally, it is preferred to set the `action` attribute on the `<form>` element instead of this.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
         """
         attributes |= {
-            
+            '_class': _class,
+            'id': id,
+            'style': style,
+            'formmethod': formmethod,
+            'formaction': formaction,
         }
         super().__init__(*children, **attributes)
 
     def __call__(
         self,
-        *children: Any,
-        
+        *children,
+        formmethod: Optional[Any] = None,
+        formaction: Optional[Any] = None,
+        id: Any = None,
+        _class: Any = None,
+        style: Any = None,
         **attributes: Any,
     ):
         """
         An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a [form](/en-US/docs/Learn/Forms) or opening a dialog.
 
-        
+        * `formmethod`: The HTTP request method to use on click. Generally, it is preferred to set the `method` attribute on the `<form>` element instead of this.
+        * `formaction`: The URL to request to on click. Generally, it is preferred to set the `action` attribute on the `<form>` element instead of this.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
         """
         attributes |= {
-            
+            '_class': _class,
+            'id': id,
+            'style': style,
+            'formmethod': formmethod,
+            'formaction': formaction,
         }
         return super().__call__(*children, **attributes)
 
     def _get_default_attributes(self) -> dict[str, Any]:
-        return {}
+        return {'formmethod': None, 'formaction': None}
 
 
 class datalist(Tag):
@@ -4844,7 +4920,8 @@ class form(Tag):
     """
     Represents a document section containing interactive controls for submitting information.
 
-    * `method`: HTTP request method to use (defaults to `'POST'`)
+    * `method`: The HTTP request method to use when submitting this form. In almost all cases, you'll want this to be POST. (defaults to `'POST'`)
+    * `action`: The URL to request to when submitting this form. By default, requests will be sent to the same URL as the current page.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
     """
@@ -4852,17 +4929,20 @@ class form(Tag):
         self,
         *children: Any,
         method: Optional[Any] = None,
+        action: Optional[Any] = None,
         **attributes: Any,
     ) -> None:
         """
         Represents a document section containing interactive controls for submitting information.
 
-        * `method`: HTTP request method to use (defaults to `'POST'`)
+        * `method`: The HTTP request method to use when submitting this form. In almost all cases, you'll want this to be POST. (defaults to `'POST'`)
+        * `action`: The URL to request to when submitting this form. By default, requests will be sent to the same URL as the current page.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
         """
         attributes |= {
             'method': method,
+            'action': action,
         }
         super().__init__(*children, **attributes)
 
@@ -4870,22 +4950,25 @@ class form(Tag):
         self,
         *children: Any,
         method: Optional[Any] = None,
+        action: Optional[Any] = None,
         **attributes: Any,
     ):
         """
         Represents a document section containing interactive controls for submitting information.
 
-        * `method`: HTTP request method to use (defaults to `'POST'`)
+        * `method`: The HTTP request method to use when submitting this form. In almost all cases, you'll want this to be POST. (defaults to `'POST'`)
+        * `action`: The URL to request to when submitting this form. By default, requests will be sent to the same URL as the current page.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
         """
         attributes |= {
             'method': method,
+            'action': action,
         }
         return super().__call__(*children, **attributes)
 
     def _get_default_attributes(self) -> dict[str, Any]:
-        return {'method': 'POST'}
+        return {'method': 'POST', 'action': None}
 
 
 class input(SelfClosingTag):
@@ -4895,8 +4978,11 @@ class input(SelfClosingTag):
     * `type`: Kind of input control to use (checkbox, radio, date, password, text, etc)
     * `name`: Name of the field. Submitted with the form as part of a name/value pair
     * `value`: Initial value of the control
+    * `placeholder`: Placeholder text to use for text inputs. If the field is empty, the placeholder is shown.
     * `readonly`: Include if field is read-only (defaults to `False`)
     * `required`: Include if field is required (defaults to `False`)
+    * `formmethod`: The HTTP request method to use on click if this input is a submit button. Generally, it is preferred to set the `method` attribute on the `<form>` element instead of this.
+    * `formaction`: The URL to request to on click if this input is a submit button. Generally, it is preferred to set the `action` attribute on the `<form>` element instead of this.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
     """
@@ -4906,8 +4992,11 @@ class input(SelfClosingTag):
         type: Optional[Any] = None,
         name: Optional[Any] = None,
         value: Optional[Any] = None,
+        placeholder: Optional[Any] = None,
         readonly: Optional[bool] = None,
         required: Optional[bool] = None,
+        formmethod: Optional[Any] = None,
+        formaction: Optional[Any] = None,
         **attributes: Any,
     ) -> None:
         """
@@ -4916,8 +5005,11 @@ class input(SelfClosingTag):
         * `type`: Kind of input control to use (checkbox, radio, date, password, text, etc)
         * `name`: Name of the field. Submitted with the form as part of a name/value pair
         * `value`: Initial value of the control
+        * `placeholder`: Placeholder text to use for text inputs. If the field is empty, the placeholder is shown.
         * `readonly`: Include if field is read-only (defaults to `False`)
         * `required`: Include if field is required (defaults to `False`)
+        * `formmethod`: The HTTP request method to use on click if this input is a submit button. Generally, it is preferred to set the `method` attribute on the `<form>` element instead of this.
+        * `formaction`: The URL to request to on click if this input is a submit button. Generally, it is preferred to set the `action` attribute on the `<form>` element instead of this.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
         """
@@ -4925,8 +5017,11 @@ class input(SelfClosingTag):
             'type': type,
             'name': name,
             'value': value,
+            'placeholder': placeholder,
             'readonly': readonly,
             'required': required,
+            'formmethod': formmethod,
+            'formaction': formaction,
         }
         super().__init__(**attributes)
 
@@ -4936,8 +5031,11 @@ class input(SelfClosingTag):
         type: Optional[Any] = None,
         name: Optional[Any] = None,
         value: Optional[Any] = None,
+        placeholder: Optional[Any] = None,
         readonly: Optional[bool] = None,
         required: Optional[bool] = None,
+        formmethod: Optional[Any] = None,
+        formaction: Optional[Any] = None,
         **attributes: Any,
     ):
         """
@@ -4946,8 +5044,11 @@ class input(SelfClosingTag):
         * `type`: Kind of input control to use (checkbox, radio, date, password, text, etc)
         * `name`: Name of the field. Submitted with the form as part of a name/value pair
         * `value`: Initial value of the control
+        * `placeholder`: Placeholder text to use for text inputs. If the field is empty, the placeholder is shown.
         * `readonly`: Include if field is read-only (defaults to `False`)
         * `required`: Include if field is required (defaults to `False`)
+        * `formmethod`: The HTTP request method to use on click if this input is a submit button. Generally, it is preferred to set the `method` attribute on the `<form>` element instead of this.
+        * `formaction`: The URL to request to on click if this input is a submit button. Generally, it is preferred to set the `action` attribute on the `<form>` element instead of this.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
         """
@@ -4955,13 +5056,16 @@ class input(SelfClosingTag):
             'type': type,
             'name': name,
             'value': value,
+            'placeholder': placeholder,
             'readonly': readonly,
             'required': required,
+            'formmethod': formmethod,
+            'formaction': formaction,
         }
         return super().__call__(**attributes)
 
     def _get_default_attributes(self) -> dict[str, Any]:
-        return {'type': None, 'name': None, 'value': None, 'readonly': False, 'required': False}
+        return {'type': None, 'name': None, 'value': None, 'placeholder': None, 'readonly': False, 'required': False, 'formmethod': None, 'formaction': None}
 
 
 class label(Tag):
