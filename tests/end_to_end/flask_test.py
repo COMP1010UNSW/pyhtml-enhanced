@@ -13,7 +13,10 @@ app = Flask(__name__)
 @app.get("/")
 def simple_route():
     return str(p.html(
-        p.body("Hello, world!")
+        p.body(
+            p.p("This app is to test Flask's integration with PyHTML."),
+            p.a(href="/no_str")("Click here to get a 500 error."),
+        )
     ))
 
 
@@ -49,11 +52,16 @@ def test_simple_stringify(client: FlaskClient):
     assert response.status_code == 200
 
     assert response.text == '\n'.join([
-        "<html>",
-        "  <body>",
-        "    Hello, world!",
-        "  </body>",
-        "</html>",
+        '<html>',
+        '  <body>',
+        '    <p>',
+        '      This app is to test Flask&#x27;s integration with PyHTML.',
+        '    </p>',
+        '    <a href="/no_str">',
+        '      Click here to get a 500 error.',
+        '    </a>',
+        '  </body>',
+        '</html>',
     ])
 
 
@@ -65,7 +73,8 @@ def test_failed_to_stringify(client: FlaskClient):
     with pytest.raises(TypeError) as exception_info:
         client.get("/no_str")
 
-    expected_error = "HINT: try converting your PyHTML into a string using "\
-        "the `str` function"
+    assert "**HINT:** if you're using Flask" in str(exception_info.value)
 
-    assert expected_error in str(exception_info.value)
+
+if __name__ == '__main__':
+    app.run(debug=True)

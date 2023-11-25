@@ -39,6 +39,17 @@ class Tag:
 
         return self.__class__(*new_children, **new_attributes)
 
+    def __iter__(self) -> None:
+        """
+        Override the __iter__ method to give a slightly nicer error message
+        when using PyHTML with flask
+        """
+        raise TypeError(
+            f"'{self._get_tag_name()}' object is not iterable.\n"
+            f"**HINT:** if you're using Flask, try converting your PyHTML "
+            f"into a string using the `str` function before returning it.\n"
+        )
+
     def _get_tag_name(self) -> str:
         """
         Returns the name of the tag
