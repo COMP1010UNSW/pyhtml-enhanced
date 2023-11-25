@@ -7,7 +7,8 @@ including their documentation.
 It also embeds suggested kwargs for some elements, using info from tags.yml.
 """
 from dataclasses import dataclass
-from typing import Optional, TypedDict, NotRequired, Any, Union
+from typing import Optional, TypedDict, Any, Union
+from typing_extensions import NotRequired
 from collections.abc import Iterator
 import requests
 import yaml
