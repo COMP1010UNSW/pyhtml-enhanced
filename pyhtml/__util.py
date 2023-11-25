@@ -106,11 +106,11 @@ def render_inline_element(ele: Any) -> list[str]:
         return [escape_string(str(ele))]
 
 
-def render_children(children: list[Any], sep: str = ' ') -> list[str]:
+def render_children(children: list[Any]) -> list[str]:
     """
     Render child elements of tags.
 
-    Elements are placed in the same string, separated by the given separator
+    Elements are placed in the same string
     """
     rendered = []
     for ele in children:
