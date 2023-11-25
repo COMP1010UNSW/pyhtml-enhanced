@@ -1,8 +1,9 @@
-"""# PyHTML Enhanced
+"""
+# PyHTML Enhanced
 
 A library for building HTML documents with a simple and learnable syntax,
-inspired by, and similar to
-[Cenk Altı's original PyHTML library](https://github.com/cenkalti/pyhtml), but
+inspired by (and similar to)
+[Cenk Altı's PyHTML library](https://github.com/cenkalti/pyhtml), but
 with improved documentation and type safety.
 
 ## Features
@@ -235,13 +236,13 @@ Copyright (c) 2023 Miguel Guthridge, COMP1010 UNSW
 
 Source code for the library is open source, using the
 [MIT license](https://choosealicense.com/licenses/mit/). A copy of the license
-text is available in [`LICENSE.md`](https://github.com/COMP1010UNSW/pyhtml-enhanced/blob/main/LICENSE.md)
+text is available in [LICENSE.md](https://github.com/COMP1010UNSW/pyhtml-enhanced/blob/main/LICENSE.md)
 
 ### Documentation
 
 Documentation is copied from MDN Web Docs, and is license under
 [CC-BY-SA-2.5](https://creativecommons.org/licenses/by-sa/2.5/). A copy of the
-license text is available in [`LICENSE_DOCS.md`](https://github.com/COMP1010UNSW/pyhtml-enhanced/blob/main/LICENSE_DOCS.md)
+license text is available in [LICENSE_DOCS.md](https://github.com/COMP1010UNSW/pyhtml-enhanced/blob/main/LICENSE_DOCS.md)
 
 """
 # Disable Flake8, since it really doesn't like our docstring above
