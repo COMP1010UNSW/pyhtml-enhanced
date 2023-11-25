@@ -7,7 +7,7 @@ including their documentation.
 It also embeds suggested kwargs for some elements, using info from tags.yml.
 """
 from dataclasses import dataclass
-from typing import Optional, TypedDict, NotRequired, Any
+from typing import Optional, TypedDict, NotRequired, Any, Union
 from collections.abc import Iterator
 import requests
 import yaml
@@ -120,7 +120,7 @@ class TagsYmlItem(TypedDict):
     """
     A tag which has suggested keys
     """
-    attributes: NotRequired[dict[str, str | AttrYmlItem]]
+    attributes: NotRequired[dict[str, Union[str, AttrYmlItem]]]
     """Mapping of attributes used by the tag (name: description)"""
 
     base: NotRequired[str]
@@ -356,10 +356,7 @@ def load_tag_attrs_yaml() -> TagsYaml:
         return yaml.load(f, yaml.Loader)
 
 
-def attr_entries_to_object(
-    tags: TagsYaml,
-    tag_name: str,
-) -> list[Attr]:
+def attr_entries_to_object(tags: TagsYaml, tag_name: str) -> list[Attr]:
     """
     Convert a tags yaml entry into a Attr object for use elsewhere, given its
     name.

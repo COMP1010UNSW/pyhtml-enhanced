@@ -3,7 +3,7 @@
 
 Random helpful functions used elsewhere
 """
-from typing import Any, TypeVar
+from typing import Any, TypeVar, Union
 
 
 T = TypeVar('T')
@@ -118,7 +118,7 @@ def render_children(children: list[Any], sep: str = ' ') -> list[str]:
     return increase_indent(rendered, 2)
 
 
-def flatten_list(the_list: list[T | list[T]]) -> list[T]:
+def flatten_list(the_list: list[Union[T, list[T]]]) -> list[T]:
     """
     Flatten a list by taking any list elements and inserting their items
     individually. Note that other iterables (such as str and tuple) are not
