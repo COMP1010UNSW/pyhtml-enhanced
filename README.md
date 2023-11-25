@@ -19,16 +19,16 @@ improved documentation and type safety.
 ## Usage
 
 ```py
-import pyhtml as h
+import pyhtml as p
 
-my_website = h.html(
-    h.head(
-        h.title("Hello, world!"),
-        h.script(src="http://example.com/script.js"),
+my_website = p.html(
+    p.head(
+        p.title("Hello, world!"),
+        p.script(src="http://example.com/script.js"),
     ),
-    h.body(
-        h.h1("Hello, world!"),
-        h.p("This is my amazing website rendered with PyHTML Enhanced!"),
+    p.body(
+        p.h1("Hello, world!"),
+        p.p("This is my amazing website rendered with PyHTML Enhanced!"),
     ),
 )
 
