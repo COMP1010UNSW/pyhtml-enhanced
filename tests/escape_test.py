@@ -36,7 +36,7 @@ def test_escapes_children(string, replacement):
     ('string', 'replacement'),
     replacements
 )
-def test_escapes_attribute_values(string, replacement):
+def test_escapes_attribute_values(string: str, replacement: str):
     assert str(html(value=f"hello{string}world")) \
         == f'<html value="hello{replacement}world"></html>'
 
@@ -51,9 +51,12 @@ def test_attribute_names_escapes_dashes():
 
 @pytest.mark.parametrize(
     'keyword',
-    keyword.kwlist,
+    # On Python 3.9, __peg_parser__ is a reserved keyword because of an
+    # easter egg (https://stackoverflow.com/q/65486981/6335363)
+    # skip over it because there is no point making it work
+    filter(lambda kw: kw != "__peg_parser__", keyword.kwlist),
 )
-def test_attribute_names_escapes_python_keywords_prefix(keyword):
+def test_attribute_names_escapes_python_keywords_prefix(keyword: str):
     """
     Since Python keywords cannot be given as kwarg names, we need to use
     escaped versions (eg _for => for)
@@ -64,9 +67,10 @@ def test_attribute_names_escapes_python_keywords_prefix(keyword):
 
 @pytest.mark.parametrize(
     'keyword',
-    keyword.kwlist,
+    # Skip __peg_parser__ in Python 3.9 (see test above)
+    filter(lambda kw: kw != "__peg_parser__", keyword.kwlist),
 )
-def test_attribute_names_escapes_python_keywords_suffix(keyword):
+def test_attribute_names_escapes_python_keywords_suffix(keyword: str):
     """
     Since Python keywords cannot be given as kwarg names, we need to use
     escaped versions (eg for_ => for)
