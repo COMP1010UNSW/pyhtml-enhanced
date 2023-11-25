@@ -35,7 +35,7 @@ include = ["py.typed"]
 "Bug Tracker" = "https://github.com/COMP1010UNSW/pyhtml-enhanced/issues"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9"
 flake8-pyproject = "^1.2.3"
 
 [tool.poetry.group.dev.dependencies]
