@@ -36,7 +36,6 @@ include = ["py.typed"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-flake8-pyproject = "^1.2.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.2"
@@ -48,6 +47,7 @@ requests = "^2.31.0"
 types-requests = "^2.31.0.2"
 pyyaml = "^6.0.1"
 types-pyyaml = "^6.0.12.11"
+flake8-pyproject = "^1.2.3"
 
 [build-system]
 requires = ["poetry-core"]
