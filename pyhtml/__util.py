@@ -35,9 +35,6 @@ def escape_string(text: str) -> str:
         '>': '&gt;',
         '"': '&quot;',
         "'": '&#x27;',
-        # # Replace newlines with spaces, since they'll be rendered that way by
-        # # browsers
-        # '\n': ' ',
     }
     for k, v in replacements.items():
         text = text.replace(k, v)
