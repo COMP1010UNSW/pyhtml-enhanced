@@ -1,5 +1,4 @@
-"""
-# PyHTML Enhanced
+"""# PyHTML Enhanced
 
 A library for building HTML documents with a simple and learnable syntax,
 inspired by, and similar to
@@ -36,7 +35,7 @@ with improved documentation and type safety.
     <title>
       Hello, world!
     </title>
-    <script src="http://example.com/script.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://example.com/script.js"></script>
   </head>
   <body>
     <h1>
@@ -47,6 +46,7 @@ with improved documentation and type safety.
     </p>
   </body>
 </html>
+
 ```
 
 ### Creating elements
@@ -57,7 +57,8 @@ example, to create a `<br>` element, you could use:
 ```py
 >>> line_break = p.br()
 >>> print(str(line_break))
-<br>
+<br/>
+
 ```
 
 ### Adding children to elements
@@ -72,6 +73,7 @@ could use
 <h1>
   My awesome website
 </h1>
+
 ```
 
 ### Adding attributes to elements
@@ -82,7 +84,8 @@ element. For example, to create a form submit button, you could use
 ```py
 >>> submit_button = p.input(type="submit")
 >>> print(str(submit_button))
-<input type="submit" />
+<input type="submit"/>
+
 ```
 
 ### Adding attributes and children
@@ -99,6 +102,7 @@ a link to PyHTML's GitHub page, you could use
 <a href="https://github.com/COMP1010UNSW/pyhtml-enhanced">
   Take a look at the code
 </a>
+
 ```
 
 ### HTML comments
@@ -111,6 +115,7 @@ You can add comments to HTML (useful for debugging) by using the `Comment` tag.
 <!--
   This is an HTML comment
 -->
+
 ```
 
 ### Rendering HTML
@@ -122,6 +127,7 @@ Converting your PyHTML into HTML is as simple as stringifying it!
 <i>
   How straightforward!
 </i>
+
 ```
 
 ### Custom tags
@@ -131,10 +137,11 @@ you'll need to do create a custom tag. However if you really need to, you can
 create a class deriving from `Tag`.
 
 ```py
->>> class fancytag(Tag):
+>>> class fancytag(p.Tag):
 ...    ...
 >>> print(fancytag())
 <fancytag></fancytag>
+
 ```
 
 Refer to the documentation for `Tag` for more information.
@@ -147,14 +154,15 @@ Uninstantiated classes are only rendered if they are given as the child of an
 instantiated element.
 
 ```py
->>> br
+>>> p.br
 <class 'pyhtml.__tags.generated.br'>
->>> html(body(br))
+>>> print(str(p.html(p.body(p.br))))
 <html>
   <body>
-    <br>
+    <br/>
   </body>
 </html>
+
 ```
 
 Calling an instance of a `Tag` will return a new tag containing all elements of
@@ -163,7 +171,7 @@ modify the original instance, as I found the old behaviour confusing and
 bug-prone.
 
 ```py
->>> para = p("Base paragraph")
+>>> para = p.p("Base paragraph")
 >>> para2 = para("Extra text")
 >>> para2
 <p>
@@ -174,6 +182,7 @@ bug-prone.
 <p>
   Base paragraph
 </p>
+
 ```
 
 ## Known issues
