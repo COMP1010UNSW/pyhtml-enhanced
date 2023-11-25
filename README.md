@@ -2,13 +2,12 @@
 
 A library for building HTML documents with a simple and learnable syntax,
 inspired by, and similar to
-[the original PyHTML library](https://github.com/cenkalti/pyhtml), but with
-improved documentation and type safety.
+[Cenk Altı's original PyHTML library](https://github.com/cenkalti/pyhtml), but
+with improved documentation and type safety.
 
 ## Features
 
-* Inline documentation and type safety for all tags. Documentation for tags
-  is pulled from MDN Web Docs.
+* Inline documentation and type safety for all tags.
 
 * A modern and readable codebase.
 
@@ -19,26 +18,18 @@ improved documentation and type safety.
 ## Usage
 
 ```py
-import pyhtml as p
-
-my_website = p.html(
-    p.head(
-        p.title("Hello, world!"),
-        p.script(src="http://example.com/script.js"),
-    ),
-    p.body(
-        p.h1("Hello, world!"),
-        p.p("This is my amazing website rendered with PyHTML Enhanced!"),
-    ),
-)
-
-# Converting it to a string is all you need to do to render it!
-print(str(my_website))
-```
-
-This will produce the following HTML code:
-
-```html
+>>> import pyhtml as p
+>>> my_website = p.html(
+...     p.head(
+...         p.title("Hello, world!"),
+...         p.script(src="http://example.com/script.js"),
+...     ),
+...     p.body(
+...         p.h1("Hello, world!"),
+...         p.p("This is my amazing website!"),
+...     ),
+... )
+>>> print(str(my_website))
 <html>
   <head>
     <title>
@@ -51,11 +42,101 @@ This will produce the following HTML code:
       Hello, world!
     </h1>
     <p>
-      This is my amazing website rendered with PyHTML Enhanced!
+      This is my amazing website!
     </p>
   </body>
 </html>
 ```
+
+### Creating elements
+
+Every HTML tag is represented by a `class` that generates that HTML code. For
+example, to create a `<br>` element, you could use:
+
+```py
+>>> line_break = p.br()
+>>> print(str(line_break))
+<br>
+```
+
+### Adding children to elements
+
+Any arguments to a tag are used as a child element to the created HTML element.
+For example, to create a heading with the text `"My awesome website"`, you
+could use
+
+```py
+>>> heading = p.h1("My awesome website")
+>>> print(str(heading))
+<h1>
+  My awesome website
+</h1>
+```
+
+### Adding attributes to elements
+
+Any keyword arguments to a tag are used as an attribute of the created HTML
+element. For example, to create a form submit button, you could use
+
+```py
+>>> submit_button = p.input(type="submit")
+>>> print(str(submit_button))
+<input type="submit" />
+```
+
+### Adding attributes and children
+
+In HTML, attributes are specified within the opening tag. Contrastingly, Python
+requires keyword arguments (attributes) to be specified after regular arguments
+(children). To maintain similarity to writing regular HTML, you can call an
+element in order to add more attributes and children. For example, to create
+a link to PyHTML's GitHub page, you could use
+
+```py
+>>> my_link = p.a(href="https://github.com/COMP1010UNSW/pyhtml-enhanced")("Take a look at the code")
+>>> print(str(my_link))
+<a href="https://github.com/COMP1010UNSW/pyhtml-enhanced">
+  Take a look at the code
+</a>
+```
+
+### HTML comments
+
+You can add comments to HTML (useful for debugging) by using the `Comment` tag.
+
+```py
+>>> comment = p.Comment("This is an HTML comment")
+>>> print(str(comment))
+<!--
+  This is an HTML comment
+-->
+```
+
+### Rendering HTML
+
+Converting your PyHTML into HTML is as simple as stringifying it!
+
+```py
+>>> print(str(p.i("How straightforward!")))
+<i>
+  How straightforward!
+</i>
+```
+
+### Custom tags
+
+Since this library includes all modern HTML tags, it is very unlikely that
+you'll need to do create a custom tag. However if you really need to, you can
+create a class deriving from `Tag`.
+
+```py
+>>> class fancytag(Tag):
+...    ...
+>>> print(fancytag())
+<fancytag></fancytag>
+```
+
+Refer to the documentation for `Tag` for more information.
 
 ## Differences to PyHTML
 
@@ -138,10 +219,16 @@ interested).
 
 ## License
 
-All code in this project is licensed under the [MIT License](./LICENSE.md).
+### Source code
 
-However, the documentation found in
-[`pyhtml/__tags/generated.py`](./pyhtml/__tags/generated.py) was copied from
-MDN Web Docs, and is licensed under
-[CC-BY-SA-2.5](https://creativecommons.org/licenses/by-sa/2.5/). See
-[LICENSE_DOCS.md](./LICENSE_DOCS.md) for a copy of the license.
+Copyright (c) 2023 Miguel Guthridge, COMP1010 UNSW
+
+Source code for the library is open source, using the
+[MIT license](https://choosealicense.com/licenses/mit/). A copy of the license
+text is available in [`LICENSE.md`](https://github.com/COMP1010UNSW/pyhtml-enhanced/blob/main/LICENSE.md)
+
+### Documentation
+
+Documentation is copied from MDN Web Docs, and is license under
+[CC-BY-SA-2.5](https://creativecommons.org/licenses/by-sa/2.5/). A copy of the
+license text is available in [`LICENSE_DOCS.md`](https://github.com/COMP1010UNSW/pyhtml-enhanced/blob/main/LICENSE_DOCS.md)
