@@ -121,6 +121,9 @@ class TagsYmlItem(TypedDict):
     """
     A tag which has suggested keys
     """
+    skip: NotRequired[bool]
+    """Whether to skip this tag when generating tags"""
+
     attributes: NotRequired[dict[str, Union[str, AttrYmlItem]]]
     """Mapping of attributes used by the tag (name: description)"""
 
@@ -418,6 +421,16 @@ def get_tag_base_class(tags: TagsYaml, tag_name: str) -> str:
         return tag['base']
 
 
+def get_tag_skip(tags: TagsYaml, tag_name: str) -> bool:
+    """
+    Return whether to skip this tag
+    """
+    if tag_name not in tags:
+        return False
+    tag = tags[tag_name]
+    return tag.get('skip', False)
+
+
 def make_mdn_link(tag: str) -> str:
     """Generate an MDN docs link for the given tag"""
     return f"{MDN_ELEMENT_PAGE}/{tag}"
@@ -433,6 +446,10 @@ def elements_to_element_structs(
     output = []
 
     for name, description in mdn_data:
+        # Skip tag if specified
+        if get_tag_skip(tag_attrs, name):
+            continue
+
         output.append(TagInfo(
             name=get_tag_rename(tag_attrs, name),
             description=description,

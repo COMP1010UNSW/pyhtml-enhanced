@@ -56,9 +56,10 @@ class Tag:
         """
         return type(self).__name__.removesuffix('_')
 
-    def _get_default_attributes(self) -> dict[str, Any]:
+    def _get_default_attributes(self, given: dict[str, Any]) -> dict[str, Any]:
         """
-        Returns the default attributes for the tag
+        Returns the default attributes for the tag given the specified
+        attributes.
 
         This is overridden by child classes to return a dictionary of default
         attributes that are applied to the class.
@@ -71,7 +72,7 @@ class Tag:
         a single line of output
         """
         attributes = util.filter_attributes(util.dict_union(
-            self._get_default_attributes(),
+            self._get_default_attributes(self.attributes),
             self.attributes,
         ))
 
@@ -170,7 +171,7 @@ class SelfClosingTag(Tag):
         a single line of output
         """
         attributes = util.filter_attributes(util.dict_union(
-            self._get_default_attributes(),
+            self._get_default_attributes(self.attributes),
             self.attributes,
         ))
         if len(attributes):

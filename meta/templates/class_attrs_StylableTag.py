@@ -54,5 +54,5 @@ class {name}({base}):
         }
         return super().__call__(*children, **attributes)
 
-    def _get_default_attributes(self) -> dict[str, Any]:
+    def _get_default_attributes(self, given: dict[str, Any]) -> dict[str, Any]:
         return {default_attrs}
