@@ -38,7 +38,7 @@ include = ["py.typed"]
 python = "^3.9"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.4.2"
+pytest = ">=7.4.2,<9.0.0"
 flake8 = ">=6.1,<8.0"
 mypy = "^1.5.1"
 autopep8 = "^2.0.4"
