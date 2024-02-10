@@ -139,19 +139,6 @@ def flatten_list(the_list: list[ChildrenType]) -> list[ChildElementType]:
     return result
 
 
-def instantiate_tag_types(elements: list[Any]) -> list[Any]:
-    """
-    Map a list so that any element e for which issubclass(e, Tag) returns True
-    is instantiated
-    """
-    # Can't wait for lazy imports in Python 3.12
-    from .__tag_base import Tag
-    return list(map(
-        lambda e: e() if isinstance(e, type) and issubclass(e, Tag) else e,
-        elements,
-    ))
-
-
 def dict_union(base: dict[K, V], additions: dict[K, V]) -> dict[K, V]:
     """
     Smart union of a dictionary - if a value in `base` is `None` and the

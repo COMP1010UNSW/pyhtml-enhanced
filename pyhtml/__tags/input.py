@@ -304,7 +304,7 @@ class input(SelfClosingTag):
         super().__init__(**attributes)
 
     # Form submission
-    @overload
+    @overload  # type: ignore
     def __call__(
         self,
         *,
@@ -460,12 +460,28 @@ class input(SelfClosingTag):
     ) -> None:
         ...
 
-    # default, allowing all arguments
+    # default, suggesting types
     @overload
     def __call__(
         self,
         *,
         type: Optional[InputTypes] = None,
+        id: Optional[str] = None,
+        name: Optional[str] = None,
+        value: Optional[str] = None,
+        placeholder: Optional[str] = None,
+        readonly: Optional[bool] = None,
+        required: Optional[bool] = None,
+        **attributes: AttributeType,
+    ) -> None:
+        ...
+
+    # default, allowing all arguments
+    @overload
+    def __call__(
+        self,
+        *,
+        type: Optional[str] = None,
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
