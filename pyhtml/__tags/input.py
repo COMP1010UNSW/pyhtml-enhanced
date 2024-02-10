@@ -219,12 +219,28 @@ class input(SelfClosingTag):
     ) -> None:
         ...
 
-    # default, allowing all arguments
+    # default, suggesting types
     @overload
     def __init__(
         self,
         *,
         type: Optional[InputTypes] = None,
+        id: Optional[str] = None,
+        name: Optional[str] = None,
+        value: Optional[str] = None,
+        placeholder: Optional[str] = None,
+        readonly: Optional[bool] = None,
+        required: Optional[bool] = None,
+        **attributes: AttributeType,
+    ) -> None:
+        ...
+
+    # default, allowing all arguments
+    @overload
+    def __init__(
+        self,
+        *,
+        type: Optional[str] = None,
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
