@@ -47,7 +47,7 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
             # Yucky hard-coded spaces, I can't be bothered to fix this
             # Also making everything optional for the sake of users always
             # being able to remove an attribute
-            f"        {attr.name}: Optional[{attr.type}] = None,"
+            f"        {attr.name}: {attr.type} = None,"
         )
         attr_unions_gen.append(f"            '{attr.name}': {attr.name},")
         # Also mention default value if applicable

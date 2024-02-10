@@ -206,6 +206,21 @@ def test_flatten_element_lists():
     ])
 
 
+def test_flatten_element_generators():
+    """
+    If a list of elements is given as a child element, each element should be
+    considered as a child.
+    """
+    doc = html(c for c in "hi")
+
+    assert str(doc) == "\n".join([
+        "<html>",
+        "  h",
+        "  i",
+        "</html>",
+    ])
+
+
 def test_classes_can_render():
     """
     Can a class by itself be rendered individually?

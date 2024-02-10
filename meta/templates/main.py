@@ -1,5 +1,3 @@
-# type: ignore
-# flake8: noqa
 """
 # PyHTML Enhanced / Tags / Generated
 
@@ -9,5 +7,6 @@ Note that all documentation is licensed as CC-BY-SA-2.5
 
 https://creativecommons.org/licenses/by-sa/2.5/
 """
-from typing import Any, Optional
-from ..__tag_base import Tag, SelfClosingTag, StylableTag
+from typing import Any, Optional, Union, Literal
+from ..__tag_base import Tag, SelfClosingTag
+from ..__types import AttributeType, ChildrenType

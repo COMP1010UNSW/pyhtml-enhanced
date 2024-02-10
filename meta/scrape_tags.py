@@ -380,7 +380,7 @@ def attr_entries_to_object(tags: TagsYaml, tag_name: str) -> list[Attr]:
         if isinstance(value, str):
             doc: Optional[str] = value
             default: Optional[str] = None
-            type = "Any"
+            type = "AttributeType"
         else:
             doc = value.get("doc")
             if "default" in value:
@@ -389,7 +389,7 @@ def attr_entries_to_object(tags: TagsYaml, tag_name: str) -> list[Attr]:
                 default = eval(value["default"])
             else:
                 default = None
-            type = value.get("type", "Any")
+            type = value.get("type", "AttributeType")
         attrs.append(Attr(name, doc, type, default))
     return attrs
 

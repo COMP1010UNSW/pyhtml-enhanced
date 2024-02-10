@@ -3,7 +3,9 @@
 
 Random helpful functions used elsewhere
 """
-from typing import Any, TypeVar, Union
+from typing import Any, TypeVar
+from collections.abc import Generator
+from .__types import ChildrenType, ChildElementType
 
 
 T = TypeVar('T')
@@ -94,19 +96,21 @@ def filter_attributes(attributes: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def render_inline_element(ele: Any) -> list[str]:
+def render_inline_element(ele: ChildElementType) -> list[str]:
     """
     Render an element inline
     """
     from .__tag_base import Tag
     if isinstance(ele, Tag):
         return ele._render()
+    elif isinstance(ele, type) and issubclass(ele, Tag):
+        return ele()._render()
     else:
         # Remove newlines from strings when inline rendering
         return [escape_string(str(ele))]
 
 
-def render_children(children: list[Any]) -> list[str]:
+def render_children(children: list[ChildElementType]) -> list[str]:
     """
     Render child elements of tags.
 
@@ -118,15 +122,17 @@ def render_children(children: list[Any]) -> list[str]:
     return increase_indent(rendered, 2)
 
 
-def flatten_list(the_list: list[Union[T, list[T]]]) -> list[T]:
+def flatten_list(the_list: list[ChildrenType]) -> list[ChildElementType]:
     """
     Flatten a list by taking any list elements and inserting their items
     individually. Note that other iterables (such as str and tuple) are not
     flattened.
     """
-    result: list[T] = []
+    result: list[ChildElementType] = []
     for item in the_list:
         if isinstance(item, list):
+            result.extend(item)
+        elif isinstance(item, Generator):
             result.extend(item)
         else:
             result.append(item)

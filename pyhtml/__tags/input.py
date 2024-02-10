@@ -5,6 +5,7 @@ Custom definition of the `<input>` tag, to improve type safety and implement
 custom behaviour.
 """
 from ..__tag_base import SelfClosingTag
+from ..__types import AttributeType
 from typing import Optional, Any
 
 
@@ -37,15 +38,15 @@ class input(SelfClosingTag):
     def __init__(
         self,
         *,
-        type: Optional[Any] = None,
-        name: Optional[Any] = None,
-        value: Optional[Any] = None,
-        placeholder: Optional[Any] = None,
+        type: Optional[str] = None,
+        name: Optional[str] = None,
+        value: Optional[str] = None,
+        placeholder: Optional[str] = None,
         readonly: Optional[bool] = None,
         required: Optional[bool] = None,
-        formmethod: Optional[Any] = None,
-        formaction: Optional[Any] = None,
-        **attributes: Any,
+        formmethod: Optional[str] = None,
+        formaction: Optional[str] = None,
+        **attributes: AttributeType,
     ) -> None:
         """
         Used to create interactive controls for web-based forms to accept data
@@ -85,18 +86,18 @@ class input(SelfClosingTag):
         }
         super().__init__(**attributes)
 
-    def __call__(
+    def __call__(  # type: ignore
         self,
         *,
-        type: Optional[Any] = None,
-        name: Optional[Any] = None,
-        value: Optional[Any] = None,
-        placeholder: Optional[Any] = None,
+        type: Optional[str] = None,
+        name: Optional[str] = None,
+        value: Optional[str] = None,
+        placeholder: Optional[str] = None,
         readonly: Optional[bool] = None,
         required: Optional[bool] = None,
-        formmethod: Optional[Any] = None,
-        formaction: Optional[Any] = None,
-        **attributes: Any,
+        formmethod: Optional[str] = None,
+        formaction: Optional[str] = None,
+        **attributes: AttributeType,
     ):
         """
         Used to create interactive controls for web-based forms to accept data

@@ -1,0 +1,45 @@
+# Tests / Type tests
+# Tests for type safety
+
+- case: attributes_allowed_types
+  parametrized:
+    - arg: '"en"'
+    - arg: 'True'
+    - arg: '"https://google.com"'
+  main: |
+    import pyhtml as p
+    p.html(lang={{ arg }})
+
+- case: attributes_disallowed_types
+  parametrized:
+    - arg: 12
+    - arg: 12.0
+    - arg: ...
+    - arg: ['1', '2', '3']
+  main: |
+    import pyhtml as p
+    p.input(value={{ arg }})
+  expect_fail: true
+
+- case: children_allowed_types
+  parametrized:
+    - arg: p.body()
+    - arg: '"String"'
+    - arg: '["List", "of", "items"]'
+    - arg: '(c for c in "generator")'
+  main: |
+    import pyhtml as p
+    p.html({{ arg }})
+
+- case: children_disallowed_types
+  parametrized:
+    - arg: None
+    - arg: 10
+    - arg: 10.0
+    - arg: { 'a': 1, 'b': 2, 'c': 3}
+    - arg: {1, 2, 3}
+  main: |
+    import pyhtml as p
+
+    p.html({{ arg }})
+  expect_fail: true

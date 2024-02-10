@@ -8,9 +8,9 @@ class {name}({base}):
     """
     def __init__(
         self,
-        *children: Any,
+        *children: ChildrenType,
         {attr_args}
-        **attributes: Any,
+        **attributes: AttributeType,
     ) -> None:
         """
         {description}
@@ -24,11 +24,11 @@ class {name}({base}):
         }
         super().__init__(*children, **attributes)
 
-    def __call__(
+    def __call__(  # type: ignore
         self,
-        *children: Any,
+        *children: ChildrenType,
         {attr_args}
-        **attributes: Any,
+        **attributes: AttributeType,
     ):
         """
         {description}
@@ -42,5 +42,5 @@ class {name}({base}):
         }
         return super().__call__(*children, **attributes)
 
-    def _get_default_attributes(self, given: dict[str, Any]) -> dict[str, Any]:
+    def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
         return {default_attrs}

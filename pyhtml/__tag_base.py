@@ -3,8 +3,9 @@
 
 Tag base class, including rendering logic
 """
-from typing import Any, TypeVar
+from typing import TypeVar
 from . import __util as util
+from .__types import ChildrenType, AttributeType
 
 
 SelfType = TypeVar('SelfType', bound='Tag')
@@ -14,7 +15,11 @@ class Tag:
     """
     Base tag class
     """
-    def __init__(self, *children: Any, **attributes: Any) -> None:
+    def __init__(
+        self,
+        *children: ChildrenType,
+        **attributes: AttributeType,
+    ) -> None:
         """
         Create a new tag instance
         """
@@ -26,8 +31,8 @@ class Tag:
 
     def __call__(
         self: SelfType,
-        *children: Any,
-        **attributes: Any,
+        *children: ChildrenType,
+        **attributes: AttributeType,
     ) -> 'SelfType':
         """
         Create a new tag instance derived from this tag. Its children and
@@ -56,7 +61,10 @@ class Tag:
         """
         return type(self).__name__.removesuffix('_')
 
-    def _get_default_attributes(self, given: dict[str, Any]) -> dict[str, Any]:
+    def _get_default_attributes(
+        self,
+        given: dict[str, AttributeType],
+    ) -> dict[str, AttributeType]:
         """
         Returns the default attributes for the tag given the specified
         attributes.
@@ -157,13 +165,9 @@ class SelfClosingTag(Tag):
     """
     Self-closing tags don't contain child elements
     """
-    def __init__(self, **attributes: Any) -> None:
+    def __init__(self, **attributes: AttributeType) -> None:
         # Self-closing tags don't allow children
         super().__init__(**attributes)
-
-    def __call__(self, **attributes: Any):
-        # Self-closing tags don't allow children
-        return super().__call__(**attributes)
 
     def _render(self) -> list[str]:
         """
@@ -181,38 +185,3 @@ class SelfClosingTag(Tag):
             ]
         else:
             return [f"<{self._get_tag_name()}/>"]
-
-
-class StylableTag(Tag):
-    """
-    Stylable tags suggest kwargs to do with element styling
-    """
-    def __init__(
-        self,
-        *children: Any,
-        id: Any = None,
-        _class: Any = None,
-        style: Any = None,
-        **attributes: Any,
-    ) -> None:
-        attributes |= {
-            '_class': _class,
-            'id': id,
-            'style': style,
-        }
-        super().__init__(*children, **attributes)
-
-    def __call__(
-        self,
-        *children: Any,
-        id: Any = None,
-        _class: Any = None,
-        style: Any = None,
-        **attributes: Any,
-    ):
-        attributes |= {
-            '_class': _class,
-            'id': id,
-            'style': style,
-        }
-        return super().__call__(*children, **attributes)

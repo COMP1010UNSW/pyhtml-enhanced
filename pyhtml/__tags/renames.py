@@ -6,7 +6,7 @@ Some tags from the original PyHTML are named with a trailing underscore (eg
 but for the sake of being (somewhat) compatible with the original PyHTML,
 we still export the originals.
 """
-from .generated import object as object_
+from .generated import object as object_  # type: ignore
 from .input import input as input_
 
 __all__ = [

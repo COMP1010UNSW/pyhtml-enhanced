@@ -14,32 +14,43 @@ base:
 link:
   base: SelfClosingTag
   attributes:
-    href: Location of the file being linked to
-    rel: Kind of file being loaded (eg `"stylesheet"`)
+    href:
+      doc: Location of the file being linked to
+      type: Optional[str]
+    rel:
+      doc: Kind of file being loaded (eg `"stylesheet"`)
+      type: Optional[str]
 
 a:
   base: StylableTag
   attributes:
-    href: URL of page to link to
-    target: Use "_blank" to open in a new tab
+    href:
+      doc: URL of page to link to
+      type: Optional[str]
+    target:
+      doc: Use "_blank" to open in a new tab
+      type: "Union[str, Literal['_self', '_blank', '_parent', '_top'], None]"
 
 script:
   attributes:
     type:
       doc: Type of script to use
       default: "'text/javascript'"
+      type: Optional[str]
 
 style:
   attributes:
     type:
       doc: Type of style to use
       default: "'text/css'"
+      type: Optional[str]
 
 form:
   attributes:
     method:
       doc: The HTTP request method to use when submitting this form. In almost all cases, you'll want this to be POST.
-      default: "'POST'"
+      default: "'post'"
+      type: "Optional[Literal['post', 'get']]"
     action: The URL to request to when submitting this form. By default, requests will be sent to the same URL as the current page.
 
 input:
