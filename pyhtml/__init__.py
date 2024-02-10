@@ -10,6 +10,8 @@ with improved documentation and type safety.
 
 * Inline documentation and type safety for all tags.
 
+* Editor support for many common tags (attribute suggestions).
+
 * A modern and readable codebase.
 
 * No dependencies.
