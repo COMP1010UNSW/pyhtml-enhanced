@@ -254,6 +254,7 @@ from .__tag_base import Tag, Comment
 from .__tags import input_, object_
 
 __all__ = [
+    'DangerousRawHtml',
     'Tag',
     'Comment',
     'input_',
@@ -375,6 +376,7 @@ __all__ = [
 
 
 from .__tags import (
+    DangerousRawHtml,
     html,
     base,
     head,

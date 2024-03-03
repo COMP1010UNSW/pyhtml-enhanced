@@ -129,6 +129,17 @@ class Comment(Tag):
     Note that this does not render as a `<comment>` tag
     """
     def __init__(self, text: str) -> None:
+        """
+        An HTML comment.
+
+        Renders as:
+
+        ```html
+        <!-- [comment text] -->
+        ```
+
+        Note that this does not render as a `<comment>` tag
+        """
         self.comment_data = text
         super().__init__()
 
