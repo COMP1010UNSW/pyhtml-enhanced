@@ -7,6 +7,7 @@ Definitions for tags
 from .renames import input_, object_
 from .input import input
 from .dangerous_raw_html import DangerousRawHtml
+from .comment import Comment
 
 # Copy this into pyhtml/__tags/__init__.py
 __all__ = [
@@ -14,6 +15,7 @@ __all__ = [
     'input',
     # These are extra features of PyHTML enhanced
     'DangerousRawHtml',
+    'Comment',
     # These two are renamed
     'input_',
     'object_',

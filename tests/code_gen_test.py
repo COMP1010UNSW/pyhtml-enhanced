@@ -7,7 +7,7 @@ These don't regenerate the code, but rather test code that has been generated
 """
 import pytest
 import pyhtml
-from pyhtml import Tag, Comment
+from pyhtml import Tag, Comment, DangerousRawHtml
 
 
 all_tags = [
@@ -20,8 +20,8 @@ all_tags = [
         and type(getattr(pyhtml, i)) == type
         # That are a kind of Tag
         and issubclass(getattr(pyhtml, i), Tag)
-        # And aren't a comment (since comments require named args)
-        and not issubclass(getattr(pyhtml, i), Comment)
+        # And aren't a PyHTML feature (since comments require named args)
+        and not issubclass(getattr(pyhtml, i), (Comment, DangerousRawHtml))
     )
 ]
 
