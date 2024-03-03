@@ -15,7 +15,7 @@ class DangerousRawHtml(Tag):
     This will blindly accept any text as HTML, which is EXTREMELY DANGEROUS!
     (Mis)using this could result in issues ranging from broken output to major
     security vulnerabilities such as
-    [cross-site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting).
+    [cross-site scripting](https://en.wikipedia.org/wiki/XSS).
 
     Do not use this unless absolutely necessary.
     """
@@ -29,7 +29,7 @@ class DangerousRawHtml(Tag):
         This will blindly accept any text as HTML, which is EXTREMELY
         DANGEROUS! (Mis)using this could result in issues ranging from broken
         output to major security vulnerabilities such as
-        [cross-site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting).
+        [cross-site scripting](https://en.wikipedia.org/wiki/XSS).
 
         Do not use this unless absolutely necessary.
         """
