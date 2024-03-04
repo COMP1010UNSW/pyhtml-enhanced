@@ -32,6 +32,7 @@ a:
       type: "Union[str, Literal['_self', '_blank', '_parent', '_top'], None]"
 
 script:
+  escape_children: false
   attributes:
     type:
       doc: Type of script to use

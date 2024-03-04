@@ -12,6 +12,11 @@ from pyhtml.__util import increase_indent
 
 TEMPLATES_FOLDER = Path('./meta/templates')
 
+NO_ESCAPE_CHILDREN = """
+    def _escape_children(self) -> bool:
+        return False
+"""
+
 
 def get_template_class(name: str):
     try:
@@ -86,6 +91,11 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
         .replace("{default_attrs}", default_attrs)
 
     print(text, file=output)
+
+    # And add the no escape children function if needed
+    if not tag.escape_children:
+        print(NO_ESCAPE_CHILDREN, file=output)
+
     # And a nice trailing newline to make flake8 happy
     print(file=output)
 

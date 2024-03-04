@@ -96,7 +96,10 @@ def filter_attributes(attributes: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def render_inline_element(ele: ChildElementType) -> list[str]:
+def render_inline_element(
+    ele: ChildElementType,
+    escape_strings: bool,
+) -> list[str]:
     """
     Render an element inline
     """
@@ -107,10 +110,16 @@ def render_inline_element(ele: ChildElementType) -> list[str]:
         return ele()._render()
     else:
         # Remove newlines from strings when inline rendering
-        return [escape_string(str(ele))]
+        if escape_strings:
+            return [escape_string(str(ele))]
+        else:
+            return [str(ele)]
 
 
-def render_children(children: list[ChildElementType]) -> list[str]:
+def render_children(
+    children: list[ChildElementType],
+    escape_strings: bool,
+) -> list[str]:
     """
     Render child elements of tags.
 
@@ -118,7 +127,7 @@ def render_children(children: list[ChildElementType]) -> list[str]:
     """
     rendered = []
     for ele in children:
-        rendered.extend(render_inline_element(ele))
+        rendered.extend(render_inline_element(ele, escape_strings))
     return increase_indent(rendered, 2)
 
 

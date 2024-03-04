@@ -74,6 +74,17 @@ class Tag:
         """
         return {}
 
+    def _escape_children(self) -> bool:
+        """
+        Returns whether the contents of the element should be escaped, or
+        rendered plainly.
+
+        By default, all string content should be escaped to prevent security
+        vulnerabilities such as XSS, but this is disabled for certain tags such
+        as <script>.
+        """
+        return True
+
     def _render(self) -> list[str]:
         """
         Renders tag and its children to a list of strings where each string is
@@ -97,7 +108,9 @@ class Tag:
         else:
             out = [opening]
             # Children
-            out.extend(util.render_children(self.children))
+            out.extend(
+                util.render_children(self.children, self._escape_children())
+            )
             # Closing tag
             out.append(f"</{self._get_tag_name()}>")
 

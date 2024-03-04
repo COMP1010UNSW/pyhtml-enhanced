@@ -133,6 +133,9 @@ class TagsYmlItem(TypedDict):
     rename: NotRequired[str]
     """Value to rename the class to (to avoid bad keyword usage)"""
 
+    escape_children: NotRequired[bool]
+    """Whether to escape the contents of the tag (default True)"""
+
 
 TagsYaml = dict[str, TagsYmlItem]
 """Type alias for type of tags.yml file"""
@@ -189,6 +192,11 @@ class TagInfo:
     mdn_link: str
     """
     Link to full documentation on MDN
+    """
+
+    escape_children: bool
+    """
+    Whether to escape child elements for the tag
     """
 
     attributes: list[Attr]
@@ -431,6 +439,16 @@ def get_tag_skip(tags: TagsYaml, tag_name: str) -> bool:
     return tag.get('skip', False)
 
 
+def get_tag_escape_children(tags: TagsYaml, tag_name: str) -> bool:
+    """
+    Return whether to skip this tag
+    """
+    if tag_name not in tags:
+        return True
+    tag = tags[tag_name]
+    return tag.get('escape_children', True)
+
+
 def make_mdn_link(tag: str) -> str:
     """Generate an MDN docs link for the given tag"""
     return f"{MDN_ELEMENT_PAGE}/{tag}"
@@ -455,6 +473,7 @@ def elements_to_element_structs(
             description=description,
             base=get_tag_base_class(tag_attrs, name),
             mdn_link=make_mdn_link(name),
+            escape_children=get_tag_escape_children(tag_attrs, name),
             attributes=attr_entries_to_object(tag_attrs, name),
         ))
 
