@@ -4,7 +4,7 @@
 Random helpful functions used elsewhere
 """
 from typing import Any, TypeVar
-from collections.abc import Generator
+from collections.abc import Generator, Sequence
 from .__types import ChildrenType, ChildElementType
 
 
@@ -142,6 +142,10 @@ def flatten_list(the_list: list[ChildrenType]) -> list[ChildElementType]:
         if isinstance(item, list):
             result.extend(item)
         elif isinstance(item, Generator):
+            result.extend(item)
+        elif isinstance(item, str):
+            result.append(item)
+        elif isinstance(item, Sequence):
             result.extend(item)
         else:
             result.append(item)

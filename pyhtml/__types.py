@@ -4,7 +4,7 @@
 Type definitions
 """
 from typing import Union, TYPE_CHECKING
-from collections.abc import Generator
+from collections.abc import Generator, Sequence
 
 
 if TYPE_CHECKING:
@@ -33,7 +33,7 @@ these aren't allowed in order to encourage proper use of string formatting.
 
 ChildrenType = Union[
     ChildElementType,
-    list[ChildElementType],
+    Sequence[ChildElementType],
     'Generator[ChildElementType, None, None]',
     # TODO: Would an `Any` type for the generator return be better, even though
     # it would be discarded?
