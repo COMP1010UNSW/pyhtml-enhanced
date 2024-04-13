@@ -43,3 +43,14 @@
 
     p.html({{ arg }})
   expect_fail: true
+
+- case: children_mixed_list_types
+  main: |
+    import pyhtml as p
+
+    children = [p.b("bolder"), p.b("BOLDER"), p.b("BOLDERRRRR!!!!!!!")]
+
+    p.html(
+        "It's getting",
+        children
+    )
