@@ -208,10 +208,25 @@ def test_flatten_element_lists():
 
 def test_flatten_element_generators():
     """
-    If a list of elements is given as a child element, each element should be
-    considered as a child.
+    If a generator of elements is given as a child element, each element
+    yielded should be considered as a child.
     """
     doc = html(c for c in "hi")
+
+    assert str(doc) == "\n".join([
+        "<html>",
+        "  h",
+        "  i",
+        "</html>",
+    ])
+
+
+def test_flatten_element_other_sequence():
+    """
+    If a tuple of elements is given as a child element, each element should be
+    considered as a child.
+    """
+    doc = html(("h", "i"))
 
     assert str(doc) == "\n".join([
         "<html>",
