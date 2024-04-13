@@ -1,22 +1,16 @@
 [tool.poetry]
 name = "pyhtml-enhanced"
-version = "2.0.1"
+version = "2.0.2"
 description = "A library for building HTML documents with a simple and learnable syntax"
 authors = ["Miguel Guthridge <miguel.guthridge@unsw.edu.au>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "pyhtml"}]
+packages = [{ include = "pyhtml" }]
 
 repository = "https://github.com/COMP1010UNSW/pyhtml-enhanced"
 documentation = "https://github.com/COMP1010UNSW/pyhtml-enhanced#README"
 
-keywords = [
-    'html',
-    'template',
-    'pyhtml',
-    'markup',
-    'documentation',
-]
+keywords = ['html', 'template', 'pyhtml', 'markup', 'documentation']
 
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -56,15 +50,10 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.mypy]
-exclude = [
-    'meta/templates/*',
-]
+exclude = ['meta/templates/*']
 
 [tool.flake8]
-exclude = [
-    'meta/templates',
-    'pyhtml/__tags/generated.py',
-]
+exclude = ['meta/templates', 'pyhtml/__tags/generated.py']
 per-file-ignores = [
     "pyhtml/__tags/input.py:E501",
     "pyhtml/__tags/geberated.py:E501",
