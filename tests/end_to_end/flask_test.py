@@ -76,5 +76,6 @@ def test_failed_to_stringify(client: FlaskClient):
     assert "**HINT:** if you're using Flask" in str(exception_info.value)
 
 
-if __name__ == '__main__':
+# Ignore coverage since this won't be used when running tests automatically
+if __name__ == '__main__':  # pragma: no cover
     app.run(debug=True)
