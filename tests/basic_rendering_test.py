@@ -17,7 +17,6 @@ from pyhtml import (
     br,
     input,
     a,
-    DangerousRawHtml,
 )
 
 
@@ -249,21 +248,3 @@ def test_boolean_tag_attributes_false():
     Attributes with value `False` are skipped
     """
     assert str(input(readonly=False)) == "<input/>"
-
-
-def test_dangerous_raw_html():
-    """
-    Is raw HTML rendered correctly?
-    """
-    assert str(DangerousRawHtml("<script>alert(1)</script>")) \
-        == "<script>alert(1)</script>"
-
-    assert str(
-        html(
-            DangerousRawHtml("<script>alert(1)</script>")
-        )
-    ) == "\n".join([
-        "<html>",
-        "  <script>alert(1)</script>",
-        "</html>",
-    ])
