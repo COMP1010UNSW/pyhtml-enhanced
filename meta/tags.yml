@@ -40,6 +40,7 @@ script:
       type: Optional[str]
 
 style:
+  escape_children: false
   attributes:
     type:
       doc: Type of style to use
