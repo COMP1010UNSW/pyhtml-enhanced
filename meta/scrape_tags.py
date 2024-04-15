@@ -44,7 +44,7 @@ def htmlElementReplace(lookup: str, presentation: Optional[str] = None) -> str:
     Replace text in an HTML reference
     """
     if presentation is None:
-        presentation = f"`<{lookup.lower()}>`"
+        presentation = f"<{lookup.lower()}>"
 
     url = f"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/{lookup}"
 
