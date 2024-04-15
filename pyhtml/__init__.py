@@ -1,6 +1,8 @@
 """
 # PyHTML Enhanced
 
+v2.0.3
+
 A library for building HTML documents with a simple and learnable syntax,
 inspired by (and similar to)
 [Cenk Altı's PyHTML library](https://github.com/cenkalti/pyhtml), but
