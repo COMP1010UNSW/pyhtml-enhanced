@@ -56,7 +56,7 @@ exclude = ['meta/templates/*']
 exclude = ['meta/templates', 'pyhtml/__tags/generated.py']
 per-file-ignores = [
     "pyhtml/__tags/input.py:E501",
-    "pyhtml/__tags/geberated.py:E501",
+    "pyhtml/__tags/generated.py:E501",
 ]
 
 [tool.pytest.ini_options]
