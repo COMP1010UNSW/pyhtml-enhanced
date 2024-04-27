@@ -34,11 +34,11 @@ a:
 script:
   escape_children: false
   attributes:
-    src: The location from which to load the script. If present, this will be used rather than the contents of the element.
     type:
       doc: Type of script to use
       default: "'text/javascript'"
       type: Optional[str]
+    src: The location from which to load the script. If present, this will be used rather than the contents of the element.
 
 style:
   escape_children: false

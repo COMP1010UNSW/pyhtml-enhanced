@@ -4103,55 +4103,55 @@ class script(Tag):
     """
     Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
 
-    * `src`: The location from which to load the script. If present, this will be used rather than the contents of the element.
     * `type`: Type of script to use (defaults to `'text/javascript'`)
+    * `src`: The location from which to load the script. If present, this will be used rather than the contents of the element.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
     """
     def __init__(
         self,
         *children: ChildrenType,
-        src: AttributeType = None,
         type: Optional[str] = None,
+        src: AttributeType = None,
         **attributes: AttributeType,
     ) -> None:
         """
         Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
 
-        * `src`: The location from which to load the script. If present, this will be used rather than the contents of the element.
         * `type`: Type of script to use (defaults to `'text/javascript'`)
+        * `src`: The location from which to load the script. If present, this will be used rather than the contents of the element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
         attributes |= {
-            'src': src,
             'type': type,
+            'src': src,
         }
         super().__init__(*children, **attributes)
 
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
-        src: AttributeType = None,
         type: Optional[str] = None,
+        src: AttributeType = None,
         **attributes: AttributeType,
     ):
         """
         Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
 
-        * `src`: The location from which to load the script. If present, this will be used rather than the contents of the element.
         * `type`: Type of script to use (defaults to `'text/javascript'`)
+        * `src`: The location from which to load the script. If present, this will be used rather than the contents of the element.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
         attributes |= {
-            'src': src,
             'type': type,
+            'src': src,
         }
         return super().__call__(*children, **attributes)
 
     def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
-        return {'src': None, 'type': 'text/javascript'}
+        return {'type': 'text/javascript', 'src': None}
 
 
     def _escape_children(self) -> bool:
