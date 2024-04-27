@@ -1361,6 +1361,9 @@ class div(Tag):
         self,
         *children: ChildrenType,
         
+        id: Optional[str] = None,
+        _class: Optional[str] = None,
+        style: Optional[str] = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -1371,6 +1374,9 @@ class div(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
         """
         attributes |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
         super().__init__(*children, **attributes)
@@ -1379,6 +1385,9 @@ class div(Tag):
         self,
         *children: ChildrenType,
         
+        id: Optional[str] = None,
+        _class: Optional[str] = None,
+        style: Optional[str] = None,
         **attributes: AttributeType,
     ):
         """
@@ -1389,6 +1398,9 @@ class div(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
         """
         attributes |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
         return super().__call__(*children, **attributes)
@@ -1950,7 +1962,7 @@ class a(Tag):
         self,
         *children: ChildrenType,
         href: Optional[str] = None,
-        target: Union[str, Literal['_self', '_blank', '_parent', '_top'], None] = None,
+        target: Union[Literal['_self', '_blank', '_parent', '_top'], str, None] = None,
         id: Optional[str] = None,
         _class: Optional[str] = None,
         style: Optional[str] = None,
@@ -1977,7 +1989,7 @@ class a(Tag):
         self,
         *children: ChildrenType,
         href: Optional[str] = None,
-        target: Union[str, Literal['_self', '_blank', '_parent', '_top'], None] = None,
+        target: Union[Literal['_self', '_blank', '_parent', '_top'], str, None] = None,
         id: Optional[str] = None,
         _class: Optional[str] = None,
         style: Optional[str] = None,
@@ -3012,6 +3024,9 @@ class span(Tag):
         self,
         *children: ChildrenType,
         
+        id: Optional[str] = None,
+        _class: Optional[str] = None,
+        style: Optional[str] = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -3022,6 +3037,9 @@ class span(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span)
         """
         attributes |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
         super().__init__(*children, **attributes)
@@ -3030,6 +3048,9 @@ class span(Tag):
         self,
         *children: ChildrenType,
         
+        id: Optional[str] = None,
+        _class: Optional[str] = None,
+        style: Optional[str] = None,
         **attributes: AttributeType,
     ):
         """
@@ -3040,6 +3061,9 @@ class span(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span)
         """
         attributes |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
         return super().__call__(*children, **attributes)
@@ -3496,8 +3520,8 @@ class img(Tag):
     """
     Embeds an image into the document.
 
-    * `src`: Source of the image
-    * `alt`: Alt text of the image
+    * `src`: Source URL of the image.
+    * `alt`: Alt text for the image.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
     """
@@ -3511,8 +3535,8 @@ class img(Tag):
         """
         Embeds an image into the document.
 
-        * `src`: Source of the image
-        * `alt`: Alt text of the image
+        * `src`: Source URL of the image.
+        * `alt`: Alt text for the image.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
         """
@@ -3532,8 +3556,8 @@ class img(Tag):
         """
         Embeds an image into the document.
 
-        * `src`: Source of the image
-        * `alt`: Alt text of the image
+        * `src`: Source URL of the image.
+        * `alt`: Alt text for the image.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
         """
@@ -4079,6 +4103,7 @@ class script(Tag):
     """
     Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
 
+    * `src`: The location from which to load the script. If present, this will be used rather than the contents of the element.
     * `type`: Type of script to use (defaults to `'text/javascript'`)
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
@@ -4086,17 +4111,20 @@ class script(Tag):
     def __init__(
         self,
         *children: ChildrenType,
+        src: AttributeType = None,
         type: Optional[str] = None,
         **attributes: AttributeType,
     ) -> None:
         """
         Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
 
+        * `src`: The location from which to load the script. If present, this will be used rather than the contents of the element.
         * `type`: Type of script to use (defaults to `'text/javascript'`)
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
         attributes |= {
+            'src': src,
             'type': type,
         }
         super().__init__(*children, **attributes)
@@ -4104,23 +4132,26 @@ class script(Tag):
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
+        src: AttributeType = None,
         type: Optional[str] = None,
         **attributes: AttributeType,
     ):
         """
         Used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The `<script>` element can also be used with other languages, such as [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)'s GLSL shader programming language and [JSON](/en-US/docs/Glossary/JSON).
 
+        * `src`: The location from which to load the script. If present, this will be used rather than the contents of the element.
         * `type`: Type of script to use (defaults to `'text/javascript'`)
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
         attributes |= {
+            'src': src,
             'type': type,
         }
         return super().__call__(*children, **attributes)
 
     def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
-        return {'type': 'text/javascript'}
+        return {'src': None, 'type': 'text/javascript'}
 
 
     def _escape_children(self) -> bool:
@@ -4603,7 +4634,7 @@ class th(Tag):
     def __init__(
         self,
         *children: ChildrenType,
-        scope: AttributeType = None,
+        scope: Optional[Literal['col', 'row', 'colgroup', 'rowgroup']] = None,
         colspan: AttributeType = None,
         rowspan: AttributeType = None,
         id: Optional[str] = None,
@@ -4633,7 +4664,7 @@ class th(Tag):
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
-        scope: AttributeType = None,
+        scope: Optional[Literal['col', 'row', 'colgroup', 'rowgroup']] = None,
         colspan: AttributeType = None,
         rowspan: AttributeType = None,
         id: Optional[str] = None,
@@ -5366,48 +5397,60 @@ class textarea(Tag):
     """
     Represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example, a comment on a review or feedback form.
 
-    
+    * `required`: Whether the input is required to submit the form it is contained within.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
     """
     def __init__(
         self,
         *children: ChildrenType,
-        
+        required: Optional[bool] = None,
+        id: Optional[str] = None,
+        _class: Optional[str] = None,
+        style: Optional[str] = None,
         **attributes: AttributeType,
     ) -> None:
         """
         Represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example, a comment on a review or feedback form.
 
-        
+        * `required`: Whether the input is required to submit the form it is contained within.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
         """
         attributes |= {
-            
+            '_class': _class,
+            'id': id,
+            'style': style,
+            'required': required,
         }
         super().__init__(*children, **attributes)
 
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
-        
+        required: Optional[bool] = None,
+        id: Optional[str] = None,
+        _class: Optional[str] = None,
+        style: Optional[str] = None,
         **attributes: AttributeType,
     ):
         """
         Represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example, a comment on a review or feedback form.
 
-        
+        * `required`: Whether the input is required to submit the form it is contained within.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
         """
         attributes |= {
-            
+            '_class': _class,
+            'id': id,
+            'style': style,
+            'required': required,
         }
         return super().__call__(*children, **attributes)
 
     def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
-        return {}
+        return {'required': None}
 
 
 class details(Tag):
