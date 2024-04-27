@@ -15,48 +15,52 @@ class html(Tag):
     """
     Represents the root (top-level element) of an HTML document, so it is also referred to as the _root element_. All other elements must be descendants of this element.
 
-    
+    * `lang`: Language used by the document
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html)
     """
     def __init__(
         self,
         *children: ChildrenType,
-        
+        lang: Optional[str] = None,
         **attributes: AttributeType,
     ) -> None:
         """
         Represents the root (top-level element) of an HTML document, so it is also referred to as the _root element_. All other elements must be descendants of this element.
 
-        
+        * `lang`: Language used by the document
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html)
         """
         attributes |= {
-            
+            'lang': lang,
         }
         super().__init__(*children, **attributes)
 
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
-        
+        lang: Optional[str] = None,
         **attributes: AttributeType,
     ):
         """
         Represents the root (top-level element) of an HTML document, so it is also referred to as the _root element_. All other elements must be descendants of this element.
 
-        
+        * `lang`: Language used by the document
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html)
         """
         attributes |= {
-            
+            'lang': lang,
         }
         return super().__call__(*children, **attributes)
 
     def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
-        return {}
+        return {'lang': None}
+
+
+    def _get_tag_pre_content(self) -> Optional[str]:
+        return '<!DOCTYPE html>'
 
 
 class base(SelfClosingTag):

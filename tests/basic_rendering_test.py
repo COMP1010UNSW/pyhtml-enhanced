@@ -9,6 +9,8 @@ from pyhtml import (
     head,
     title,
     body,
+    span,
+    div,
     h1,
     p,
     Comment,
@@ -21,47 +23,47 @@ from pyhtml import (
 
 
 def test_renders_single_element():
-    doc = html()
+    doc = body()
 
-    assert str(doc) == "<html></html>"
+    assert str(doc) == '<body></body>'
 
 
 def test_renders_elements_with_children():
-    doc = html(
-        head(),
-        body(),
+    doc = body(
+        span(),
+        div(),
     )
 
     assert str(doc) == '\n'.join([
-        '<html>',
-        '  <head></head>',
-        '  <body></body>',
-        '</html>',
+        '<body>',
+        '  <span></span>',
+        '  <div></div>',
+        '</body>',
     ])
 
 
 def test_renders_deeply_nested_children():
-    doc = html(
-        body(
+    doc = body(
+        div(
             p("Hello world"),
         ),
     )
 
     assert str(doc) == '\n'.join([
-        '<html>',
-        '  <body>',
+        '<body>',
+        '  <div>',
         '    <p>',
         '      Hello world',
         '    </p>',
-        '  </body>',
-        '</html>',
+        '  </div>',
+        '</body>',
     ])
 
 
 def test_renders_attributes():
-    doc = html(foo="bar")
+    doc = body(foo="bar")
 
-    assert str(doc) == '<html foo="bar"></html>'
+    assert str(doc) == '<body foo="bar"></body>'
 
 
 def test_comment_renders():
@@ -81,27 +83,27 @@ def test_comments_not_callable():
 def test_call_adds_attrs():
     """Calling a tag adds additional attributes"""
     # Note that order is important - elements added first should appear first
-    assert str(html(foo="bar")(baz="bat")) \
-        == '<html foo="bar" baz="bat"></html>'
+    assert str(body(foo="bar")(baz="bat")) \
+        == '<body foo="bar" baz="bat"></body>'
 
 
 def test_call_adds_children():
     """Calling a tag adds additional children"""
     # Note that order is important again
-    assert str(html("Hello")("World")) == '\n'.join([
-        '<html>',
+    assert str(body("Hello")("World")) == '\n'.join([
+        '<body>',
         '  Hello',
         '  World',
-        '</html>',
+        '</body>',
     ])
 
 
 def test_call_adds_mixed_attrs_children():
     """Calling a tag adds more properties"""
-    assert str(html(foo="bar")("Hello")) == "\n".join([
-        '<html foo="bar">',
+    assert str(body(foo="bar")("Hello")) == "\n".join([
+        '<body foo="bar">',
         '  Hello',
-        '</html>',
+        '</body>',
     ])
 
 
@@ -160,6 +162,7 @@ def test_larger_page():
     )
 
     assert str(my_website) == '\n'.join([
+        '<!DOCTYPE html>',
         '<html>',
         '  <head>',
         '    <title>',
@@ -182,9 +185,9 @@ def test_larger_page():
 
 def test_format_through_repr():
     """Is HTML rendered through repr?"""
-    doc = html()
+    doc = body()
 
-    assert repr(doc) == "<html></html>"
+    assert repr(doc) == "<body></body>"
 
 
 def test_flatten_element_lists():
@@ -192,17 +195,17 @@ def test_flatten_element_lists():
     If a list of elements is given as a child element, each element should be
     considered as a child.
     """
-    doc = html([p("Hello"), p("world")])
+    doc = body([p("Hello"), p("world")])
 
     assert str(doc) == "\n".join([
-        "<html>",
+        "<body>",
         "  <p>",
         "    Hello",
         "  </p>",
         "  <p>",
         "    world",
         "  </p>",
-        "</html>",
+        "</body>",
     ])
 
 
@@ -211,13 +214,13 @@ def test_flatten_element_generators():
     If a generator of elements is given as a child element, each element
     yielded should be considered as a child.
     """
-    doc = html(c for c in "hi")
+    doc = body(c for c in "hi")
 
     assert str(doc) == "\n".join([
-        "<html>",
+        "<body>",
         "  h",
         "  i",
-        "</html>",
+        "</body>",
     ])
 
 
@@ -226,13 +229,13 @@ def test_flatten_element_other_sequence():
     If a tuple of elements is given as a child element, each element should be
     considered as a child.
     """
-    doc = html(("h", "i"))
+    doc = body(("h", "i"))
 
     assert str(doc) == "\n".join([
-        "<html>",
+        "<body>",
         "  h",
         "  i",
-        "</html>",
+        "</body>",
     ])
 
 
@@ -240,12 +243,12 @@ def test_classes_can_render():
     """
     Can a class by itself be rendered individually?
     """
-    doc = html(br)
+    doc = body(br)
 
     assert str(doc) == "\n".join([
-        "<html>",
+        "<body>",
         "  <br/>",
-        "</html>",
+        "</body>",
     ])
 
 
@@ -263,3 +266,10 @@ def test_boolean_tag_attributes_false():
     Attributes with value `False` are skipped
     """
     assert str(input(readonly=False)) == "<input/>"
+
+
+def test_tag_with_pre_content():
+    """
+    Do tags with defined pre-content render correctly
+    """
+    assert str(html()) == "<!DOCTYPE html>\n<html></html>"

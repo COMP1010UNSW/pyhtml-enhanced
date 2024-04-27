@@ -17,6 +17,11 @@ NO_ESCAPE_CHILDREN = """
         return False
 """
 
+GET_PRE_CONTENT = """
+    def _get_tag_pre_content(self) -> Optional[str]:
+        return {}
+"""
+
 
 def get_template_class(name: str):
     try:
@@ -95,6 +100,13 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
     # And add the no escape children function if needed
     if not tag.escape_children:
         print(NO_ESCAPE_CHILDREN, file=output)
+
+    # Add pre-content declaration if needed
+    if tag.pre_content is not None:
+        print(
+            GET_PRE_CONTENT.replace("{}", f"'{tag.pre_content}'"),
+            file=output,
+        )
 
     # And a nice trailing newline to make flake8 happy
     print(file=output)

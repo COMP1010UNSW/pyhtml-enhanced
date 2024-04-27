@@ -136,6 +136,11 @@ class TagsYmlItem(TypedDict):
     escape_children: NotRequired[bool]
     """Whether to escape the contents of the tag (default True)"""
 
+    pre_content: NotRequired[str]
+    """
+    Pre-content for the element (eg `<!DOCTYPE html>`)
+    """
+
 
 TagsYaml = dict[str, TagsYmlItem]
 """Type alias for type of tags.yml file"""
@@ -202,6 +207,11 @@ class TagInfo:
     attributes: list[Attr]
     """
     List of attributes and their documentation.
+    """
+
+    pre_content: Optional[str]
+    """
+    Pre-content for the element (eg `<!DOCTYPE html>`)
     """
 
 
@@ -449,6 +459,16 @@ def get_tag_escape_children(tags: TagsYaml, tag_name: str) -> bool:
     return tag.get('escape_children', True)
 
 
+def get_tag_pre_content(tags: TagsYaml, tag_name: str) -> Optional[str]:
+    """
+    Return pre-content for the tag
+    """
+    if tag_name not in tags:
+        return None
+    tag = tags[tag_name]
+    return tag.get('pre_content', None)
+
+
 def make_mdn_link(tag: str) -> str:
     """Generate an MDN docs link for the given tag"""
     return f"{MDN_ELEMENT_PAGE}/{tag}"
@@ -475,6 +495,7 @@ def elements_to_element_structs(
             mdn_link=make_mdn_link(name),
             escape_children=get_tag_escape_children(tag_attrs, name),
             attributes=attr_entries_to_object(tag_attrs, name),
+            pre_content=get_tag_pre_content(tag_attrs, name)
         ))
 
     return output

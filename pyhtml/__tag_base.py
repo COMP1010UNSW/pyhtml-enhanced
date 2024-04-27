@@ -3,7 +3,7 @@
 
 Tag base class, including rendering logic
 """
-from typing import TypeVar
+from typing import Optional, TypeVar
 from . import __util as util
 from .__types import ChildrenType, AttributeType
 
@@ -74,6 +74,15 @@ class Tag:
         """
         return {}
 
+    def _get_tag_pre_content(self) -> Optional[str]:
+        """
+        Return "pre-content" for the tag.
+
+        This is used by the `<html>` tag to add a `<!DOCTYPE html>` before the
+        tag.
+        """
+        return None
+
     def _escape_children(self) -> bool:
         """
         Returns whether the contents of the element should be escaped, or
@@ -97,6 +106,11 @@ class Tag:
 
         # Tag and attributes
         opening = f"<{self._get_tag_name()}"
+
+        # Add pre-content
+        if (pre := self._get_tag_pre_content()) is not None:
+            opening = f"{pre}\n{opening}"
+
         if len(attributes):
             opening += f" {util.render_tag_attributes(attributes)}>"
         else:

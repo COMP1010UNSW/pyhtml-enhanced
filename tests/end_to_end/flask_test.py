@@ -52,6 +52,7 @@ def test_simple_stringify(client: FlaskClient):
     assert response.status_code == 200
 
     assert response.text == '\n'.join([
+        '<!DOCTYPE html>',
         '<html>',
         '  <body>',
         '    <p>',

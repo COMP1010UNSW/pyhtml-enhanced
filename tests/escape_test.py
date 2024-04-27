@@ -5,7 +5,7 @@ Tests for escape sequences
 """
 import pytest
 import keyword
-from pyhtml import html
+from pyhtml import body
 
 
 replacements = [
@@ -23,12 +23,12 @@ replacements = [
     replacements
 )
 def test_escapes_children(string, replacement):
-    assert str(html(
+    assert str(body(
         f"Hello{string}world",
     )) == '\n'.join([
-        '<html>',
+        '<body>',
         f'  Hello{replacement}world',
-        '</html>',
+        '</body>',
     ])
 
 
@@ -37,8 +37,8 @@ def test_escapes_children(string, replacement):
     replacements
 )
 def test_escapes_attribute_values(string: str, replacement: str):
-    assert str(html(value=f"hello{string}world")) \
-        == f'<html value="hello{replacement}world"></html>'
+    assert str(body(value=f"hello{string}world")) \
+        == f'<body value="hello{replacement}world"></body>'
 
 
 def test_attribute_names_escapes_dashes():
@@ -46,7 +46,7 @@ def test_attribute_names_escapes_dashes():
     Since dashes can't be given as kwarg names, we need to use underscores
     instead. Are they replaced correctly
     """
-    assert str(html(my_value="hi")) == '<html my-value="hi"></html>'
+    assert str(body(my_value="hi")) == '<body my-value="hi"></body>'
 
 
 @pytest.mark.parametrize(
@@ -62,7 +62,7 @@ def test_attribute_names_escapes_python_keywords_prefix(keyword: str):
     escaped versions (eg _for => for)
     """
     kwargs = {f"_{keyword}": 'hi'}
-    assert str(html(**kwargs)) == f'<html {keyword}="hi"></html>'
+    assert str(body(**kwargs)) == f'<body {keyword}="hi"></body>'
 
 
 @pytest.mark.parametrize(
@@ -76,4 +76,4 @@ def test_attribute_names_escapes_python_keywords_suffix(keyword: str):
     escaped versions (eg for_ => for)
     """
     kwargs = {f"{keyword}_": 'hi'}
-    assert str(html(**kwargs)) == f'<html {keyword}="hi"></html>'
+    assert str(body(**kwargs)) == f'<body {keyword}="hi"></body>'

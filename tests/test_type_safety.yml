@@ -8,7 +8,7 @@
     - arg: '"https://google.com"'
   main: |
     import pyhtml as p
-    p.html(lang={{ arg }})
+    p.html(foo={{ arg }})
 
 - case: attributes_disallowed_types
   parametrized:

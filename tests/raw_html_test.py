@@ -4,7 +4,7 @@
 Test cases for `DangerousRawHtml` tag
 """
 import pytest
-from pyhtml import DangerousRawHtml, html
+from pyhtml import DangerousRawHtml, body
 
 
 def test_dangerous_raw_html():
@@ -15,13 +15,13 @@ def test_dangerous_raw_html():
         == "<script>alert(1)</script>"
 
     assert str(
-        html(
+        body(
             DangerousRawHtml("<script>alert(1)</script>")
         )
     ) == "\n".join([
-        "<html>",
+        "<body>",
         "  <script>alert(1)</script>",
-        "</html>",
+        "</body>",
     ])
 
 

@@ -32,6 +32,7 @@ with improved documentation and type safety.
 ...     ),
 ... )
 >>> print(str(my_website))
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -159,6 +160,7 @@ instantiated element.
 >>> p.br
 <class 'pyhtml.__tags.generated.br'>
 >>> print(str(p.html(p.body(p.br))))
+<!DOCTYPE html>
 <html>
   <body>
     <br/>

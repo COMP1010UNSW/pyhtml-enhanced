@@ -7,7 +7,7 @@ These don't regenerate the code, but rather test code that has been generated
 """
 import pytest
 import pyhtml
-from pyhtml import Tag, Comment, DangerousRawHtml
+from pyhtml import Tag, Comment, DangerousRawHtml, html
 
 
 all_tags = [
@@ -22,6 +22,8 @@ all_tags = [
         and issubclass(getattr(pyhtml, i), Tag)
         # And aren't a PyHTML feature (since comments require named args)
         and not issubclass(getattr(pyhtml, i), (Comment, DangerousRawHtml))
+        # And isn't <html> since it has pre-content
+        and not issubclass(getattr(pyhtml, i), html)
     )
 ]
 
@@ -31,7 +33,7 @@ def test_num_exported_members():
     We don't want regenerating the code to produce any more (or fewer) members
     """
     # Just update the number if you're expecting it to change
-    assert len(all_tags) == 116
+    assert len(all_tags) == 115
 
 
 @pytest.mark.parametrize(

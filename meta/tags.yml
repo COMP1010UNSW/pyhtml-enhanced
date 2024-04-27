@@ -1,6 +1,13 @@
 %YAML 1.2
 ---
 
+html:
+  pre_content: "<!DOCTYPE html>"
+  attributes:
+    lang:
+      doc: Language used by the document
+      type: Optional[str]
+
 # Rename <del> tag as it is a reserved keyword in Python
 del:
   rename: del_
