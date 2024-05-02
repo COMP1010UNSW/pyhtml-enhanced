@@ -4,6 +4,7 @@
 Definition for the DangerousRawHtml tag.
 """
 from ..__tag_base import Tag
+from ..__util import increase_indent
 
 
 class DangerousRawHtml(Tag):
@@ -44,5 +45,5 @@ class DangerousRawHtml(Tag):
         # and is never used since we override _render
         return '!!!DANGEROUS RAW HTML!!!'  # pragma: no cover
 
-    def _render(self) -> list[str]:
-        return self.html_data.splitlines()
+    def _render(self, indent: int) -> list[str]:
+        return increase_indent(self.html_data.splitlines(), indent)

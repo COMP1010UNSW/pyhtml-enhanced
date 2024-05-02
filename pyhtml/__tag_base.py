@@ -94,7 +94,7 @@ class Tag:
         """
         return True
 
-    def _render(self) -> list[str]:
+    def _render(self, indent: int) -> list[str]:
         """
         Renders tag and its children to a list of strings where each string is
         a single line of output
@@ -105,7 +105,7 @@ class Tag:
         ))
 
         # Tag and attributes
-        opening = f"<{self._get_tag_name()}"
+        opening = f"{' ' * indent}<{self._get_tag_name()}"
 
         # Add pre-content
         if (pre := self._get_tag_pre_content()) is not None:
@@ -123,10 +123,14 @@ class Tag:
             out = [opening]
             # Children
             out.extend(
-                util.render_children(self.children, self._escape_children())
+                util.render_children(
+                    self.children,
+                    self._escape_children(),
+                    indent + 2,
+                )
             )
             # Closing tag
-            out.append(f"</{self._get_tag_name()}>")
+            out.append(f"{' ' * indent}</{self._get_tag_name()}>")
 
             return out
 
@@ -134,7 +138,7 @@ class Tag:
         """
         Render this tag and its contents to a string
         """
-        return '\n'.join(self._render())
+        return '\n'.join(self._render(0))
 
     def __str__(self) -> str:
         return self.render()
@@ -151,7 +155,7 @@ class SelfClosingTag(Tag):
         # Self-closing tags don't allow children
         super().__init__(**attributes)
 
-    def _render(self) -> list[str]:
+    def _render(self, indent: int) -> list[str]:
         """
         Renders tag and its children to a list of strings where each string is
         a single line of output
@@ -162,8 +166,8 @@ class SelfClosingTag(Tag):
         ))
         if len(attributes):
             return [
-                f"<{self._get_tag_name()} "
+                f"{' ' * indent}<{self._get_tag_name()} "
                 f"{util.render_tag_attributes(attributes)}/>"
             ]
         else:
-            return [f"<{self._get_tag_name()}/>"]
+            return [f"{' ' * indent}<{self._get_tag_name()}/>"]

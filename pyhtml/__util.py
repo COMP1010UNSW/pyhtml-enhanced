@@ -99,26 +99,29 @@ def filter_attributes(attributes: dict[str, Any]) -> dict[str, Any]:
 def render_inline_element(
     ele: ChildElementType,
     escape_strings: bool,
+    indent: int,
 ) -> list[str]:
     """
     Render an element inline
     """
     from .__tag_base import Tag
     if isinstance(ele, Tag):
-        return ele._render()
+        return ele._render(indent)
     elif isinstance(ele, type) and issubclass(ele, Tag):
-        return ele()._render()
+        e = ele()
+        return e._render(indent)
     else:
         # Remove newlines from strings when inline rendering
         if escape_strings:
-            return [escape_string(str(ele))]
+            return increase_indent([escape_string(str(ele))], indent)
         else:
-            return [str(ele)]
+            return increase_indent([str(ele)], indent)
 
 
 def render_children(
     children: list[ChildElementType],
     escape_strings: bool,
+    indent: int,
 ) -> list[str]:
     """
     Render child elements of tags.
@@ -127,8 +130,8 @@ def render_children(
     """
     rendered = []
     for ele in children:
-        rendered.extend(render_inline_element(ele, escape_strings))
-    return increase_indent(rendered, 2)
+        rendered.extend(render_inline_element(ele, escape_strings, indent))
+    return rendered
 
 
 def flatten_list(the_list: list[ChildrenType]) -> list[ChildElementType]:
@@ -136,6 +139,8 @@ def flatten_list(the_list: list[ChildrenType]) -> list[ChildElementType]:
     Flatten a list by taking any list elements and inserting their items
     individually. Note that other iterables (such as str and tuple) are not
     flattened.
+
+    FIXME: Currently doesn't support lists of lists
     """
     result: list[ChildElementType] = []
     for item in the_list:

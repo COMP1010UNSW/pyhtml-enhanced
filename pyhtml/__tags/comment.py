@@ -42,17 +42,17 @@ class Comment(Tag):
         # and is never used since we override _render
         return '!--'  # pragma: no cover
 
-    def _render(self) -> list[str]:
+    def _render(self, indent: int) -> list[str]:
         """
         Override of render, to render comments
         """
 
-        return [
-            '<!--',
-            *util.increase_indent(
+        return util.increase_indent(
+            ['<!--']
+            + util.increase_indent(
                 util.escape_string(self.comment_data).splitlines(),
-                # FIXME: Yucky magic number
-                2,
-            ),
-            '-->'
-        ]
+                indent+2,
+            )
+            + ['-->'],
+            indent,
+        )
