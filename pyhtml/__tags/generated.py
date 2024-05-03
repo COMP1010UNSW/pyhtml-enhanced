@@ -5209,48 +5209,62 @@ class option(Tag):
     """
     Used to define an item contained in a select, an [<optgroup>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup), or a [<datalist>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist) element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document.
 
-    
+    * `selected`: Whether this option is the default selection within the `select` element
+    * `disabled`: Whether this option is disabled, meaning it cannot be selected.
+    * `value`: The value to use if this option is selected when submitting the form
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)
     """
     def __init__(
         self,
         *children: ChildrenType,
-        
+        selected: Optional[bool] = None,
+        disabled: Optional[bool] = None,
+        value: AttributeType = None,
         **attributes: AttributeType,
     ) -> None:
         """
         Used to define an item contained in a select, an [<optgroup>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup), or a [<datalist>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist) element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document.
 
-        
+        * `selected`: Whether this option is the default selection within the `select` element
+        * `disabled`: Whether this option is disabled, meaning it cannot be selected.
+        * `value`: The value to use if this option is selected when submitting the form
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)
         """
         attributes |= {
-            
+            'selected': selected,
+            'disabled': disabled,
+            'value': value,
         }
         super().__init__(*children, **attributes)
 
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
-        
+        selected: Optional[bool] = None,
+        disabled: Optional[bool] = None,
+        value: AttributeType = None,
         **attributes: AttributeType,
     ):
         """
         Used to define an item contained in a select, an [<optgroup>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup), or a [<datalist>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist) element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document.
 
-        
+        * `selected`: Whether this option is the default selection within the `select` element
+        * `disabled`: Whether this option is disabled, meaning it cannot be selected.
+        * `value`: The value to use if this option is selected when submitting the form
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)
         """
         attributes |= {
-            
+            'selected': selected,
+            'disabled': disabled,
+            'value': value,
         }
         return super().__call__(*children, **attributes)
 
     def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
-        return {}
+        return {'selected': None, 'disabled': None, 'value': None}
 
 
 class output(Tag):
@@ -5353,48 +5367,81 @@ class select(Tag):
     """
     Represents a control that provides a menu of options.
 
-    
+    * `required`: Whether the input is required to submit the form it is contained within.
+    * `name`: The name to use for this value when submitting the form.
+    * `disabled`: Whether this form element is disabled, meaning it cannot be selected, and will not be submitted with the form.
+    * `multiple`: Whether multiple options can be simultaneously selected.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
     """
     def __init__(
         self,
         *children: ChildrenType,
-        
+        required: Optional[bool] = None,
+        name: AttributeType = None,
+        disabled: Optional[bool] = None,
+        multiple: Optional[bool] = None,
+        id: Optional[str] = None,
+        _class: Optional[str] = None,
+        style: Optional[str] = None,
         **attributes: AttributeType,
     ) -> None:
         """
         Represents a control that provides a menu of options.
 
-        
+        * `required`: Whether the input is required to submit the form it is contained within.
+        * `name`: The name to use for this value when submitting the form.
+        * `disabled`: Whether this form element is disabled, meaning it cannot be selected, and will not be submitted with the form.
+        * `multiple`: Whether multiple options can be simultaneously selected.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
         """
         attributes |= {
-            
+            '_class': _class,
+            'id': id,
+            'style': style,
+            'required': required,
+            'name': name,
+            'disabled': disabled,
+            'multiple': multiple,
         }
         super().__init__(*children, **attributes)
 
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
-        
+        required: Optional[bool] = None,
+        name: AttributeType = None,
+        disabled: Optional[bool] = None,
+        multiple: Optional[bool] = None,
+        id: Optional[str] = None,
+        _class: Optional[str] = None,
+        style: Optional[str] = None,
         **attributes: AttributeType,
     ):
         """
         Represents a control that provides a menu of options.
 
-        
+        * `required`: Whether the input is required to submit the form it is contained within.
+        * `name`: The name to use for this value when submitting the form.
+        * `disabled`: Whether this form element is disabled, meaning it cannot be selected, and will not be submitted with the form.
+        * `multiple`: Whether multiple options can be simultaneously selected.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
         """
         attributes |= {
-            
+            '_class': _class,
+            'id': id,
+            'style': style,
+            'required': required,
+            'name': name,
+            'disabled': disabled,
+            'multiple': multiple,
         }
         return super().__call__(*children, **attributes)
 
     def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
-        return {}
+        return {'required': None, 'name': None, 'disabled': None, 'multiple': None}
 
 
 class textarea(Tag):
@@ -5402,6 +5449,14 @@ class textarea(Tag):
     Represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example, a comment on a review or feedback form.
 
     * `required`: Whether the input is required to submit the form it is contained within.
+    * `name`: The name to use for this value when submitting the form.
+    * `rows`: The number of rows (lines) to use in the text area. Value should be an integer, but given as type `str`.
+    * `cols`: The number of columns (length of each line) to use in the text area. Value should be an integer, but given as type `str`.
+    * `placeholder`: Placeholder text to use when the field is empty.
+    * `disabled`: Whether this option is disabled, meaning it cannot be selected, and will not be submitted with the form.
+    * `maxlength`: The maximum number of characters permitted in the textarea
+    * `wrap`: How to perform word wrapping ("hard" or "soft")
+    * `readonly`: Whether this option is read-only, meaning it cannot be modified
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
     """
@@ -5409,6 +5464,14 @@ class textarea(Tag):
         self,
         *children: ChildrenType,
         required: Optional[bool] = None,
+        name: AttributeType = None,
+        rows: Optional[str] = None,
+        cols: Optional[str] = None,
+        placeholder: AttributeType = None,
+        disabled: Optional[bool] = None,
+        maxlength: AttributeType = None,
+        wrap: Union[Literal['hard', 'soft'], None] = None,
+        readonly: Optional[bool] = None,
         id: Optional[str] = None,
         _class: Optional[str] = None,
         style: Optional[str] = None,
@@ -5418,6 +5481,14 @@ class textarea(Tag):
         Represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example, a comment on a review or feedback form.
 
         * `required`: Whether the input is required to submit the form it is contained within.
+        * `name`: The name to use for this value when submitting the form.
+        * `rows`: The number of rows (lines) to use in the text area. Value should be an integer, but given as type `str`.
+        * `cols`: The number of columns (length of each line) to use in the text area. Value should be an integer, but given as type `str`.
+        * `placeholder`: Placeholder text to use when the field is empty.
+        * `disabled`: Whether this option is disabled, meaning it cannot be selected, and will not be submitted with the form.
+        * `maxlength`: The maximum number of characters permitted in the textarea
+        * `wrap`: How to perform word wrapping ("hard" or "soft")
+        * `readonly`: Whether this option is read-only, meaning it cannot be modified
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
         """
@@ -5426,6 +5497,14 @@ class textarea(Tag):
             'id': id,
             'style': style,
             'required': required,
+            'name': name,
+            'rows': rows,
+            'cols': cols,
+            'placeholder': placeholder,
+            'disabled': disabled,
+            'maxlength': maxlength,
+            'wrap': wrap,
+            'readonly': readonly,
         }
         super().__init__(*children, **attributes)
 
@@ -5433,6 +5512,14 @@ class textarea(Tag):
         self,
         *children: ChildrenType,
         required: Optional[bool] = None,
+        name: AttributeType = None,
+        rows: Optional[str] = None,
+        cols: Optional[str] = None,
+        placeholder: AttributeType = None,
+        disabled: Optional[bool] = None,
+        maxlength: AttributeType = None,
+        wrap: Union[Literal['hard', 'soft'], None] = None,
+        readonly: Optional[bool] = None,
         id: Optional[str] = None,
         _class: Optional[str] = None,
         style: Optional[str] = None,
@@ -5442,6 +5529,14 @@ class textarea(Tag):
         Represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example, a comment on a review or feedback form.
 
         * `required`: Whether the input is required to submit the form it is contained within.
+        * `name`: The name to use for this value when submitting the form.
+        * `rows`: The number of rows (lines) to use in the text area. Value should be an integer, but given as type `str`.
+        * `cols`: The number of columns (length of each line) to use in the text area. Value should be an integer, but given as type `str`.
+        * `placeholder`: Placeholder text to use when the field is empty.
+        * `disabled`: Whether this option is disabled, meaning it cannot be selected, and will not be submitted with the form.
+        * `maxlength`: The maximum number of characters permitted in the textarea
+        * `wrap`: How to perform word wrapping ("hard" or "soft")
+        * `readonly`: Whether this option is read-only, meaning it cannot be modified
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
         """
@@ -5450,11 +5545,19 @@ class textarea(Tag):
             'id': id,
             'style': style,
             'required': required,
+            'name': name,
+            'rows': rows,
+            'cols': cols,
+            'placeholder': placeholder,
+            'disabled': disabled,
+            'maxlength': maxlength,
+            'wrap': wrap,
+            'readonly': readonly,
         }
         return super().__call__(*children, **attributes)
 
     def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
-        return {'required': None}
+        return {'required': None, 'name': None, 'rows': None, 'cols': None, 'placeholder': None, 'disabled': None, 'maxlength': None, 'wrap': None, 'readonly': None}
 
 
 class details(Tag):

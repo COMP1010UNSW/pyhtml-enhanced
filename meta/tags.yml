@@ -157,7 +157,7 @@ textarea:
     placeholder: Placeholder text to use when the field is empty.
     disabled:
       doc: "Whether this option is disabled, meaning it cannot be selected, and will not be submitted with the form."
-      type: "Optional[Literal['disabled']]"
+      type: "Optional[bool]"
     maxlength: The maximum number of characters permitted in the textarea
     wrap:
       doc: How to perform word wrapping ("hard" or "soft")
@@ -172,7 +172,7 @@ option:
       doc: "Whether this option is the default selection within the `select` element"
       type: "Optional[bool]"
     disabled:
-      doc: "Whether this option is disabled, meaning it cannot be selected, and will not be submitted with the form."
+      doc: "Whether this option is disabled, meaning it cannot be selected."
       type: "Optional[bool]"
     value:
       doc: "The value to use if this option is selected when submitting the form"
@@ -184,4 +184,9 @@ select:
       doc: Whether the input is required to submit the form it is contained within.
       type: "Optional[bool]"
     name: The name to use for this value when submitting the form.
-
+    disabled:
+      doc: "Whether this form element is disabled, meaning it cannot be selected, and will not be submitted with the form."
+      type: "Optional[bool]"
+    multiple:
+      doc: "Whether multiple options can be simultaneously selected."
+      type: "Optional[bool]"
