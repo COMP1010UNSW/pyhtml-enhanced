@@ -55,7 +55,7 @@ exclude = ['meta/templates/*']
 [tool.flake8]
 exclude = ['meta/templates', 'pyhtml/__tags/generated.py']
 per-file-ignores = [
-    "pyhtml/__tags/input.py:E501",
+    "pyhtml/__tags/input_tag.py:E501",
     "pyhtml/__tags/generated.py:E501",
 ]
 
