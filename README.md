@@ -147,6 +147,43 @@ create a class deriving from `Tag`.
 
 ```
 
+#### Tag base classes
+
+You can derive from various other classes to get more control over how your tag
+is rendered:
+
+* `Tag`: default rendering.
+
+* `SelfClosingTag`: tag is self-closing, meaning that no child elements are
+  accepted.
+
+* `WhitespaceSensitiveTag`: tag is whitespace-sensitive, meaning that its
+  child elements are not indented.
+
+#### Class properties
+
+* `children`: child elements
+* `attributes`: element attributes
+
+#### Rendering control functions
+
+You can also override various functions to control the existing rendering.
+
+* `_get_tag_name`: return the name to use for the tag. For example returning
+  `"foo"` would produce `<foo>`.
+
+* `_get_default_attributes`: return the default values for attributes.
+
+* `_get_tag_pre_content`: return the pre-content for the tag. For example, the
+  `<html>` tag uses this to add the `<!DOCTYPE html>` before the opening tag.
+
+* `_escape_children`: return whether the string child elements should be
+  escaped to prevent HTML injection.
+
+* `_render`: render the element and its children, returning the list of lines
+  to use for the output. Overriding this should be a last resort, as it is easy
+  to subtly break the rendering process if you aren't careful.
+
 Refer to the documentation for `Tag` for more information.
 
 ## Differences to PyHTML
