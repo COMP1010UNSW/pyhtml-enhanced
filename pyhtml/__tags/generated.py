@@ -8,7 +8,7 @@ Note that all documentation is licensed as CC-BY-SA-2.5
 https://creativecommons.org/licenses/by-sa/2.5/
 """
 from typing import Any, Optional, Union, Literal
-from ..__tag_base import Tag, SelfClosingTag
+from ..__tag_base import Tag, SelfClosingTag, WhitespaceSensitiveTag
 from ..__types import AttributeType, ChildrenType
 
 class html(Tag):
@@ -1857,7 +1857,7 @@ class p(Tag):
         return {}
 
 
-class pre(Tag):
+class pre(WhitespaceSensitiveTag):
     """
     Represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or [monospaced](https://en.wikipedia.org/wiki/Monospaced_font), font. Whitespace inside this element is displayed as written.
 
@@ -5444,7 +5444,7 @@ class select(Tag):
         return {'required': None, 'name': None, 'disabled': None, 'multiple': None}
 
 
-class textarea(Tag):
+class textarea(WhitespaceSensitiveTag):
     """
     Represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example, a comment on a review or feedback form.
 
@@ -5472,9 +5472,6 @@ class textarea(Tag):
         maxlength: AttributeType = None,
         wrap: Union[Literal['hard', 'soft'], None] = None,
         readonly: Optional[bool] = None,
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -5493,9 +5490,6 @@ class textarea(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
         """
         attributes |= {
-            '_class': _class,
-            'id': id,
-            'style': style,
             'required': required,
             'name': name,
             'rows': rows,
@@ -5520,9 +5514,6 @@ class textarea(Tag):
         maxlength: AttributeType = None,
         wrap: Union[Literal['hard', 'soft'], None] = None,
         readonly: Optional[bool] = None,
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
         **attributes: AttributeType,
     ):
         """
@@ -5541,9 +5532,6 @@ class textarea(Tag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
         """
         attributes |= {
-            '_class': _class,
-            'id': id,
-            'style': style,
             'required': required,
             'name': name,
             'rows': rows,

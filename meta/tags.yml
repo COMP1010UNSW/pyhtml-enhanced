@@ -141,8 +141,11 @@ div:
 span:
   base: StylableTag
 
+pre:
+  base: WhitespaceSensitiveTag
+
 textarea:
-  base: StylableTag
+  base: WhitespaceSensitiveTag
   attributes:
     required:
       doc: Whether the input is required to submit the form it is contained within.

@@ -171,3 +171,47 @@ class SelfClosingTag(Tag):
             ]
         else:
             return [f"{' ' * indent}<{self._get_tag_name()}/>"]
+
+
+class WhitespaceSensitiveTag(Tag):
+    """
+    Whitespace-sensitive tags are tags where whitespace needs to be respected.
+    """
+    def __init__(
+        self,
+        *children: ChildrenType,
+        **attributes: AttributeType,
+    ) -> None:
+        attributes |= {}
+        super().__init__(*children, **attributes)
+
+    def __call__(  # type: ignore
+        self,
+        *children: ChildrenType,
+        **attributes: AttributeType,
+    ):
+        attributes |= {}
+        return super().__call__(*children, **attributes)
+
+    def _render(self, indent: int) -> list[str]:
+        attributes = util.filter_attributes(util.dict_union(
+            self._get_default_attributes(self.attributes),
+            self.attributes,
+        ))
+
+        # Tag and attributes
+        output = f"{' ' * indent}<{self._get_tag_name()}"
+
+        if len(attributes):
+            output += f" {util.render_tag_attributes(attributes)}>"
+        else:
+            output += ">"
+
+        output += '\n'.join(util.render_children(
+            self.children,
+            self._escape_children(),
+            0,
+        ))
+
+        output += f"</{self._get_tag_name()}>"
+        return output.splitlines()

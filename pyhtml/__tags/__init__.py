@@ -5,7 +5,7 @@ Definitions for tags
 """
 # Re-export renamed versions of tags
 from .renames import input_, object_
-from .input import input
+from .input_tag import input
 from .dangerous_raw_html import DangerousRawHtml
 from .comment import Comment
 

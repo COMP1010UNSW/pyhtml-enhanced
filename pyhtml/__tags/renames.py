@@ -7,7 +7,7 @@ but for the sake of being (somewhat) compatible with the original PyHTML,
 we still export the originals.
 """
 from .generated import object as object_  # type: ignore
-from .input import input as input_
+from .input_tag import input as input_
 
 __all__ = [
     'object_',
