@@ -279,7 +279,7 @@ their help!
 
 ### Source code
 
-Copyright (c) 2023 Miguel Guthridge, COMP1010 UNSW
+Copyright (c) 2023 Maddy Guthridge, COMP1010 UNSW
 
 Source code for the library is open source, using the
 [MIT license](https://choosealicense.com/licenses/mit/). A copy of the license
