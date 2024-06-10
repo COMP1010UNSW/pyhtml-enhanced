@@ -1,4 +1,6 @@
-# PyHTML Enhanced
+<h1 style="text-align: center; font-size: 9em; font-family: monospace">
+  &lt;PyHTML/&gt;
+</h1>
 
 A library for building HTML documents with a simple and learnable syntax,
 inspired by (and similar to)
