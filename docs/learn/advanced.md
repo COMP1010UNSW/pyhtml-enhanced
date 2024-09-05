@@ -84,9 +84,9 @@ Sometimes, you may wish to embed an existing HTML string inside of PyHTML. You
 can do this using the `p.DangerousRawHtml` tag.
 
 ```py
->>> raw = p.DangerousRawHtml("<p>Wowee!</p>")
+>>> raw = p.DangerousRawHtml("<p>Scary!</p>")
 >>> print(str(raw))
-<p>Wowee!</p>
+<p>Scary!</p>
 
 ```
 
