@@ -1,0 +1,36 @@
+:root>* {
+    /* Fix up the primary colours */
+    --md-primary-fg-color: #ffcd29 !important;
+    --md-accent-fg-color: #ffcd29 !important;
+    --md-primary-fg-color--light: #ffe08a !important;
+    --md-primary-fg-color--dark: #ad7a0b !important;
+    --md-accent-fg-color--light: #ffc38a !important;
+    --md-accent-fg-color--dark: #ad740b !important;
+    --md-typeset-a-color: #ffc853 !important;
+}
+
+.md-header {
+    /* Text colour on header */
+    color: #ffffff !important;
+}
+
+/* Search box background */
+@media screen and (min-width: 60em) {
+    .md-search__form {
+        background-color: #ffffff42 !important;
+    }
+}
+
+/* Search icon color */
+.md-search__icon {
+    color: #ececec !important;
+}
+
+div.md-header__topic:first-child {
+    font-weight: normal;
+}
+
+div.doc-contents:not(.first) {
+    padding-left: 2rem;
+    border-left: 0.1rem solid var(--md-typeset-table-color);
+}

@@ -1,13 +1,11 @@
 # `<PyHTML/>`
 
-A library for building HTML documents with a simple and learnable syntax,
-inspired by (and similar to)
-[Cenk Altı's PyHTML library](https://github.com/cenkalti/pyhtml), but
-with improved documentation and type safety.
+Build HTML documents in Python with a simple and learnable syntax.
 
 ## Usage
 
-Consider visiting the [learn PyHTML page](./learn).
+* [Learn PyHTML](./learn/index.md)
+* [View the cheatsheet](./learn/cheatsheet.md)
 
 ```py
 >>> import pyhtml as p

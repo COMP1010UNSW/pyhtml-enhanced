@@ -10,7 +10,7 @@ problem with the following steps:
 2. Parse the markdown to gather all tag names and descriptions, discarding
    garbage data and obsolete tags.
 
-3. Use data from a YAML configuration file ([`meta/tags.yml`](meta/tags.yml))
+3. Use data from a YAML configuration file ([`meta/tags.yml`](https://github.com/COMP1010UNSW/pyhtml-enhanced/blob/main/meta/tags.yml))
    to gather information on suggested attributes and base classes to use for
    each tag.
 

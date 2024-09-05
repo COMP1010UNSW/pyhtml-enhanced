@@ -45,6 +45,14 @@ flake8-pyproject = "^1.2.3"
 flask = "^3.0.0"
 pytest-mypy-plugins = "^3.0.0"
 
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.6.1"
+mkdocs-material = "^9.5.34"
+mkdocstrings = { version = "^0.26.0", extras = ["python"] }
+mkdocs-awesome-pages-plugin = "^2.9.3"
+mkdocs-section-index = "^0.3.9"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

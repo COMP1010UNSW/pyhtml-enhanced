@@ -1,0 +1,77 @@
+site_name: PyHTML
+site_description: Documentation for PyHTML
+repo_name: "COMP1010UNSW/PyHTML-Enhanced"
+repo_url: https://github.com/COMP1010UNSW/pyhtml-enhanced
+copyright: © 2024 COMP1010 UNSW
+
+# Build to a temporary directory
+site_dir: site
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: orange
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: orange
+      toggle:
+        icon: material/lightbulb
+        name: Switch to dark mode
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  icon:
+    repo: fontawesome/brands/github
+    code: fontawesome/solid/code
+  features:
+    - navigation.tracking
+    - navigation.instant
+    - navigation.instant.prefetch
+    - content.code.copy
+
+plugins:
+  - awesome-pages:
+      collapse_single_pages: true
+  - section-index
+  - autorefs
+  - mkdocstrings:
+      handlers:
+        python:
+          paths:
+            - pyhtml
+          options:
+            show_source: false
+            show_signature_annotations: true
+            separate_signature: true
+            members_order: source
+            show_root_heading: true
+  - search
+
+  ## Not using mkdocs scripts since we need to do a ton of pre-build stuff
+  ## Maybe I'll try and get this working some point
+  # - gen-files:
+  #     scripts:
+  #       - scripts/generate_pages.py
+
+markdown_extensions:
+  - toc:
+      title: Contents
+      toc_depth: 2
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+extra_css:
+  - stylesheets/extra.css
+
+docs_dir: docs

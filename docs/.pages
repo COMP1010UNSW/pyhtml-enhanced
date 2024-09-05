@@ -1,0 +1,8 @@
+nav:
+    - Home: index.md
+    - Learn: learn
+    - How it works: how.md
+    - API: api.md
+    - Compatibility: compatibility.md
+    - Credits: credits.md
+    - Licenses: licenses.md
