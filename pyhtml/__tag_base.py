@@ -215,3 +215,37 @@ class WhitespaceSensitiveTag(Tag):
 
         output += f"</{self._get_tag_name()}>"
         return output.splitlines()
+
+
+def create_tag(name: str, base: type[Tag] = Tag) -> type[Tag]:
+    """
+    Create a new PyHTML tag definition.
+
+    PyHTML already provides definitions for all standard HTML tags, so you
+    don't need to use this unless you are using a JavaScript library that
+    defines custom HTML elements.
+
+    Args:
+        name (str): the name of the tag. This is used during rendering, as
+                    `<{name}> ... </{name}>`.
+
+        base (type[Tag]): the base class to use for the custom tag. The new tag
+                          will inherit from this base class.
+
+    Returns:
+        type[Tag]: a new tag definition.
+    """
+
+    def _get_tag_name(self) -> str:
+        return name
+
+    # Generate custom type inheriting from given base class
+    CustomTag = type(
+        name,
+        (base,),
+        {
+            '_get_tag_name': _get_tag_name,
+        },
+    )
+
+    return CustomTag

@@ -294,12 +294,15 @@ license text is available in [LICENSE_DOCS.md](https://github.com/COMP1010UNSW/p
 """
 # Disable Flake8, since it really doesn't like our docstring above
 # flake8: noqa
-from .__tag_base import Tag
+from .__tag_base import Tag, create_tag, SelfClosingTag, WhitespaceSensitiveTag
 
 from .__tags import input_, object_
 
 __all__ = [
     'Tag',
+    'create_tag',
+    'SelfClosingTag',
+    'WhitespaceSensitiveTag',
     'DangerousRawHtml',
     'Comment',
     'input_',
