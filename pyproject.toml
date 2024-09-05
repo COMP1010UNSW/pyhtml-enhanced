@@ -8,7 +8,7 @@ readme = "README.md"
 packages = [{ include = "pyhtml" }]
 
 repository = "https://github.com/COMP1010UNSW/pyhtml-enhanced"
-documentation = "https://github.com/COMP1010UNSW/pyhtml-enhanced#README"
+documentation = "https://comp1010unsw.github.io/pyhtml-enhanced/"
 
 keywords = ['html', 'template', 'pyhtml', 'markup', 'documentation']
 
