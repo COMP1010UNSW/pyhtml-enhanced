@@ -147,30 +147,5 @@ class fancy(p.Tag):
     pass
 ```
 
-### Class properties
-
-If you need to access
-
-* `children`: child elements
-* `attributes`: element attributes
-
-### Rendering control functions
-
-You can also override various functions to control the existing rendering.
-
-* `_get_tag_name`: return the name to use for the tag. For example returning
-  `"foo"` would produce `<foo>`.
-
-* `_get_default_attributes`: return the default values for attributes.
-
-* `_get_tag_pre_content`: return the pre-content for the tag. For example, the
-  `<html>` tag uses this to add the `<!DOCTYPE html>` before the opening tag.
-
-* `_escape_children`: return whether the string child elements should be
-  escaped to prevent HTML injection.
-
-* `_render`: render the element and its children, returning the list of lines
-  to use for the output. Overriding this should be a last resort, as it is easy
-  to subtly break the rendering process if you aren't careful.
-
-Refer to the documentation of the `Tag` class for more information.
+For documentation on the attributes and methods of `Tag`, see the
+[API documentation](../api.md).

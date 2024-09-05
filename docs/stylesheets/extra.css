@@ -1,29 +1,13 @@
 :root>* {
-    /* Fix up the primary colours */
-    --md-primary-fg-color: #ffcd29 !important;
-    --md-accent-fg-color: #ffcd29 !important;
-    --md-primary-fg-color--light: #ffe08a !important;
-    --md-primary-fg-color--dark: #ad7a0b !important;
-    --md-accent-fg-color--light: #ffc38a !important;
-    --md-accent-fg-color--dark: #ad740b !important;
-    --md-typeset-a-color: #ffc853 !important;
+    /* Link hover color */
+    --md-accent-fg-color: #d6a400 !important;
+    /* Title bar color */
+    --md-primary-fg-color: #ffdf77 !important;
 }
 
 .md-header {
     /* Text colour on header */
-    color: #ffffff !important;
-}
-
-/* Search box background */
-@media screen and (min-width: 60em) {
-    .md-search__form {
-        background-color: #ffffff42 !important;
-    }
-}
-
-/* Search icon color */
-.md-search__icon {
-    color: #ececec !important;
+    color: #000000 !important;
 }
 
 div.md-header__topic:first-child {

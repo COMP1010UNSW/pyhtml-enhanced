@@ -1,0 +1,4 @@
+nav:
+    - index.md
+    - Cheatsheet: cheatsheet.md
+    - Advanced PyHTML: advanced.md

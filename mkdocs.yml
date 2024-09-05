@@ -12,13 +12,15 @@ theme:
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: orange
+      primary: yellow
+      accent: orange
       toggle:
         icon: material/lightbulb-outline
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: orange
+      primary: yellow
+      accent: orange
       toggle:
         icon: material/lightbulb
         name: Switch to dark mode
