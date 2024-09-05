@@ -243,9 +243,7 @@ def create_tag(name: str, base: type[Tag] = Tag) -> type[Tag]:
     CustomTag = type(
         name,
         (base,),
-        {
-            '_get_tag_name': _get_tag_name,
-        },
+        {},
     )
 
     return CustomTag

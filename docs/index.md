@@ -5,21 +5,9 @@ inspired by (and similar to)
 [Cenk Altı's PyHTML library](https://github.com/cenkalti/pyhtml), but
 with improved documentation and type safety.
 
-Learn more by visiting the documentation website (up soon).
-
-## Features
-
-* Inline documentation and type safety for all tags.
-
-* Editor support for many common tags (attribute suggestions).
-
-* A modern and readable codebase.
-
-* No dependencies.
-
-* 100% test coverage.
-
 ## Usage
+
+Consider visiting the [learn PyHTML page](./learn).
 
 ```py
 >>> import pyhtml as p
