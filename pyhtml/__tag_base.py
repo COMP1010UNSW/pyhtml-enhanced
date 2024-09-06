@@ -90,7 +90,7 @@ class Tag:
 
         By default, all string content should be escaped to prevent security
         vulnerabilities such as XSS, but this is disabled for certain tags such
-        as <script>.
+        as `<script>`.
         """
         return True
 

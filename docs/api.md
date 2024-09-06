@@ -12,3 +12,11 @@
         - "_get_tag_pre_content"
         - "_render"
         - "_escape_children"
+
+::: pyhtml.SelfClosingTag
+    options:
+      members:
+
+::: pyhtml.WhitespaceSensitiveTag
+    options:
+      members:
