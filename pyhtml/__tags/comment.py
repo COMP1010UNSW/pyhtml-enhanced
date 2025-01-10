@@ -34,7 +34,7 @@ class Comment(Tag):
         self.comment_data = text
         super().__init__()
 
-    def __call__(self):
+    def __call__(self, *args, **kwargs):
         raise TypeError('Comment tags are not callable')
 
     def _get_tag_name(self) -> str:
