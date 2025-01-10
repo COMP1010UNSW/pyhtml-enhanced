@@ -65,6 +65,7 @@ in the output HTML, which can be useful for debugging your server from your web
 browser.
 
 ```py
+>>> import pyhtml as p
 >>> comment = p.Comment("This is an HTML comment")
 >>> print(str(comment))
 <!--
@@ -84,6 +85,7 @@ Sometimes, you may wish to embed an existing HTML string inside of PyHTML. You
 can do this using the `p.DangerousRawHtml` tag.
 
 ```py
+>>> import pyhtml as p
 >>> raw = p.DangerousRawHtml("<p>Scary!</p>")
 >>> print(str(raw))
 <p>Scary!</p>
@@ -101,9 +103,9 @@ you'll need to do create a custom tag. However if you really need to, you can
 use the `create_tag` function
 
 ```py
-import pyhtml as p
+>>> import pyhtml as p
+>>> fancy = p.create_tag('fancy')
 
-fancy = p.create_tag('fancy')
 ```
 
 This tag can be used like any other PyHTML tag:
@@ -129,7 +131,11 @@ The `create_tag` function also allows you to specify a rendering strategy.
 For example, to create a self-closing tag, you can use:
 
 ```py
-closure = p.create_tag('closure', p.SelfClosingTag)
+>>> import pyhtml as p
+>>> closure = p.create_tag('closure', p.SelfClosingTag)
+>>> closure()
+<closure/>
+
 ```
 
 ## Advanced custom tags

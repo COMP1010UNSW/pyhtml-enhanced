@@ -8,6 +8,7 @@ Uninstantiated classes are only rendered if they are given as the child of an
 instantiated element.
 
 ```py
+>>> import pyhtml as p
 >>> p.br
 <class 'pyhtml.__tags.generated.br'>
 >>> print(str(p.html(p.body(p.br))))

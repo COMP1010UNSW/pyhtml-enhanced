@@ -15,7 +15,8 @@ by passing it to the Python `str` function.
 This the standard way to import the PyHTML library:
 
 ```py
-import pyhtml as p
+>>> import pyhtml as p
+
 ```
 
 All of the PyHTML tags can then be accessed within an object named `p`.
