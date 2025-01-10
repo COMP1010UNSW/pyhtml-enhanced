@@ -28,6 +28,33 @@ include = ["py.typed"]
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/COMP1010UNSW/pyhtml-enhanced/issues"
 
+[tool.mypy]
+check_untyped_defs = true
+files = ["pyhtml", "tests", "meta"]
+exclude = ['meta/templates/*']
+
+[tool.flake8]
+exclude = ['meta/templates', 'pyhtml/__tags/generated.py']
+per-file-ignores = [
+    "pyhtml/__tags/input_tag.py:E501",
+    "pyhtml/__tags/generated.py:E501",
+]
+
+[tool.pytest.ini_options]
+addopts = "--doctest-glob README.md --doctest-glob docs/**.md"
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+exclude_also = [
+    'if TYPE_CHECKING:',
+    'return NotImplemented',
+    '@overload',
+    'raise AssertionError',
+    'raise NotImplementedError',
+]
+
 [tool.poetry.dependencies]
 python = "^3.9"
 
@@ -56,27 +83,3 @@ mkdocs-section-index = "^0.3.9"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.mypy]
-exclude = ['meta/templates/*']
-
-[tool.flake8]
-exclude = ['meta/templates', 'pyhtml/__tags/generated.py']
-per-file-ignores = [
-    "pyhtml/__tags/input_tag.py:E501",
-    "pyhtml/__tags/generated.py:E501",
-]
-
-[tool.pytest.ini_options]
-addopts = "--doctest-glob README.md"
-
-[tool.coverage.run]
-branch = true
-
-[tool.coverage.report]
-exclude_lines = [
-    "pragma: no cover",
-    "if TYPE_CHECKING:",
-    "return NotImplemented",
-    "@overload",
-]
