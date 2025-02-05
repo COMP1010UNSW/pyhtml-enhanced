@@ -3,10 +3,11 @@
 
 Tests for escape sequences
 """
-import pytest
 import keyword
-from pyhtml import body
 
+import pytest
+
+from pyhtml import body
 
 replacements = [
     ('&', '&amp;'),

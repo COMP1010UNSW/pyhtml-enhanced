@@ -3,10 +3,10 @@
 
 Random helpful functions used elsewhere
 """
-from typing import Any, TypeVar
 from collections.abc import Generator, Sequence
-from .__types import ChildrenType, ChildElementType
+from typing import Any, TypeVar
 
+from .__types import ChildElementType, ChildrenType
 
 T = TypeVar('T')
 K = TypeVar('K')
@@ -144,9 +144,7 @@ def flatten_list(the_list: list[ChildrenType]) -> list[ChildElementType]:
     """
     result: list[ChildElementType] = []
     for item in the_list:
-        if isinstance(item, list):
-            result.extend(item)
-        elif isinstance(item, Generator):
+        if isinstance(item, (list, Generator)):
             result.extend(item)
         elif isinstance(item, str):
             result.append(item)

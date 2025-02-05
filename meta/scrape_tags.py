@@ -6,14 +6,15 @@ including their documentation.
 
 It also embeds suggested kwargs for some elements, using info from tags.yml.
 """
-from dataclasses import dataclass
-from typing import Optional, TypedDict, Any, Union
-from typing_extensions import NotRequired
+
+import sys
 from collections.abc import Iterator
+from dataclasses import dataclass
+from typing import Any, Optional, TypedDict, Union
+
 import requests
 import yaml
-import sys
-
+from typing_extensions import NotRequired
 
 TAGS_YAML = "meta/tags.yml"
 """File location to load custom tag data from"""
@@ -89,7 +90,7 @@ def domXrefReplace(lookup: str, presentation: Optional[str] = None) -> str:
 
 DESCRIPTION_LOOKUPS = {
     "htmlelement": htmlElementReplace,
-    "glossary":  glossaryReplace,
+    "glossary": glossaryReplace,
     "cssxref": cssXrefReplace,
     "domxref": domXrefReplace,
 }
@@ -121,6 +122,7 @@ class TagsYmlItem(TypedDict):
     """
     A tag which has suggested keys
     """
+
     skip: NotRequired[bool]
     """Whether to skip this tag when generating tags"""
 
@@ -233,7 +235,7 @@ def handle_header_elements(description) -> list[TagMdnInfo]:
     tags = []
 
     for i in range(6):
-        tags.append((f"h{i+1}", description))
+        tags.append((f"h{i + 1}", description))
 
     return tags
 
@@ -254,7 +256,7 @@ def format_description(description: str, ele: str) -> str:
     while (start := description.find("{{")) != -1:
         end = description.find("}}", start)
 
-        element_text = description[start+2:end]
+        element_text = description[start + 2 : end]
         # In format key("arg1", "arg2")
 
         key, args = element_text.split("(")
@@ -283,7 +285,7 @@ def format_description(description: str, ele: str) -> str:
         description = (
             description[:start]
             + DESCRIPTION_LOOKUPS[key.lower()](lookup, presentation)
-            + description[end+2:]
+            + description[end + 2 :]
         )
 
     return description
@@ -295,13 +297,13 @@ def parse_markdown_table(lines: Iterator[str]) -> list[TagMdnInfo]:
     """
 
     # Read in header row
-    assert next(lines).startswith('| ---')
+    assert next(lines).startswith("| ---")
 
     # Now grab each line
     tags: list[TagMdnInfo] = []
     try:
-        while (line := next(lines)).startswith('|'):
-            _, tag_base, description, _ = line.split('|')
+        while (line := next(lines)).startswith("|"):
+            _, tag_base, description, _ = line.split("|")
 
             tag_base = tag_base.strip()
 
@@ -310,9 +312,9 @@ def parse_markdown_table(lines: Iterator[str]) -> list[TagMdnInfo]:
                 tags.extend(handle_header_elements(description))
                 continue
 
-            tag_name = tag_base\
-                .removeprefix('{{HTMLElement("')\
-                .removesuffix('")}}')
+            tag_name = tag_base.removeprefix('{{HTMLElement("').removesuffix(
+                '")}}'
+            )
 
             description = format_description(description.strip(), tag_name)
 
@@ -350,7 +352,7 @@ def parse_markdown(lines: Iterator[str]) -> list[TagMdnInfo]:
                 print("Skip obsolete tags", file=sys.stderr)
                 break
 
-            if line.replace(' ', '') == '|Element|Description|':
+            if line.replace(" ", "") == "|Element|Description|":
                 # Start of table
                 tags.extend(parse_markdown_table(lines))
 
@@ -390,23 +392,20 @@ def attr_entries_to_object(tags: TagsYaml, tag_name: str) -> list[Attr]:
 
     tag_data = tags[tag_name]
 
-    if 'attributes' not in tag_data:
+    if "attributes" not in tag_data:
         return []
 
     attrs = []
-    for name, value in tag_data['attributes'].items():
+    for name, value in tag_data["attributes"].items():
         if isinstance(value, str):
             doc: Optional[str] = value
             default: Optional[str] = None
             type = "AttributeType"
         else:
             doc = value.get("doc")
-            if "default" in value:
-                # NOTE: This is safe, as it is only ever run at compile time
-                # This code is not distributed to users' systems
-                default = eval(value["default"])
-            else:
-                default = None
+            # NOTE: This is safe, as it is only ever run at compile time
+            # This code is not distributed to users' systems
+            default = eval(value["default"]) if "default" in value else None
             type = value.get("type", "AttributeType")
         attrs.append(Attr(name, doc, type, default))
     return attrs
@@ -423,7 +422,7 @@ def get_tag_rename(tags: TagsYaml, tag_name: str) -> str:
     if "rename" not in tag:
         return tag_name
     else:
-        return tag['rename']
+        return tag["rename"]
 
 
 def get_tag_base_class(tags: TagsYaml, tag_name: str) -> str:
@@ -436,7 +435,7 @@ def get_tag_base_class(tags: TagsYaml, tag_name: str) -> str:
     if "base" not in tag:
         return "Tag"
     else:
-        return tag['base']
+        return tag["base"]
 
 
 def get_tag_skip(tags: TagsYaml, tag_name: str) -> bool:
@@ -446,7 +445,7 @@ def get_tag_skip(tags: TagsYaml, tag_name: str) -> bool:
     if tag_name not in tags:
         return False
     tag = tags[tag_name]
-    return tag.get('skip', False)
+    return tag.get("skip", False)
 
 
 def get_tag_escape_children(tags: TagsYaml, tag_name: str) -> bool:
@@ -456,7 +455,7 @@ def get_tag_escape_children(tags: TagsYaml, tag_name: str) -> bool:
     if tag_name not in tags:
         return True
     tag = tags[tag_name]
-    return tag.get('escape_children', True)
+    return tag.get("escape_children", True)
 
 
 def get_tag_pre_content(tags: TagsYaml, tag_name: str) -> Optional[str]:
@@ -466,7 +465,7 @@ def get_tag_pre_content(tags: TagsYaml, tag_name: str) -> Optional[str]:
     if tag_name not in tags:
         return None
     tag = tags[tag_name]
-    return tag.get('pre_content', None)
+    return tag.get("pre_content", None)
 
 
 def make_mdn_link(tag: str) -> str:
@@ -488,15 +487,17 @@ def elements_to_element_structs(
         if get_tag_skip(tag_attrs, name):
             continue
 
-        output.append(TagInfo(
-            name=get_tag_rename(tag_attrs, name),
-            description=description,
-            base=get_tag_base_class(tag_attrs, name),
-            mdn_link=make_mdn_link(name),
-            escape_children=get_tag_escape_children(tag_attrs, name),
-            attributes=attr_entries_to_object(tag_attrs, name),
-            pre_content=get_tag_pre_content(tag_attrs, name)
-        ))
+        output.append(
+            TagInfo(
+                name=get_tag_rename(tag_attrs, name),
+                description=description,
+                base=get_tag_base_class(tag_attrs, name),
+                mdn_link=make_mdn_link(name),
+                escape_children=get_tag_escape_children(tag_attrs, name),
+                attributes=attr_entries_to_object(tag_attrs, name),
+                pre_content=get_tag_pre_content(tag_attrs, name),
+            )
+        )
 
     return output
 
@@ -523,9 +524,9 @@ def print_elements(parsed: list[TagInfo]):
         print()
         print(ele.attributes)
         print()
-        print('------------------')
+        print("------------------")
         print()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print_elements(main())
