@@ -79,7 +79,7 @@ exclude_also = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=7.4.2,<9.0.0"
