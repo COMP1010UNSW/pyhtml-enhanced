@@ -33,11 +33,34 @@ check_untyped_defs = true
 files = ["pyhtml", "tests", "meta"]
 exclude = ['meta/templates/*']
 
-[tool.flake8]
-exclude = ['meta/templates', 'pyhtml/__tags/generated.py']
-per-file-ignores = [
-    "pyhtml/__tags/input_tag.py:E501",
-    "pyhtml/__tags/generated.py:E501",
+[tool.ruff]
+line-length = 79
+exclude = ['meta/templates']
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"pyhtml/__tags/input_tag.py" = [
+    # Line too long
+    "E501",
+]
+"pyhtml/__tags/generated.py" = [
+    # Line too long
+    "E501"
 ]
 
 [tool.pytest.ini_options]
@@ -60,7 +83,6 @@ python = "^3.9"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=7.4.2,<9.0.0"
-flake8 = ">=6.1,<8.0"
 mypy = "^1.5.1"
 autopep8 = "^2.0.4"
 coverage = "^7.3.1"
@@ -68,9 +90,9 @@ requests = "^2.31.0"
 types-requests = "^2.31.0.2"
 pyyaml = "^6.0.1"
 types-pyyaml = "^6.0.12.11"
-flake8-pyproject = "^1.2.3"
 flask = "^3.0.0"
 pytest-mypy-plugins = "^3.0.0"
+ruff = "^0.9.4"
 
 
 [tool.poetry.group.docs.dependencies]

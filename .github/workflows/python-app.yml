@@ -20,7 +20,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  Pytest:
+  Test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -54,7 +54,7 @@ jobs:
           coverageFile: coverage.xml
           token: ${{ secrets.GITHUB_TOKEN }}
 
-  Flake8:
+  Lint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -71,11 +71,11 @@ jobs:
         key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
     - run: poetry --version
     - run: poetry install
-    - name: Lint with flake8
+    - name: Lint with ruff
       run: |
-        poetry run flake8
+        poetry run ruff check
 
-  Mypy:
+  Type-check:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
