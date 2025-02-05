@@ -4,10 +4,10 @@
 Custom definition of the `<input>` tag, to improve type safety and implement
 custom behaviour.
 """
-from ..__tag_base import SelfClosingTag
-from ..__types import AttributeType
 from typing import Literal, Optional, overload
 
+from ..__tag_base import SelfClosingTag
+from ..__types import AttributeType
 
 InputTypes = Literal[
     'button',

@@ -4,9 +4,9 @@
 Tag base class, including rendering logic
 """
 from typing import Optional, TypeVar
-from . import __util as util
-from .__types import ChildrenType, AttributeType
 
+from . import __util as util
+from .__types import AttributeType, ChildrenType
 
 SelfType = TypeVar('SelfType', bound='Tag')
 

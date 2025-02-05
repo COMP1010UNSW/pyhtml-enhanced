@@ -4,6 +4,7 @@
 Test cases for `DangerousRawHtml` tag
 """
 import pytest
+
 from pyhtml import DangerousRawHtml, body
 
 

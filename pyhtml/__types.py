@@ -3,9 +3,8 @@
 
 Type definitions
 """
-from typing import Union, TYPE_CHECKING
 from collections.abc import Generator, Sequence
-
+from typing import TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .__tag_base import Tag

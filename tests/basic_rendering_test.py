@@ -4,21 +4,22 @@
 Basic tests for rendering HTML
 """
 import pytest
+
 from pyhtml import (
-    html,
-    head,
-    title,
+    Comment,
+    a,
     body,
-    span,
+    br,
+    del_,
     div,
     h1,
-    p,
-    Comment,
-    del_,
-    script,
-    br,
+    head,
+    html,
     input,
-    a,
+    p,
+    script,
+    span,
+    title,
 )
 
 

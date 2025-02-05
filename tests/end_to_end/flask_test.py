@@ -2,10 +2,10 @@
 Tests to ensure our code works nicely with Flask
 """
 import pytest
-import pyhtml as p
 from flask import Flask
 from flask.testing import FlaskClient
 
+import pyhtml as p
 
 app = Flask(__name__)
 

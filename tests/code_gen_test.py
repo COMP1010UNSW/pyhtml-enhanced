@@ -6,9 +6,9 @@ Tests for code generation
 These don't regenerate the code, but rather test code that has been generated
 """
 import pytest
-import pyhtml
-from pyhtml import Tag, Comment, DangerousRawHtml, html
 
+import pyhtml
+from pyhtml import Comment, DangerousRawHtml, Tag, html
 
 all_tags = [
     getattr(pyhtml, i)
@@ -17,7 +17,7 @@ all_tags = [
         # Ignore __dunder__ items
         not i.startswith('__')
         # Only look at classes
-        and type(getattr(pyhtml, i)) == type
+        and type(getattr(pyhtml, i)) is type
         # That are a kind of Tag
         and issubclass(getattr(pyhtml, i), Tag)
         # And aren't a PyHTML feature (since comments require named args)

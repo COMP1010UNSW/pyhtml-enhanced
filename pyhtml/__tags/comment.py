@@ -3,8 +3,8 @@
 
 Definition for the comment tag.
 """
-from ..__tag_base import Tag
 from .. import __util as util
+from ..__tag_base import Tag
 
 
 class Comment(Tag):

@@ -1,14 +1,14 @@
-
 from pathlib import Path
-from . import build_tags
 
+from . import build_tags
 
 OUTPUT_FILE = Path("pyhtml/__tags/generated.py")
 
 
 def main():
-    build_tags(open(OUTPUT_FILE, "w"))
+    with open(OUTPUT_FILE, "w") as f:
+        build_tags(f)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
