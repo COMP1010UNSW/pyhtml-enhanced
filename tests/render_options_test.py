@@ -115,3 +115,8 @@ def test_indent_and_spacing_inner_newline():
             "</body>",
         ]
     )
+
+
+def test_default_render_options():
+    doc = p.p("Paragraph")
+    assert str(doc) == "<p>Paragraph</p>"
