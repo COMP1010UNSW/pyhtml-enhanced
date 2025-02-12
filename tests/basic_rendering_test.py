@@ -16,7 +16,6 @@ from pyhtml import (
     head,
     html,
     input,
-    p,
     script,
     span,
     title,
@@ -46,16 +45,16 @@ def test_renders_elements_with_children():
 def test_renders_deeply_nested_children():
     doc = body(
         div(
-            p("Hello world"),
+            span("Hello world"),
         ),
     )
 
     assert str(doc) == '\n'.join([
         '<body>',
         '  <div>',
-        '    <p>',
+        '    <span>',
         '      Hello world',
-        '    </p>',
+        '    </span>',
         '  </div>',
         '</body>',
     ])
@@ -158,7 +157,7 @@ def test_larger_page():
         ),
         body(
             h1("Hello, world!"),
-            p("This is my amazing website rendered with PyHTML Enhanced!"),
+            span("This is my amazing website rendered with PyHTML Enhanced!"),
         ),
     )
 
@@ -176,9 +175,9 @@ def test_larger_page():
         '    <h1>',
         '      Hello, world!',
         '    </h1>',
-        '    <p>',
+        '    <span>',
         '      This is my amazing website rendered with PyHTML Enhanced!',
-        '    </p>',
+        '    </span>',
         '  </body>',
         '</html>',
     ])
@@ -196,16 +195,16 @@ def test_flatten_element_lists():
     If a list of elements is given as a child element, each element should be
     considered as a child.
     """
-    doc = body([p("Hello"), p("world")])
+    doc = body([span("Hello"), span("world")])
 
     assert str(doc) == "\n".join([
         "<body>",
-        "  <p>",
+        "  <span>",
         "    Hello",
-        "  </p>",
-        "  <p>",
+        "  </span>",
+        "  <span>",
         "    world",
-        "  </p>",
+        "  </span>",
         "</body>",
     ])
 

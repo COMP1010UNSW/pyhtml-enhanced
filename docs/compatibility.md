@@ -29,16 +29,16 @@ modify the original instance, as I found the old behaviour confusing and
 bug-prone.
 
 ```py
->>> para = p.p("Base paragraph")
->>> para2 = para("Extra text")
->>> para2
-<p>
+>>> span1 = p.span("Base paragraph")
+>>> span2 = span1("Extra text")
+>>> span2
+<span>
   Base paragraph
   Extra text
-</p>
->>> para
-<p>
+</span>
+>>> span1
+<span>
   Base paragraph
-</p>
+</span>
 
 ```
