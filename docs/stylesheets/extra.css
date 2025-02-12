@@ -5,6 +5,11 @@
     --md-primary-fg-color: #ffdf77 !important;
 }
 
+/* Fix spacing around nested nav items */
+.md-nav__item--nested {
+    padding-bottom: 8px !important;
+}
+
 .md-header {
     /* Text colour on header */
     color: #000000 !important;
