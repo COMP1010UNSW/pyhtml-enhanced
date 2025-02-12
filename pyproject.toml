@@ -10,11 +10,12 @@ keywords = ['html', 'template', 'pyhtml', 'markup', 'documentation']
 classifiers = [
     "Programming Language :: Python :: 3",
     "Intended Audience :: Developers",
+    "Intended Audience :: Education",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Development Status :: 5 - Production/Stable",
-    "Topic :: Software Development :: Testing",
     "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content :: CGI Tools/Libraries",
     "Typing :: Typed",
 ]
 
