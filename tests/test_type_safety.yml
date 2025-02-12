@@ -31,6 +31,11 @@
     import pyhtml as p
     p.html({{ arg }})
 
+- case: children_render_options
+  main: |
+    import pyhtml as p
+    p.html(p.RenderOptions())
+
 - case: children_disallowed_types
   parametrized:
     - arg: None
