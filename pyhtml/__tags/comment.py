@@ -5,7 +5,7 @@ Definition for the comment tag.
 """
 
 from .. import __util as util
-from ..__render_options import FullOptions
+from ..__render_options import FullRenderOptions
 from ..__tag_base import Tag
 
 
@@ -45,7 +45,7 @@ class Comment(Tag):
         # and is never used since we override _render
         return "!--"  # pragma: no cover
 
-    def _render(self, indent: str, options: FullOptions) -> list[str]:
+    def _render(self, indent: str, options: FullRenderOptions) -> list[str]:
         """
         Override of render, to render comments
         """
