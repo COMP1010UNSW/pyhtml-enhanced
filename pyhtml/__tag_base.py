@@ -179,9 +179,11 @@ class SelfClosingTag(Tag):
     Self-closing tags don't contain child elements
     """
 
-    def __init__(self, **attributes: AttributeType) -> None:
+    def __init__(
+        self, *options: Options, **attributes: AttributeType
+    ) -> None:
         # Self-closing tags don't allow children
-        super().__init__(**attributes)
+        super().__init__(*options, **attributes)
 
     def _render(self, indent: str, options: FullOptions) -> list[str]:
         """
