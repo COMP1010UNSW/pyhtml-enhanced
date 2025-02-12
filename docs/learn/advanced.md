@@ -58,7 +58,29 @@ for person in staff_members:
     ))
 ```
 
-### HTML comments
+## Rendering options
+
+If you need more control over how PyHTML renders your output HTML, you can use
+the [`p.RenderOptions`][pyhtml.RenderOptions] class to specify these.
+
+For example, if you don't want any whitespace between your HTML components,
+you can use `p.RenderOptions(spacing="")` to remove it.
+
+```py
+>>> import pyhtml as p
+>>> print(str(p.div(p.RenderOptions(spacing=""))(
+... p.i("No"),
+... p.b("spaces"),
+... p.u("here!")
+... )))
+<div><i>No</i><b>spaces</b><u>here!</u></div>
+
+```
+
+For more information about the specific allowed properties, view
+[this documentation][pyhtml.RenderOptions].
+
+## HTML comments
 
 You can add comments to HTML by using the `Comment` tag. These will be included
 in the output HTML, which can be useful for debugging your server from your web
@@ -77,8 +99,8 @@ browser.
 ## Embedding raw HTML
 
 By default, PyHTML [escapes certain characters](https://www.w3schools.com/html/html_entities.asp)
-within strings passed to tags. This is done to avoid user content from taking
-control of your resultant webpages in what is called a
+within strings passed to tags. This is done to prevent user content from taking
+control of your webpages in what is called a
 [cross-site scripting (XSS) attack](https://owasp.org/www-community/attacks/xss/).
 
 Sometimes, you may wish to embed an existing HTML string inside of PyHTML. You
@@ -94,13 +116,13 @@ can do this using the `p.DangerousRawHtml` tag.
 
 ***Be careful though!*** PyHTML escapes these sequences for good reason, so
 don't use `DangerousRawHtml` unless you have a *very good reason*, and are
-certain that your text is trusted.
+certain that the text you are passing it is trusted.
 
 ## Custom tags
 
 Since this library includes all modern HTML tags, it is very unlikely that
 you'll need to do create a custom tag. However if you really need to, you can
-use the `create_tag` function
+use the `create_tag` function.
 
 ```py
 >>> import pyhtml as p

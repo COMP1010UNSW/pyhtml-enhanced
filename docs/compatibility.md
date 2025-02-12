@@ -42,3 +42,16 @@ bug-prone.
 </span>
 
 ```
+
+## Spacing between tag instances
+
+Certain tags have default spacing, which helps to avoid subtle rendering
+annoyances such as unwanted spaces between linked text and punctuation in
+paragraphs.
+
+```py
+>>> print(str(p.p(p.a(href="https://example.com")("Example website"), "!")))
+<p><a href="https://example.com">Example website</a>!</p>
+>>> # Notice how there is no spacing between the link and the exclamation point
+
+```

@@ -21,3 +21,10 @@
 ::: pyhtml.WhitespaceSensitiveTag
     options:
       members:
+
+::: pyhtml.RenderOptions
+    options:
+      members:
+        - indent
+        - spacing
+        - union
