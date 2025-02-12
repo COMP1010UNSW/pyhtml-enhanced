@@ -7,7 +7,7 @@ Note that all documentation is licensed as CC-BY-SA-2.5
 
 https://creativecommons.org/licenses/by-sa/2.5/
 """
-from typing import Any, Optional, Union, Literal
+from typing import Optional, Union, Literal
 
 from ..__render_options import Options
 from ..__tag_base import Tag, SelfClosingTag, WhitespaceSensitiveTag
