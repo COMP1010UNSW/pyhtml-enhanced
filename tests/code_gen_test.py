@@ -21,7 +21,7 @@ all_tags = [
         # That are a kind of Tag
         and issubclass(getattr(pyhtml, i), Tag)
         # And aren't a PyHTML feature (since comments require named args)
-        and not issubclass(getattr(pyhtml, i), (Comment, DangerousRawHtml))
+        and not issubclass(getattr(pyhtml, i), Comment | DangerousRawHtml)
         # And isn't <html> since it has pre-content
         and not issubclass(getattr(pyhtml, i), html)
     )

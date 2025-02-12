@@ -5,7 +5,6 @@ Definition for the `Options` object, used to control rendering.
 """
 
 from dataclasses import asdict, dataclass
-from typing import Optional
 
 # While it could be cleaner (and far less-repetitive) to use a TypedDict and
 # declare the partial options class as per
@@ -50,7 +49,7 @@ class RenderOptions:
     PyHTML rendering options.
     """
 
-    indent: Optional[str] = None
+    indent: str | None = None
     """
     String to add to indentation for non-inline child elements. For example,
     to indent using a tab, you could use `'\\t'`.
@@ -58,7 +57,7 @@ class RenderOptions:
     Defaults to 2 spaces (`'  '`).
     """
 
-    spacing: Optional[str] = None
+    spacing: str | None = None
     """
     String to use for spacing between child elements. When this is set to
     `'\\n'`, each child element will be placed on its own line, and indentation
