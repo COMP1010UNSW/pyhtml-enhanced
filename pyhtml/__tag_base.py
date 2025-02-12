@@ -3,18 +3,21 @@
 
 Tag base class, including rendering logic
 """
+
 from typing import Optional, TypeVar
 
 from . import __util as util
+from .__render_options import FullRenderOptions, RenderOptions
 from .__types import AttributeType, ChildrenType
 
-SelfType = TypeVar('SelfType', bound='Tag')
+SelfType = TypeVar("SelfType", bound="Tag")
 
 
 class Tag:
     """
     Base tag class
     """
+
     def __init__(
         self,
         *children: ChildrenType,
@@ -23,26 +26,32 @@ class Tag:
         """
         Create a new tag instance
         """
-        self.children = util.flatten_list(list(children))
+        flattened, options = util.flatten_children(list(children))
+        self.children = flattened
         """Children of this tag"""
 
         self.attributes = util.filter_attributes(attributes)
         """Attributes of this tag"""
 
+        self.options = self._get_default_render_options().union(options)
+        """Render options specified for this element"""
+
     def __call__(
         self: SelfType,
         *children: ChildrenType,
         **attributes: AttributeType,
-    ) -> 'SelfType':
+    ) -> "SelfType":
         """
         Create a new tag instance derived from this tag. Its children and
         attributes are based on this original tag, but with additional children
         appended and additional attributes unioned.
         """
-        new_children = self.children + util.flatten_list(list(children))
+        flattened, options = util.flatten_children(list(children))
+        new_children = self.children + flattened
         new_attributes = util.dict_union(self.attributes, attributes)
+        new_options = self.options.union(options)
 
-        return self.__class__(*new_children, **new_attributes)
+        return self.__class__(*new_children, new_options, **new_attributes)
 
     def __iter__(self) -> None:
         """
@@ -59,7 +68,7 @@ class Tag:
         """
         Returns the name of the tag
         """
-        return type(self).__name__.removesuffix('_')
+        return type(self).__name__.removesuffix("_")
 
     def _get_default_attributes(
         self,
@@ -73,6 +82,21 @@ class Tag:
         attributes that are applied to the class.
         """
         return {}
+
+    def _get_default_render_options(self) -> RenderOptions:
+        """
+        Returns the default rendering options for this tag.
+
+        This can be used to control how the element is rendered by default.
+        For example a `<p>` element can specify `spacing=""` so that its child
+        elements are not spaced out (thereby
+        [reducing anger from Tom7](https://youtu.be/Y65FRxE7uMc?t=0)).
+
+        When the user provides their own options, they will be merged with the
+        element's default options using the `Options.union` method.
+        """
+        # By default, don't override any options
+        return RenderOptions()
 
     def _get_tag_pre_content(self) -> Optional[str]:
         """
@@ -94,18 +118,35 @@ class Tag:
         """
         return True
 
-    def _render(self, indent: int) -> list[str]:
+    def _render(self, indent: str, options: FullRenderOptions) -> list[str]:
         """
         Renders tag and its children to a list of strings where each string is
-        a single line of output
+        a single line of output.
+
+        Parameters
+        ----------
+        indent : str
+            string to use for indentation
+        options : FullOptions
+            rendering options
+
+        Returns
+        -------
+        list[str]
+            list of lines of output
         """
-        attributes = util.filter_attributes(util.dict_union(
-            self._get_default_attributes(self.attributes),
-            self.attributes,
-        ))
+        # Determine what the options for this element are
+        options = options.union(self.options)
+
+        attributes = util.filter_attributes(
+            util.dict_union(
+                self._get_default_attributes(self.attributes),
+                self.attributes,
+            )
+        )
 
         # Tag and attributes
-        opening = f"{' ' * indent}<{self._get_tag_name()}"
+        opening = f"{indent}<{self._get_tag_name()}"
 
         # Add pre-content
         if (pre := self._get_tag_pre_content()) is not None:
@@ -120,25 +161,40 @@ class Tag:
             opening += f"</{self._get_tag_name()}>"
             return [opening]
         else:
-            out = [opening]
+            indent_increase = options.indent if options.spacing == "\n" else ""
             # Children
-            out.extend(
-                util.render_children(
-                    self.children,
-                    self._escape_children(),
-                    indent + 2,
-                )
+            children = util.render_children(
+                self.children,
+                self._escape_children(),
+                indent + indent_increase,
+                options,
             )
-            # Closing tag
-            out.append(f"{' ' * indent}</{self._get_tag_name()}>")
-
-            return out
+            closing = f"</{self._get_tag_name()}>"
+            if options.spacing == "\n":
+                return [
+                    opening,
+                    *children,
+                    f"{indent}{closing}",
+                ]
+            else:
+                # Children must have at least one line, since we would have
+                # taken the `if not len(self.children)` branch if there were
+                # no children to render
+                out: list[str] = [
+                    opening + options.spacing + children[0],
+                    *children[1:],
+                ]
+                # Add the closing tag onto the end
+                return [
+                    *out[:-1],
+                    out[-1] + options.spacing + closing,
+                ]
 
     def render(self) -> str:
         """
         Render this tag and its contents to a string
         """
-        return '\n'.join(self._render(0))
+        return "\n".join(self._render("", RenderOptions.default()))
 
     def __str__(self) -> str:
         return self.render()
@@ -151,32 +207,38 @@ class SelfClosingTag(Tag):
     """
     Self-closing tags don't contain child elements
     """
-    def __init__(self, **attributes: AttributeType) -> None:
-        # Self-closing tags don't allow children
-        super().__init__(**attributes)
 
-    def _render(self, indent: int) -> list[str]:
+    def __init__(
+        self, *options: RenderOptions, **attributes: AttributeType
+    ) -> None:
+        # Self-closing tags don't allow children
+        super().__init__(*options, **attributes)
+
+    def _render(self, indent: str, options: FullRenderOptions) -> list[str]:
         """
         Renders tag and its children to a list of strings where each string is
         a single line of output
         """
-        attributes = util.filter_attributes(util.dict_union(
-            self._get_default_attributes(self.attributes),
-            self.attributes,
-        ))
+        attributes = util.filter_attributes(
+            util.dict_union(
+                self._get_default_attributes(self.attributes),
+                self.attributes,
+            )
+        )
         if len(attributes):
             return [
-                f"{' ' * indent}<{self._get_tag_name()} "
+                f"{indent}<{self._get_tag_name()} "
                 f"{util.render_tag_attributes(attributes)}/>"
             ]
         else:
-            return [f"{' ' * indent}<{self._get_tag_name()}/>"]
+            return [f"{indent}<{self._get_tag_name()}/>"]
 
 
 class WhitespaceSensitiveTag(Tag):
     """
     Whitespace-sensitive tags are tags where whitespace needs to be respected.
     """
+
     def __init__(
         self,
         *children: ChildrenType,
@@ -193,25 +255,30 @@ class WhitespaceSensitiveTag(Tag):
         attributes |= {}
         return super().__call__(*children, **attributes)
 
-    def _render(self, indent: int) -> list[str]:
-        attributes = util.filter_attributes(util.dict_union(
-            self._get_default_attributes(self.attributes),
-            self.attributes,
-        ))
+    def _render(self, indent: str, options: FullRenderOptions) -> list[str]:
+        attributes = util.filter_attributes(
+            util.dict_union(
+                self._get_default_attributes(self.attributes),
+                self.attributes,
+            )
+        )
 
         # Tag and attributes
-        output = f"{' ' * indent}<{self._get_tag_name()}"
+        output = f"{indent}<{self._get_tag_name()}"
 
         if len(attributes):
             output += f" {util.render_tag_attributes(attributes)}>"
         else:
             output += ">"
 
-        output += '\n'.join(util.render_children(
-            self.children,
-            self._escape_children(),
-            0,
-        ))
+        output += "\n".join(
+            util.render_children(
+                self.children,
+                self._escape_children(),
+                "",
+                options,
+            )
+        )
 
         output += f"</{self._get_tag_name()}>"
         return output.splitlines()
@@ -243,7 +310,9 @@ def create_tag(name: str, base: type[Tag] = Tag) -> type[Tag]:
     CustomTag = type(
         name,
         (base,),
-        {},
+        {
+            "_get_tag_name": _get_tag_name,
+        },
     )
 
     return CustomTag

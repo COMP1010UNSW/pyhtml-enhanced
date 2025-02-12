@@ -1,6 +1,7 @@
 """
 Tests to ensure our code works nicely with Flask
 """
+
 import pytest
 from flask import Flask
 from flask.testing import FlaskClient
@@ -12,12 +13,14 @@ app = Flask(__name__)
 
 @app.get("/")
 def simple_route():
-    return str(p.html(
-        p.body(
-            p.p("This app is to test Flask's integration with PyHTML."),
-            p.a(href="/no_str")("Click here to get a 500 error."),
+    return str(
+        p.html(
+            p.body(
+                p.p("Testing Flask's integration with PyHTML."),
+                p.a(href="/no_str")("Click here to get a 500 error."),
+            )
         )
-    ))
+    )
 
 
 # This route intentionally returns the wrong type
@@ -27,9 +30,7 @@ def no_stringify():
     This route intentionally returns an un-stringified PyHTML object. We use
     it to test that a reasonable error message is given
     """
-    return p.html(
-        p.body("Hello, world!")
-    )
+    return p.html(p.body("Hello, world!"))
 
 
 @pytest.fixture
@@ -51,19 +52,19 @@ def test_simple_stringify(client: FlaskClient):
     response = client.get("/")
     assert response.status_code == 200
 
-    assert response.text == '\n'.join([
-        '<!DOCTYPE html>',
-        '<html>',
-        '  <body>',
-        '    <p>',
-        '      This app is to test Flask&#x27;s integration with PyHTML.',
-        '    </p>',
-        '    <a href="/no_str">',
-        '      Click here to get a 500 error.',
-        '    </a>',
-        '  </body>',
-        '</html>',
-    ])
+    assert response.text == "\n".join(
+        [
+            "<!DOCTYPE html>",
+            "<html>",
+            "  <body>",
+            "    <p>Testing Flask&#x27;s integration with PyHTML.</p>",
+            '    <a href="/no_str">',
+            "      Click here to get a 500 error.",
+            "    </a>",
+            "  </body>",
+            "</html>",
+        ]
+    )
 
 
 def test_failed_to_stringify(client: FlaskClient):
@@ -78,5 +79,5 @@ def test_failed_to_stringify(client: FlaskClient):
 
 
 # Ignore coverage since this won't be used when running tests automatically
-if __name__ == '__main__':  # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     app.run(debug=True)

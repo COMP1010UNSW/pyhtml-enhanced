@@ -9,6 +9,7 @@ https://creativecommons.org/licenses/by-sa/2.5/
 """
 from typing import Literal, Optional, Union
 
+from ..__render_options import RenderOptions
 from ..__tag_base import SelfClosingTag, Tag, WhitespaceSensitiveTag
 from ..__types import AttributeType, ChildrenType
 
@@ -76,7 +77,7 @@ class base(SelfClosingTag):
     """
     def __init__(
         self,
-        *,
+        *options: RenderOptions,
         href: AttributeType = None,
         target: AttributeType = None,
         **attributes: AttributeType,
@@ -93,11 +94,11 @@ class base(SelfClosingTag):
             'href': href,
             'target': target,
         }
-        super().__init__(**attributes)
+        super().__init__(*options, **attributes)
 
     def __call__(  # type: ignore
         self,
-        *,
+        *options: RenderOptions,
         href: AttributeType = None,
         target: AttributeType = None,
         **attributes: AttributeType,
@@ -114,7 +115,7 @@ class base(SelfClosingTag):
             'href': href,
             'target': target,
         }
-        return super().__call__(**attributes)
+        return super().__call__(*options, **attributes)
 
     def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
         return {'href': None, 'target': None}
@@ -179,7 +180,7 @@ class link(SelfClosingTag):
     """
     def __init__(
         self,
-        *,
+        *options: RenderOptions,
         href: Optional[str] = None,
         rel: Optional[str] = None,
         **attributes: AttributeType,
@@ -196,11 +197,11 @@ class link(SelfClosingTag):
             'href': href,
             'rel': rel,
         }
-        super().__init__(**attributes)
+        super().__init__(*options, **attributes)
 
     def __call__(  # type: ignore
         self,
-        *,
+        *options: RenderOptions,
         href: Optional[str] = None,
         rel: Optional[str] = None,
         **attributes: AttributeType,
@@ -217,7 +218,7 @@ class link(SelfClosingTag):
             'href': href,
             'rel': rel,
         }
-        return super().__call__(**attributes)
+        return super().__call__(*options, **attributes)
 
     def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
         return {'href': None, 'rel': None}
@@ -325,7 +326,7 @@ class style(Tag):
 
 class title(Tag):
     """
-    Defines the document's title that is shown in a [ browser](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; tags within the element are ignored.
+    Defines the document's title that is shown in a [ browser](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; HTML tags within the element, if any, are also treated as plain text.
 
     
 
@@ -338,7 +339,7 @@ class title(Tag):
         **attributes: AttributeType,
     ) -> None:
         """
-        Defines the document's title that is shown in a [ browser](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; tags within the element are ignored.
+        Defines the document's title that is shown in a [ browser](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; HTML tags within the element, if any, are also treated as plain text.
 
         
 
@@ -356,7 +357,7 @@ class title(Tag):
         **attributes: AttributeType,
     ):
         """
-        Defines the document's title that is shown in a [ browser](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; tags within the element are ignored.
+        Defines the document's title that is shown in a [ browser](https://developer.mozilla.org/en-US/docs/Glossary/Browser)'s title bar or a page's tab. It only contains text; HTML tags within the element, if any, are also treated as plain text.
 
         
 
@@ -373,7 +374,7 @@ class title(Tag):
 
 class body(Tag):
     """
-    represents the content of an HTML document. There can be only one such element in a document.
+    Represents the content of an HTML document. There can be only one such element in a document.
 
     
 
@@ -386,7 +387,7 @@ class body(Tag):
         **attributes: AttributeType,
     ) -> None:
         """
-        represents the content of an HTML document. There can be only one such element in a document.
+        Represents the content of an HTML document. There can be only one such element in a document.
 
         
 
@@ -404,7 +405,7 @@ class body(Tag):
         **attributes: AttributeType,
     ):
         """
-        represents the content of an HTML document. There can be only one such element in a document.
+        Represents the content of an HTML document. There can be only one such element in a document.
 
         
 
@@ -1859,6 +1860,10 @@ class p(Tag):
         return {}
 
 
+    def _get_default_render_options(self) -> RenderOptions:
+        return RenderOptions(spacing='')
+
+
 class pre(WhitespaceSensitiveTag):
     """
     Represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or [monospaced](https://en.wikipedia.org/wiki/Monospaced_font), font. Whitespace inside this element is displayed as written.
@@ -2072,7 +2077,7 @@ class abbr(Tag):
 
 class b(Tag):
     """
-    Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) property. If you wish to indicate an element is of special importance, you should use the strong element.
+    Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) property. If you wish to indicate an element is of special importance, you should use the [<strong>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong) element.
 
     
 
@@ -2088,7 +2093,7 @@ class b(Tag):
         **attributes: AttributeType,
     ) -> None:
         """
-        Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) property. If you wish to indicate an element is of special importance, you should use the strong element.
+        Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) property. If you wish to indicate an element is of special importance, you should use the [<strong>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong) element.
 
         
 
@@ -2112,7 +2117,7 @@ class b(Tag):
         **attributes: AttributeType,
     ):
         """
-        Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) property. If you wish to indicate an element is of special importance, you should use the strong element.
+        Used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use `<b>` for styling text or granting importance. If you wish to create boldface text, you should use the CSS [font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight) property. If you wish to indicate an element is of special importance, you should use the [<strong>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong) element.
 
         
 
@@ -2236,7 +2241,7 @@ class br(SelfClosingTag):
     """
     def __init__(
         self,
-        
+        *options: RenderOptions,
         
         **attributes: AttributeType,
     ) -> None:
@@ -2250,11 +2255,11 @@ class br(SelfClosingTag):
         attributes |= {
             
         }
-        super().__init__(**attributes)
+        super().__init__(*options, **attributes)
 
     def __call__(  # type: ignore
         self,
-        
+        *options: RenderOptions,
         
         **attributes: AttributeType,
     ):
@@ -2268,7 +2273,7 @@ class br(SelfClosingTag):
         attributes |= {
             
         }
-        return super().__call__(**attributes)
+        return super().__call__(*options, **attributes)
 
     def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
         return {}
@@ -2372,7 +2377,7 @@ class code(Tag):
 
 class data(Tag):
     """
-    Links a given piece of content with a machine-readable translation. If the content is time- or date-related, the`<time>` element must be used.
+    Links a given piece of content with a machine-readable translation. If the content is time- or date-related, the `<time>` element must be used.
 
     
 
@@ -2385,7 +2390,7 @@ class data(Tag):
         **attributes: AttributeType,
     ) -> None:
         """
-        Links a given piece of content with a machine-readable translation. If the content is time- or date-related, the`<time>` element must be used.
+        Links a given piece of content with a machine-readable translation. If the content is time- or date-related, the `<time>` element must be used.
 
         
 
@@ -2403,7 +2408,7 @@ class data(Tag):
         **attributes: AttributeType,
     ):
         """
-        Links a given piece of content with a machine-readable translation. If the content is time- or date-related, the`<time>` element must be used.
+        Links a given piece of content with a machine-readable translation. If the content is time- or date-related, the `<time>` element must be used.
 
         
 
@@ -3284,7 +3289,7 @@ class time(Tag):
 
 class u(Tag):
     """
-    Represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a simple solid underline but may be altered using CSS.
+    Represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a single solid underline but may be altered using CSS.
 
     
 
@@ -3297,7 +3302,7 @@ class u(Tag):
         **attributes: AttributeType,
     ) -> None:
         """
-        Represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a simple solid underline but may be altered using CSS.
+        Represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a single solid underline but may be altered using CSS.
 
         
 
@@ -3315,7 +3320,7 @@ class u(Tag):
         **attributes: AttributeType,
     ):
         """
-        Represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a simple solid underline but may be altered using CSS.
+        Represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a single solid underline but may be altered using CSS.
 
         
 
@@ -3769,6 +3774,54 @@ class embed(Tag):
         return {}
 
 
+class fencedframe(Tag):
+    """
+    Represents a nested browsing context, like `<iframe>` but with more native privacy features built in.
+
+    
+
+    [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fencedframe)
+    """
+    def __init__(
+        self,
+        *children: ChildrenType,
+        
+        **attributes: AttributeType,
+    ) -> None:
+        """
+        Represents a nested browsing context, like `<iframe>` but with more native privacy features built in.
+
+        
+
+        [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fencedframe)
+        """
+        attributes |= {
+            
+        }
+        super().__init__(*children, **attributes)
+
+    def __call__(  # type: ignore
+        self,
+        *children: ChildrenType,
+        
+        **attributes: AttributeType,
+    ):
+        """
+        Represents a nested browsing context, like `<iframe>` but with more native privacy features built in.
+
+        
+
+        [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fencedframe)
+        """
+        attributes |= {
+            
+        }
+        return super().__call__(*children, **attributes)
+
+    def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
+        return {}
+
+
 class iframe(Tag):
     """
     Represents a nested browsing context, embedding another HTML page into the current one.
@@ -3913,57 +3966,9 @@ class picture(Tag):
         return {}
 
 
-class portal(Tag):
-    """
-    Enables the embedding of another HTML page into the current one to enable smoother navigation into new pages.
-
-    
-
-    [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/portal)
-    """
-    def __init__(
-        self,
-        *children: ChildrenType,
-        
-        **attributes: AttributeType,
-    ) -> None:
-        """
-        Enables the embedding of another HTML page into the current one to enable smoother navigation into new pages.
-
-        
-
-        [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/portal)
-        """
-        attributes |= {
-            
-        }
-        super().__init__(*children, **attributes)
-
-    def __call__(  # type: ignore
-        self,
-        *children: ChildrenType,
-        
-        **attributes: AttributeType,
-    ):
-        """
-        Enables the embedding of another HTML page into the current one to enable smoother navigation into new pages.
-
-        
-
-        [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/portal)
-        """
-        attributes |= {
-            
-        }
-        return super().__call__(*children, **attributes)
-
-    def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
-        return {}
-
-
 class source(Tag):
     """
-    Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats).
+    Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats).
 
     
 
@@ -3976,7 +3981,7 @@ class source(Tag):
         **attributes: AttributeType,
     ) -> None:
         """
-        Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats).
+        Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats).
 
         
 
@@ -3994,7 +3999,7 @@ class source(Tag):
         **attributes: AttributeType,
     ):
         """
-        Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats).
+        Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for [image file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Image_types) and [media file formats](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats).
 
         
 
@@ -4799,7 +4804,7 @@ class tr(Tag):
 
 class button(Tag):
     """
-    An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a [form](/en-US/docs/Learn/Forms) or opening a dialog.
+    An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a [form](/en-US/docs/Learn_web_development/Extensions/Forms) or opening a dialog.
 
     * `formmethod`: The HTTP request method to use on click. Generally, it is preferred to set the `method` attribute on the `<form>` element instead of this.
     * `formaction`: The URL to request to on click. Generally, it is preferred to set the `action` attribute on the `<form>` element instead of this.
@@ -4817,7 +4822,7 @@ class button(Tag):
         **attributes: AttributeType,
     ) -> None:
         """
-        An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a [form](/en-US/docs/Learn/Forms) or opening a dialog.
+        An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a [form](/en-US/docs/Learn_web_development/Extensions/Forms) or opening a dialog.
 
         * `formmethod`: The HTTP request method to use on click. Generally, it is preferred to set the `method` attribute on the `<form>` element instead of this.
         * `formaction`: The URL to request to on click. Generally, it is preferred to set the `action` attribute on the `<form>` element instead of this.
@@ -4844,7 +4849,7 @@ class button(Tag):
         **attributes: AttributeType,
     ):
         """
-        An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a [form](/en-US/docs/Learn/Forms) or opening a dialog.
+        An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a [form](/en-US/docs/Learn_web_development/Extensions/Forms) or opening a dialog.
 
         * `formmethod`: The HTTP request method to use on click. Generally, it is preferred to set the `method` attribute on the `<form>` element instead of this.
         * `formaction`: The URL to request to on click. Generally, it is preferred to set the `action` attribute on the `<form>` element instead of this.
@@ -5865,10 +5870,10 @@ __all__ = [
     'track',
     'video',
     'embed',
+    'fencedframe',
     'iframe',
     'object',
     'picture',
-    'portal',
     'source',
     'canvas',
     'noscript',

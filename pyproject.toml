@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyhtml-enhanced"
-version = "2.1.0"
+version = "2.2.0"
 description = "A library for building HTML documents with a simple and learnable syntax"
 authors = ["Maddy Guthridge <maddy.guthridge@unsw.edu.au>"]
 license = "MIT"
@@ -79,7 +79,7 @@ exclude_also = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=7.4.2,<9.0.0"

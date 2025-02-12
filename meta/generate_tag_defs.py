@@ -25,6 +25,11 @@ GET_PRE_CONTENT = """
         return {}
 """
 
+GET_DEFAULT_RENDER_OPTIONS = """
+    def _get_default_render_options(self) -> RenderOptions:
+        return {}
+"""
+
 
 def get_template_class(name: str):
     try:
@@ -70,8 +75,10 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
 
     attr_args = "\n".join(attr_args_gen).strip()
     attr_unions = "\n".join(attr_unions_gen).strip()
-    attr_docs_outer = "\n".join(increase_indent(attr_docs_gen, 4)).strip()
-    attr_docs_inner = "\n".join(increase_indent(attr_docs_gen, 8)).strip()
+    attr_docs_outer = "\n".join(increase_indent(attr_docs_gen, "    ")).strip()
+    attr_docs_inner = "\n".join(
+        increase_indent(attr_docs_gen, "        ")
+    ).strip()
 
     # Determine whether the class should mandate keyword-only args
     # If there are no named attributes, we set it to '' to avoid a syntax error
@@ -106,6 +113,13 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
             file=output,
         )
 
+    # Add render options function if needed
+    if tag.render_options is not None:
+        print(
+            GET_DEFAULT_RENDER_OPTIONS.replace("{}", f"{tag.render_options}"),
+            file=output,
+        )
+
     # And a nice trailing newline to make flake8 happy
     print(file=output)
 
@@ -118,6 +132,7 @@ def main(output: TextIO):
 
     with open(TEMPLATES_FOLDER.joinpath("main.py")) as f:
         print(f.read(), file=output)
+        print(file=output)
 
     for tag in tags:
         # Generate the tag

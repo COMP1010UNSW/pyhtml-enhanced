@@ -4,34 +4,36 @@
 Custom definition of the `<input>` tag, to improve type safety and implement
 custom behaviour.
 """
+
 from typing import Literal, Optional, overload
 
+from ..__render_options import RenderOptions
 from ..__tag_base import SelfClosingTag
 from ..__types import AttributeType
 
 InputTypes = Literal[
-    'button',
-    'checkbox',
-    'color',
-    'date',
-    'datetime-local',
-    'email',
-    'file',
-    'hidden',
-    'image',
-    'month',
-    'number',
-    'password',
-    'radio',
-    'range',
-    'reset',
-    'search',
-    'submit',
-    'tel',
-    'text',
-    'time',
-    'url',
-    'week',
+    "button",
+    "checkbox",
+    "color",
+    "date",
+    "datetime-local",
+    "email",
+    "file",
+    "hidden",
+    "image",
+    "month",
+    "number",
+    "password",
+    "radio",
+    "range",
+    "reset",
+    "search",
+    "submit",
+    "tel",
+    "text",
+    "time",
+    "url",
+    "week",
 ]
 
 
@@ -108,23 +110,22 @@ class input(SelfClosingTag):
     @overload
     def __init__(
         self,
-        *,
-        type: Literal['submit'] = 'submit',
+        *options: RenderOptions,
+        type: Literal["submit"] = "submit",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
         disabled: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # Text box
     @overload
     def __init__(
         self,
-        *,
-        type: Literal['text'] = 'text',
+        *options: RenderOptions,
+        type: Literal["text"] = "text",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -135,15 +136,14 @@ class input(SelfClosingTag):
         disabled: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # JS button
     @overload
     def __init__(
         self,
-        *,
-        type: Literal['button'] = 'button',
+        *options: RenderOptions,
+        type: Literal["button"] = "button",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -151,15 +151,14 @@ class input(SelfClosingTag):
         readonly: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # Checkbox
     @overload
     def __init__(
         self,
-        *,
-        type: Literal['checkbox'] = 'checkbox',
+        *options: RenderOptions,
+        type: Literal["checkbox"] = "checkbox",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -168,15 +167,14 @@ class input(SelfClosingTag):
         readonly: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # Email address
     @overload
     def __init__(
         self,
-        *,
-        type: Literal['email'] = 'email',
+        *options: RenderOptions,
+        type: Literal["email"] = "email",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -186,15 +184,14 @@ class input(SelfClosingTag):
         placeholder: Optional[str] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # File upload
     @overload
     def __init__(
         self,
-        *,
-        type: Literal['file'] = 'file',
+        *options: RenderOptions,
+        type: Literal["file"] = "file",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -204,15 +201,14 @@ class input(SelfClosingTag):
         multiple: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # Number
     @overload
     def __init__(
         self,
-        *,
-        type: Literal['number'] = 'number',
+        *options: RenderOptions,
+        type: Literal["number"] = "number",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -223,15 +219,14 @@ class input(SelfClosingTag):
         placeholder: Optional[str] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # Password
     @overload
     def __init__(
         self,
-        *,
-        type: Literal['password'] = 'password',
+        *options: RenderOptions,
+        type: Literal["password"] = "password",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -241,15 +236,14 @@ class input(SelfClosingTag):
         placeholder: Optional[str] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # Radio button
     @overload
     def __init__(
         self,
-        *,
-        type: Literal['radio'] = 'radio',
+        *options: RenderOptions,
+        type: Literal["radio"] = "radio",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -259,15 +253,14 @@ class input(SelfClosingTag):
         required: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # Range
     @overload
     def __init__(
         self,
-        *,
-        type: Literal['range'] = 'range',
+        *options: RenderOptions,
+        type: Literal["range"] = "range",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -279,14 +272,13 @@ class input(SelfClosingTag):
         placeholder: Optional[str] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # default, suggesting types
     @overload
     def __init__(
         self,
-        *,
+        *options: RenderOptions,
         type: Optional[InputTypes] = None,
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -297,14 +289,13 @@ class input(SelfClosingTag):
         required: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # default, allowing all arguments
     @overload
     def __init__(
         self,
-        *,
+        *options: RenderOptions,
         type: Optional[str] = None,
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -315,12 +306,11 @@ class input(SelfClosingTag):
         required: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     def __init__(
         self,
-        *,
+        *options: RenderOptions,
         type: Optional[str] = None,
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -395,34 +385,33 @@ class input(SelfClosingTag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
         """
         attributes |= {
-            'id': id,
-            'name': name,
-            'value': value,
-            'type': type,
+            "id": id,
+            "name": name,
+            "value": value,
+            "type": type,
         }
-        super().__init__(**attributes)
+        super().__init__(*options, **attributes)
 
     # Form submission
     @overload  # type: ignore
     def __call__(
         self,
-        *,
-        type: Literal['submit'] = 'submit',
+        *options: RenderOptions,
+        type: Literal["submit"] = "submit",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
         disabled: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # Text box
     @overload
     def __call__(
         self,
-        *,
-        type: Literal['text'] = 'text',
+        *options: RenderOptions,
+        type: Literal["text"] = "text",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -433,15 +422,14 @@ class input(SelfClosingTag):
         spellcheck: Optional[Literal["true", "false", ""]] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # JS button
     @overload
     def __call__(
         self,
-        *,
-        type: Literal['button'] = 'button',
+        *options: RenderOptions,
+        type: Literal["button"] = "button",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -449,15 +437,14 @@ class input(SelfClosingTag):
         readonly: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # Checkbox
     @overload
     def __call__(
         self,
-        *,
-        type: Literal['checkbox'] = 'checkbox',
+        *options: RenderOptions,
+        type: Literal["checkbox"] = "checkbox",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -466,15 +453,14 @@ class input(SelfClosingTag):
         readonly: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # Email address
     @overload
     def __call__(
         self,
-        *,
-        type: Literal['email'] = 'email',
+        *options: RenderOptions,
+        type: Literal["email"] = "email",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -484,15 +470,14 @@ class input(SelfClosingTag):
         placeholder: Optional[str] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # File upload
     @overload
     def __call__(
         self,
-        *,
-        type: Literal['file'] = 'file',
+        *options: RenderOptions,
+        type: Literal["file"] = "file",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -503,15 +488,14 @@ class input(SelfClosingTag):
         readonly: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # Number
     @overload
     def __call__(
         self,
-        *,
-        type: Literal['number'] = 'number',
+        *options: RenderOptions,
+        type: Literal["number"] = "number",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -523,15 +507,14 @@ class input(SelfClosingTag):
         placeholder: Optional[str] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # Password
     @overload
     def __call__(
         self,
-        *,
-        type: Literal['password'] = 'password',
+        *options: RenderOptions,
+        type: Literal["password"] = "password",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -541,15 +524,14 @@ class input(SelfClosingTag):
         placeholder: Optional[str] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # Radio button
     @overload
     def __call__(
         self,
-        *,
-        type: Literal['radio'] = 'radio',
+        *options: RenderOptions,
+        type: Literal["radio"] = "radio",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -559,15 +541,14 @@ class input(SelfClosingTag):
         required: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # Range
     @overload
     def __call__(
         self,
-        *,
-        type: Literal['range'] = 'range',
+        *options: RenderOptions,
+        type: Literal["range"] = "range",
         id: Optional[str] = None,
         name: Optional[str] = None,
         value: Optional[str] = None,
@@ -580,14 +561,13 @@ class input(SelfClosingTag):
         readonly: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # default, suggesting types
     @overload
     def __call__(
         self,
-        *,
+        *options: RenderOptions,
         type: Optional[InputTypes] = None,
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -598,14 +578,13 @@ class input(SelfClosingTag):
         required: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     # default, allowing all arguments
     @overload
     def __call__(
         self,
-        *,
+        *options: RenderOptions,
         type: Optional[str] = None,
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -616,12 +595,11 @@ class input(SelfClosingTag):
         required: Optional[bool] = None,
         autofocus: Optional[bool] = None,
         **attributes: AttributeType,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     def __call__(  # type: ignore
         self,
-        *,
+        *options: RenderOptions,
         type: Optional[str] = None,
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -697,31 +675,31 @@ class input(SelfClosingTag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
         """
         attributes |= {
-            'id': id,
-            'name': name,
-            'value': value,
-            'type': type,
+            "id": id,
+            "name": name,
+            "value": value,
+            "type": type,
         }
-        return super().__call__(**attributes)
+        return super().__call__(*options, **attributes)
 
     def _get_default_attributes(
         self,
         given: dict[str, AttributeType],
     ) -> dict[str, AttributeType]:
         if (
-            given.get('formaction') is not None
-            and given.get('formmethod') is None
+            given.get("formaction") is not None
+            and given.get("formmethod") is None
         ):
-            formmethod = 'POST'
+            formmethod = "POST"
         else:
             formmethod = None
         return {
-            'type': None,
-            'name': None,
-            'value': None,
-            'placeholder': None,
-            'readonly': False,
-            'required': False,
-            'formmethod': formmethod,
-            'formaction': None,
+            "type": None,
+            "name": None,
+            "value": None,
+            "placeholder": None,
+            "readonly": False,
+            "required": False,
+            "formmethod": formmethod,
+            "formaction": None,
         }

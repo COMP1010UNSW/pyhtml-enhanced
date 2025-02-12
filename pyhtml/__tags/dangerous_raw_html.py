@@ -3,6 +3,8 @@
 
 Definition for the DangerousRawHtml tag.
 """
+
+from ..__render_options import FullRenderOptions
 from ..__tag_base import Tag
 from ..__util import increase_indent
 
@@ -20,6 +22,7 @@ class DangerousRawHtml(Tag):
 
     Do not use this unless absolutely necessary.
     """
+
     def __init__(self, text: str) -> None:
         """
         Raw HTML as a string. This is embedded directly within the rendered
@@ -38,12 +41,12 @@ class DangerousRawHtml(Tag):
         super().__init__()
 
     def __call__(self, *args, **kwargs):
-        raise TypeError('DangerousRawHtml tags are not callable')
+        raise TypeError("DangerousRawHtml tags are not callable")
 
     def _get_tag_name(self) -> str:
         # Ignore coverage since this is only implemented to satisfy inheritance
         # and is never used since we override _render
-        return '!!!DANGEROUS RAW HTML!!!'  # pragma: no cover
+        return "!!!DANGEROUS RAW HTML!!!"  # pragma: no cover
 
-    def _render(self, indent: int) -> list[str]:
+    def _render(self, indent: str, options: FullRenderOptions) -> list[str]:
         return increase_indent(self.html_data.splitlines(), indent)

@@ -46,9 +46,7 @@ Learn more by reading [the documentation](https://comp1010unsw.github.io/pyhtml-
     <h1>
       Hello, world!
     </h1>
-    <p>
-      This is my amazing website!
-    </p>
+    <p>This is my amazing website!</p>
   </body>
 </html>
 

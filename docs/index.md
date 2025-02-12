@@ -32,9 +32,7 @@ Build HTML documents in Python with a simple and learnable syntax.
     <h1>
       Hello, world!
     </h1>
-    <p>
-      This is my amazing website!
-    </p>
+    <p>This is my amazing website!</p>
   </body>
 </html>
 
