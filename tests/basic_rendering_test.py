@@ -17,10 +17,10 @@ from pyhtml import (
     head,
     html,
     input,
+    pre,
     script,
     span,
     title,
-    pre,
 )
 
 
