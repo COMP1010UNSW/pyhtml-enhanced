@@ -3,6 +3,7 @@
 
 Basic tests for rendering HTML
 """
+
 import pytest
 
 from pyhtml import (
@@ -19,13 +20,14 @@ from pyhtml import (
     script,
     span,
     title,
+    pre,
 )
 
 
 def test_renders_single_element():
     doc = body()
 
-    assert str(doc) == '<body></body>'
+    assert str(doc) == "<body></body>"
 
 
 def test_renders_elements_with_children():
@@ -34,12 +36,14 @@ def test_renders_elements_with_children():
         div(),
     )
 
-    assert str(doc) == '\n'.join([
-        '<body>',
-        '  <span></span>',
-        '  <div></div>',
-        '</body>',
-    ])
+    assert str(doc) == "\n".join(
+        [
+            "<body>",
+            "  <span></span>",
+            "  <div></div>",
+            "</body>",
+        ]
+    )
 
 
 def test_renders_deeply_nested_children():
@@ -49,15 +53,17 @@ def test_renders_deeply_nested_children():
         ),
     )
 
-    assert str(doc) == '\n'.join([
-        '<body>',
-        '  <div>',
-        '    <span>',
-        '      Hello world',
-        '    </span>',
-        '  </div>',
-        '</body>',
-    ])
+    assert str(doc) == "\n".join(
+        [
+            "<body>",
+            "  <div>",
+            "    <span>",
+            "      Hello world",
+            "    </span>",
+            "  </div>",
+            "</body>",
+        ]
+    )
 
 
 def test_renders_attributes():
@@ -67,11 +73,13 @@ def test_renders_attributes():
 
 
 def test_comment_renders():
-    assert str(Comment("Hello world")) == '\n'.join([
-        '<!--',
-        '  Hello world',
-        '-->',
-    ])
+    assert str(Comment("Hello world")) == "\n".join(
+        [
+            "<!--",
+            "  Hello world",
+            "-->",
+        ]
+    )
 
 
 def test_comments_not_callable():
@@ -83,64 +91,71 @@ def test_comments_not_callable():
 def test_call_adds_attrs():
     """Calling a tag adds additional attributes"""
     # Note that order is important - elements added first should appear first
-    assert str(body(foo="bar")(baz="bat")) \
-        == '<body foo="bar" baz="bat"></body>'
+    assert (
+        str(body(foo="bar")(baz="bat")) == '<body foo="bar" baz="bat"></body>'
+    )
 
 
 def test_call_adds_children():
     """Calling a tag adds additional children"""
     # Note that order is important again
-    assert str(body("Hello")("World")) == '\n'.join([
-        '<body>',
-        '  Hello',
-        '  World',
-        '</body>',
-    ])
+    assert str(body("Hello")("World")) == "\n".join(
+        [
+            "<body>",
+            "  Hello",
+            "  World",
+            "</body>",
+        ]
+    )
 
 
 def test_call_adds_mixed_attrs_children():
     """Calling a tag adds more properties"""
-    assert str(body(foo="bar")("Hello")) == "\n".join([
-        '<body foo="bar">',
-        '  Hello',
-        '</body>',
-    ])
+    assert str(body(foo="bar")("Hello")) == "\n".join(
+        [
+            '<body foo="bar">',
+            "  Hello",
+            "</body>",
+        ]
+    )
 
 
 def test_call_adds_mixed_attrs_children_link():
     """Calling a tag adds more properties, using an anchor tag"""
     assert str(
         a(href="https://www.youtube.com/watch?v=dQw4w9WgXcQ")("Click me")
-    ) == "\n".join([
-        '<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">',
-        '  Click me',
-        '</a>',
-    ])
+    ) == "\n".join(
+        [
+            '<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">',
+            "  Click me",
+            "</a>",
+        ]
+    )
 
 
 def test_call_adds_mixed_attrs_children_script():
     """Calling a tag adds more properties, using a script tag"""
-    assert str(
-        script(type="blah/blah")("// Some JS")
-    ) == "\n".join([
-        '<script type="blah/blah">',
-        '  // Some JS',
-        '</script>',
-    ])
+    assert str(script(type="blah/blah")("// Some JS")) == "\n".join(
+        [
+            '<script type="blah/blah">',
+            "  // Some JS",
+            "</script>",
+        ]
+    )
 
 
 def test_call_adds_mixed_attrs_children_script_2():
     """Calling a tag adds more properties, using a script tag"""
-    assert str(
-        script("// Some JS")(type="blah/blah")
-    ) == "\n".join([
-        '<script type="blah/blah">',
-        '  // Some JS',
-        '</script>',
-    ])
+    assert str(script("// Some JS")(type="blah/blah")) == "\n".join(
+        [
+            '<script type="blah/blah">',
+            "  // Some JS",
+            "</script>",
+        ]
+    )
 
 
-def test_tags_with_trailing_undercore_render_without():
+def test_tags_with_trailing_underscore_render_without():
     """
     Some tags have a trailing underscore to avoid name collisions. When
     rendering to HTML, is this removed?
@@ -161,26 +176,28 @@ def test_larger_page():
         ),
     )
 
-    assert str(my_website) == '\n'.join([
-        '<!DOCTYPE html>',
-        '<html>',
-        '  <head>',
-        '    <title>',
-        '      Hello, world!',
-        '    </title>',
-        '    <script type="text/javascript" '
-        'src="http://example.com/script.js"></script>',
-        '  </head>',
-        '  <body>',
-        '    <h1>',
-        '      Hello, world!',
-        '    </h1>',
-        '    <span>',
-        '      This is my amazing website rendered with PyHTML Enhanced!',
-        '    </span>',
-        '  </body>',
-        '</html>',
-    ])
+    assert str(my_website) == "\n".join(
+        [
+            "<!DOCTYPE html>",
+            "<html>",
+            "  <head>",
+            "    <title>",
+            "      Hello, world!",
+            "    </title>",
+            '    <script type="text/javascript" '
+            'src="http://example.com/script.js"></script>',
+            "  </head>",
+            "  <body>",
+            "    <h1>",
+            "      Hello, world!",
+            "    </h1>",
+            "    <span>",
+            "      This is my amazing website rendered with PyHTML Enhanced!",
+            "    </span>",
+            "  </body>",
+            "</html>",
+        ]
+    )
 
 
 def test_format_through_repr():
@@ -197,16 +214,18 @@ def test_flatten_element_lists():
     """
     doc = body([span("Hello"), span("world")])
 
-    assert str(doc) == "\n".join([
-        "<body>",
-        "  <span>",
-        "    Hello",
-        "  </span>",
-        "  <span>",
-        "    world",
-        "  </span>",
-        "</body>",
-    ])
+    assert str(doc) == "\n".join(
+        [
+            "<body>",
+            "  <span>",
+            "    Hello",
+            "  </span>",
+            "  <span>",
+            "    world",
+            "  </span>",
+            "</body>",
+        ]
+    )
 
 
 def test_flatten_element_generators():
@@ -216,12 +235,14 @@ def test_flatten_element_generators():
     """
     doc = body(c for c in "hi")
 
-    assert str(doc) == "\n".join([
-        "<body>",
-        "  h",
-        "  i",
-        "</body>",
-    ])
+    assert str(doc) == "\n".join(
+        [
+            "<body>",
+            "  h",
+            "  i",
+            "</body>",
+        ]
+    )
 
 
 def test_flatten_element_other_sequence():
@@ -231,12 +252,14 @@ def test_flatten_element_other_sequence():
     """
     doc = body(("h", "i"))
 
-    assert str(doc) == "\n".join([
-        "<body>",
-        "  h",
-        "  i",
-        "</body>",
-    ])
+    assert str(doc) == "\n".join(
+        [
+            "<body>",
+            "  h",
+            "  i",
+            "</body>",
+        ]
+    )
 
 
 def test_classes_can_render():
@@ -245,11 +268,13 @@ def test_classes_can_render():
     """
     doc = body(br)
 
-    assert str(doc) == "\n".join([
-        "<body>",
-        "  <br/>",
-        "</body>",
-    ])
+    assert str(doc) == "\n".join(
+        [
+            "<body>",
+            "  <br/>",
+            "</body>",
+        ]
+    )
 
 
 def test_boolean_tag_attributes_true():
@@ -273,3 +298,24 @@ def test_tag_with_pre_content():
     Do tags with defined pre-content render correctly
     """
     assert str(html()) == "<!DOCTYPE html>\n<html></html>"
+
+
+def test_whitespace_sensitive_no_content():
+    """
+    Do whitespace-sensitive tags render properly when they have no content?
+    """
+    assert str(pre()) == "<pre></pre>"
+
+
+def test_whitespace_sensitive_with_content():
+    """
+    Do whitespace-sensitive tags render properly when they have content?
+    """
+    assert str(pre("hi")) == "<pre>hi</pre>"
+
+
+def test_whitespace_sensitive_with_attrs():
+    """
+    Do whitespace-sensitive tags render properly when they have attributes?
+    """
+    assert str(pre(test="test")("hi")) == '<pre test="test">hi</pre>'

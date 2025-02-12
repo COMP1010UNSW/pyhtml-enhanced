@@ -7,6 +7,10 @@ Test cases for specifying rendering options
 import pyhtml as p
 
 
+def test_repr_render_options():
+    assert repr(p.RenderOptions(spacing="")) == "RenderOptions(spacing='')"
+
+
 def test_indent():
     doc = p.body(
         p.RenderOptions(indent="\t"),
