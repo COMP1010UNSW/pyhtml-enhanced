@@ -8,7 +8,7 @@ class {name}({base}):
     """
     def __init__(
         self,
-        {kw_only}
+        *options: Options,
         {attr_args}
         **attributes: AttributeType,
     ) -> None:
@@ -26,7 +26,7 @@ class {name}({base}):
 
     def __call__(  # type: ignore
         self,
-        {kw_only}
+        *options: Options,
         {attr_args}
         **attributes: AttributeType,
     ):
