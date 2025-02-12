@@ -7,7 +7,7 @@ Tag base class, including rendering logic
 from typing import Optional, TypeVar
 
 from . import __util as util
-from .__render_options import FullOptions, Options
+from .__render_options import FullRenderOptions, RenderOptions
 from .__types import AttributeType, ChildrenType
 
 SelfType = TypeVar("SelfType", bound="Tag")
@@ -33,7 +33,7 @@ class Tag:
         self.attributes = util.filter_attributes(attributes)
         """Attributes of this tag"""
 
-        self.options = options
+        self.options = self._get_default_render_options().union(options)
         """Render options specified for this element"""
 
     def __call__(
@@ -83,6 +83,21 @@ class Tag:
         """
         return {}
 
+    def _get_default_render_options(self) -> RenderOptions:
+        """
+        Returns the default rendering options for this tag.
+
+        This can be used to control how the element is rendered by default.
+        For example a `<p>` element can specify `spacing=""` so that its child
+        elements are not spaced out (thereby
+        [reducing anger from Tom7](https://youtu.be/Y65FRxE7uMc?t=0)).
+
+        When the user provides their own options, they will be merged with the
+        element's default options using the `Options.union` method.
+        """
+        # By default, don't override any options
+        return RenderOptions()
+
     def _get_tag_pre_content(self) -> Optional[str]:
         """
         Return "pre-content" for the tag.
@@ -103,7 +118,7 @@ class Tag:
         """
         return True
 
-    def _render(self, indent: str, options: FullOptions) -> list[str]:
+    def _render(self, indent: str, options: FullRenderOptions) -> list[str]:
         """
         Renders tag and its children to a list of strings where each string is
         a single line of output.
@@ -179,7 +194,7 @@ class Tag:
         """
         Render this tag and its contents to a string
         """
-        return "\n".join(self._render("", Options.default()))
+        return "\n".join(self._render("", RenderOptions.default()))
 
     def __str__(self) -> str:
         return self.render()
@@ -193,11 +208,13 @@ class SelfClosingTag(Tag):
     Self-closing tags don't contain child elements
     """
 
-    def __init__(self, *options: Options, **attributes: AttributeType) -> None:
+    def __init__(
+        self, *options: RenderOptions, **attributes: AttributeType
+    ) -> None:
         # Self-closing tags don't allow children
         super().__init__(*options, **attributes)
 
-    def _render(self, indent: str, options: FullOptions) -> list[str]:
+    def _render(self, indent: str, options: FullRenderOptions) -> list[str]:
         """
         Renders tag and its children to a list of strings where each string is
         a single line of output
@@ -238,7 +255,7 @@ class WhitespaceSensitiveTag(Tag):
         attributes |= {}
         return super().__call__(*children, **attributes)
 
-    def _render(self, indent: str, options: FullOptions) -> list[str]:
+    def _render(self, indent: str, options: FullRenderOptions) -> list[str]:
         attributes = util.filter_attributes(
             util.dict_union(
                 self._get_default_attributes(self.attributes),
