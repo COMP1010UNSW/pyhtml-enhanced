@@ -9,7 +9,7 @@ import pyhtml as p
 
 def test_indent():
     doc = p.body(
-        p.Options(indent="\t"),
+        p.RenderOptions(indent="\t"),
         p.span(),
         p.div(),
     )
@@ -27,7 +27,7 @@ def test_indent():
 def test_mixed_indent():
     doc = p.body(
         p.div(
-            p.Options(indent="\t"),
+            p.RenderOptions(indent="\t"),
             p.div(),
         ),
     )
@@ -45,7 +45,7 @@ def test_mixed_indent():
 
 def test_spacing():
     doc = p.body(
-        p.Options(spacing=" "),
+        p.RenderOptions(spacing=" "),
         p.div(),
     )
 
@@ -59,7 +59,7 @@ def test_spacing():
 def test_mixed_spacing():
     doc = p.body(
         p.div(
-            p.Options(spacing=" "),
+            p.RenderOptions(spacing=" "),
             p.div(),
         ),
     )
@@ -76,9 +76,9 @@ def test_mixed_spacing():
 def test_spacing_inner_newline():
     doc = p.body(
         p.div(
-            p.Options(spacing=" "),
+            p.RenderOptions(spacing=" "),
             p.div(
-                p.Options(spacing="\n"),
+                p.RenderOptions(spacing="\n"),
                 p.div(),
             ),
         ),
@@ -98,9 +98,9 @@ def test_spacing_inner_newline():
 def test_indent_and_spacing_inner_newline():
     doc = p.body(
         p.div(
-            p.Options(spacing=" "),
+            p.RenderOptions(spacing=" "),
             p.div(
-                p.Options(spacing="\n", indent="\t"),
+                p.RenderOptions(spacing="\n", indent="\t"),
                 p.div(),
             ),
         ),

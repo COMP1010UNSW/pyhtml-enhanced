@@ -7,7 +7,7 @@ custom behaviour.
 
 from typing import Literal, Optional, overload
 
-from ..__render_options import Options
+from ..__render_options import RenderOptions
 from ..__tag_base import SelfClosingTag
 from ..__types import AttributeType
 
@@ -110,7 +110,7 @@ class input(SelfClosingTag):
     @overload
     def __init__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["submit"] = "submit",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -124,7 +124,7 @@ class input(SelfClosingTag):
     @overload
     def __init__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["text"] = "text",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -142,7 +142,7 @@ class input(SelfClosingTag):
     @overload
     def __init__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["button"] = "button",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -157,7 +157,7 @@ class input(SelfClosingTag):
     @overload
     def __init__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["checkbox"] = "checkbox",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -173,7 +173,7 @@ class input(SelfClosingTag):
     @overload
     def __init__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["email"] = "email",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -190,7 +190,7 @@ class input(SelfClosingTag):
     @overload
     def __init__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["file"] = "file",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -207,7 +207,7 @@ class input(SelfClosingTag):
     @overload
     def __init__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["number"] = "number",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -225,7 +225,7 @@ class input(SelfClosingTag):
     @overload
     def __init__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["password"] = "password",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -242,7 +242,7 @@ class input(SelfClosingTag):
     @overload
     def __init__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["radio"] = "radio",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -259,7 +259,7 @@ class input(SelfClosingTag):
     @overload
     def __init__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["range"] = "range",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -278,7 +278,7 @@ class input(SelfClosingTag):
     @overload
     def __init__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Optional[InputTypes] = None,
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -295,7 +295,7 @@ class input(SelfClosingTag):
     @overload
     def __init__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Optional[str] = None,
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -310,7 +310,7 @@ class input(SelfClosingTag):
 
     def __init__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Optional[str] = None,
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -396,7 +396,7 @@ class input(SelfClosingTag):
     @overload  # type: ignore
     def __call__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["submit"] = "submit",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -410,7 +410,7 @@ class input(SelfClosingTag):
     @overload
     def __call__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["text"] = "text",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -428,7 +428,7 @@ class input(SelfClosingTag):
     @overload
     def __call__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["button"] = "button",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -443,7 +443,7 @@ class input(SelfClosingTag):
     @overload
     def __call__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["checkbox"] = "checkbox",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -459,7 +459,7 @@ class input(SelfClosingTag):
     @overload
     def __call__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["email"] = "email",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -476,7 +476,7 @@ class input(SelfClosingTag):
     @overload
     def __call__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["file"] = "file",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -494,7 +494,7 @@ class input(SelfClosingTag):
     @overload
     def __call__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["number"] = "number",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -513,7 +513,7 @@ class input(SelfClosingTag):
     @overload
     def __call__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["password"] = "password",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -530,7 +530,7 @@ class input(SelfClosingTag):
     @overload
     def __call__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["radio"] = "radio",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -547,7 +547,7 @@ class input(SelfClosingTag):
     @overload
     def __call__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Literal["range"] = "range",
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -567,7 +567,7 @@ class input(SelfClosingTag):
     @overload
     def __call__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Optional[InputTypes] = None,
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -584,7 +584,7 @@ class input(SelfClosingTag):
     @overload
     def __call__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Optional[str] = None,
         id: Optional[str] = None,
         name: Optional[str] = None,
@@ -599,7 +599,7 @@ class input(SelfClosingTag):
 
     def __call__(  # type: ignore
         self,
-        *options: Options,
+        *options: RenderOptions,
         type: Optional[str] = None,
         id: Optional[str] = None,
         name: Optional[str] = None,

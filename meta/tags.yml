@@ -96,6 +96,8 @@ label:
 
 p:
   base: StylableTag
+  render_options:
+    spacing: ""
 
 br:
   base: SelfClosingTag

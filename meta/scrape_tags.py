@@ -16,6 +16,8 @@ import requests
 import yaml
 from typing_extensions import NotRequired
 
+from pyhtml.__render_options import RenderOptions
+
 TAGS_YAML = "meta/tags.yml"
 """File location to load custom tag data from"""
 
@@ -118,6 +120,15 @@ class AttrYmlItem(TypedDict):
     """Python type to accept for the attribute"""
 
 
+class RenderOptionsYmlItem(TypedDict):
+    """
+    Render options as a dictionary
+    """
+
+    indent: NotRequired[str]
+    spacing: NotRequired[str]
+
+
 class TagsYmlItem(TypedDict):
     """
     A tag which has suggested keys
@@ -141,6 +152,11 @@ class TagsYmlItem(TypedDict):
     pre_content: NotRequired[str]
     """
     Pre-content for the element (eg `<!DOCTYPE html>`)
+    """
+
+    render_options: NotRequired[RenderOptionsYmlItem]
+    """
+    Render options for this element
     """
 
 
@@ -214,6 +230,11 @@ class TagInfo:
     pre_content: Optional[str]
     """
     Pre-content for the element (eg `<!DOCTYPE html>`)
+    """
+
+    render_options: Optional[RenderOptions]
+    """
+    Render options
     """
 
 
@@ -468,6 +489,21 @@ def get_tag_pre_content(tags: TagsYaml, tag_name: str) -> Optional[str]:
     return tag.get("pre_content", None)
 
 
+def get_tag_render_options(
+    tags: TagsYaml, tag_name: str
+) -> Optional[RenderOptions]:
+    """
+    Return pre-content for the tag
+    """
+    if tag_name not in tags:
+        return None
+    tag = tags[tag_name]
+    if "render_options" in tag:
+        return RenderOptions(**tag["render_options"])
+    else:
+        return None
+
+
 def make_mdn_link(tag: str) -> str:
     """Generate an MDN docs link for the given tag"""
     return f"{MDN_ELEMENT_PAGE}/{tag}"
@@ -496,6 +532,7 @@ def elements_to_element_structs(
                 escape_children=get_tag_escape_children(tag_attrs, name),
                 attributes=attr_entries_to_object(tag_attrs, name),
                 pre_content=get_tag_pre_content(tag_attrs, name),
+                render_options=get_tag_render_options(tag_attrs, name),
             )
         )
 

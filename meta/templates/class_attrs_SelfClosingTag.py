@@ -8,7 +8,7 @@ class {name}({base}):
     """
     def __init__(
         self,
-        *options: Options,
+        *options: RenderOptions,
         {attr_args}
         **attributes: AttributeType,
     ) -> None:
@@ -22,11 +22,11 @@ class {name}({base}):
         attributes |= {
             {attr_unions}
         }
-        super().__init__(**attributes)
+        super().__init__(*options, **attributes)
 
     def __call__(  # type: ignore
         self,
-        *options: Options,
+        *options: RenderOptions,
         {attr_args}
         **attributes: AttributeType,
     ):
@@ -40,7 +40,7 @@ class {name}({base}):
         attributes |= {
             {attr_unions}
         }
-        return super().__call__(**attributes)
+        return super().__call__(*options, **attributes)
 
     def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
         return {default_attrs}

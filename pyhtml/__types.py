@@ -8,7 +8,7 @@ from collections.abc import Generator, Sequence
 from typing import TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
-    from .__render_options import Options
+    from .__render_options import RenderOptions
     from .__tag_base import Tag
 
 
@@ -38,7 +38,7 @@ ChildrenType = Union[
     # TODO: Would an `Any` type for the generator return be better, even though
     # it would be discarded?
     "Generator[ChildElementType, None, None]",
-    "Options",
+    "RenderOptions",
 ]
 """
 Objects that are valid when passed to a `Tag` for use as children.

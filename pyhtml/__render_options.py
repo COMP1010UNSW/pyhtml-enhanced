@@ -21,13 +21,15 @@ from typing import Optional
 
 
 @dataclass(kw_only=True, frozen=True)
-class FullOptions:
+class FullRenderOptions:
     indent: str
     """String to add to indentation for non-inline child elements"""
     spacing: str
     """String to use for spacing between child elements"""
 
-    def union(self, other: "Options | FullOptions") -> "FullOptions":
+    def union(
+        self, other: "RenderOptions | FullRenderOptions"
+    ) -> "FullRenderOptions":
         """
         Union this set of options with the other options, returning a new
         `Options` object as the result.
@@ -39,11 +41,11 @@ class FullOptions:
             if (other_value := getattr(other, field)) is not None:
                 values[field] = other_value
 
-        return FullOptions(**values)
+        return FullRenderOptions(**values)
 
 
 @dataclass(kw_only=True, frozen=True)
-class Options:
+class RenderOptions:
     """
     PyHTML rendering options.
 
@@ -61,17 +63,30 @@ class Options:
     spacing: Optional[str] = None
     """String to use for spacing between child elements"""
 
+    def __repr__(self) -> str:
+        """
+        `__repr__` function excludes values that are `None`.
+        """
+        attrs = [
+            f"{key}={repr(value)}"
+            for key, value in asdict(self).items()
+            if value is not None
+        ]
+        return f"RenderOptions({', '.join(attrs)})"
+
     @staticmethod
-    def default() -> FullOptions:
+    def default() -> FullRenderOptions:
         """
         Returns PyHTML's default rendering options.
         """
-        return FullOptions(
+        return FullRenderOptions(
             indent="  ",
             spacing="\n",
         )
 
-    def union(self, other: "Options | FullOptions") -> "Options":
+    def union(
+        self, other: "RenderOptions | FullRenderOptions"
+    ) -> "RenderOptions":
         """
         Union this set of options with the other options, returning a new
         `Options` object as the result.
@@ -83,4 +98,4 @@ class Options:
             if (other_value := getattr(other, field)) is not None:
                 values[field] = other_value
 
-        return Options(**values)
+        return RenderOptions(**values)

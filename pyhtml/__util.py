@@ -7,7 +7,7 @@ Random helpful functions used elsewhere
 from collections.abc import Generator, Sequence
 from typing import Any, TypeVar
 
-from .__render_options import FullOptions, Options
+from .__render_options import FullRenderOptions, RenderOptions
 from .__types import ChildElementType, ChildrenType
 
 T = TypeVar("T")
@@ -94,7 +94,7 @@ def render_inline_element(
     ele: ChildElementType,
     escape_strings: bool,
     indent: str,
-    options: FullOptions,
+    options: FullRenderOptions,
 ) -> list[str]:
     """
     Render an element inline
@@ -118,7 +118,7 @@ def render_children(
     children: list[ChildElementType],
     escape_strings: bool,
     indent: str,
-    options: FullOptions,
+    options: FullRenderOptions,
 ) -> list[str]:
     """
     Render child elements of tags.
@@ -154,7 +154,7 @@ def render_children(
 
 def flatten_children(
     the_list: list[ChildrenType],
-) -> tuple[list[ChildElementType], Options]:
+) -> tuple[list[ChildElementType], RenderOptions]:
     """
     Flatten the given list of child elements, and extract the given render
     options.
@@ -174,7 +174,7 @@ def flatten_children(
         * `options` is the `Options` object containing the render options
     """
     result: list[ChildElementType] = []
-    options = Options()
+    options = RenderOptions()
     for item in the_list:
         if isinstance(item, (list, Generator)):
             result.extend(item)
@@ -182,7 +182,7 @@ def flatten_children(
             result.append(item)
         elif isinstance(item, Sequence):
             result.extend(item)
-        elif isinstance(item, Options):
+        elif isinstance(item, RenderOptions):
             options = options.union(item)
         else:
             result.append(item)
