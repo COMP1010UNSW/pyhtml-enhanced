@@ -3,26 +3,23 @@
 
 Random helpful functions used elsewhere
 """
+
 from collections.abc import Generator, Sequence
 from typing import Any, TypeVar
 
+from .__render_options import FullOptions, Options
 from .__types import ChildElementType, ChildrenType
 
-T = TypeVar('T')
-K = TypeVar('K')
-V = TypeVar('V')
+T = TypeVar("T")
+K = TypeVar("K")
+V = TypeVar("V")
 
 
-def increase_indent(text: list[str], amount: int) -> list[str]:
+def increase_indent(text: list[str], indent: str) -> list[str]:
     """
     Increase the indentation of all lines in a string list
     """
-    prefix = amount * ' '
-
-    return list(map(
-        lambda line: prefix + line,
-        text
-    ))
+    return list(map(lambda line: indent + line, text))
 
 
 def escape_string(text: str) -> str:
@@ -32,11 +29,11 @@ def escape_string(text: str) -> str:
     """
     replacements = {
         # & needs to be replaced first or we break all other options
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#x27;',
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#x27;",
     }
     for k, v in replacements.items():
         text = text.replace(k, v)
@@ -54,10 +51,7 @@ def escape_attribute(attr_name: str) -> str:
 
     * `_` (underscore) to `-` (hyphen), so that kwargs can be used effectively
     """
-    return attr_name \
-        .removeprefix('_') \
-        .removesuffix('_') \
-        .replace('_', '-')
+    return attr_name.removeprefix("_").removesuffix("_").replace("_", "-")
 
 
 def render_tag_attributes(attributes: dict[str, Any]) -> str:
@@ -76,12 +70,14 @@ def render_tag_attributes(attributes: dict[str, Any]) -> str:
     'src="https://example.com/test.jpg" alt="A test image"'
     ```
     """
-    return ' '.join([
-        f'{escape_attribute(attr)}="{escape_string(str(val))}"'
-        if val is not True
-        else escape_attribute(attr)
-        for attr, val in attributes.items()
-    ])
+    return " ".join(
+        [
+            f'{escape_attribute(attr)}="{escape_string(str(val))}"'
+            if val is not True
+            else escape_attribute(attr)
+            for attr, val in attributes.items()
+        ]
+    )
 
 
 def filter_attributes(attributes: dict[str, Any]) -> dict[str, Any]:
@@ -90,26 +86,26 @@ def filter_attributes(attributes: dict[str, Any]) -> dict[str, Any]:
     rendered.
     """
     return {
-        k: v
-        for k, v in attributes.items()
-        if v is not None and v is not False
+        k: v for k, v in attributes.items() if v is not None and v is not False
     }
 
 
 def render_inline_element(
     ele: ChildElementType,
     escape_strings: bool,
-    indent: int,
+    indent: str,
+    options: FullOptions,
 ) -> list[str]:
     """
     Render an element inline
     """
     from .__tag_base import Tag
+
     if isinstance(ele, Tag):
-        return ele._render(indent)
+        return ele._render(indent, options)
     elif isinstance(ele, type) and issubclass(ele, Tag):
         e = ele()
-        return e._render(indent)
+        return e._render(indent, options)
     else:
         # Remove newlines from strings when inline rendering
         if escape_strings:
@@ -121,7 +117,8 @@ def render_inline_element(
 def render_children(
     children: list[ChildElementType],
     escape_strings: bool,
-    indent: int,
+    indent: str,
+    options: FullOptions,
 ) -> list[str]:
     """
     Render child elements of tags.
@@ -130,19 +127,35 @@ def render_children(
     """
     rendered = []
     for ele in children:
-        rendered.extend(render_inline_element(ele, escape_strings, indent))
+        rendered.extend(
+            render_inline_element(ele, escape_strings, indent, options)
+        )
     return rendered
 
 
-def flatten_list(the_list: list[ChildrenType]) -> list[ChildElementType]:
+def flatten_children(
+    the_list: list[ChildrenType],
+) -> tuple[list[ChildElementType], Options]:
     """
-    Flatten a list by taking any list elements and inserting their items
-    individually. Note that other iterables (such as str and tuple) are not
-    flattened.
+    Flatten the given list of child elements, and extract the given render
+    options.
 
-    FIXME: Currently doesn't support lists of lists
+    Note that other iterables (such as str and tuple) are not flattened. Lists
+    of lists are not supported.
+
+    Parameters
+    ----------
+    the_list : list[ChildrenType]
+        list of children elements
+
+    Returns
+    -------
+    (result, options) - tuple[list[ChildElementType], Options]
+        * `result` is the flattened list
+        * `options` is the `Options` object containing the render options
     """
     result: list[ChildElementType] = []
+    options = Options()
     for item in the_list:
         if isinstance(item, (list, Generator)):
             result.extend(item)
@@ -150,9 +163,11 @@ def flatten_list(the_list: list[ChildrenType]) -> list[ChildElementType]:
             result.append(item)
         elif isinstance(item, Sequence):
             result.extend(item)
+        elif isinstance(item, Options):
+            options = options.union(item)
         else:
             result.append(item)
-    return result
+    return result, options
 
 
 def dict_union(base: dict[K, V], additions: dict[K, V]) -> dict[K, V]:

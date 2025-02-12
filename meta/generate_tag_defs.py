@@ -70,8 +70,10 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
 
     attr_args = "\n".join(attr_args_gen).strip()
     attr_unions = "\n".join(attr_unions_gen).strip()
-    attr_docs_outer = "\n".join(increase_indent(attr_docs_gen, 4)).strip()
-    attr_docs_inner = "\n".join(increase_indent(attr_docs_gen, 8)).strip()
+    attr_docs_outer = "\n".join(increase_indent(attr_docs_gen, "    ")).strip()
+    attr_docs_inner = "\n".join(
+        increase_indent(attr_docs_gen, "        ")
+    ).strip()
 
     # Determine whether the class should mandate keyword-only args
     # If there are no named attributes, we set it to '' to avoid a syntax error

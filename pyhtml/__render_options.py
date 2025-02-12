@@ -70,3 +70,17 @@ class Options:
             indent="  ",
             spacing="\n",
         )
+
+    def union(self, other: "Options | FullOptions") -> "Options":
+        """
+        Union this set of options with the other options, returning a new
+        `Options` object as the result.
+
+        Any non-`None` options in `other` will overwrite the original values.
+        """
+        values = asdict(self)
+        for field in values:
+            if (other_value := getattr(other, field)) is not None:
+                values[field] = other_value
+
+        return Options(**values)
