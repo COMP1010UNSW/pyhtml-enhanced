@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     from .__tag_base import Tag
 
 
-AttributeType = Union[str, bool, None]
+AttributeType = str | bool | None
 """
 Objects that are valid values for tag attributes
 

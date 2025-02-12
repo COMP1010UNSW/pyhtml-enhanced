@@ -7,7 +7,7 @@ Note that all documentation is licensed as CC-BY-SA-2.5
 
 https://creativecommons.org/licenses/by-sa/2.5/
 """
-from typing import Literal, Optional, Union
+from typing import Literal
 
 from ..__render_options import RenderOptions
 from ..__tag_base import SelfClosingTag, Tag, WhitespaceSensitiveTag
@@ -25,7 +25,7 @@ class html(Tag):
     def __init__(
         self,
         *children: ChildrenType,
-        lang: Optional[str] = None,
+        lang: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -43,7 +43,7 @@ class html(Tag):
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
-        lang: Optional[str] = None,
+        lang: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -62,7 +62,7 @@ class html(Tag):
         return {'lang': None}
 
 
-    def _get_tag_pre_content(self) -> Optional[str]:
+    def _get_tag_pre_content(self) -> str | None:
         return '<!DOCTYPE html>'
 
 
@@ -181,8 +181,8 @@ class link(SelfClosingTag):
     def __init__(
         self,
         *options: RenderOptions,
-        href: Optional[str] = None,
-        rel: Optional[str] = None,
+        href: str | None = None,
+        rel: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -202,8 +202,8 @@ class link(SelfClosingTag):
     def __call__(  # type: ignore
         self,
         *options: RenderOptions,
-        href: Optional[str] = None,
-        rel: Optional[str] = None,
+        href: str | None = None,
+        rel: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -283,7 +283,7 @@ class style(Tag):
     def __init__(
         self,
         *children: ChildrenType,
-        type: Optional[str] = None,
+        type: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -301,7 +301,7 @@ class style(Tag):
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
-        type: Optional[str] = None,
+        type: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -672,9 +672,9 @@ class h1(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -696,9 +696,9 @@ class h1(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -732,9 +732,9 @@ class h2(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -756,9 +756,9 @@ class h2(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -792,9 +792,9 @@ class h3(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -816,9 +816,9 @@ class h3(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -852,9 +852,9 @@ class h4(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -876,9 +876,9 @@ class h4(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -912,9 +912,9 @@ class h5(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -936,9 +936,9 @@ class h5(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -972,9 +972,9 @@ class h6(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -996,9 +996,9 @@ class h6(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -1368,9 +1368,9 @@ class div(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -1392,9 +1392,9 @@ class div(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -1812,9 +1812,9 @@ class p(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -1836,9 +1836,9 @@ class p(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -1972,11 +1972,11 @@ class a(Tag):
     def __init__(
         self,
         *children: ChildrenType,
-        href: Optional[str] = None,
-        target: Union[Literal['_self', '_blank', '_parent', '_top'], str, None] = None,
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        href: str | None = None,
+        target: Literal['_self', '_blank', '_parent', '_top'] | str | None = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -1999,11 +1999,11 @@ class a(Tag):
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
-        href: Optional[str] = None,
-        target: Union[Literal['_self', '_blank', '_parent', '_top'], str, None] = None,
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        href: str | None = None,
+        target: Literal['_self', '_blank', '_parent', '_top'] | str | None = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -2087,9 +2087,9 @@ class b(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -2111,9 +2111,9 @@ class b(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -2483,9 +2483,9 @@ class em(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -2507,9 +2507,9 @@ class em(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -2543,9 +2543,9 @@ class i(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -2567,9 +2567,9 @@ class i(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -3035,9 +3035,9 @@ class span(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -3059,9 +3059,9 @@ class span(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -3095,9 +3095,9 @@ class strong(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -3119,9 +3119,9 @@ class strong(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -4122,7 +4122,7 @@ class script(Tag):
     def __init__(
         self,
         *children: ChildrenType,
-        type: Optional[str] = None,
+        type: str | None = None,
         src: AttributeType = None,
         **attributes: AttributeType,
     ) -> None:
@@ -4143,7 +4143,7 @@ class script(Tag):
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
-        type: Optional[str] = None,
+        type: str | None = None,
         src: AttributeType = None,
         **attributes: AttributeType,
     ):
@@ -4421,9 +4421,9 @@ class table(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -4445,9 +4445,9 @@ class table(Tag):
         self,
         *children: ChildrenType,
         
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -4531,9 +4531,9 @@ class td(Tag):
         *children: ChildrenType,
         colspan: AttributeType = None,
         rowspan: AttributeType = None,
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -4558,9 +4558,9 @@ class td(Tag):
         *children: ChildrenType,
         colspan: AttributeType = None,
         rowspan: AttributeType = None,
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -4645,12 +4645,12 @@ class th(Tag):
     def __init__(
         self,
         *children: ChildrenType,
-        scope: Optional[Literal['col', 'row', 'colgroup', 'rowgroup']] = None,
+        scope: Literal['col', 'row', 'colgroup', 'rowgroup'] | None = None,
         colspan: AttributeType = None,
         rowspan: AttributeType = None,
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -4675,12 +4675,12 @@ class th(Tag):
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
-        scope: Optional[Literal['col', 'row', 'colgroup', 'rowgroup']] = None,
+        scope: Literal['col', 'row', 'colgroup', 'rowgroup'] | None = None,
         colspan: AttributeType = None,
         rowspan: AttributeType = None,
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -4816,9 +4816,9 @@ class button(Tag):
         *children: ChildrenType,
         formmethod: AttributeType = None,
         formaction: AttributeType = None,
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -4843,9 +4843,9 @@ class button(Tag):
         *children: ChildrenType,
         formmethod: AttributeType = None,
         formaction: AttributeType = None,
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -4977,7 +4977,7 @@ class form(Tag):
     def __init__(
         self,
         *children: ChildrenType,
-        method: Optional[Literal['post', 'get']] = None,
+        method: Literal['post', 'get'] | None = None,
         action: AttributeType = None,
         **attributes: AttributeType,
     ) -> None:
@@ -4998,7 +4998,7 @@ class form(Tag):
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
-        method: Optional[Literal['post', 'get']] = None,
+        method: Literal['post', 'get'] | None = None,
         action: AttributeType = None,
         **attributes: AttributeType,
     ):
@@ -5225,8 +5225,8 @@ class option(Tag):
     def __init__(
         self,
         *children: ChildrenType,
-        selected: Optional[bool] = None,
-        disabled: Optional[bool] = None,
+        selected: bool | None = None,
+        disabled: bool | None = None,
         value: AttributeType = None,
         **attributes: AttributeType,
     ) -> None:
@@ -5249,8 +5249,8 @@ class option(Tag):
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
-        selected: Optional[bool] = None,
-        disabled: Optional[bool] = None,
+        selected: bool | None = None,
+        disabled: bool | None = None,
         value: AttributeType = None,
         **attributes: AttributeType,
     ):
@@ -5384,13 +5384,13 @@ class select(Tag):
     def __init__(
         self,
         *children: ChildrenType,
-        required: Optional[bool] = None,
+        required: bool | None = None,
         name: AttributeType = None,
-        disabled: Optional[bool] = None,
-        multiple: Optional[bool] = None,
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        disabled: bool | None = None,
+        multiple: bool | None = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -5417,13 +5417,13 @@ class select(Tag):
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
-        required: Optional[bool] = None,
+        required: bool | None = None,
         name: AttributeType = None,
-        disabled: Optional[bool] = None,
-        multiple: Optional[bool] = None,
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        disabled: bool | None = None,
+        multiple: bool | None = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -5470,15 +5470,15 @@ class textarea(WhitespaceSensitiveTag):
     def __init__(
         self,
         *children: ChildrenType,
-        required: Optional[bool] = None,
+        required: bool | None = None,
         name: AttributeType = None,
-        rows: Optional[str] = None,
-        cols: Optional[str] = None,
+        rows: str | None = None,
+        cols: str | None = None,
         placeholder: AttributeType = None,
-        disabled: Optional[bool] = None,
+        disabled: bool | None = None,
         maxlength: AttributeType = None,
-        wrap: Union[Literal['hard', 'soft'], None] = None,
-        readonly: Optional[bool] = None,
+        wrap: Literal['hard', 'soft'] | None = None,
+        readonly: bool | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -5512,15 +5512,15 @@ class textarea(WhitespaceSensitiveTag):
     def __call__(  # type: ignore
         self,
         *children: ChildrenType,
-        required: Optional[bool] = None,
+        required: bool | None = None,
         name: AttributeType = None,
-        rows: Optional[str] = None,
-        cols: Optional[str] = None,
+        rows: str | None = None,
+        cols: str | None = None,
         placeholder: AttributeType = None,
-        disabled: Optional[bool] = None,
+        disabled: bool | None = None,
         maxlength: AttributeType = None,
-        wrap: Union[Literal['hard', 'soft'], None] = None,
-        readonly: Optional[bool] = None,
+        wrap: Literal['hard', 'soft'] | None = None,
+        readonly: bool | None = None,
         **attributes: AttributeType,
     ):
         """

@@ -176,7 +176,7 @@ def flatten_children(
     result: list[ChildElementType] = []
     options = RenderOptions()
     for item in the_list:
-        if isinstance(item, (list, Generator)):
+        if isinstance(item, list | Generator):
             result.extend(item)
         elif isinstance(item, str):
             result.append(item)

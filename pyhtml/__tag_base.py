@@ -4,7 +4,7 @@
 Tag base class, including rendering logic
 """
 
-from typing import Optional, TypeVar
+from typing import TypeVar
 
 from . import __util as util
 from .__render_options import FullRenderOptions, RenderOptions
@@ -98,7 +98,7 @@ class Tag:
         # By default, don't override any options
         return RenderOptions()
 
-    def _get_tag_pre_content(self) -> Optional[str]:
+    def _get_tag_pre_content(self) -> str | None:
         """
         Return "pre-content" for the tag.
 

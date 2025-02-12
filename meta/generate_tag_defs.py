@@ -21,7 +21,7 @@ NO_ESCAPE_CHILDREN = """
 """
 
 GET_PRE_CONTENT = """
-    def _get_tag_pre_content(self) -> Optional[str]:
+    def _get_tag_pre_content(self) -> str | None:
         return {}
 """
 

@@ -6,7 +6,7 @@ html:
   attributes:
     lang:
       doc: Language used by the document
-      type: Optional[str]
+      type: "str | None"
 
 # Rename <del> tag as it is a reserved keyword in Python
 del:
@@ -23,20 +23,20 @@ link:
   attributes:
     href:
       doc: Location of the file being linked to
-      type: Optional[str]
+      type: "str | None"
     rel:
       doc: Kind of file being loaded (eg `"stylesheet"`)
-      type: Optional[str]
+      type: "str | None"
 
 a:
   base: StylableTag
   attributes:
     href:
       doc: URL of page to link to
-      type: Optional[str]
+      type: "str | None"
     target:
       doc: Use "_blank" to open in a new tab
-      type: "Union[Literal['_self', '_blank', '_parent', '_top'], str, None]"
+      type: "Literal['_self', '_blank', '_parent', '_top'] | str | None"
 
 script:
   escape_children: false
@@ -44,7 +44,7 @@ script:
     type:
       doc: Type of script to use
       default: "'text/javascript'"
-      type: Optional[str]
+      type: "str | None"
     src: The location from which to load the script. If present, this will be used rather than the contents of the element.
 
 style:
@@ -53,14 +53,14 @@ style:
     type:
       doc: Type of style to use
       default: "'text/css'"
-      type: Optional[str]
+      type: "str | None"
 
 form:
   attributes:
     method:
       doc: The HTTP request method to use when submitting this form. In almost all cases, you'll want this to be POST.
       default: "'post'"
-      type: "Optional[Literal['post', 'get']]"
+      type: "Literal['post', 'get'] | None"
     action: The URL to request to when submitting this form. By default, requests will be sent to the same URL as the current page.
 
 input:
@@ -80,7 +80,7 @@ th:
   attributes:
     scope:
       doc: 'The area of the table that this heading applies to. Allowed values: `"col"`, `"row"`, `"colgroup"`, `"rowgroup"`'
-      type: "Optional[Literal['col', 'row', 'colgroup', 'rowgroup']]"
+      type: "Literal['col', 'row', 'colgroup', 'rowgroup'] | None"
     colspan: The number of columns in the table that this heading spans.
     rowspan: The number of rows in the table that this heading spans.
 
@@ -151,34 +151,34 @@ textarea:
   attributes:
     required:
       doc: Whether the input is required to submit the form it is contained within.
-      type: "Optional[bool]"
+      type: "bool | None"
     name: The name to use for this value when submitting the form.
     rows:
       doc: The number of rows (lines) to use in the text area. Value should be an integer, but given as type `str`.
-      type: "Optional[str]"
+      type: "str | None"
     cols:
       doc: The number of columns (length of each line) to use in the text area. Value should be an integer, but given as type `str`.
-      type: "Optional[str]"
+      type: "str | None"
     placeholder: Placeholder text to use when the field is empty.
     disabled:
       doc: "Whether this option is disabled, meaning it cannot be selected, and will not be submitted with the form."
-      type: "Optional[bool]"
+      type: "bool | None"
     maxlength: The maximum number of characters permitted in the textarea
     wrap:
       doc: How to perform word wrapping ("hard" or "soft")
-      type: "Union[Literal['hard', 'soft'], None]"
+      type: "Literal['hard', 'soft'] | None"
     readonly:
       doc: "Whether this option is read-only, meaning it cannot be modified"
-      type: "Optional[bool]"
+      type: "bool | None"
 
 option:
   attributes:
     selected:
       doc: "Whether this option is the default selection within the `select` element"
-      type: "Optional[bool]"
+      type: "bool | None"
     disabled:
       doc: "Whether this option is disabled, meaning it cannot be selected."
-      type: "Optional[bool]"
+      type: "bool | None"
     value:
       doc: "The value to use if this option is selected when submitting the form"
 
@@ -187,11 +187,11 @@ select:
   attributes:
     required:
       doc: Whether the input is required to submit the form it is contained within.
-      type: "Optional[bool]"
+      type: "bool | None"
     name: The name to use for this value when submitting the form.
     disabled:
       doc: "Whether this form element is disabled, meaning it cannot be selected, and will not be submitted with the form."
-      type: "Optional[bool]"
+      type: "bool | None"
     multiple:
       doc: "Whether multiple options can be simultaneously selected."
-      type: "Optional[bool]"
+      type: "bool | None"

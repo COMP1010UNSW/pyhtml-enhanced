@@ -10,7 +10,7 @@ It also embeds suggested kwargs for some elements, using info from tags.yml.
 import sys
 from collections.abc import Iterator
 from dataclasses import dataclass
-from typing import Any, Optional, TypedDict, Union
+from typing import Any, TypedDict
 
 import requests
 import yaml
@@ -42,7 +42,7 @@ Base page of MDN
 """
 
 
-def htmlElementReplace(lookup: str, presentation: Optional[str] = None) -> str:
+def htmlElementReplace(lookup: str, presentation: str | None = None) -> str:
     """
     Replace text in an HTML reference
     """
@@ -54,7 +54,7 @@ def htmlElementReplace(lookup: str, presentation: Optional[str] = None) -> str:
     return f"[{presentation}]({url})"
 
 
-def glossaryReplace(lookup: str, presentation: Optional[str] = None) -> str:
+def glossaryReplace(lookup: str, presentation: str | None = None) -> str:
     """
     Replace text in a glossary reference
     """
@@ -66,7 +66,7 @@ def glossaryReplace(lookup: str, presentation: Optional[str] = None) -> str:
     return f"[{presentation}]({url})"
 
 
-def cssXrefReplace(lookup: str, presentation: Optional[str] = None) -> str:
+def cssXrefReplace(lookup: str, presentation: str | None = None) -> str:
     """
     Replace text for CSS cross reference lookup
     """
@@ -78,7 +78,7 @@ def cssXrefReplace(lookup: str, presentation: Optional[str] = None) -> str:
     return f"[{presentation}]({url})"
 
 
-def domXrefReplace(lookup: str, presentation: Optional[str] = None) -> str:
+def domXrefReplace(lookup: str, presentation: str | None = None) -> str:
     """
     Replace text for DOM cross reference lookup
     """
@@ -137,7 +137,7 @@ class TagsYmlItem(TypedDict):
     skip: NotRequired[bool]
     """Whether to skip this tag when generating tags"""
 
-    attributes: NotRequired[dict[str, Union[str, AttrYmlItem]]]
+    attributes: NotRequired[dict[str, str | AttrYmlItem]]
     """Mapping of attributes used by the tag (name: description)"""
 
     base: NotRequired[str]
@@ -175,7 +175,7 @@ class Attr:
     Name of the attribute
     """
 
-    doc: Optional[str]
+    doc: str | None
     """
     Documentation of the attribute if applicable
     """
@@ -185,7 +185,7 @@ class Attr:
     Type to accept for the attribute
     """
 
-    default: Optional[Any]
+    default: Any | None
     """
     Default value for the attribute
     """
@@ -227,12 +227,12 @@ class TagInfo:
     List of attributes and their documentation.
     """
 
-    pre_content: Optional[str]
+    pre_content: str | None
     """
     Pre-content for the element (eg `<!DOCTYPE html>`)
     """
 
-    render_options: Optional[RenderOptions]
+    render_options: RenderOptions | None
     """
     Render options
     """
@@ -419,8 +419,8 @@ def attr_entries_to_object(tags: TagsYaml, tag_name: str) -> list[Attr]:
     attrs = []
     for name, value in tag_data["attributes"].items():
         if isinstance(value, str):
-            doc: Optional[str] = value
-            default: Optional[str] = None
+            doc: str | None = value
+            default: str | None = None
             type = "AttributeType"
         else:
             doc = value.get("doc")
@@ -479,7 +479,7 @@ def get_tag_escape_children(tags: TagsYaml, tag_name: str) -> bool:
     return tag.get("escape_children", True)
 
 
-def get_tag_pre_content(tags: TagsYaml, tag_name: str) -> Optional[str]:
+def get_tag_pre_content(tags: TagsYaml, tag_name: str) -> str | None:
     """
     Return pre-content for the tag
     """
@@ -491,7 +491,7 @@ def get_tag_pre_content(tags: TagsYaml, tag_name: str) -> Optional[str]:
 
 def get_tag_render_options(
     tags: TagsYaml, tag_name: str
-) -> Optional[RenderOptions]:
+) -> RenderOptions | None:
     """
     Return pre-content for the tag
     """

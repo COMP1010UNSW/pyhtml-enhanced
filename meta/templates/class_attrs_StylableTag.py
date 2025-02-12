@@ -10,9 +10,9 @@ class {name}(Tag):
         self,
         *children: ChildrenType,
         {attr_args}
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -34,9 +34,9 @@ class {name}(Tag):
         self,
         *children: ChildrenType,
         {attr_args}
-        id: Optional[str] = None,
-        _class: Optional[str] = None,
-        style: Optional[str] = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
