@@ -48,20 +48,25 @@ class FullRenderOptions:
 class RenderOptions:
     """
     PyHTML rendering options.
-
-    * `indent` (`str`): string to add to indentation for non-inline child
-      elements. For example, to indent using a tab, you could use `'\\t'`.
-      Defaults to 2 spaces `'  '`.
-    * `spacing` (`str`): string to use for spacing between child elements. When
-      this is set to `'\\n'`, each child element will be placed on its own
-      line, and indentation will be applied. Otherwise, each child element will
-      be separated using the given value.
     """
 
     indent: Optional[str] = None
-    """String to add to indentation for non-inline child elements"""
+    """
+    String to add to indentation for non-inline child elements. For example,
+    to indent using a tab, you could use `'\\t'`.
+
+    Defaults to 2 spaces (`'  '`).
+    """
+
     spacing: Optional[str] = None
-    """String to use for spacing between child elements"""
+    """
+    String to use for spacing between child elements. When this is set to
+    `'\\n'`, each child element will be placed on its own line, and indentation
+    will be applied. Otherwise, each child element will be separated using the
+    given string.
+
+    Defaults to a new-line (`'\\n'`).
+    """
 
     def __repr__(self) -> str:
         """
