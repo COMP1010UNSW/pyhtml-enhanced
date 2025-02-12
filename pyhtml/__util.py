@@ -125,11 +125,30 @@ def render_children(
 
     Elements are placed in the same string
     """
-    rendered = []
+    rendered: list[str] = []
     for ele in children:
-        rendered.extend(
-            render_inline_element(ele, escape_strings, indent, options)
+        rendered_child = render_inline_element(
+            ele, escape_strings, indent, options
         )
+        if options.spacing == "\n":
+            rendered.extend(rendered_child)
+        else:
+            # Custom spacing
+            if len(rendered) == 0:
+                rendered_child[0] = rendered_child[0].strip()
+                rendered = rendered_child
+            else:
+                *r_head, r_tail = rendered
+                # rendered_child should not have length zero, otherwise
+                # something has gone horribly wrong, and it's ok to crash
+                c_head, *c_tail = rendered_child
+                # Join it all nicely
+                rendered = [
+                    *r_head,
+                    # Remove leading whitespace caused by indentation rules
+                    r_tail + options.spacing + c_head.lstrip(),
+                    *c_tail,
+                ]
     return rendered
 
 

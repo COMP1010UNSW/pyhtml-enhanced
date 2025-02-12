@@ -297,6 +297,7 @@ license text is available in [LICENSE_DOCS.md](https://github.com/COMP1010UNSW/p
 from .__tag_base import Tag, create_tag, SelfClosingTag, WhitespaceSensitiveTag
 
 from .__tags import input_, object_
+from .__render_options import Options
 
 __all__ = [
     'Tag',
@@ -307,6 +308,7 @@ __all__ = [
     'Comment',
     'input_',
     'object_',
+    'Options',
     'html',
     'base',
     'head',

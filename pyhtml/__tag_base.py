@@ -146,20 +146,34 @@ class Tag:
             opening += f"</{self._get_tag_name()}>"
             return [opening]
         else:
-            out = [opening]
+            indent_increase = options.indent if options.spacing == "\n" else ""
             # Children
-            out.extend(
-                util.render_children(
-                    self.children,
-                    self._escape_children(),
-                    indent + options.indent,
-                    options,
-                )
+            children = util.render_children(
+                self.children,
+                self._escape_children(),
+                indent + indent_increase,
+                options,
             )
-            # Closing tag
-            out.append(f"{indent}</{self._get_tag_name()}>")
-
-            return out
+            closing = f"</{self._get_tag_name()}>"
+            if options.spacing == "\n":
+                return [
+                    opening,
+                    *children,
+                    f"{indent}{closing}",
+                ]
+            else:
+                # Children must have at least one line, since we would have
+                # taken the `if not len(self.children)` branch if there were
+                # no children to render
+                out: list[str] = [
+                    opening + options.spacing + children[0],
+                    *children[1:],
+                ]
+                # Add the closing tag onto the end
+                return [
+                    *out[:-1],
+                    out[-1] + options.spacing + closing,
+                ]
 
     def render(self) -> str:
         """
@@ -179,9 +193,7 @@ class SelfClosingTag(Tag):
     Self-closing tags don't contain child elements
     """
 
-    def __init__(
-        self, *options: Options, **attributes: AttributeType
-    ) -> None:
+    def __init__(self, *options: Options, **attributes: AttributeType) -> None:
         # Self-closing tags don't allow children
         super().__init__(*options, **attributes)
 
