@@ -54,7 +54,7 @@ class Comment(Tag):
             ["<!--"]
             + util.increase_indent(
                 util.escape_string(self.comment_data).splitlines(),
-                indent + options.indent,
+                "" if options.indent is None else indent + options.indent,
             )
             + ["-->"],
             indent,
