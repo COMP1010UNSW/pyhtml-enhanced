@@ -5,6 +5,7 @@ Tag base class, including rendering logic
 """
 
 from typing import TypeVar
+from warnings import deprecated
 
 from . import __util as util
 from .__render_options import FullRenderOptions, RenderOptions
@@ -234,26 +235,14 @@ class SelfClosingTag(Tag):
             return [f"{indent}<{self._get_tag_name()}/>"]
 
 
+@deprecated(
+    "Overload `_get_default_render_options` to return "
+    "`RenderOptions(indent=None, spacing='')` instead"
+)
 class WhitespaceSensitiveTag(Tag):
     """
     Whitespace-sensitive tags are tags where whitespace needs to be respected.
     """
-
-    def __init__(
-        self,
-        *children: ChildrenType,
-        **attributes: AttributeType,
-    ) -> None:
-        attributes |= {}
-        super().__init__(*children, **attributes)
-
-    def __call__(  # type: ignore
-        self,
-        *children: ChildrenType,
-        **attributes: AttributeType,
-    ):
-        attributes |= {}
-        return super().__call__(*children, **attributes)
 
     def _get_default_render_options(self) -> RenderOptions:
         return RenderOptions(indent=None, spacing="")

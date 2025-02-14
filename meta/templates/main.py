@@ -10,5 +10,5 @@ https://creativecommons.org/licenses/by-sa/2.5/
 from typing import Literal
 
 from ..__render_options import RenderOptions
-from ..__tag_base import SelfClosingTag, Tag, WhitespaceSensitiveTag
+from ..__tag_base import SelfClosingTag, Tag
 from ..__types import AttributeType, ChildrenType

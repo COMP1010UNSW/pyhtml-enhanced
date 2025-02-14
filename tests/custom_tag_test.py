@@ -13,6 +13,6 @@ def test_generate_custom_tag():
 
 
 def test_base_class_set():
-    t = p.create_tag('t', p.WhitespaceSensitiveTag)
+    t = p.create_tag('t', p.SelfClosingTag)
 
-    assert issubclass(t, p.WhitespaceSensitiveTag)
+    assert issubclass(t, p.SelfClosingTag)

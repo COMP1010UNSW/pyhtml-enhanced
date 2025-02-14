@@ -147,10 +147,16 @@ span:
   base: StylableTag
 
 pre:
-  base: WhitespaceSensitiveTag
+  base: StylableTag
+  render_options:
+    spacing: ''
+    indent: null
 
 textarea:
-  base: WhitespaceSensitiveTag
+  base: StylableTag
+  render_options:
+    spacing: ''
+    indent: null
   attributes:
     required:
       doc: Whether the input is required to submit the form it is contained within.

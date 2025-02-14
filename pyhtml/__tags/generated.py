@@ -10,7 +10,7 @@ https://creativecommons.org/licenses/by-sa/2.5/
 from typing import Literal
 
 from ..__render_options import RenderOptions
-from ..__tag_base import SelfClosingTag, Tag, WhitespaceSensitiveTag
+from ..__tag_base import SelfClosingTag, Tag
 from ..__types import AttributeType, ChildrenType
 
 
@@ -1864,7 +1864,7 @@ class p(Tag):
         return RenderOptions(spacing='')
 
 
-class pre(WhitespaceSensitiveTag):
+class pre(Tag):
     """
     Represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or [monospaced](https://en.wikipedia.org/wiki/Monospaced_font), font. Whitespace inside this element is displayed as written.
 
@@ -1876,6 +1876,9 @@ class pre(WhitespaceSensitiveTag):
         self,
         *children: ChildrenType,
         
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -1886,6 +1889,9 @@ class pre(WhitespaceSensitiveTag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre)
         """
         attributes |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
         super().__init__(*children, **attributes)
@@ -1894,6 +1900,9 @@ class pre(WhitespaceSensitiveTag):
         self,
         *children: ChildrenType,
         
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -1904,12 +1913,19 @@ class pre(WhitespaceSensitiveTag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre)
         """
         attributes |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             
         }
         return super().__call__(*children, **attributes)
 
     def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
         return {}
+
+
+    def _get_default_render_options(self) -> RenderOptions:
+        return RenderOptions(indent=None, spacing='')
 
 
 class ul(Tag):
@@ -5458,7 +5474,7 @@ class select(Tag):
         return {'required': None, 'name': None, 'disabled': None, 'multiple': None}
 
 
-class textarea(WhitespaceSensitiveTag):
+class textarea(Tag):
     """
     Represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example, a comment on a review or feedback form.
 
@@ -5486,6 +5502,9 @@ class textarea(WhitespaceSensitiveTag):
         maxlength: AttributeType = None,
         wrap: Literal['hard', 'soft'] | None = None,
         readonly: bool | None = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -5504,6 +5523,9 @@ class textarea(WhitespaceSensitiveTag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
         """
         attributes |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             'required': required,
             'name': name,
             'rows': rows,
@@ -5528,6 +5550,9 @@ class textarea(WhitespaceSensitiveTag):
         maxlength: AttributeType = None,
         wrap: Literal['hard', 'soft'] | None = None,
         readonly: bool | None = None,
+        id: str | None = None,
+        _class: str | None = None,
+        style: str | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -5546,6 +5571,9 @@ class textarea(WhitespaceSensitiveTag):
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
         """
         attributes |= {
+            '_class': _class,
+            'id': id,
+            'style': style,
             'required': required,
             'name': name,
             'rows': rows,
@@ -5560,6 +5588,10 @@ class textarea(WhitespaceSensitiveTag):
 
     def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
         return {'required': None, 'name': None, 'rows': None, 'cols': None, 'placeholder': None, 'disabled': None, 'maxlength': None, 'wrap': None, 'readonly': None}
+
+
+    def _get_default_render_options(self) -> RenderOptions:
+        return RenderOptions(indent=None, spacing='')
 
 
 class details(Tag):
