@@ -4116,6 +4116,7 @@ class script(Tag):
 
     * `type`: Type of script to use (defaults to `'text/javascript'`)
     * `src`: The location from which to load the script. If present, this will be used rather than the contents of the element.
+    * `defer`: Defers execution of the script until the page has fully loaded.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
     """
@@ -4124,6 +4125,7 @@ class script(Tag):
         *children: ChildrenType,
         type: str | None = None,
         src: AttributeType = None,
+        defer: bool | None = None,
         **attributes: AttributeType,
     ) -> None:
         """
@@ -4131,12 +4133,14 @@ class script(Tag):
 
         * `type`: Type of script to use (defaults to `'text/javascript'`)
         * `src`: The location from which to load the script. If present, this will be used rather than the contents of the element.
+        * `defer`: Defers execution of the script until the page has fully loaded.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
         attributes |= {
             'type': type,
             'src': src,
+            'defer': defer,
         }
         super().__init__(*children, **attributes)
 
@@ -4145,6 +4149,7 @@ class script(Tag):
         *children: ChildrenType,
         type: str | None = None,
         src: AttributeType = None,
+        defer: bool | None = None,
         **attributes: AttributeType,
     ):
         """
@@ -4152,17 +4157,19 @@ class script(Tag):
 
         * `type`: Type of script to use (defaults to `'text/javascript'`)
         * `src`: The location from which to load the script. If present, this will be used rather than the contents of the element.
+        * `defer`: Defers execution of the script until the page has fully loaded.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
         """
         attributes |= {
             'type': type,
             'src': src,
+            'defer': defer,
         }
         return super().__call__(*children, **attributes)
 
     def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
-        return {'type': 'text/javascript', 'src': None}
+        return {'type': 'text/javascript', 'src': None, 'defer': None}
 
 
     def _escape_children(self) -> bool:
