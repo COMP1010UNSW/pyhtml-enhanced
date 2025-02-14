@@ -21,7 +21,7 @@ def test_dangerous_raw_html():
         )
     ) == "\n".join([
         "<body>",
-        "  <script>alert(1)</script>",
+        "<script>alert(1)</script>",
         "</body>",
     ])
 

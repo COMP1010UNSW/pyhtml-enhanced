@@ -166,7 +166,7 @@ class Tag:
             children = util.render_children(
                 self.children,
                 self._escape_children(),
-                indent + indent_increase,
+                "" if indent_increase is None else indent + indent_increase,
                 options,
             )
             closing = f"</{self._get_tag_name()}>"
@@ -255,33 +255,8 @@ class WhitespaceSensitiveTag(Tag):
         attributes |= {}
         return super().__call__(*children, **attributes)
 
-    def _render(self, indent: str, options: FullRenderOptions) -> list[str]:
-        attributes = util.filter_attributes(
-            util.dict_union(
-                self._get_default_attributes(self.attributes),
-                self.attributes,
-            )
-        )
-
-        # Tag and attributes
-        output = f"{indent}<{self._get_tag_name()}"
-
-        if len(attributes):
-            output += f" {util.render_tag_attributes(attributes)}>"
-        else:
-            output += ">"
-
-        output += "\n".join(
-            util.render_children(
-                self.children,
-                self._escape_children(),
-                "",
-                options,
-            )
-        )
-
-        output += f"</{self._get_tag_name()}>"
-        return output.splitlines()
+    def _get_default_render_options(self) -> RenderOptions:
+        return RenderOptions(indent=None, spacing="")
 
 
 def create_tag(name: str, base: type[Tag] = Tag) -> type[Tag]:

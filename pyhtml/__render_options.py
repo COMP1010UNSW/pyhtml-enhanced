@@ -5,6 +5,7 @@ Definition for the `Options` object, used to control rendering.
 """
 
 from dataclasses import asdict, dataclass
+from types import EllipsisType
 
 # While it could be cleaner (and far less-repetitive) to use a TypedDict and
 # declare the partial options class as per
@@ -21,7 +22,7 @@ from dataclasses import asdict, dataclass
 
 @dataclass(kw_only=True, frozen=True)
 class FullRenderOptions:
-    indent: str
+    indent: str | None
     """String to add to indentation for non-inline child elements"""
     spacing: str
     """String to use for spacing between child elements"""
@@ -37,7 +38,7 @@ class FullRenderOptions:
         """
         values = asdict(self)
         for field in values:
-            if (other_value := getattr(other, field)) is not None:
+            if (other_value := getattr(other, field)) is not Ellipsis:
                 values[field] = other_value
 
         return FullRenderOptions(**values)
@@ -49,15 +50,17 @@ class RenderOptions:
     PyHTML rendering options.
     """
 
-    indent: str | None = None
+    indent: str | None | EllipsisType = ...
     """
     String to add to indentation for non-inline child elements. For example,
-    to indent using a tab, you could use `'\\t'`.
+    to indent using a tab, you could use `'\\t'`. Setting the indent to `None`
+    means that the output will not be indented at all, meaning that indentation
+    from parent elements is discarded.
 
     Defaults to 2 spaces (`'  '`).
     """
 
-    spacing: str | None = None
+    spacing: str | EllipsisType = ...
     """
     String to use for spacing between child elements. When this is set to
     `'\\n'`, each child element will be placed on its own line, and indentation
@@ -74,7 +77,7 @@ class RenderOptions:
         attrs = [
             f"{key}={repr(value)}"
             for key, value in asdict(self).items()
-            if value is not None
+            if value is not Ellipsis
         ]
         return f"RenderOptions({', '.join(attrs)})"
 
@@ -95,11 +98,11 @@ class RenderOptions:
         Union this set of options with the other options, returning a new
         `Options` object as the result.
 
-        Any non-`None` options in `other` will overwrite the original values.
+        Any non-ellipsis options in `other` will overwrite the original values.
         """
         values = asdict(self)
         for field in values:
-            if (other_value := getattr(other, field)) is not None:
+            if (other_value := getattr(other, field)) is not Ellipsis:
                 values[field] = other_value
 
         return RenderOptions(**values)
