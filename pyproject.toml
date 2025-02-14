@@ -20,6 +20,7 @@ classifiers = [
 ]
 
 requires-python = ">=3.10"
+dependencies = ["typing-extensions >=4.12.2"]
 
 [project.urls]
 homepage = "https://comp1010unsw.github.io/pyhtml-enhanced/"
@@ -84,7 +85,7 @@ select = [
 ]
 "pyhtml/__tags/generated.py" = [
     # Line too long
-    "E501"
+    "E501",
 ]
 
 [tool.pytest.ini_options]

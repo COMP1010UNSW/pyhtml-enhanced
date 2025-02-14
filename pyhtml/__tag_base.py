@@ -5,7 +5,9 @@ Tag base class, including rendering logic
 """
 
 from typing import TypeVar
-from warnings import deprecated
+
+# from warnings import deprecated
+from typing_extensions import deprecated
 
 from . import __util as util
 from .__render_options import FullRenderOptions, RenderOptions

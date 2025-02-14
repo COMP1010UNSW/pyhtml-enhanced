@@ -16,8 +16,6 @@ Learn more by reading [the documentation](https://comp1010unsw.github.io/pyhtml-
 
 * A modern and readable codebase.
 
-* No dependencies.
-
 * 100% test coverage.
 
 ## Usage
