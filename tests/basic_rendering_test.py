@@ -46,7 +46,7 @@ def test_renders_elements_with_children():
     )
 
 
-def test_renders_deeply_nested_children():
+def test_renders_nested_children():
     doc = body(
         div(
             span("Hello world"),
@@ -59,6 +59,30 @@ def test_renders_deeply_nested_children():
             "  <div>",
             "    <span>",
             "      Hello world",
+            "    </span>",
+            "  </div>",
+            "</body>",
+        ]
+    )
+
+
+def test_renders_deeply_nested_children():
+    doc = body(
+        div(
+            span(
+                div("Hello world"),
+            ),
+        ),
+    )
+
+    assert str(doc) == "\n".join(
+        [
+            "<body>",
+            "  <div>",
+            "    <span>",
+            "      <div>",
+            "        Hello world",
+            "      </div>",
             "    </span>",
             "  </div>",
             "</body>",

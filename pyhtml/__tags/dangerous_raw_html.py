@@ -47,7 +47,12 @@ class DangerousRawHtml(Tag):
         # and is never used since we override _render
         return "!!!DANGEROUS RAW HTML!!!"  # pragma: no cover
 
-    def _render(self, indent: str, options: FullRenderOptions) -> list[str]:
+    def _render(
+        self,
+        indent: str,
+        options: FullRenderOptions,
+        skip_indent: bool = False,
+    ) -> list[str]:
         return self.html_data.splitlines()
 
     def _get_default_render_options(self) -> RenderOptions:

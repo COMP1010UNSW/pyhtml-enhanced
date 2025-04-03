@@ -77,6 +77,25 @@ def test_mixed_spacing():
     )
 
 
+def test_spacing_str():
+    doc = p.body(
+        p.div(
+            p.RenderOptions(spacing=" "),
+            p.span(p.RenderOptions(spacing="\n"), "hi"),
+        ),
+    )
+
+    assert str(doc) == "\n".join(
+        [
+            "<body>",
+            "  <div> <span>",
+            "    hi",
+            "  </span> </div>",
+            "</body>",
+        ]
+    )
+
+
 def test_spacing_inner_newline():
     doc = p.body(
         p.div(
@@ -121,6 +140,24 @@ def test_indent_and_spacing_inner_newline():
     )
 
 
-def test_default_render_options():
+def test_default_render_options_paragraph():
     doc = p.p("Paragraph")
     assert str(doc) == "<p>Paragraph</p>"
+
+
+def test_extra_space_is_respected_in_paragraphs():
+    doc = p.p(" Paragraph ")
+    assert str(doc) == "<p> Paragraph </p>"
+
+
+def test_paragraphs_render_in_body():
+    doc = p.body(
+        p.p("Paragraph"),
+    )
+    assert str(doc) == "\n".join(
+        [
+            "<body>",
+            "  <p>Paragraph</p>",
+            "</body>",
+        ]
+    )

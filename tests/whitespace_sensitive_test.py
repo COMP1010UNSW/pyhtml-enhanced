@@ -21,7 +21,8 @@ def test_textarea():
 
 
 def test_indentation_ignored():
-    assert str(p.body(p.pre("hello\nworld"))) == '\n'.join([
+    doc = p.body(p.pre("hello\nworld"))
+    assert str(doc) == '\n'.join([
         "<body>",
         "  <pre>hello",
         "world</pre>",

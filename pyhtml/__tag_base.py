@@ -121,7 +121,12 @@ class Tag:
         """
         return True
 
-    def _render(self, indent: str, options: FullRenderOptions) -> list[str]:
+    def _render(
+        self,
+        indent: str,
+        options: FullRenderOptions,
+        skip_indent: bool = False,
+    ) -> list[str]:
         """
         Renders tag and its children to a list of strings where each string is
         a single line of output.
@@ -132,6 +137,8 @@ class Tag:
             string to use for indentation
         options : FullOptions
             rendering options
+        skip_indent : bool
+            whether to skip indentation for this element
 
         Returns
         -------
@@ -148,8 +155,13 @@ class Tag:
             )
         )
 
+        # Indentation to use before opening tag
+        indent_pre = "" if skip_indent else indent
+        # Indentation to use before closing tag
+        indent_post = "" if skip_indent or options.indent is None else indent
+
         # Tag and attributes
-        opening = f"{indent}<{self._get_tag_name()}"
+        opening = f"{indent_pre}<{self._get_tag_name()}"
 
         # Add pre-content
         if (pre := self._get_tag_pre_content()) is not None:
@@ -177,7 +189,7 @@ class Tag:
                 return [
                     opening,
                     *children,
-                    f"{indent}{closing}",
+                    f"{indent_post}{closing}",
                 ]
             else:
                 # Children must have at least one line, since we would have
@@ -190,7 +202,12 @@ class Tag:
                 # Add the closing tag onto the end
                 return [
                     *out[:-1],
-                    out[-1] + options.spacing + closing,
+                    # Only include post indentation if it's on a different line
+                    # to the pre indentation
+                    (indent_post if len(out) > 1 else "")
+                    + out[-1]
+                    + options.spacing
+                    + closing,
                 ]
 
     def render(self) -> str:
@@ -217,11 +234,17 @@ class SelfClosingTag(Tag):
         # Self-closing tags don't allow children
         super().__init__(*options, **attributes)
 
-    def _render(self, indent: str, options: FullRenderOptions) -> list[str]:
+    def _render(
+        self,
+        indent: str,
+        options: FullRenderOptions,
+        skip_indent: bool = False,
+    ) -> list[str]:
         """
         Renders tag and its children to a list of strings where each string is
         a single line of output
         """
+        indent_str = "" if skip_indent else indent
         attributes = util.filter_attributes(
             util.dict_union(
                 self._get_default_attributes(self.attributes),
@@ -230,18 +253,18 @@ class SelfClosingTag(Tag):
         )
         if len(attributes):
             return [
-                f"{indent}<{self._get_tag_name()} "
+                f"{indent_str}<{self._get_tag_name()} "
                 f"{util.render_tag_attributes(attributes)}/>"
             ]
         else:
-            return [f"{indent}<{self._get_tag_name()}/>"]
+            return [f"{indent_str}<{self._get_tag_name()}/>"]
 
 
 @deprecated(
     "Overload `_get_default_render_options` to return "
     "`RenderOptions(indent=None, spacing='')` instead"
 )
-class WhitespaceSensitiveTag(Tag):
+class WhitespaceSensitiveTag(Tag):  # pragma: no cover
     """
     Whitespace-sensitive tags are tags where whitespace needs to be respected.
     """
