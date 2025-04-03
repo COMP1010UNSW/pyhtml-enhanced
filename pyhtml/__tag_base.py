@@ -202,7 +202,12 @@ class Tag:
                 # Add the closing tag onto the end
                 return [
                     *out[:-1],
-                    indent_post + out[-1] + options.spacing + closing,
+                    # Only include post indentation if it's on a different line
+                    # to the pre indentation
+                    (indent_post if len(out) > 1 else "")
+                    + out[-1]
+                    + options.spacing
+                    + closing,
                 ]
 
     def render(self) -> str:

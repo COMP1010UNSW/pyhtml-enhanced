@@ -148,3 +148,16 @@ def test_default_render_options_paragraph():
 def test_extra_space_is_respected_in_paragraphs():
     doc = p.p(" Paragraph ")
     assert str(doc) == "<p> Paragraph </p>"
+
+
+def test_paragraphs_render_in_body():
+    doc = p.body(
+        p.p("Paragraph"),
+    )
+    assert str(doc) == "\n".join(
+        [
+            "<body>",
+            "  <p>Paragraph</p>",
+            "</body>",
+        ]
+    )
