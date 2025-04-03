@@ -155,10 +155,13 @@ class Tag:
             )
         )
 
-        indent_str = "" if skip_indent else indent
+        # Indentation to use before opening tag
+        indent_pre = "" if skip_indent else indent
+        # Indentation to use before closing tag
+        indent_post = "" if skip_indent or options.indent is None else indent
 
         # Tag and attributes
-        opening = f"{indent_str}<{self._get_tag_name()}"
+        opening = f"{indent_pre}<{self._get_tag_name()}"
 
         # Add pre-content
         if (pre := self._get_tag_pre_content()) is not None:
@@ -178,9 +181,7 @@ class Tag:
             children = util.render_children(
                 self.children,
                 self._escape_children(),
-                ""
-                if indent_increase is None
-                else indent + indent_increase,
+                "" if indent_increase is None else indent + indent_increase,
                 options,
             )
             closing = f"</{self._get_tag_name()}>"
@@ -188,7 +189,7 @@ class Tag:
                 return [
                     opening,
                     *children,
-                    f"{indent_str}{closing}",
+                    f"{indent_post}{closing}",
                 ]
             else:
                 # Children must have at least one line, since we would have
@@ -201,7 +202,7 @@ class Tag:
                 # Add the closing tag onto the end
                 return [
                     *out[:-1],
-                    indent_str + out[-1] + options.spacing + closing,
+                    indent_post + out[-1] + options.spacing + closing,
                 ]
 
     def render(self) -> str:
