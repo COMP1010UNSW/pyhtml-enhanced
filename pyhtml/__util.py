@@ -101,17 +101,21 @@ def render_inline_element(
     """
     from .__tag_base import Tag
 
+    skip_indent = options.spacing is not None and "\n" not in options.spacing
+
     if isinstance(ele, Tag):
-        return ele._render(indent, options)
+        return ele._render(indent, options, skip_indent)
     elif isinstance(ele, type) and issubclass(ele, Tag):
         e = ele()
-        return e._render(indent, options)
+        return e._render(indent, options, skip_indent)
     else:
         # Remove newlines from strings when inline rendering
         if escape_strings:
-            return increase_indent([escape_string(str(ele))], indent)
+            return increase_indent(
+                [escape_string(str(ele))], "" if skip_indent else indent
+            )
         else:
-            return increase_indent([str(ele)], indent)
+            return increase_indent([str(ele)], "" if skip_indent else indent)
 
 
 def render_children(
@@ -135,7 +139,6 @@ def render_children(
         else:
             # Custom spacing
             if len(rendered) == 0:
-                rendered_child[0] = rendered_child[0].strip()
                 rendered = rendered_child
             else:
                 *r_head, r_tail = rendered
@@ -145,8 +148,8 @@ def render_children(
                 # Join it all nicely
                 rendered = [
                     *r_head,
-                    # Remove leading whitespace caused by indentation rules
-                    r_tail + options.spacing + c_head.lstrip(),
+                    # Join using spacing as separator
+                    r_tail + options.spacing + c_head,
                     *c_tail,
                 ]
     return rendered
