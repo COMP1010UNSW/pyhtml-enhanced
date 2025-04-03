@@ -264,7 +264,7 @@ class SelfClosingTag(Tag):
     "Overload `_get_default_render_options` to return "
     "`RenderOptions(indent=None, spacing='')` instead"
 )
-class WhitespaceSensitiveTag(Tag):
+class WhitespaceSensitiveTag(Tag):  # pragma: no cover
     """
     Whitespace-sensitive tags are tags where whitespace needs to be respected.
     """
