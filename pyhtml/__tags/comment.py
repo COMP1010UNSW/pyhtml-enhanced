@@ -45,7 +45,12 @@ class Comment(Tag):
         # and is never used since we override _render
         return "!--"  # pragma: no cover
 
-    def _render(self, indent: str, options: FullRenderOptions) -> list[str]:
+    def _render(
+        self,
+        indent: str,
+        options: FullRenderOptions,
+        skip_indent: bool = False,
+    ) -> list[str]:
         """
         Override of render, to render comments
         """
