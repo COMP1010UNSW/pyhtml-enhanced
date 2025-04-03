@@ -112,10 +112,13 @@ def render_inline_element(
         # Remove newlines from strings when inline rendering
         if escape_strings:
             return increase_indent(
-                [escape_string(str(ele))], "" if skip_indent else indent
+                [escape_string(line) for line in str(ele).splitlines()],
+                "" if skip_indent else indent,
             )
         else:
-            return increase_indent([str(ele)], "" if skip_indent else indent)
+            return increase_indent(
+                str(ele).splitlines(), "" if skip_indent else indent
+            )
 
 
 def render_children(
