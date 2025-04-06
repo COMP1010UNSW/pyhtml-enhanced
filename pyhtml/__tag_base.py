@@ -172,18 +172,20 @@ class Tag:
         else:
             opening += ">"
 
-        if not len(self.children):
+        # Render children
+        indent_increase = options.indent if options.spacing == "\n" else ""
+        children = util.render_children(
+            self.children,
+            self._escape_children(),
+            "" if indent_increase is None else indent + indent_increase,
+            options,
+        )
+
+        # If rendering the children produced no output
+        if not len(children):
             opening += f"</{self._get_tag_name()}>"
             return [opening]
         else:
-            indent_increase = options.indent if options.spacing == "\n" else ""
-            # Children
-            children = util.render_children(
-                self.children,
-                self._escape_children(),
-                "" if indent_increase is None else indent + indent_increase,
-                options,
-            )
             closing = f"</{self._get_tag_name()}>"
             if options.spacing == "\n":
                 return [

@@ -161,3 +161,12 @@ def test_paragraphs_render_in_body():
             "</body>",
         ]
     )
+
+
+def test_render_paragraph_with_empty_str():
+    """
+    Rendering a paragraph with an empty string used to cause a crash. Add a
+    test so we avoid it.
+    """
+    doc = p.p("")
+    assert str(doc) == "<p></p>"

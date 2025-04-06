@@ -343,3 +343,12 @@ def test_whitespace_sensitive_with_attrs():
     Do whitespace-sensitive tags render properly when they have attributes?
     """
     assert str(pre(test="test")("hi")) == '<pre test="test">hi</pre>'
+
+
+def test_render_ele_with_empty_str():
+    """
+    Rendering an element with an empty string used to cause a crash. Add a
+    test so we avoid it.
+    """
+    doc = body("")
+    assert str(doc) == "<body></body>"
