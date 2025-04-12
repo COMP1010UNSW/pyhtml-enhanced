@@ -2,6 +2,8 @@
 
 Build HTML documents in Python with a simple and learnable syntax.
 
+[Try it out](https://comp1010unsw.github.io/pyhtml-demo/)!
+
 ## Usage
 
 * [Learn PyHTML](./learn/index.md)

@@ -5,7 +5,8 @@ inspired by (and similar to)
 [Cenk Altı's PyHTML library](https://github.com/cenkalti/pyhtml), but
 with improved documentation and type safety.
 
-Learn more by reading [the documentation](https://comp1010unsw.github.io/pyhtml-enhanced/).
+Learn more by reading [the documentation](https://comp1010unsw.github.io/pyhtml-enhanced/),
+or [try it out online](https://comp1010unsw.github.io/pyhtml-demo/)!
 
 ## Features
 
