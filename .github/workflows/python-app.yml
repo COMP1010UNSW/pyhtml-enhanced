@@ -21,7 +21,14 @@ permissions:
 
 jobs:
   Test:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # Python 3.10 -- earliest supported version
+        # Python 3.11 -- version on CSE systems
+        # Python 3.13 -- latest supported version
+        python-version: ['3.10', '3.11', '3.13']
+        os: ['ubuntu-latest', 'windows-latest', 'macos-latest']
+    runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v4
       with:
@@ -29,7 +36,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.10'
+        python-version: ${{ matrix.python-version }}
     - uses: Gr1N/setup-poetry@v9
     - uses: actions/cache@v4
       with:
