@@ -12,7 +12,7 @@ on:
       - main
 
 # Yoinked from https://github.com/MTES-MCT/apilos/pull/854/files
-# Explicitely set permissions to allow Dependabot workflow runs to write in the PR
+# Explicitly set permissions to allow Dependabot workflow runs to write in the PR
 # for coverage's reporting.
 # By default, these are read-only when the actions are ran by Dependabot
 # https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#changing-github_token-permissions
@@ -21,7 +21,14 @@ permissions:
 
 jobs:
   Test:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # Python 3.10 -- earliest supported version
+        # Python 3.11 -- version on CSE systems
+        # Python 3.13 -- latest supported version
+        python-version: ['3.10', '3.11', '3.13']
+        os: ['ubuntu-latest', 'windows-latest', 'macos-latest']
+    runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v4
       with:
@@ -29,7 +36,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.10'
+        python-version: ${{ matrix.python-version }}
     - uses: Gr1N/setup-poetry@v9
     - uses: actions/cache@v4
       with:
@@ -52,6 +59,9 @@ jobs:
       uses: orgoro/coverage@v3
       with:
           coverageFile: coverage.xml
+          # Require 99% code coverage
+          # (100% seems to break things)
+          thresholdAll: 0.99
           token: ${{ secrets.GITHUB_TOKEN }}
 
   Lint:
