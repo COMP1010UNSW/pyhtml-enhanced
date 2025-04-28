@@ -12,7 +12,7 @@ on:
       - main
 
 # Yoinked from https://github.com/MTES-MCT/apilos/pull/854/files
-# Explicitely set permissions to allow Dependabot workflow runs to write in the PR
+# Explicitly set permissions to allow Dependabot workflow runs to write in the PR
 # for coverage's reporting.
 # By default, these are read-only when the actions are ran by Dependabot
 # https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#changing-github_token-permissions
@@ -59,6 +59,8 @@ jobs:
       uses: orgoro/coverage@v3
       with:
           coverageFile: coverage.xml
+          # Require 100% code coverage
+          thresholdAll: 1.0
           token: ${{ secrets.GITHUB_TOKEN }}
 
   Lint:
