@@ -6,6 +6,10 @@ copyright: © 2024 COMP1010 UNSW
 
 site_dir: site
 
+# Don't use directory URLs so that site can be accessed from file system when
+# in exam environment
+use_directory_urls: false
+
 theme:
   name: material
   palette:
