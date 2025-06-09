@@ -1,0 +1,8 @@
+# Code owners configuration
+# ========================
+#
+# Determines who is required to review PRs affecting particular files.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# I'll review all PRs for the time being
+* MaddyGuthridge
