@@ -34,7 +34,7 @@ packages = [{ include = "pyhtml" }]
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=7.4.2,<9.0.0"
-mypy = "^1.16.1"
+mypy = "^1.17.1"
 autopep8 = "^2.0.4"
 coverage = "^7.10.1"
 requests = "^2.32.4"
