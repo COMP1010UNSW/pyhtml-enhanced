@@ -3,6 +3,15 @@
 
 name: Test and Lint
 
+# Yoinked from https://github.com/MTES-MCT/apilos/pull/854/files
+# Explicitly set permissions to allow Dependabot workflow runs to write in the PR
+# for coverage's reporting.
+# By default, these are read-only when the actions are ran by Dependabot
+# https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#changing-github_token-permissions
+permissions:
+  contents: read
+  pull-requests: write
+
 on:
   pull_request:
     branches:
@@ -10,14 +19,6 @@ on:
   push:
     branches:
       - main
-
-# Yoinked from https://github.com/MTES-MCT/apilos/pull/854/files
-# Explicitly set permissions to allow Dependabot workflow runs to write in the PR
-# for coverage's reporting.
-# By default, these are read-only when the actions are ran by Dependabot
-# https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#changing-github_token-permissions
-permissions:
-  pull-requests: write
 
 jobs:
   Test:

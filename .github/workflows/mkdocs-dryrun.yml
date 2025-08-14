@@ -1,6 +1,9 @@
 name: Generate documentation dryrun
+permissions:
+  contents: read
 on:
-  # Documentation can be either manually updated or is automatically updated when pushed to main branch
+  # Documentation can be either manually updated or is automatically updated
+  # when pushed to main branch
   workflow_dispatch:
   push:
     branches:
