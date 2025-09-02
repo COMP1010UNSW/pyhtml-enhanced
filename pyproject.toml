@@ -41,7 +41,7 @@ requests = "^2.32.4"
 types-requests = "^2.32.4.20250611"
 pyyaml = "^6.0.1"
 types-pyyaml = "^6.0.12.20250516"
-flask = "^3.1.1"
+flask = "^3.1.2"
 pytest-mypy-plugins = "^3.0.0"
 ruff = "^0.12.7"
 
