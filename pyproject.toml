@@ -48,7 +48,7 @@ ruff = "^0.12.7"
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.6.1"
-mkdocs-material = "^9.6.16"
+mkdocs-material = "^9.6.18"
 mkdocstrings = { version = ">=0.26,<0.31", extras = ["python"] }
 mkdocs-awesome-pages-plugin = "^2.9.3"
 mkdocs-section-index = "^0.3.10"
