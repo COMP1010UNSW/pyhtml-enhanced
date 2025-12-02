@@ -43,7 +43,7 @@ pyyaml = "^6.0.1"
 types-pyyaml = "^6.0.12.20250915"
 flask = "^3.1.2"
 pytest-mypy-plugins = "^3.0.0"
-ruff = "^0.14.3"
+ruff = "^0.14.7"
 
 
 [tool.poetry.group.docs.dependencies]
