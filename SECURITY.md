@@ -13,7 +13,7 @@ vulnerability in PyHTML, please disclose it responsibly.
 Some vulnerabilities we consider to be high-severity are:
 
 * Bugs where HTML, JS or CSS code can be embedded within PyHTML output
-  without making use of the `p.style`, p.DangerousRawHtml` or `p.script`
+  without making use of the `p.style`, `p.DangerousRawHtml` or `p.script`
   tags.
 * Bugs where the act of rendering PyHTML can trigger remote code execution
   given seemingly-correct input (eg a `str` or descendant of `p.Tag`).
