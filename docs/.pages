@@ -4,5 +4,6 @@ nav:
     - How it works: how.md
     - API: api.md
     - Compatibility: compatibility.md
+    - Developing: developing.md
     - Credits: credits.md
     - Licenses: licenses.md
