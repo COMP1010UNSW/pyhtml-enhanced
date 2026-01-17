@@ -38,6 +38,32 @@ def test_interpolates_other_values():
     )
 
 
+def test_applies_format_specifiers_to_interpolated_values():
+    t = Template(
+        "At age ",
+        Interpolation(100, format_spec=".1f"),
+        " you will get a message from the king.",
+    )
+    assert (
+        str(p.p(t))
+        == "<p>At age 100.0 you will get a message from the king.</p>"
+    )
+
+
+def test_applies_conversion_specifiers_to_interpolated_values():
+    t = Template(
+        "To display output in Python, you must use the ",
+        Interpolation("print", conversion="r"),
+        " function.",
+    )
+    assert (
+        str(p.p(t))
+        == "<p>To display output in Python, you must use the "
+        + "&#x27;print&#x27; function.</p>"
+        #  ^^^^^^     ^^^^^^ Escaped 'single quotes'
+    )
+
+
 def test_renders_uninstantiated_tag_type():
     """Even tags that aren't instantiated, eg `p.br` should still render"""
     t = Template("Hello,", Interpolation(p.br), "world!")
