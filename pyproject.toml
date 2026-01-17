@@ -28,7 +28,7 @@ documentation = "https://comp1010unsw.github.io/pyhtml-enhanced/"
 
 
 [dependency-groups]
-dev = ["pytest>=7.4.2,<10.0.0", "mypy>=1.19.0", "autopep8>=2.0.4", "coverage>=7.13.1", "requests>=2.32.5", "types-requests>=2.32.4.20250913", "pyyaml>=6.0.3", "types-pyyaml>=6.0.12.20250915", "flask>=3.1.2", "pytest-mypy-plugins>=3.0.0", "ruff>=0.14.10"]
+dev = ["pytest>=7.4.2,<10.0.0", "mypy>=1.19.0", "coverage>=7.13.1", "requests>=2.32.5", "types-requests>=2.32.4.20250913", "pyyaml>=6.0.3", "types-pyyaml>=6.0.12.20250915", "flask>=3.1.2", "pytest-mypy-plugins>=3.0.0", "ruff>=0.14.10"]
 docs = ["mkdocs>=1.6.1", "mkdocs-material>=9.7.1", "mkdocstrings[python]>=0.26,<1.1", "mkdocs-awesome-pages-plugin>=2.9.3", "mkdocs-section-index>=0.3.10"]
 
 [build-system]
