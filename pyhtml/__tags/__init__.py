@@ -7,6 +7,7 @@ Definitions for tags
 
 from .comment import Comment  # noqa: I001
 from .dangerous_raw_html import DangerousRawHtml
+from .element_group import ElementGroup
 from .input_tag import input
 from .renames import input_, object_
 
@@ -244,6 +245,7 @@ __all__ = [
     "template",
     "Comment",
     "DangerousRawHtml",
+    "ElementGroup",
     "input",
     "input_",
     "object_",

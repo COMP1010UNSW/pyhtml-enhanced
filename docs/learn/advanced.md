@@ -80,6 +80,22 @@ you can use `p.RenderOptions(spacing="")` to remove it.
 For more information about the specific allowed properties, view
 [this documentation][pyhtml.RenderOptions].
 
+## Element groups
+
+Sometimes you may wish to render a list of PyHTML elements without including a
+wrapper element (eg a `<div>`). In this case, you can use a `ElementGroup`.
+
+```py
+>>> import pyhtml as p
+>>> print(str(p.ElementGroup(
+...     p.p("Hello"),
+...     p.p("World"),
+... )))
+<p>Hello</p>
+<p>World</p>
+
+```
+
 ## HTML comments
 
 You can add comments to HTML by using the `Comment` tag. These will be included

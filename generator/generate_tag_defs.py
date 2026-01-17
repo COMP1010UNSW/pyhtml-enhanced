@@ -126,7 +126,14 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
 
 
 # Additional tags to export from pyhtml/tags/__init__.py
-additional_tags = ["Comment", "DangerousRawHtml", "input", "input_", "object_"]
+additional_tags = [
+    "Comment",
+    "DangerousRawHtml",
+    "ElementGroup",
+    "input",
+    "input_",
+    "object_",
+]
 # Start of pyhtml/tags/__init__.py
 TAGS_INIT = '''
 """
@@ -138,6 +145,7 @@ Definitions for tags
 
 from .comment import Comment  # noqa: I001
 from .dangerous_raw_html import DangerousRawHtml
+from .element_group import ElementGroup
 from .input_tag import input
 from .renames import input_, object_
 
