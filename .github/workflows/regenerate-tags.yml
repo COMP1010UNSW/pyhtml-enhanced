@@ -1,7 +1,8 @@
 name: "Regenerate tags"
 
 permissions:
-  contents: read
+  contents: write
+  actions: write
   pull-requests: write
 
 on:
