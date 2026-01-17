@@ -862,7 +862,7 @@ wheels = [
 
 [[package]]
 name = "pyhtml-enhanced"
-version = "2.2.4"
+version = "2.3.0"
 source = { editable = "." }
 dependencies = [
     { name = "typing-extensions" },
