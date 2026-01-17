@@ -14,7 +14,7 @@ from pyhtml.__util import increase_indent
 from .scrape_tags import TagInfo
 from .scrape_tags import main as generate_tag_data
 
-TEMPLATES_FOLDER = Path("./meta/templates")
+TEMPLATES_FOLDER = Path("./generator/templates")
 
 NO_ESCAPE_CHILDREN = """
     def _escape_children(self) -> bool:

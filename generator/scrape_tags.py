@@ -18,7 +18,7 @@ from typing_extensions import NotRequired
 
 from pyhtml.__render_options import RenderOptions
 
-TAGS_YAML = "meta/tags.yml"
+TAGS_YAML = "generator/tags.yml"
 """File location to load custom tag data from"""
 
 

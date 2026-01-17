@@ -29,5 +29,5 @@ uv run mypy
 Re-generate MDN documentation
 
 ```sh
-uv run -m meta
+uv run -m generator
 ```
