@@ -41,12 +41,12 @@ module-root = ""
 
 [tool.mypy]
 check_untyped_defs = true
-files = ["pyhtml", "tests", "meta"]
-exclude = ['meta/templates/*']
+files = ["pyhtml", "tests", "generator"]
+exclude = ['generator/templates/*']
 
 [tool.ruff]
 line-length = 79
-exclude = ['meta/templates']
+exclude = ['generator/templates']
 
 [tool.ruff.lint]
 select = [
