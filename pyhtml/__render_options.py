@@ -34,7 +34,7 @@ class FullRenderOptions:
         Union this set of options with the other options, returning a new
         `Options` object as the result.
 
-        Any non-`None` options in `other` will overwrite the original values.
+        Any non-`...` options in `other` will overwrite the original values.
         """
         values = asdict(self)
         for field in values:
@@ -72,7 +72,7 @@ class RenderOptions:
 
     def __repr__(self) -> str:
         """
-        `__repr__` function excludes values that are `None`.
+        `__repr__` function excludes values that are `...`.
         """
         attrs = [
             f"{key}={repr(value)}"
