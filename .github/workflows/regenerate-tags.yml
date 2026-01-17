@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   schedule:
     # Picked the same time as codeql because *surely* there is a reason for this
-    - cron: "2 36 1 * *"
+    - cron: "36 2 1 * *"
 
 jobs:
   Regenerate-Tags:
