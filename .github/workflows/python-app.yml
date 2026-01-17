@@ -23,6 +23,7 @@ on:
 # By default, these are read-only when the actions are ran by Dependabot
 # https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#changing-github_token-permissions
 permissions:
+  contents: read
   pull-requests: write
 
 jobs:
