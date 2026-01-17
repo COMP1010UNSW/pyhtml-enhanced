@@ -9,14 +9,35 @@ It also embeds suggested kwargs for some elements, using info from tags.yml.
 
 import sys
 from collections.abc import Iterator
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
+from types import EllipsisType
 from typing import Any, TypedDict
 
 import requests
 import yaml
 from typing_extensions import NotRequired
 
-from pyhtml.__render_options import RenderOptions
+
+# This is copied from the main pyhtml library so that the generator can still
+# run, even if the library is busted.
+@dataclass(kw_only=True, frozen=True)
+class RenderOptions:
+    indent: str | None | EllipsisType = ...
+    """String to add to indentation for non-inline child elements"""
+    spacing: str | EllipsisType = ...
+    """String to use for spacing between child elements"""
+
+    def __repr__(self) -> str:
+        """
+        `__repr__` function excludes values that are `...`.
+        """
+        attrs = [
+            f"{key}={repr(value)}"
+            for key, value in asdict(self).items()
+            if value is not Ellipsis
+        ]
+        return f"RenderOptions({', '.join(attrs)})"
+
 
 TAGS_YAML = "generator/tags.yml"
 """File location to load custom tag data from"""

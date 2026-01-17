@@ -9,8 +9,6 @@ from io import StringIO
 from pathlib import Path
 from typing import TextIO
 
-from pyhtml.__util import increase_indent
-
 from .scrape_tags import TagInfo
 from .scrape_tags import main as generate_tag_data
 
@@ -30,6 +28,16 @@ GET_DEFAULT_RENDER_OPTIONS = """
     def _get_default_render_options(self) -> RenderOptions:
         return {}
 """
+
+
+def increase_indent(text: list[str], indent: str) -> list[str]:
+    """
+    Increase the indentation of all lines in a string list
+
+    This is copied from the original library so that the generator won't fail
+    if the library itself is busted.
+    """
+    return list(map(lambda line: indent + line, text))
 
 
 def get_template_class(name: str):
