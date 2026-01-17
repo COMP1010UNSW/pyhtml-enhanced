@@ -4,8 +4,16 @@
 Type definitions
 """
 
+import sys
 from collections.abc import Generator, Sequence
 from typing import TYPE_CHECKING, Union
+
+if sys.version_info >= (3, 14):
+    from string.templatelib import Template
+else:
+    from typing_extensions import Never
+    
+    Template = Never
 
 if TYPE_CHECKING:
     from .__render_options import RenderOptions
@@ -23,12 +31,15 @@ Objects that are valid values for tag attributes
 """
 
 
-ChildElementType = Union["Tag", type["Tag"], str]
+ChildElementType = Union["Tag", type["Tag"], str, Template]
 """
 Objects that are valid as a child element of an HTML element.
 
 While more types can technically work (such as `int`, `bool` and `float`),
 these aren't allowed in order to encourage proper use of string formatting.
+
+When a Template (t-string) is given, PyHTML elements used as interpolations
+will be rendered with no new-line spacing or indentation.
 """
 
 

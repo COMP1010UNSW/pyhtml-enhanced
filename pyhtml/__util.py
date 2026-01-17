@@ -4,11 +4,20 @@
 Random helpful functions used elsewhere
 """
 
+import sys
 from collections.abc import Generator, Sequence
 from typing import Any, TypeVar
 
 from .__render_options import FullRenderOptions, RenderOptions
 from .__types import ChildElementType, ChildrenType
+
+if sys.version_info >= (3, 14):
+    from string.templatelib import Interpolation, Template, convert
+else:
+    from typing_extensions import Never
+
+    Template = Never
+    Interpolation = Never
 
 T = TypeVar("T")
 K = TypeVar("K")
@@ -108,6 +117,30 @@ def render_inline_element(
     elif isinstance(ele, type) and issubclass(ele, Tag):
         e = ele()
         return e._render(indent, options, skip_indent)
+    elif sys.version_info >= (3, 14) and isinstance(ele, Template):
+        # t-string
+        children = []
+        for item in ele:
+            if isinstance(item, Interpolation):
+                # Allow both instances and subclasses so that p.br renders
+                # nicely
+                if isinstance(item.value, Tag) or issubclass(item.value, Tag):
+                    children.append(item.value)
+                else:
+                    children.append(
+                        convert(
+                            format(item.value, item.format_spec),
+                            item.conversion,
+                        )
+                    )
+            else:
+                children.append(item)
+        # Use no spacing between elements of the t-string, since the spacing
+        # will be provided by the user
+        from pyhtml.__tags.element_group import ElementGroup
+
+        group = ElementGroup(*children, RenderOptions(spacing=""))
+        return group._render(indent, options)
     else:
         # Remove newlines from strings when inline rendering
         if escape_strings:

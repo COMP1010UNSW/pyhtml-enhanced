@@ -58,6 +58,27 @@ for person in staff_members:
     ))
 ```
 
+## Template strings
+
+You can use Python's [template strings](https://docs.python.org/3/library/string.templatelib.html)
+feature to get finer control over spacing in your HTML, and make complex markup
+easier to read.
+
+```py
+>>> import pyhtml as p
+>>> print(str(p.p(
+...     t"This text includes {p.i("very complex")} formatting that would be "
+...     + t"{p.u("nearly impossible")} to read without {p.b("t-strings")}."
+... )))
+<p>This text includes <i>very complex</i> formatting that would be <u>nearly impossible</u> to read without <b>t-strings</b>.</p>
+
+```
+
+This style of formatting cannot be accomplished with f-strings, as they will
+result in the HTML elements being escaped, rather than rendered.
+
+Python's template strings are only available in Python 3.14 and later.
+
 ## Rendering options
 
 If you need more control over how PyHTML renders your output HTML, you can use
@@ -69,9 +90,9 @@ you can use `p.RenderOptions(spacing="")` to remove it.
 ```py
 >>> import pyhtml as p
 >>> print(str(p.div(p.RenderOptions(spacing=""))(
-... p.i("No"),
-... p.b("spaces"),
-... p.u("here!")
+...     p.i("No"),
+...     p.b("spaces"),
+...     p.u("here!")
 ... )))
 <div><i>No</i><b>spaces</b><u>here!</u></div>
 
