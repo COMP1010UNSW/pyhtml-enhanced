@@ -10,5 +10,8 @@ from pathlib import Path
 
 
 def pytest_ignore_collect(collection_path: Path):
-    if str(collection_path).endswith(".md") and sys.version_info < (3, 14):
+    if str(collection_path).endswith(".md") and sys.version_info < (
+        3,
+        14,
+    ):  # pragma: no cover
         return True

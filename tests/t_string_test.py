@@ -16,7 +16,7 @@ import pyhtml as p
 
 if sys.version_info >= (3, 14):
     from string.templatelib import Interpolation, Template
-else:
+else:  # pragma: no cover
     pytest.skip(
         "T-strings only exist in Python >= 3.14",
         allow_module_level=True,
@@ -26,6 +26,16 @@ else:
 def test_renders_child_element():
     t = Template("Hello, ", Interpolation(p.b("world!")))
     assert str(p.p(t)) == "<p>Hello, <b>world!</b></p>"
+
+
+def test_interpolates_other_values():
+    t = Template(
+        "At age ", Interpolation(100), " you will get a message from the king."
+    )
+    assert (
+        str(p.p(t))
+        == "<p>At age 100 you will get a message from the king.</p>"
+    )
 
 
 def test_renders_uninstantiated_tag_type():

@@ -10,7 +10,7 @@ from typing import TYPE_CHECKING, Union
 
 if sys.version_info >= (3, 14):
     from string.templatelib import Template
-else:
+else:  # pragma: no cover
     from typing_extensions import Never
     
     Template = Never
