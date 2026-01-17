@@ -13,7 +13,7 @@ from .__types import ChildElementType, ChildrenType
 
 if sys.version_info >= (3, 14):
     from string.templatelib import Interpolation, Template, convert
-else:
+else:  # pragma: no cover
     from typing_extensions import Never
 
     Template = Never
@@ -119,12 +119,15 @@ def render_inline_element(
         return e._render(indent, options, skip_indent)
     elif sys.version_info >= (3, 14) and isinstance(ele, Template):
         # t-string
-        children = []
+        children: list[ChildrenType] = []
         for item in ele:
             if isinstance(item, Interpolation):
                 # Allow both instances and subclasses so that p.br renders
                 # nicely
-                if isinstance(item.value, Tag) or issubclass(item.value, Tag):
+                if isinstance(item.value, Tag) or (
+                    isinstance(item.value, type)
+                    and issubclass(item.value, Tag)
+                ):
                     children.append(item.value)
                 else:
                     children.append(
