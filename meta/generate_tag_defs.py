@@ -5,6 +5,7 @@ Code for generating tag definitions
 """
 
 import sys
+from io import StringIO
 from pathlib import Path
 from typing import TextIO
 
@@ -124,58 +125,131 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
     print(file=output)
 
 
-def main(output: TextIO):
+# Additional tags to export from pyhtml/tags/__init__.py
+additional_tags = ["Comment", "DangerousRawHtml", "input", "input_", "object_"]
+# Start of pyhtml/tags/__init__.py
+TAGS_INIT = '''
+"""
+# PyHTML Enhanced / Tags
+
+Definitions for tags
+"""
+# This file is auto-generated. See `meta/generate_tag_defs.py` to modify it
+
+from .comment import Comment  # noqa: I001
+from .dangerous_raw_html import DangerousRawHtml
+from .input_tag import input
+from .renames import input_, object_
+
+'''.lstrip()
+
+# Additional items to export from pyhtml/__init__.py
+additional_exports = [
+    "Tag",
+    "create_tag",
+    "SelfClosingTag",
+    "WhitespaceSensitiveTag",
+    "RenderOptions",
+]
+# pyhtml/__init__.py, except for the docstring, tag imports and exports
+PYHTML_INIT = """
+# This file is auto-generated. See `meta/generate_tag_defs.py` to modify it
+
+# Disable Flake8, since it really doesn't like our docstring above
+# flake8: noqa
+
+from .__tag_base import (  # noqa: I001
+    Tag,
+    create_tag,
+    SelfClosingTag,
+    WhitespaceSensitiveTag,
+)
+from .__render_options import RenderOptions
+
+"""
+
+
+def main(generated_tags: TextIO, tags_init: TextIO, pyhtml_init: TextIO):
     """
     Generate the tag definitions Python file
     """
     tags = generate_tag_data()
 
     with open(TEMPLATES_FOLDER.joinpath("main.py")) as f:
-        print(f.read(), file=output)
-        print(file=output)
+        print(f.read(), file=generated_tags)
+        print(file=generated_tags)
 
     for tag in tags:
         # Generate the tag
-        generate_tag_class(output, tag)
+        generate_tag_class(generated_tags, tag)
 
     # And now generate an __all__ to make sure they are all exported
-    print("__all__ = [", file=output)
+    print("__all__ = [", file=generated_tags)
     for tag in tags:
-        print(f"    '{tag.name}',", file=output)
-    print("]", file=output)
+        print(f"    '{tag.name}',", file=generated_tags)
+    print("]", file=generated_tags)
 
     # Also print out things to copy across to various files
-    print("# Copy this into pyhtml/__tags/__init__.py")
-    print("__all__ = [")
-    print("    # TODO: Modify to contain other named exports as required")
-    for tag in tags:
-        print(f"    '{tag.name}',")
-    print("]")
-    print()
-    print()
-    # Need a type ignore or mypy freaks out
-    print("from .generated import (  # type: ignore")
-    for tag in tags:
-        print(f"    {tag.name},")
-    print(")")
+    # Into pyhtml/__tags/__init__.py
+    print(TAGS_INIT, file=tags_init)
 
-    print()
-    print("------------------------------------------------")
-    print()
+    # Generated tag imports
+    print("from .generated import (", file=tags_init)
+    for tag in tags:
+        print(f"    {tag.name},", file=tags_init)
+    print(")\n\n", file=tags_init)
 
-    print("# Copy this into pyhtml/__init__.py")
-    print("__all__ = [")
-    print("    # TODO: Modify to contain other named exports as required")
+    print("__all__ = [", file=tags_init)
     for tag in tags:
-        print(f"    '{tag.name}',")
-    print("]")
-    print()
-    print()
-    print("from .__tags import (")
+        print(f'    "{tag.name}",', file=tags_init)
+    for tag in additional_tags:
+        print(f'    "{tag}",', file=tags_init)
+    print("]", file=tags_init)
+
+    # ------------------------------------------------
+
+    # pyhtml/__init__.py
+
+    # Insert readme as docstring
+    print('"""', file=pyhtml_init)
+    with open("README.md") as readme:
+        print(readme.read().strip(), file=pyhtml_init)
+    print('"""\n', file=pyhtml_init)
+    print(PYHTML_INIT, file=pyhtml_init)
+
+    # Import generated tags
+    print("from .__tags import (", file=pyhtml_init)
     for tag in tags:
-        print(f"    {tag.name},")
-    print(")")
+        print(f"    {tag.name},", file=pyhtml_init)
+    for tag in additional_tags:
+        print(f"    {tag},", file=pyhtml_init)
+    print(")\n\n", file=pyhtml_init)
+
+    print("__all__ = [", file=pyhtml_init)
+    for tag in tags:
+        print(f'    "{tag.name}",', file=pyhtml_init)
+    for tag in additional_tags:
+        print(f'    "{tag}",', file=pyhtml_init)
+    for export in additional_exports:
+        print(f'    "{export}",', file=pyhtml_init)
+    print("]", file=pyhtml_init)
 
 
 if __name__ == "__main__":
-    main(output=sys.stdout)
+    generated = StringIO()
+    tags_init = StringIO()
+    pyhtml_init = StringIO()
+    main(generated, tags_init, pyhtml_init)
+
+    generated.seek(0)
+    tags_init.seek(0)
+    pyhtml_init.seek(0)
+
+    print("=== Generated ===")
+    print(generated.read())
+    print()
+    print("=== Tags init ===")
+    print(tags_init.read())
+    print()
+    print("=== PyHTML init ===")
+    print(pyhtml_init.read())

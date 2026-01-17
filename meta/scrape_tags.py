@@ -24,7 +24,7 @@ TAGS_YAML = "meta/tags.yml"
 
 MDN_WEB_DOCS = (
     "https://raw.githubusercontent.com"
-    "/mdn/content/main/files/en-us/web/html/element/index.md"
+    "/mdn/content/main/files/en-us/web/html/reference/elements/index.md"
 )
 """Location to grab web docs from"""
 
@@ -49,7 +49,7 @@ def htmlElementReplace(lookup: str, presentation: str | None = None) -> str:
     if presentation is None:
         presentation = f"<{lookup.lower()}>"
 
-    url = f"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/{lookup}"
+    url = f"https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/{lookup}"
 
     return f"[{presentation}]({url})"
 
@@ -244,6 +244,8 @@ def fetch_mdn():
     """
     # TODO: Error handling
     docs = requests.get(MDN_WEB_DOCS)
+    if docs.status_code != 200:
+        raise RuntimeError(f"Got status code {docs.status_code}\n{docs.text}")
     return docs.text
 
 
