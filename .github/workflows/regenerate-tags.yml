@@ -45,4 +45,3 @@ jobs:
           labels: |
             documentation
           assignees: MaddyGuthridge
-          reviewers: MaddyGuthridge
