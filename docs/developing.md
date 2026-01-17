@@ -12,6 +12,8 @@ Run tests:
 
 ```sh
 uv run pytest
+# Or with coverage
+uv run coverage run -m pytest
 ```
 
 Run linting:
