@@ -1,0 +1,6 @@
+paths:
+  - "pyhtml"
+  - "generator"
+  - "tests"
+paths-ignore:
+  - "generator/templates/*"
