@@ -1,12 +1,14 @@
 # Developing PyHTML
 
-This project uses `uv` for dependency management.
+This project uses [`uv`](https://docs.astral.sh/uv/) for dependency management.
 
 Install dependencies:
 
 ```sh
 uv sync --all-groups
 ```
+
+## Code quality
 
 Run tests:
 
@@ -26,14 +28,28 @@ Run linting:
 uv run ruff check
 ```
 
-Run type-checking
+Run type-checking:
 
 ```sh
 uv run mypy
 ```
 
-Re-generate MDN documentation
+## Documentation
+
+Re-generate MDN documentation:
 
 ```sh
 uv run -m generator
+```
+
+Preview documentation site:
+
+```sh
+uv run mkdocs serve
+```
+
+Build documentation site:
+
+```sh
+uv run mkdocs build
 ```
