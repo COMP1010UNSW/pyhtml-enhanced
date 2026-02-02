@@ -32,8 +32,34 @@ dev = [
     {include-group = "ci"},
     {include-group = "docs"},
 ]
-ci = ["pytest>=7.4.2,<10.0.0", "mypy>=1.19.0", "coverage>=7.13.1", "requests>=2.32.5", "types-requests>=2.32.4.20250913", "pyyaml>=6.0.3", "types-pyyaml>=6.0.12.20250915", "flask>=3.1.2", "pytest-mypy-plugins>=3.0.0", "ruff>=0.14.10"]
-docs = ["mkdocs>=1.6.1", "mkdocs-material>=9.7.1", "mkdocstrings[python]>=0.26,<1.1", "mkdocs-awesome-pages-plugin>=2.9.3", "mkdocs-section-index>=0.3.10"]
+ci = [
+    "pytest>=7.4.2,<10.0.0",
+    "mypy>=1.19.0",
+    "coverage>=7.13.1",
+    "requests>=2.32.5",
+    "types-requests>=2.32.4.20250913",
+    "pyyaml>=6.0.3",
+    "types-pyyaml>=6.0.12.20250915",
+    "flask>=3.1.2",
+    "pytest-mypy-plugins>=3.0.0",
+    "ruff>=0.14.10",
+]
+docs = [
+    "mkdocs>=1.6.1",
+    "mkdocs-material>=9.7.1",
+    "mkdocstrings[python]>=0.26,<1.1",
+    "mkdocs-awesome-pages-plugin>=2.9.3",
+    "mkdocs-section-index>=0.3.10",
+    # Explicitly include pygments to override its version using uv sources
+    "pygments>=2.19.2",
+]
+
+[tool.uv.sources]
+# Until pygments does another release, we should take it from git. Otherwise,
+# our documentation's t-strings will be formatted incorrectly.
+# Pinning to a specific revision to ensure that we don't accidentally get
+# malware if someone does a malicious commit or something.
+pygments = { git = "https://github.com/pygments/pygments", rev = "28ec10c5e154ee27201997feb573a0b065f74082" }
 
 [build-system]
 requires = ["uv_build>=0.7.20,<0.10.0"]
@@ -92,4 +118,3 @@ exclude_also = [
     'raise AssertionError',
     'raise NotImplementedError',
 ]
-
