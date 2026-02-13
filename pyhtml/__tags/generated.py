@@ -1982,6 +1982,7 @@ class a(Tag):
 
     * `href`: URL of page to link to
     * `target`: Use "_blank" to open in a new tab
+    * `download`: Indicate that the browser should save the linked page to the user's downloads, rather than displaying them.
 
     [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
     """
@@ -1990,6 +1991,7 @@ class a(Tag):
         *children: ChildrenType,
         href: str | None = None,
         target: Literal['_self', '_blank', '_parent', '_top'] | str | None = None,
+        download: bool | None = None,
         id: str | None = None,
         _class: str | None = None,
         style: str | None = None,
@@ -2000,6 +2002,7 @@ class a(Tag):
 
         * `href`: URL of page to link to
         * `target`: Use "_blank" to open in a new tab
+        * `download`: Indicate that the browser should save the linked page to the user's downloads, rather than displaying them.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
         """
@@ -2009,6 +2012,7 @@ class a(Tag):
             'style': style,
             'href': href,
             'target': target,
+            'download': download,
         }
         super().__init__(*children, **attributes)
 
@@ -2017,6 +2021,7 @@ class a(Tag):
         *children: ChildrenType,
         href: str | None = None,
         target: Literal['_self', '_blank', '_parent', '_top'] | str | None = None,
+        download: bool | None = None,
         id: str | None = None,
         _class: str | None = None,
         style: str | None = None,
@@ -2027,6 +2032,7 @@ class a(Tag):
 
         * `href`: URL of page to link to
         * `target`: Use "_blank" to open in a new tab
+        * `download`: Indicate that the browser should save the linked page to the user's downloads, rather than displaying them.
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
         """
@@ -2036,11 +2042,12 @@ class a(Tag):
             'style': style,
             'href': href,
             'target': target,
+            'download': download,
         }
         return super().__call__(*children, **attributes)
 
     def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
-        return {'href': None, 'target': None}
+        return {'href': None, 'target': None, 'download': None}
 
 
 class abbr(Tag):
@@ -5738,6 +5745,60 @@ class dialog(Tag):
         return {}
 
 
+class geolocation(Tag):
+    """
+    Creates an interactive control for the user to share their geolocation data with the page.
+
+        This tag is [experimental](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental). Use with caution.
+
+    
+
+    [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/geolocation)
+    """
+    def __init__(
+        self,
+        *children: ChildrenType,
+        
+        **attributes: AttributeType,
+    ) -> None:
+        """
+        Creates an interactive control for the user to share their geolocation data with the page.
+
+        This tag is [experimental](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental). Use with caution.
+
+        
+
+        [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/geolocation)
+        """
+        attributes |= {
+            
+        }
+        super().__init__(*children, **attributes)
+
+    def __call__(  # type: ignore
+        self,
+        *children: ChildrenType,
+        
+        **attributes: AttributeType,
+    ):
+        """
+        Creates an interactive control for the user to share their geolocation data with the page.
+
+        This tag is [experimental](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental). Use with caution.
+
+        
+
+        [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/geolocation)
+        """
+        attributes |= {
+            
+        }
+        return super().__call__(*children, **attributes)
+
+    def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
+        return {}
+
+
 class summary(Tag):
     """
     Specifies a summary, caption, or legend for a details element's disclosure box. Clicking the `<summary>` element toggles the state of the parent [<details>](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details) element open and closed.
@@ -5993,6 +6054,7 @@ __all__ = [
     'textarea',
     'details',
     'dialog',
+    'geolocation',
     'summary',
     'slot',
     'template',
