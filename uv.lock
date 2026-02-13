@@ -836,7 +836,7 @@ source = { git = "https://github.com/pygments/pygments?rev=28ec10c5e154ee2720199
 
 [[package]]
 name = "pyhtml-enhanced"
-version = "2.3.0"
+version = "2.3.1"
 source = { editable = "." }
 dependencies = [
     { name = "typing-extensions" },
