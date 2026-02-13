@@ -91,7 +91,7 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
 
     description = tag.description
     if tag.experimental:
-        description += "\n\n        This tag is [experimental](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental). Use with caution."
+        description += "\n\n        This tag is [experimental](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental). Use with caution."  # noqa: E501
 
     # Determine whether the class should mandate keyword-only args
     # If there are no named attributes, we set it to '' to avoid a syntax error
