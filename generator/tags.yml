@@ -1,6 +1,5 @@
 %YAML 1.2
 ---
-
 html:
   pre_content: "<!DOCTYPE html>"
   attributes:
@@ -37,6 +36,9 @@ a:
     target:
       doc: Use "_blank" to open in a new tab
       type: "Literal['_self', '_blank', '_parent', '_top'] | str | None"
+    download:
+      doc: Indicate that the browser should save the linked page to the user's downloads, rather than displaying them.
+      type: "bool | None"
 
 script:
   escape_children: false
@@ -149,13 +151,13 @@ span:
 pre:
   base: StylableTag
   render_options:
-    spacing: ''
+    spacing: ""
     indent: null
 
 textarea:
   base: StylableTag
   render_options:
-    spacing: ''
+    spacing: ""
     indent: null
   attributes:
     required:
