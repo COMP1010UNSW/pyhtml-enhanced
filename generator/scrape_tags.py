@@ -119,8 +119,13 @@ DESCRIPTION_LOOKUPS = {
 }
 
 
-TagMdnInfo = tuple[str, str]
-"""Type definition for info grabbed from MDN docs"""
+class TagMdnInfo(TypedDict):
+    """Type definition for info grabbed from MDN docs"""
+
+    name: str
+    description: str
+    experimental: bool
+    """https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental"""
 
 
 class AttrYmlItem(TypedDict):
@@ -228,6 +233,13 @@ class TagInfo:
     Description of the tag, yoinked from MDN
     """
 
+    experimental: bool
+    """
+    Whether the tag is experimental.
+
+    https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental
+    """
+
     base: str
     """
     Name of the base class to use for the tag (default "Tag")
@@ -276,10 +288,16 @@ def handle_header_elements(description) -> list[TagMdnInfo]:
     manually.
     """
 
-    tags = []
+    tags: list[TagMdnInfo] = []
 
     for i in range(6):
-        tags.append((f"h{i + 1}", description))
+        tags.append(
+            {
+                "name": f"h{i + 1}",
+                "description": description,
+                "experimental": False,
+            }
+        )
 
     return tags
 
@@ -349,7 +367,11 @@ def parse_markdown_table(lines: Iterator[str]) -> list[TagMdnInfo]:
         while (line := next(lines)).startswith("|"):
             _, tag_base, description, _ = line.split("|")
 
-            tag_base = tag_base.strip()
+            experimental = "{{experimental_inline}}" in tag_base
+
+            tag_base = tag_base.strip().removesuffix(
+                " {{experimental_inline}}"
+            )
 
             # Header elements are yucky - we should handle them separately
             if tag_base.startswith("[`<h1>`]"):
@@ -367,8 +389,14 @@ def parse_markdown_table(lines: Iterator[str]) -> list[TagMdnInfo]:
             if not tag_base.startswith('{{HTMLElement("'):
                 print(f"!!!! SKIPPED {tag_base}", file=sys.stderr)
                 continue
-            assert tag_base.endswith('")}}')
-            tags.append((tag_name, description))
+            assert tag_base.endswith('")}}'), tag_base
+            tags.append(
+                {
+                    "name": tag_name,
+                    "description": description,
+                    "experimental": experimental,
+                }
+            )
 
     except StopIteration:
         pass
@@ -541,21 +569,24 @@ def elements_to_element_structs(
     """
     output = []
 
-    for name, description in mdn_data:
+    for tag in mdn_data:
         # Skip tag if specified
-        if get_tag_skip(tag_attrs, name):
+        if get_tag_skip(tag_attrs, tag["name"]):
             continue
 
         output.append(
             TagInfo(
-                name=get_tag_rename(tag_attrs, name),
-                description=description,
-                base=get_tag_base_class(tag_attrs, name),
-                mdn_link=make_mdn_link(name),
-                escape_children=get_tag_escape_children(tag_attrs, name),
-                attributes=attr_entries_to_object(tag_attrs, name),
-                pre_content=get_tag_pre_content(tag_attrs, name),
-                render_options=get_tag_render_options(tag_attrs, name),
+                name=get_tag_rename(tag_attrs, tag["name"]),
+                description=tag["description"],
+                experimental=tag["experimental"],
+                base=get_tag_base_class(tag_attrs, tag["name"]),
+                mdn_link=make_mdn_link(tag["name"]),
+                escape_children=get_tag_escape_children(
+                    tag_attrs, tag["name"]
+                ),
+                attributes=attr_entries_to_object(tag_attrs, tag["name"]),
+                pre_content=get_tag_pre_content(tag_attrs, tag["name"]),
+                render_options=get_tag_render_options(tag_attrs, tag["name"]),
             )
         )
 

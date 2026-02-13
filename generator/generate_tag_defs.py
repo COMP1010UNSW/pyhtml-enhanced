@@ -89,6 +89,10 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
         increase_indent(attr_docs_gen, "        ")
     ).strip()
 
+    description = tag.description
+    if tag.experimental:
+        tag.description += "\n    This tag is [experimental](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental). Use with caution."
+
     # Determine whether the class should mandate keyword-only args
     # If there are no named attributes, we set it to '' to avoid a syntax error
     # Otherwise, we add a `*,` to prevent kwargs from being used as positional
@@ -99,7 +103,7 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
     text = (
         text.replace("{name}", tag.name)
         .replace("{base}", tag.base)
-        .replace("{description}", tag.description)
+        .replace("{description}", description)
         .replace("{link}", tag.mdn_link)
         .replace("{attr_args}", attr_args)
         .replace("{attr_unions}", attr_unions)
