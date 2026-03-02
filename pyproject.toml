@@ -62,7 +62,7 @@ docs = [
 pygments = { git = "https://github.com/pygments/pygments", rev = "28ec10c5e154ee27201997feb573a0b065f74082" }
 
 [build-system]
-requires = ["uv_build>=0.7.20,<0.10.0"]
+requires = ["uv_build>=0.7.20,<0.11.0"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
