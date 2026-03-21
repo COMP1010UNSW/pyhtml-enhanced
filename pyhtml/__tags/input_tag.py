@@ -117,6 +117,8 @@ class input(SelfClosingTag):
         value: str | None = None,
         disabled: bool | None = None,
         autofocus: bool | None = None,
+        formaction: str | None = None,
+        formmethod: str | None = None,
         **attributes: AttributeType,
     ) -> None: ...
 
@@ -403,6 +405,8 @@ class input(SelfClosingTag):
         value: str | None = None,
         disabled: bool | None = None,
         autofocus: bool | None = None,
+        formaction: str | None = None,
+        formmethod: str | None = None,
         **attributes: AttributeType,
     ) -> None: ...
 
