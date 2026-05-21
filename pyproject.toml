@@ -54,6 +54,11 @@ docs = [
     "pygments>=2.19.2",
 ]
 
+[tool.uv]
+# Exclude dependency releases newer than 1 week, in order to reduce supply-chain
+# risk.
+exclude-newer = "1 week"
+
 [tool.uv.sources]
 # Until pygments does another release, we should take it from git. Otherwise,
 # our documentation's t-strings will be formatted incorrectly.
