@@ -11,7 +11,6 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Intended Audience :: Developers",
     "Intended Audience :: Education",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Development Status :: 5 - Production/Stable",
     "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
@@ -51,20 +50,13 @@ docs = [
     "mkdocs-awesome-pages-plugin>=2.9.3",
     "mkdocs-section-index>=0.3.10",
     # Explicitly include pygments to override its version using uv sources
-    "pygments>=2.19.2",
+    "pygments>=2.20.0",
 ]
 
 [tool.uv]
 # Exclude dependency releases newer than 1 week, in order to reduce supply-chain
 # risk.
 exclude-newer = "1 week"
-
-[tool.uv.sources]
-# Until pygments does another release, we should take it from git. Otherwise,
-# our documentation's t-strings will be formatted incorrectly.
-# Pinning to a specific revision to ensure that we don't accidentally get
-# malware if someone does a malicious commit or something.
-pygments = { git = "https://github.com/pygments/pygments", rev = "28ec10c5e154ee27201997feb573a0b065f74082" }
 
 [build-system]
 requires = ["uv_build>=0.7.20,<0.12.0"]
