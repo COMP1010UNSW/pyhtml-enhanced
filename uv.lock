@@ -2,6 +2,10 @@ version = 1
 revision = 3
 requires-python = ">=3.10"
 
+[options]
+exclude-newer = "0001-01-01T00:00:00Z" # This has no effect and is included for backwards compatibility when using relative exclude-newer values.
+exclude-newer-span = "P1W"
+
 [[package]]
 name = "attrs"
 version = "25.4.0"
@@ -831,8 +835,12 @@ wheels = [
 
 [[package]]
 name = "pygments"
-version = "2.19.2"
-source = { git = "https://github.com/pygments/pygments?rev=28ec10c5e154ee27201997feb573a0b065f74082#28ec10c5e154ee27201997feb573a0b065f74082" }
+version = "2.20.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz", hash = "sha256:6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f", size = 4955991, upload-time = "2026-03-29T13:29:33.898Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f4/7e/a72dd26f3b0f4f2bf1dd8923c85f7ceb43172af56d63c7383eb62b332364/pygments-2.20.0-py3-none-any.whl", hash = "sha256:81a9e26dd42fd28a23a2d169d86d7ac03b46e2f8b59ed4698fb4785f946d0176", size = 1231151, upload-time = "2026-03-29T13:29:30.038Z" },
+]
 
 [[package]]
 name = "pyhtml-enhanced"
@@ -907,7 +915,7 @@ dev = [
     { name = "mkdocs-section-index", specifier = ">=0.3.10" },
     { name = "mkdocstrings", extras = ["python"], specifier = ">=0.26,<1.1" },
     { name = "mypy", specifier = ">=1.19.0" },
-    { name = "pygments", git = "https://github.com/pygments/pygments?rev=28ec10c5e154ee27201997feb573a0b065f74082" },
+    { name = "pygments", specifier = ">=2.20.0" },
     { name = "pytest", specifier = ">=7.4.2,<10.0.0" },
     { name = "pytest-mypy-plugins", specifier = ">=3.0.0" },
     { name = "pyyaml", specifier = ">=6.0.3" },
@@ -922,7 +930,7 @@ docs = [
     { name = "mkdocs-material", specifier = ">=9.7.1" },
     { name = "mkdocs-section-index", specifier = ">=0.3.10" },
     { name = "mkdocstrings", extras = ["python"], specifier = ">=0.26,<1.1" },
-    { name = "pygments", git = "https://github.com/pygments/pygments?rev=28ec10c5e154ee27201997feb573a0b065f74082" },
+    { name = "pygments", specifier = ">=2.20.0" },
 ]
 
 [[package]]
