@@ -17,7 +17,7 @@ classifiers = [
     "Topic :: Internet :: WWW/HTTP :: Dynamic Content :: CGI Tools/Libraries",
     "Typing :: Typed",
 ]
-dependencies = ["typing-extensions >=4.12.2"]
+dependencies = ["typing-extensions >=4.15.0"]
 
 [project.urls]
 homepage = "https://comp1010unsw.github.io/pyhtml-enhanced/"
