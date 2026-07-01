@@ -25,12 +25,12 @@ jobs:
         with:
           # Pinned Python version
           python-version-file: ".python-version"
-      - run: uv sync --group docs
+      - run: uv sync --locked --group docs
 
       # Build documentation to ./site/ directory
       - name: Build Documentation
         id: build
-        run: uv run mkdocs build
+        run: uv run --no-sync mkdocs build
 
       # Upload build outputs
       - name: Upload build artifacts HTML

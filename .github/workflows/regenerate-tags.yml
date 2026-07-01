@@ -28,7 +28,7 @@ jobs:
           enable-cache: true
       - name: Regenerate tag definitions
         run: |
-          uv run -m generator
+          uv run --locked -m generator
       - name: Create pull request
         uses: peter-evans/create-pull-request@v8
         with:
