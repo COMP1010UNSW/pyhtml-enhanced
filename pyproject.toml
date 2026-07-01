@@ -45,7 +45,7 @@ ci = [
 ]
 docs = [
     "mkdocs>=1.6.1",
-    "mkdocs-material>=9.7.1",
+    "mkdocs-material>=9.7.6",
     "mkdocstrings[python]>=0.26,<1.1",
     "mkdocs-awesome-pages-plugin>=2.9.3",
     "mkdocs-section-index>=0.3.12",
