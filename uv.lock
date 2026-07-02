@@ -704,7 +704,7 @@ wheels = [
 
 [[package]]
 name = "mkdocstrings"
-version = "1.0.2"
+version = "1.0.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jinja2" },
@@ -714,9 +714,9 @@ dependencies = [
     { name = "mkdocs-autorefs" },
     { name = "pymdown-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/63/4d/1ca8a9432579184599714aaeb36591414cc3d3bfd9d494f6db540c995ae4/mkdocstrings-1.0.2.tar.gz", hash = "sha256:48edd0ccbcb9e30a3121684e165261a9d6af4d63385fc4f39a54a49ac3b32ea8", size = 101048, upload-time = "2026-01-24T15:57:25.735Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/1d/5d/f888d4d3eb31359b327bc9b17a212d6ef03fe0b0682fbb3fc2cb849fb12b/mkdocstrings-1.0.4.tar.gz", hash = "sha256:3969a6515b77db65fd097b53c1b7aa4ae840bd71a2ee62a6a3e89503446d7172", size = 100088, upload-time = "2026-04-15T09:16:53.376Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/57/32/407a9a5fdd7d8ecb4af8d830b9bcdf47ea68f916869b3f44bac31f081250/mkdocstrings-1.0.2-py3-none-any.whl", hash = "sha256:41897815a8026c3634fe5d51472c3a569f92ded0ad8c7a640550873eea3b6817", size = 35443, upload-time = "2026-01-24T15:57:23.933Z" },
+    { url = "https://files.pythonhosted.org/packages/6e/94/be70f8ee9c45f2f62b39a1f0e9303bc20e138a8f3b8e50ffd89498e177e1/mkdocstrings-1.0.4-py3-none-any.whl", hash = "sha256:63464b4b29053514f32a1dbbf604e52876d5e638111b0c295ab7ed3cac73ca9b", size = 35560, upload-time = "2026-04-15T09:16:51.436Z" },
 ]
 
 [package.optional-dependencies]
@@ -951,7 +951,7 @@ dev = [
     { name = "mkdocs-awesome-pages-plugin", specifier = ">=2.9.3" },
     { name = "mkdocs-material", specifier = ">=9.7.1" },
     { name = "mkdocs-section-index", specifier = ">=0.3.12" },
-    { name = "mkdocstrings", extras = ["python"], specifier = ">=0.26,<1.1" },
+    { name = "mkdocstrings", extras = ["python"], specifier = ">=1.0.4,<1.1" },
     { name = "mypy", specifier = ">=1.19.0" },
     { name = "pygments", specifier = ">=2.20.0" },
     { name = "pytest", specifier = ">=9.0.3,<10.0.0" },
@@ -967,7 +967,7 @@ docs = [
     { name = "mkdocs-awesome-pages-plugin", specifier = ">=2.9.3" },
     { name = "mkdocs-material", specifier = ">=9.7.1" },
     { name = "mkdocs-section-index", specifier = ">=0.3.12" },
-    { name = "mkdocstrings", extras = ["python"], specifier = ">=0.26,<1.1" },
+    { name = "mkdocstrings", extras = ["python"], specifier = ">=1.0.4,<1.1" },
     { name = "pygments", specifier = ">=2.20.0" },
 ]
 
