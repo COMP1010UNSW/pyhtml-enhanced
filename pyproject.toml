@@ -33,7 +33,7 @@ dev = [
 ]
 ci = [
     "pytest>=9.0.3,<10.0.0",
-    "mypy>=2.1.0",
+    "mypy>=2.3.0",
     "coverage>=7.15.2",
     "requests>=2.34.2",
     "types-requests>=2.33.0.20260712",
