@@ -50,7 +50,7 @@ docs = [
     "mkdocs-awesome-pages-plugin>=2.9.3",
     "mkdocs-section-index>=0.3.12",
     # Explicitly include pygments to override its version using uv sources
-    "pygments>=2.20.0",
+    "pygments>=2.21.0",
 ]
 
 [tool.uv]
