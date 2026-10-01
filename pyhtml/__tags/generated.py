@@ -3751,7 +3751,7 @@ class video(Tag):
 
 class embed(Tag):
     """
-    Embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
+    Embeds external content at the specified point in the document. This content is handled by the browser or an external application.
 
     
 
@@ -3764,7 +3764,7 @@ class embed(Tag):
         **attributes: AttributeType,
     ) -> None:
         """
-        Embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
+        Embeds external content at the specified point in the document. This content is handled by the browser or an external application.
 
         
 
@@ -3782,59 +3782,11 @@ class embed(Tag):
         **attributes: AttributeType,
     ):
         """
-        Embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
+        Embeds external content at the specified point in the document. This content is handled by the browser or an external application.
 
         
 
         [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed)
-        """
-        attributes |= {
-            
-        }
-        return super().__call__(*children, **attributes)
-
-    def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
-        return {}
-
-
-class fencedframe(Tag):
-    """
-    Represents a nested browsing context, like `<iframe>` but with more native privacy features built in.
-
-    
-
-    [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fencedframe)
-    """
-    def __init__(
-        self,
-        *children: ChildrenType,
-        
-        **attributes: AttributeType,
-    ) -> None:
-        """
-        Represents a nested browsing context, like `<iframe>` but with more native privacy features built in.
-
-        
-
-        [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fencedframe)
-        """
-        attributes |= {
-            
-        }
-        super().__init__(*children, **attributes)
-
-    def __call__(  # type: ignore
-        self,
-        *children: ChildrenType,
-        
-        **attributes: AttributeType,
-    ):
-        """
-        Represents a nested browsing context, like `<iframe>` but with more native privacy features built in.
-
-        
-
-        [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fencedframe)
         """
         attributes |= {
             
@@ -3847,7 +3799,7 @@ class fencedframe(Tag):
 
 class iframe(Tag):
     """
-    Represents a nested browsing context, embedding another HTML page into the current one.
+    Represents a nested browsing context, embedding another document into the current one.
 
     
 
@@ -3860,7 +3812,7 @@ class iframe(Tag):
         **attributes: AttributeType,
     ) -> None:
         """
-        Represents a nested browsing context, embedding another HTML page into the current one.
+        Represents a nested browsing context, embedding another document into the current one.
 
         
 
@@ -3878,7 +3830,7 @@ class iframe(Tag):
         **attributes: AttributeType,
     ):
         """
-        Represents a nested browsing context, embedding another HTML page into the current one.
+        Represents a nested browsing context, embedding another document into the current one.
 
         
 
@@ -6018,7 +5970,6 @@ __all__ = [
     'track',
     'video',
     'embed',
-    'fencedframe',
     'iframe',
     'object',
     'picture',
