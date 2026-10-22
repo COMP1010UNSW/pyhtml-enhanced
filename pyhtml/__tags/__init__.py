@@ -12,6 +12,10 @@ from .input_tag import input
 from .renames import input_, object_
 
 
+from .deprecated import (
+    fencedframe,
+)
+
 from .generated import (
     html,
     base,
@@ -249,4 +253,5 @@ __all__ = [
     "input",
     "input_",
     "object_",
+    "fencedframe",
 ]

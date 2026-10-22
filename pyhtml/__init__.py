@@ -188,6 +188,7 @@ from .__tags import (
     input,
     input_,
     object_,
+    fencedframe,
 )
 
 
@@ -311,6 +312,7 @@ __all__ = [
     "input",
     "input_",
     "object_",
+    "fencedframe",
     "Tag",
     "create_tag",
     "SelfClosingTag",

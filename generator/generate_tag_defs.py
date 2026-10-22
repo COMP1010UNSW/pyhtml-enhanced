@@ -12,6 +12,23 @@ from typing import TextIO
 from .scrape_tags import TagInfo
 from .scrape_tags import main as generate_tag_data
 
+
+# Additional tags to export from pyhtml/tags/__init__.py
+additional_tags = [
+    "Comment",
+    "DangerousRawHtml",
+    "ElementGroup",
+    "input",
+    "input_",
+    "object_",
+]
+
+# Deprecated tags to import and export
+deprecations = [
+    "fencedframe",
+]
+
+
 TEMPLATES_FOLDER = Path("./generator/templates")
 
 NO_ESCAPE_CHILDREN = """
@@ -136,16 +153,6 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
     # And a nice trailing newline to make flake8 happy
     print(file=output)
 
-
-# Additional tags to export from pyhtml/tags/__init__.py
-additional_tags = [
-    "Comment",
-    "DangerousRawHtml",
-    "ElementGroup",
-    "input",
-    "input_",
-    "object_",
-]
 # Start of pyhtml/tags/__init__.py
 TAGS_INIT = '''
 """
@@ -213,6 +220,12 @@ def main(generated_tags: TextIO, tags_init: TextIO, pyhtml_init: TextIO):
     # Into pyhtml/__tags/__init__.py
     print(TAGS_INIT, file=tags_init)
 
+    # Deprecated tag imports
+    print("from .deprecated import (", file=tags_init)
+    for tag in deprecations:
+        print(f"    {tag},", file=tags_init)
+    print(")\n", file=tags_init)
+
     # Generated tag imports
     print("from .generated import (", file=tags_init)
     for tag in tags:
@@ -223,6 +236,8 @@ def main(generated_tags: TextIO, tags_init: TextIO, pyhtml_init: TextIO):
     for tag in tags:
         print(f'    "{tag.name}",', file=tags_init)
     for tag in additional_tags:
+        print(f'    "{tag}",', file=tags_init)
+    for tag in deprecations:
         print(f'    "{tag}",', file=tags_init)
     print("]", file=tags_init)
 
@@ -243,12 +258,16 @@ def main(generated_tags: TextIO, tags_init: TextIO, pyhtml_init: TextIO):
         print(f"    {tag.name},", file=pyhtml_init)
     for tag in additional_tags:
         print(f"    {tag},", file=pyhtml_init)
+    for tag in deprecations:
+        print(f"    {tag},", file=pyhtml_init)
     print(")\n\n", file=pyhtml_init)
 
     print("__all__ = [", file=pyhtml_init)
     for tag in tags:
         print(f'    "{tag.name}",', file=pyhtml_init)
     for tag in additional_tags:
+        print(f'    "{tag}",', file=pyhtml_init)
+    for tag in deprecations:
         print(f'    "{tag}",', file=pyhtml_init)
     for export in additional_exports:
         print(f'    "{export}",', file=pyhtml_init)
