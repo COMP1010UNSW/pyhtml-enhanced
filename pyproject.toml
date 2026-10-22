@@ -57,6 +57,7 @@ docs = [
 # Exclude dependency releases newer than 1 week, in order to reduce supply-chain
 # risk.
 exclude-newer = "1 week"
+exclude-newer-package = { certifi = "0 days" }
 
 [build-system]
 requires = ["uv_build>=0.13.0,<0.14.0"]
