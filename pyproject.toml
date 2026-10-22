@@ -1,6 +1,6 @@
 [project]
 name = "pyhtml-enhanced"
-version = "2.3.2"
+version = "2.3.3"
 description = "Build HTML documents in Python with a simple and learnable syntax"
 authors = [{ name = "Maddy Guthridge", email = "maddy.guthridge@unsw.edu.au" }]
 license = {text = "MIT"}
@@ -59,7 +59,7 @@ docs = [
 exclude-newer = "1 week"
 
 [build-system]
-requires = ["uv_build>=0.12.5,<0.13.0"]
+requires = ["uv_build>=0.13.0,<0.14.0"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
