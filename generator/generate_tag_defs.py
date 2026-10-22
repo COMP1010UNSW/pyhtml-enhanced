@@ -12,7 +12,6 @@ from typing import TextIO
 from .scrape_tags import TagInfo
 from .scrape_tags import main as generate_tag_data
 
-
 # Additional tags to export from pyhtml/tags/__init__.py
 additional_tags = [
     "Comment",
@@ -152,6 +151,7 @@ def generate_tag_class(output: TextIO, tag: TagInfo):
 
     # And a nice trailing newline to make flake8 happy
     print(file=output)
+
 
 # Start of pyhtml/tags/__init__.py
 TAGS_INIT = '''
