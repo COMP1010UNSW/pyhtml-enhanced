@@ -3797,54 +3797,6 @@ class embed(Tag):
         return {}
 
 
-class fencedframe(Tag):
-    """
-    Represents a nested browsing context, like `<iframe>` but with more native privacy features built in.
-
-    
-
-    [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fencedframe)
-    """
-    def __init__(
-        self,
-        *children: ChildrenType,
-        
-        **attributes: AttributeType,
-    ) -> None:
-        """
-        Represents a nested browsing context, like `<iframe>` but with more native privacy features built in.
-
-        
-
-        [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fencedframe)
-        """
-        attributes |= {
-            
-        }
-        super().__init__(*children, **attributes)
-
-    def __call__(  # type: ignore
-        self,
-        *children: ChildrenType,
-        
-        **attributes: AttributeType,
-    ):
-        """
-        Represents a nested browsing context, like `<iframe>` but with more native privacy features built in.
-
-        
-
-        [View full documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fencedframe)
-        """
-        attributes |= {
-            
-        }
-        return super().__call__(*children, **attributes)
-
-    def _get_default_attributes(self, given: dict[str, AttributeType]) -> dict[str, AttributeType]:
-        return {}
-
-
 class iframe(Tag):
     """
     Represents a nested browsing context, embedding another HTML page into the current one.
@@ -6018,7 +5970,6 @@ __all__ = [
     'track',
     'video',
     'embed',
-    'fencedframe',
     'iframe',
     'object',
     'picture',

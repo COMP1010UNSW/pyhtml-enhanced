@@ -50,6 +50,7 @@ def test_num_exported_members():
     assert len(all_tags) == 116
 
 
+@pytest.mark.filterwarnings("ignore:deprecated tag")
 @pytest.mark.parametrize("tag", all_tags)
 def test_tag_renders(tag: type[Tag]):
     """
@@ -60,6 +61,7 @@ def test_tag_renders(tag: type[Tag]):
     assert str(tag()).startswith(f"<{tag()._get_tag_name()}")
 
 
+@pytest.mark.filterwarnings("ignore:deprecated tag")
 @pytest.mark.parametrize("tag", all_tags)
 def test_tag_callable(tag: type[Tag]):
     """
