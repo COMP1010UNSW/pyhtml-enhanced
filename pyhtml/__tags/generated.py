@@ -3751,7 +3751,7 @@ class video(Tag):
 
 class embed(Tag):
     """
-    Embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
+    Embeds external content at the specified point in the document. This content is handled by the browser or an external application.
 
     
 
@@ -3764,7 +3764,7 @@ class embed(Tag):
         **attributes: AttributeType,
     ) -> None:
         """
-        Embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
+        Embeds external content at the specified point in the document. This content is handled by the browser or an external application.
 
         
 
@@ -3782,7 +3782,7 @@ class embed(Tag):
         **attributes: AttributeType,
     ):
         """
-        Embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
+        Embeds external content at the specified point in the document. This content is handled by the browser or an external application.
 
         
 
@@ -3799,7 +3799,7 @@ class embed(Tag):
 
 class iframe(Tag):
     """
-    Represents a nested browsing context, embedding another HTML page into the current one.
+    Represents a nested browsing context, embedding another document into the current one.
 
     
 
@@ -3812,7 +3812,7 @@ class iframe(Tag):
         **attributes: AttributeType,
     ) -> None:
         """
-        Represents a nested browsing context, embedding another HTML page into the current one.
+        Represents a nested browsing context, embedding another document into the current one.
 
         
 
@@ -3830,7 +3830,7 @@ class iframe(Tag):
         **attributes: AttributeType,
     ):
         """
-        Represents a nested browsing context, embedding another HTML page into the current one.
+        Represents a nested browsing context, embedding another document into the current one.
 
         
 

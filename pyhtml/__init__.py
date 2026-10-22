@@ -143,7 +143,6 @@ from .__tags import (
     track,
     video,
     embed,
-    fencedframe,
     iframe,
     object,
     picture,
@@ -189,6 +188,7 @@ from .__tags import (
     input,
     input_,
     object_,
+    fencedframe,
 )
 
 
@@ -267,7 +267,6 @@ __all__ = [
     "track",
     "video",
     "embed",
-    "fencedframe",
     "iframe",
     "object",
     "picture",
@@ -313,6 +312,7 @@ __all__ = [
     "input",
     "input_",
     "object_",
+    "fencedframe",
     "Tag",
     "create_tag",
     "SelfClosingTag",

@@ -7,11 +7,14 @@ Definitions for tags
 
 from .comment import Comment  # noqa: I001
 from .dangerous_raw_html import DangerousRawHtml
-from .deprecated import fencedframe
 from .element_group import ElementGroup
 from .input_tag import input
 from .renames import input_, object_
 
+
+from .deprecated import (
+    fencedframe,
+)
 
 from .generated import (
     html,
@@ -205,7 +208,6 @@ __all__ = [
     "track",
     "video",
     "embed",
-    "fencedframe",
     "iframe",
     "object",
     "picture",
