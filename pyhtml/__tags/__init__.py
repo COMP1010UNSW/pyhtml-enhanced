@@ -7,6 +7,7 @@ Definitions for tags
 
 from .comment import Comment  # noqa: I001
 from .dangerous_raw_html import DangerousRawHtml
+from .deprecated import fencedframe
 from .element_group import ElementGroup
 from .input_tag import input
 from .renames import input_, object_
@@ -87,7 +88,6 @@ from .generated import (
     track,
     video,
     embed,
-    fencedframe,
     iframe,
     object,
     picture,
@@ -251,4 +251,5 @@ __all__ = [
     "input",
     "input_",
     "object_",
+    "fencedframe",
 ]
